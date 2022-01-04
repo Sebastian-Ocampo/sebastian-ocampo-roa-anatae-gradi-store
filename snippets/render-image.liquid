@@ -1,8 +1,53 @@
+{% comment %}
+    Renders a render images
+    Accepts:
+    - class: {String} className in img tag (optional)
+    - img_src: {String} to render url image
+    - alt: {String} alt in image
+    - img: {Object} image object
+    - size: {String} size responsive with spaces
+    - width: {String} default width (optional)
+    - height: {String} default height (optional)
+    Usage:
+    {% render "render-image"
+      class: "class_image",
+      img_src: <img_url>,
+      img: <img_object>,
+      size: "220 300 400 500",
+      alt: "Image alt",
+      width: "100",
+      height: "100"
+    %}
+{% endcomment %}
+
+{% liquid
+  if size contains ' '
+    assign size_split = size | split: ' '
+  else
+    assign size_split = '220 300 600 900' | split: ' '
+  endif
+  if img
+    assign default = img | img_url: '30x'
+  endif
+%}
+
 <img
-  class="{{ class }}"
+  class="{{ class }} lazyload blur-up"
   loading="lazy"
-  src="{{ img_src }}"
-  alt="{{ alt }}"
-  width="{{ width }}"
-  height="{{ height }}"
+  data-sizes="auto"
+  src="{{ default | default: img_src }}"
+  data-srcset="
+  {%- if img -%}
+    {%- for img_size in size_split -%}
+      {%- assign sizex = img_size | append: 'x' -%}
+      {%- assign sizew = img_size | append: 'w' -%}
+      {%- assign imge_url = img | img_url: sizex -%}
+      {{ imge_url }} {{ sizew }},
+    {%- endfor -%}
+  {%- else -%}
+    {{ img_src }}
+  {%- endif -%}"
+  alt="{{ alt | default: 'Image to render' }}"
+  width="{{ width | default: '100' }}"
+  height="{{ height | default: '100' }}"
 />

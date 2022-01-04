@@ -5,7 +5,7 @@ const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const JS_DIR = path.resolve(__dirname, './src');
 
 const entry = {
-  theme: './src/index.js'
+  theme: './src/templates/index.js'
 }
 
 const output = {

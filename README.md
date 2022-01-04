@@ -1,50 +1,12 @@
-# Graditheme base
+# Gradi Theme Base 🛍 🛒
 
-Welcome to the Graditheme base: Structure to development news themes.
+Bienvenido a Gradi Theme Base: Un tema básico desarrollar nuevas tiendas de Shopify a medida
 
-This documentation is for technical profiles with basic knowledge in programming languages: liquid, HTML, CSS and JavaScript.
+Este tema de Shopify está hecho para desarrolladores con un perfil de conocomientos básicos en Lenguajes como: Liquid, HTML5, CSS3, y JavaScript.
 
-Maintained by:
+Mantenido por:
+
+- @FelipeMerchanGradiweb
 - @crisDevels-gradi
-- @alfredojrm
-- @diana-solano
 
-For contribute:
-## Getting started
-
-1. Clone:
-
-```sh
-git clone
-```
-
-2. Add news changes:
-
-```sh
-git add .
-```
-
-3. Committed changes
-
-```sh
-git commit -m "contribute commit"
-```
-
-4. Pushed changes:
-
-```sh
-git push -u origin main
-```
-
-7. Install Shopify CLI
-6. Create development store in Shopify
-
-5. Check live changes on:
-
-```sh
-shopify theme login --store=<mystore.myshopify.com>
-```
-
-```sh
-shopify theme serve
-```
+Para más detalles consulte la documentación oficial: [Click aquí 👇](https://gradiweb.github.io/shopifyBase_doc/)
