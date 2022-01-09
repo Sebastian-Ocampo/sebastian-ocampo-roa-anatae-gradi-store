@@ -7,15 +7,22 @@ class API {
 
   /**
   * Add products to cart
-  * @param {object} items – Products to add
-  * @param {string} sectionId – ID of the section that will get the HTML markup
+  * @param {{
+  *   items: object,
+  *   sections: string,
+  * }} config  – Contains the products to add,
+  * the quantity and section to update
   * @returns {object} Line items associated with the added items and sections
   */
-  async addToCart(items, sectionId) {
-    const formData = {
+  async addToCart({ items, sections = undefined }) {
+    let formData = {
       items: items,
-      sections: sectionId,
     };
+
+    //Support bundled section rendering
+    if (sections) {
+      formData.sections = sections;
+    }
 
     try {
       const { data } = await axios({
@@ -37,23 +44,26 @@ class API {
   * @param {{
   *   id: number,
   *   quantity: number,
-  *   sectionId: string
+  *   sections: string
   * }} config – Contains the product variant,
   * the quantity and section to update
   */
-  async updateCart(config) {
-    const {
-      id,
-      quantity,
-      sectionId,
-    } = config;
+  async updateCart({
+    id,
+    quantity,
+    sections = undefined,
+  }) {
 
-    const formData = {
+    let formData = {
       updates: {
         [id]: quantity,
-      },
-      sections: sectionId,
+      }
     };
+
+    //Support bundled section rendering
+    if (sections) {
+      formData.sections = sections;
+    }
 
     try {
       const { data } = await axios({
@@ -71,15 +81,16 @@ class API {
   }
 
   /**
-  * Update a specific section with the use of Section Rendering API
-  * @param {string} sectionId – Section ID
-  * @returns {object} Section ID and its corresponding rendered HTML
+  * Render up to five sections with the use of Section Rendering API
+  * @param {string} sections – section IDs
+  * @returns {object} Includes pairs for each section ID and its
+  * corresponding rendered HTML
   */
-  async updateShopifySection(sectionId) {
+  async renderShopifySection(sections) {
     try {
       const {
         data: html
-      } = await axios.get(`?section_id=${sectionId}`);
+      } = await axios.get(`?sections=${sections}`);
       return html;
     } catch (error) {
       console.error(`Error: ${error.message}`);
@@ -88,18 +99,27 @@ class API {
 
   /**
   * It is used to recommend related products for a specific product
-  * @param {string} id – Product ID
-  * @param {number} limit – Limits the number of results
-  * @param {string} sectionId – section with which product
-  *   recommendations will be rendered
-  * @returns {string} HTML from a section rendered with
-  *   product recommendations
+  * @param {{
+  *   id: number,
+  *   limit: number,
+  *   sectionId: string
+  * }} config – Product ID on which the recommendation will be based,
+  * the result limit and the section with which the recommended
+  * products will be rendered
+  * @returns {object} Array with the recommended products or, if the section ID
+  * is supplied, HTML from a section rendered with product recommendations
   */
-  async getRecommendedProducts(id, limit, sectionId) {
+  async getRecommendedProducts({ id, limit, sectionId = undefined }) {
     try {
-      const url = `/recommendations/products?section_id=${sectionId}&product_id=${id}&limit=${limit}`;
-      const { data: html } = await axios.get(url);
-      return html;
+      let url;
+      if (sectionId) {
+        //Support section rendering
+        url = `/recommendations/products?section_id=${sectionId}&product_id=${id}&limit=${limit}`;
+      } else {
+        url = `/recommendations/products.json?product_id=${id}&limit=${limit}`;
+      }
+      const { data } = await axios.get(url);
+      return data;
     } catch (error) {
       console.error(`Error: ${error.message}`);
     }
