@@ -47,6 +47,7 @@ class API {
   *   sections: string
   * }} config – Contains the product variant,
   * the quantity and section to update
+  * @returns {object} The JSON of the cart and HTML of the sections
   */
   async updateCart({
     id,
