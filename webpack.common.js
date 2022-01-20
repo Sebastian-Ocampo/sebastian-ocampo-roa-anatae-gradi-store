@@ -1,5 +1,5 @@
-const TerserPlugin = require("terser-webpack-plugin");
 const path = require('path');
+const TerserPlugin = require("terser-webpack-plugin");
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 
 const JS_DIR = path.resolve(__dirname, './src');
