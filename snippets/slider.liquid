@@ -1,0 +1,75 @@
+{% comment %}
+  Renders slide component
+  Accepts:
+  - content: {Html} Internal sliders **init with for (iteration)
+  - arrows: {Boolean} Show arrows
+  - pagination: {Boolean} show pagination
+  - perpage: {Number} items per page
+  - wrapper: {String} class to style
+
+  NOTE: In <content> use className "swiper-slide" in the first item
+
+  Usage:
+  {% render 'slide',
+    wrapper: 'string query'
+    content: snippet_content,
+    arrows: true,
+    pagination: true,
+    perpage: 1
+  %}
+{% endcomment %}
+
+{% liquid
+  if arrows and pagination
+    assign type_slide = 'slider_arrows_pagination'
+  else
+    if perpage and perpage == 1
+      assign type_slide = 'slider_small'
+    elsif pagination
+      assign type_slide = 'slider_pagination'
+    elsif arrows
+      assign type_slide = 'slider_arrows'
+    else
+      assign type_slide = ''
+    endif
+  endif
+%}
+
+<div class="{{ wrapper }}">
+  <!-- Slider main container -->
+  <div
+    id="slider_{{ section.id }}"
+    class="swiper {{ type_slide }}"
+  >
+    <!-- Additional required wrapper -->
+    <div class="swiper-wrapper">
+      <!-- Slides from props snippet -->
+      {{ content }}
+    </div>
+
+    <!-- If we need pagination -->
+    {% if pagination %}
+      <div
+        data-id="slide_{{ section.id }}"
+        class="swiper-pagination"
+      >
+      </div>
+    {% endif %}
+  </div>
+
+  <!-- If we need navigation buttons -->
+  {% if arrows %}
+    <div
+      data-id="slide_{{ section.id }}"
+      class="swiper-button-prev"
+    >
+      prev
+    </div>
+    <div
+      data-id="slide_{{ section.id }}"
+      class="swiper-button-next"
+    >
+      next
+    </div>
+  {% endif %}
+</div>
