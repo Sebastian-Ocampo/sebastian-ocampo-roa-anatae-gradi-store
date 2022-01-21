@@ -4,6 +4,7 @@
 {%- capture alt_logo -%}Logo {{ shop.name }}{%- endcapture -%}
 
 <div>
+  {% render 'top-search' %}
   <div>
     <a href="{{ routes.root_url }}">
       {% if logo != blank %}

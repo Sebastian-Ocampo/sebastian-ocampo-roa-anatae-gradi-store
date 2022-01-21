@@ -1,0 +1,41 @@
+{% comment %}
+  Filter by tag
+
+    Accepts:
+    - order_tags: (Object) Contiene una lista de los tags ordenados
+    - collection_tags: (Object) Contiene los tags de la colección
+    - text_all_products: (String) Contiene un texto para asignar el label de “Ver todos los productos”
+    - type_filter: (String) Contiene el identificador del tag
+
+    Usage:
+    {% render "filter-tag"
+      order_tags: [object],
+      collection_tags: [object],
+      text_all_products: 'All products',
+      type_filter: 'f-'
+    %}
+{% endcomment %}
+
+{% assign tag_all = type_filter | append: '-all' %}
+{% assign concat_all = tag_all | append: ' ' | split: ' ' %}
+{% assign text_all = text_all_products | default: 'All' %}
+{% assign all_tags = order_tags | concat: concat_all | reverse %}
+
+{% for tagg in collection_tags %}
+  {% for tag in all_tags %}
+    {% if tag == tagg %}
+      <label>
+        <input
+          class="hidden filter-input"
+          type="radio"
+          value="{{ tag | replace: tag_all, '' }}"
+          name="filter"
+        >
+        <div class="filter-design"></div>
+        <span class="filter-label">
+          {{ tag | remove: filter_type | capitalize | replace: 'All', text_all }}
+        </span>
+      </label>
+    {% endif %}  
+  {% endfor %}
+{% endfor %}
