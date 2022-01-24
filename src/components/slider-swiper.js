@@ -1,8 +1,9 @@
-import { $all } from '../utils/querySelector'
+import { $all } from '../utils/query-selector'
 import Swiper, { Navigation, Pagination, FreeMode, Autoplay } from "swiper";
 import 'swiper/css';
 
 const configArrows = (id) => {
+  console.log(id.substr(1));
   new Swiper(id, {
     modules: [Navigation, FreeMode],
     slidesPerView: "auto",

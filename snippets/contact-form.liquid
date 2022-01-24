@@ -1,0 +1,80 @@
+{% form 'contact' %}
+  {{ form_errors | default_errors }}
+
+  {% render 'input'
+    class: "form_textfield",
+    type: "text",
+    name: "contact[first_name]",
+    id: "first-name",
+    placeholder: "Name",
+    required: true
+  %}
+
+  {% render 'input'
+    class: "form_textfield",
+    type: "text",
+    name: "contact[email]",
+    id: "email",
+    placeholder: "Email",
+    required: true
+  %}
+
+  {% render 'input'
+    class: "form_textfield",
+    type: "tel",
+    name: "contact[phone]",
+    id: "phone",
+    placeholder: "Phone",
+    required: false
+  %}
+
+  <div class="form_textfield request-type">
+    <select
+      id="request-type"
+      name="contact[request_type]"
+    > 
+      {% for topic in topics %}
+        <option>{{ topic }}</option>    
+      {% endfor %}
+    </select>
+  </div>
+
+  {% render 'input'
+    class: "form_textfield",
+    type: "textarea",
+    name: "contact[body]",
+    id: "message",
+    placeholder: "Message",
+    required: true
+  %}
+
+  {% render 'input'
+    class: "form_checkbox",
+    type: "checkbox",
+    name: "validation",
+    id: "validation",
+    placeholder: legal_text,
+    required: true
+  %}
+
+  {% render 'button'
+    content: "Register",
+    type: 3
+    action: "submit"
+  %}
+
+  <div class="contact-method">
+    <label for="contact-method">How do you want us to contact you?</label>
+    <input type="radio" name="contact[contact_method]" value="email" id="email"><label for="email">Email</label><br>
+    <input type="radio" name="contact[contact_method]" value="phone" id="phone"><label for="phone">Phone</label><br>
+    <input type="radio" name="contact[contact_method]" value="text message" id="text"><label for="text">Text message</label>
+  </div>
+
+  <div class="contact-time">
+    <label for="contact-time">When is the best time to reach you?</label>
+    <input type="checkbox" name="contact[contact_time_1]" value="morning"><label for="morning">Morning</label><br>
+    <input type="checkbox" name="contact[contact_time_2]" value="afternoon"><label for="afternoon">Afternoon</label><br>
+    <input type="checkbox" name="contact[contact_time_3]" value="evening"><label for="evening">Evening</label>
+  </div>
+
+{% endform %}

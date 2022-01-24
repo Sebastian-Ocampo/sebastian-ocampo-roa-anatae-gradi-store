@@ -11,78 +11,135 @@
     "name": "t:settings_schema.colors.name",
     "settings": [
       {
-        "type": "header",
-        "content": "t:settings_schema.colors.settings.header__1.content"
-      },
-      {
         "type": "color",
-        "id": "colors_solid_button_labels",
-        "default": "#FFFFFF",
-        "label": "t:settings_schema.colors.settings.colors_solid_button_labels.label",
-        "info": "t:settings_schema.colors.settings.colors_solid_button_labels.info"
-      },
-      {
-        "type": "color",
-        "id": "colors_accent_1",
-        "default": "#121212",
-        "label": "t:settings_schema.colors.settings.colors_accent_1.label",
-        "info": "t:settings_schema.colors.settings.colors_accent_1.info"
-      },
-      {
-        "id": "gradient_accent_1",
-        "type": "color_background",
-        "label": "t:settings_schema.colors.settings.gradient_accent_1.label"
-      },
-      {
-        "type": "color",
-        "id": "colors_accent_2",
-        "default": "#334FB4",
-        "label": "t:settings_schema.colors.settings.colors_accent_2.label"
-      },
-      {
-        "id": "gradient_accent_2",
-        "type": "color_background",
-        "label": "t:settings_schema.colors.settings.gradient_accent_2.label"
+        "id": "colors_brand",
+        "default": "#14d66f",
+        "label": "Color brand",
+        "info": "To use in a predominant color on the page"
       },
       {
         "type": "header",
-        "content": "t:settings_schema.colors.settings.header__2.content"
+        "content": "Background"
+      },
+      {
+        "type": "color_background",
+        "id": "colors_bg_1",
+        "label": "Principal Background",
+        "default": "linear-gradient(46deg, rgba(20, 214, 111, 1) 13%, rgba(57, 190, 227, 1) 86%)"
+      },
+      {
+        "type": "header",
+        "content": "Text"
       },
       {
         "type": "color",
-        "id": "colors_text",
-        "default": "#121212",
-        "label": "t:settings_schema.colors.settings.colors_text.label",
-        "info": "t:settings_schema.colors.settings.colors_text.info"
+        "id": "colors_txt",
+        "default": "#000000",
+        "label": "Text body"
       },
       {
         "type": "color",
-        "id": "colors_outline_button_labels",
-        "default": "#121212",
-        "label": "t:settings_schema.colors.settings.colors_outline_button_labels.label",
-        "info": "t:settings_schema.colors.settings.colors_outline_button_labels.info"
+        "id": "colors_title",
+        "default": "#000000",
+        "label": "Titles"
       },
       {
         "type": "color",
-        "id": "colors_background_1",
+        "id": "colors_link",
+        "default": "#39bee3",
+        "label": "Link"
+      },
+      {
+        "type": "header",
+        "content": "Buttons"
+      },
+      {
+        "type": "paragraph",
+        "content": "Customize button 1"
+      },
+      {
+        "type": "color",
+        "id": "colors_btn_color_1",
+        "default": "#000000",
+        "label": "Color 1"
+      },
+      {
+        "type": "color",
+        "id": "colors_btn_bg_1",
         "default": "#FFFFFF",
-        "label": "t:settings_schema.colors.settings.colors_background_1.label"
-      },
-      {
-        "id": "gradient_background_1",
-        "type": "color_background",
-        "label": "t:settings_schema.colors.settings.gradient_background_1.label"
+        "label": "Background 1"
       },
       {
         "type": "color",
-        "id": "colors_background_2",
-        "default": "#F3F3F3",
-        "label": "t:settings_schema.colors.settings.colors_background_2.label"
+        "id": "colors_btn_border_1",
+        "default": "#000000",
+        "label": "Border 1"
       },
       {
-        "id": "gradient_background_2",
-        "type": "color_background",
-        "label": "t:settings_schema.colors.settings.gradient_background_2.label"
+        "type": "paragraph",
+        "content": "Customize button 2"
+      },
+      {
+        "type": "color",
+        "id": "colors_btn_color_2",
+        "default": "#000000",
+        "label": "Color 2"
+      },
+      {
+        "type": "color",
+        "id": "colors_btn_bg_2",
+        "default": "#FFFFFF",
+        "label": "Background 2"
+      },
+      {
+        "type": "color",
+        "id": "colors_btn_border_2",
+        "default": "#000000",
+        "label": "Border 2"
+      },
+      {
+        "type": "paragraph",
+        "content": "Customize button 3"
+      },
+      {
+        "type": "color",
+        "id": "colors_btn_color_3",
+        "default": "#000000",
+        "label": "Color 3"
+      },
+      {
+        "type": "color",
+        "id": "colors_btn_bg_3",
+        "default": "#FFFFFF",
+        "label": "Background 3"
+      },
+      {
+        "type": "color",
+        "id": "colors_btn_border_3",
+        "default": "#000000",
+        "label": "Border 3"
+      },
+      {
+        "type": "paragraph",
+        "content": "Hover effect"
+      },
+      {
+        "type": "color",
+        "id": "colors_btn_color_hover",
+        "default": "#000000",
+        "label": "Color hover"
+      },
+      {
+        "type": "color",
+        "id": "colors_btn_bg_hover",
+        "default": "#FFFFFF",
+        "label": "Background hover"
+      },
+      {
+        "type": "color",
+        "id": "colors_btn_border_hover",
+        "default": "#000000",
+        "label": "Border hover"
       }
     ]
   },

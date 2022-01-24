@@ -1,0 +1,42 @@
+@use "../abstracts/variables";
+
+%flex-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.hello {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: minmax(200px, auto);
+  margin-bottom: variables.$margin-section;
+
+  & > div {
+    @extend %flex-center;
+    padding: 20px;
+  }
+
+  &-welcome {
+    grid-column: 1 / span 3;
+    background: var(--color-base-bg);
+    text-align: center;
+
+    span {
+      display: block;
+    }
+  }
+
+  &_headings {
+    grid-column: 1 / span 3;
+  }
+
+  @media screen and (max-width: 749px) {
+    grid-template-columns: repeat(1, 1fr);
+
+    &-welcome, &_headings {
+      grid-column: 1;
+    }
+  }
+}
