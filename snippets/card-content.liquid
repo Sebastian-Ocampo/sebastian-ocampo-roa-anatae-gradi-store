@@ -1,0 +1,40 @@
+{% comment %}
+  Renders Card content
+
+  Accepts:
+  - title: {String} Title card
+  - description: {String} Description card
+  - image: {Object} Image card
+  - size: {String} String with size image
+
+  Usage:
+  {% render 'card-content',
+    title: <title>,
+    description: <description>,
+    image: <image>,
+    size: <size>
+  %}
+{% endcomment %}
+
+{%- assign full_size = size | split: ' ' | last | append: 'x' -%}
+{%- assign img_src = image | img_url: full_size -%}
+
+<div class="card-content">
+  <div class="card-content--image">
+    {% render "render-image"
+      class: 'card-content--image-img'
+      img_src: img_src,
+      img: image,
+      size: size
+      alt: title,
+      width: "80",
+      height: "80"
+    %}
+  </div>
+  <p class="card-content--title">
+    {{ title }}
+  </p>
+  <p class="card-content--description">
+    {{ description | strip_html }}
+  </p>
+</div>

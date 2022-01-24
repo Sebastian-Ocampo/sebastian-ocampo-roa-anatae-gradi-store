@@ -13,7 +13,7 @@
       {
         "type": "color",
         "id": "colors_brand",
-        "default": "#FFFFFF",
+        "default": "#14d66f",
         "label": "Color brand",
         "info": "To use in a predominant color on the page"
       },
@@ -24,7 +24,8 @@
       {
         "type": "color_background",
         "id": "colors_bg_1",
-        "label": "Principal Background"
+        "label": "Principal Background",
+        "default": "linear-gradient(46deg, rgba(20, 214, 111, 1) 13%, rgba(57, 190, 227, 1) 86%)"
       },
       {
         "type": "header",
@@ -45,7 +46,7 @@
       {
         "type": "color",
         "id": "colors_link",
-        "default": "#000000",
+        "default": "#39bee3",
         "label": "Link"
       },
       {
@@ -71,7 +72,7 @@
       {
         "type": "color",
         "id": "colors_btn_border_1",
-        "default": "#FFFFFF",
+        "default": "#000000",
         "label": "Border 1"
       },
       {
@@ -93,7 +94,7 @@
       {
         "type": "color",
         "id": "colors_btn_border_2",
-        "default": "#FFFFFF",
+        "default": "#000000",
         "label": "Border 2"
       },
       {
@@ -115,7 +116,7 @@
       {
         "type": "color",
         "id": "colors_btn_border_3",
-        "default": "#FFFFFF",
+        "default": "#000000",
         "label": "Border 3"
       },
       {
@@ -137,7 +138,7 @@
       {
         "type": "color",
         "id": "colors_btn_border_hover",
-        "default": "#FFFFFF",
+        "default": "#000000",
         "label": "Border hover"
       }
     ]

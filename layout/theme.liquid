@@ -48,7 +48,7 @@
     <ul hidden>
       <li id="a11y-refresh-page-message">{{ 'accessibility.refresh_page' | t }}</li>
     </ul>
-    <script src="{{ 'theme.js' | asset_url }}" defer></script>
+
     <script>
       window.shopUrl = '{{ shop.url }}';
       window.routes = {
@@ -73,5 +73,16 @@
         shareSuccess: `{{ 'general.share.success_message' | t }}`,
       }
     </script>
+
+    <script 
+      src="{{ 'theme.js' | asset_url }}"
+      defer="defer"
+    ></script>
+
+    <script
+      src="{{ 'lazysizes.min.js' | asset_url }}"
+      async="async"
+    ></script>
+
   </body>
 </html>

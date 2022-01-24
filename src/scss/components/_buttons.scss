@@ -1,6 +1,6 @@
 @use "../abstracts/mixins";
 
-.btn {
+%button{
   padding: 15px 30px;
   border-radius: 8px;
   border-width: 1px;
@@ -9,13 +9,18 @@
   transition-property: background-color;
   cursor: pointer;
 
-  @include mixins.btn-type(
-    var(--color-btn-color-1),
-    var(--color-btn-bg-1),
-    var(--color-btn-border-1)
-  );
+  &:hover {
+    @include mixins.btn-type(
+      var(--color-btn-color-hover),
+      var(--color-btn-bg-hover),
+      var(--color-btn-border-hover)
+    );
+  }
+}
 
+.btn {
   &-1 {
+    @extend %button;
     @include mixins.btn-type(
       var(--color-btn-color-1),
       var(--color-btn-bg-1),
@@ -24,6 +29,7 @@
   }
 
   &-2 {
+    @extend %button;
     @include mixins.btn-type(
       var(--color-btn-color-2),
       var(--color-btn-bg-2),
@@ -32,6 +38,7 @@
   }
 
   &-3 {
+    @extend %button;
     @include mixins.btn-type(
       var(--color-btn-color-3),
       var(--color-btn-bg-3),
@@ -51,13 +58,5 @@
   &.p-70 {
     padding-left: 70px;
     padding-right: 70px;
-  }
-
-  &:hover {
-    @include mixins.btn-type(
-      var(--color-btn-color-hover),
-      var(--color-btn-bg-hover),
-      var(--color-btn-border-hover)
-    );
   }
 }

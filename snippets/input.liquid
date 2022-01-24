@@ -13,10 +13,11 @@
     {% render 'input'
       class: "form_textfield",
       type: "text|textarea|checkbox",
-      name: "contact[body]"
-      id: "first-name"
-      placeholder: "Name"
-      value: "value"
+      name: "contact[body]",
+      id: "first-name",
+      placeholder: "Name",
+      value: "value",
+      required: true
     %}
 {% endcomment %}
 
@@ -53,6 +54,18 @@
         {%- if required -%}required{%- endif -%}
       ></textarea>
     {% endcapture %}
+  
+  {% else %}
+    {% capture input %}
+      <input
+        type="{{ type }}"
+        name="{{ name }}"
+        id="{{ id }}"
+        placeholder="{{ placeholder }}"
+        {%- if required -%}required{%- endif -%}
+        {%- if value -%}value="{{ value }}"{%- endif -%}
+      />
+    {% endcapture %}   
 
 {% endcase %}
 

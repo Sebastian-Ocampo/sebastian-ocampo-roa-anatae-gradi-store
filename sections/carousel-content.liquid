@@ -1,0 +1,80 @@
+{%- if section.settings.heading != blank -%}
+  <h2 class="carousel-content--title">{{ section.settings.heading }}</h2>
+{%- endif -%}
+
+{% capture snippet_content %}
+  {% for block in section.blocks %}
+    <div class="swiper-slide">
+      {% render 'card-content',
+        title: block.settings.heading,
+        description: block.settings.description,
+        image: block.settings.image,
+        size: "280 300 400"
+      %}
+    </div>
+  {% endfor %}
+{% endcapture %}
+
+{% render 'slider'
+  content: snippet_content,
+  arrows: true
+%}
+
+{% schema %}
+{
+  "name": "Carousel content",
+  "class": "carousel-content wrapper",
+  "blocks": [
+    {
+      "type": "content",
+      "name": "Card content",
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading",
+          "default": "Heading card"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description",
+          "default": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+        },
+       {
+         "type": "image_picker",
+         "id": "image",
+         "label": "Image"
+       }
+      ]
+    }
+  ],
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Heading carousel"
+    }
+  ],
+  "presets": [
+     {
+       "name": "Carousel content",
+       "blocks": [
+          {
+            "type": "content"
+          },
+          {
+            "type": "content"
+          },
+          {
+            "type": "content"
+          },
+          {
+            "type": "content"
+          }
+        ]
+     }
+  ]
+}
+{% endschema %}

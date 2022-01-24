@@ -1,9 +1,26 @@
 @use "../abstracts/variables";
 
+%margin-title {
+  margin-bottom: 25px;
+}
+
 body {
   font-family: variables.$font-family--general;
   font-size: variables.$font-size--general;
   color: variables.$color-text;
+}
+
+.margin-title {
+  @extend %margin-title;
+}
+
+.title {
+  display: block;
+  font-family: variables.$font-family--title;
+  font-size: variables.$font-size--h1;
+  color: variables.$color-title;
+  font-weight: 600;
+  @extend %margin-title;
 }
 
 h1,
@@ -11,6 +28,8 @@ h1,
   font-family: variables.$font-family--title;
   font-size: variables.$font-size--h1;
   color: variables.$color-title;
+  font-weight: 600;
+  @extend %margin-title;
 }
 
 h2,
@@ -18,6 +37,8 @@ h2,
   font-family: variables.$font-family--title;
   font-size: variables.$font-size--h2;
   color: variables.$color-title;
+  font-weight: 600;
+  @extend %margin-title;
 }
 
 h3,
@@ -25,6 +46,8 @@ h3,
   font-family: variables.$font-family--title;
   font-size: variables.$font-size--h3;
   color: variables.$color-title;
+  font-weight: 600;
+  @extend %margin-title;
 }
 
 h4,
@@ -33,4 +56,11 @@ h6 {
   font-family: variables.$font-family--title;
   font-size: variables.$font-size--hn;
   color: variables.$color-title;
+  font-weight: 600;
+  @extend %margin-title;
+}
+
+a {
+  color: var(--color-base-link);
+  text-decoration: underline;
 }
