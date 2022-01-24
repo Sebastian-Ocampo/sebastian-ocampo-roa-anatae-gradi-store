@@ -1,0 +1,63 @@
+@use "../abstracts/mixins";
+
+.btn {
+  padding: 15px 30px;
+  border-radius: 8px;
+  border-width: 1px;
+  font-weight: 600;
+  transition: 0.5s ease;
+  transition-property: background-color;
+  cursor: pointer;
+
+  @include mixins.btn-type(
+    var(--color-btn-color-1),
+    var(--color-btn-bg-1),
+    var(--color-btn-border-1)
+  );
+
+  &-1 {
+    @include mixins.btn-type(
+      var(--color-btn-color-1),
+      var(--color-btn-bg-1),
+      var(--color-btn-border-1)
+    );
+  }
+
+  &-2 {
+    @include mixins.btn-type(
+      var(--color-btn-color-2),
+      var(--color-btn-bg-2),
+      var(--color-btn-border-2)
+    );
+  }
+
+  &-3 {
+    @include mixins.btn-type(
+      var(--color-btn-color-3),
+      var(--color-btn-bg-3),
+      var(--color-btn-border-3)
+    );
+  }
+
+  &.w-100 {
+    width: 100%;
+  }
+
+  &.p-50 {
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+
+  &.p-70 {
+    padding-left: 70px;
+    padding-right: 70px;
+  }
+
+  &:hover {
+    @include mixins.btn-type(
+      var(--color-btn-color-hover),
+      var(--color-btn-bg-hover),
+      var(--color-btn-border-hover)
+    );
+  }
+}

@@ -1,0 +1,64 @@
+{% comment %}
+    Input
+
+    Accepts:
+    - class: {String} className in input (optional)
+    - type: {String} Type in input
+    - name: {String} Name in input (Required)
+    - id: {String} Id in input (Requerid)
+    - placeholder: {String} Placeholder in input (Required)
+    - value: {String} Value default (Optional)
+
+    Usage:
+    {% render 'input'
+      class: "form_textfield",
+      type: "text|textarea|checkbox",
+      name: "contact[body]"
+      id: "first-name"
+      placeholder: "Name"
+      value: "value"
+    %}
+{% endcomment %}
+
+{% case type %}
+  {% when 'text' %}
+    {% capture input %}
+      <input
+        type="text"
+        name="{{ name }}"
+        id="{{ id }}"
+        placeholder="{{ placeholder }}"
+        {%- if required -%}required{%- endif -%}
+        {%- if value -%}value="{{ value }}"{%- endif -%}
+      />
+    {% endcapture %}
+
+  {% when "checkbox" %}
+    {% capture input %}
+      <input
+        type="checkbox"
+        id="{{ id }}"
+        name="{{ name }}"
+        {%- if required -%}required{%- endif -%}
+      />
+    {% endcapture %}
+
+  {% when "textarea" %}
+    {% capture input %}
+      <textarea
+        rows="10"
+        name="{{ name }}"
+        id="{{ id }}"
+        placeholder="{{ placeholder }}"
+        {%- if required -%}required{%- endif -%}
+      ></textarea>
+    {% endcapture %}
+
+{% endcase %}
+
+<div class="{{ class }}">
+  {{ input }}
+  <label for="{{ id }}">
+    {{ placeholder }}
+  </label>
+</div>

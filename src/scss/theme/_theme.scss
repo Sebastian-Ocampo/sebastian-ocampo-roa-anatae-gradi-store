@@ -1,0 +1,36 @@
+@use "../abstracts/variables";
+
+body {
+  font-family: variables.$font-family--general;
+  font-size: variables.$font-size--general;
+  color: variables.$color-text;
+}
+
+h1,
+.h1 {
+  font-family: variables.$font-family--title;
+  font-size: variables.$font-size--h1;
+  color: variables.$color-title;
+}
+
+h2,
+.h2 {
+  font-family: variables.$font-family--title;
+  font-size: variables.$font-size--h2;
+  color: variables.$color-title;
+}
+
+h3,
+.h3 {
+  font-family: variables.$font-family--title;
+  font-size: variables.$font-size--h3;
+  color: variables.$color-title;
+}
+
+h4,
+h5,
+h6 {
+  font-family: variables.$font-family--title;
+  font-size: variables.$font-size--hn;
+  color: variables.$color-title;
+}

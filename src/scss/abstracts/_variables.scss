@@ -1,0 +1,24 @@
+$max-width--wrapper: 1440px;
+
+$paddings-side: 5rem;
+$paddings-side--movil: 1rem;
+
+$margin-section: 50px;
+$margin-section--movil: 30px;
+
+/* ====== Font ====== */
+$font-family--general: 'system', sans-serif;
+$font-size--general: 16px;
+
+$font-family--title: 'system', sans-serif;
+$font-size--h1: 30px;
+$font-size--h2: 25px;
+$font-size--h3: 22px;
+$font-size--hn: 18px;
+
+/* ====== Colors ====== */
+$color-principal: var(--color-base-principal);
+$color-text: var(--color-base-text);
+$color-title: var(--color-base-title);
+$color-background: var(--color-base-bg);
+$color-link: var(--color-base-link);
