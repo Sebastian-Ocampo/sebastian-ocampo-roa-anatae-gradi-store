@@ -1,4 +1,4 @@
-{% form 'contact' %}
+{% form 'contact', class: "my-contact" %}
   {{ form_errors | default_errors }}
 
   {% render 'input'
@@ -48,8 +48,82 @@
     required: true
   %}
 
+  <div class="form_question">
+    <label class="form_question--answer">
+      How do you want us to contact you?
+    </label>
+
+    {% render 'input'
+      class: "form_radio-button",
+      type: "radio",
+      name: "contact[contact_method]",
+      id: "email-method",
+      value: "email",
+      placeholder: "Email",
+      required: false
+    %}
+
+    {% render 'input'
+      class: "form_radio-button",
+      type: "radio",
+      name: "contact[contact_method]",
+      id: "phone-method",
+      value: "phone",
+      placeholder: "Phone",
+      required: false
+    %}
+
+    {% render 'input'
+      class: "form_radio-button",
+      type: "radio",
+      name: "contact[contact_method]",
+      id: "text-method",
+      value: "text",
+      placeholder: "Text message",
+      required: false
+    %}
+  </div>
+
+  <div class="form_question">
+    <label class="form_question--answer">
+      When is the best time to reach you?
+    </label>
+
+    {% render 'input'
+      class: "form_checkbox toggle_checkbox",
+      type: "checkbox",
+      name: "contact[contact_time_1]",
+      id: "contact[contact_time_1]",
+      value: "morning"
+      placeholder: "Morning",
+      required: false
+    %}
+
+    {% render 'input'
+      class: "form_checkbox toggle_checkbox",
+      type: "checkbox",
+      name: "contact[contact_time_2]",
+      id: "contact[contact_time_2]",
+      value: "afternoon"
+      placeholder: "Afternoon",
+      required: false
+    %}
+
+    {% render 'input'
+      class: "form_checkbox toggle_checkbox",
+      type: "checkbox",
+      name: "contact[contact_time_3]",
+      id: "contact[contact_time_3]",
+      value: "evening"
+      placeholder: "Evening",
+      required: false
+    %}
+  </div>
+
+  <hr>
+
   {% render 'input'
-    class: "form_checkbox",
+    class: "form_checkbox toggle_checkbox",
     type: "checkbox",
     name: "validation",
     id: "validation",
@@ -62,19 +136,5 @@
     type: 3
     action: "submit"
   %}
-
-  <div class="contact-method">
-    <label for="contact-method">How do you want us to contact you?</label>
-    <input type="radio" name="contact[contact_method]" value="email" id="email"><label for="email">Email</label><br>
-    <input type="radio" name="contact[contact_method]" value="phone" id="phone"><label for="phone">Phone</label><br>
-    <input type="radio" name="contact[contact_method]" value="text message" id="text"><label for="text">Text message</label>
-  </div>
-
-  <div class="contact-time">
-    <label for="contact-time">When is the best time to reach you?</label>
-    <input type="checkbox" name="contact[contact_time_1]" value="morning"><label for="morning">Morning</label><br>
-    <input type="checkbox" name="contact[contact_time_2]" value="afternoon"><label for="afternoon">Afternoon</label><br>
-    <input type="checkbox" name="contact[contact_time_3]" value="evening"><label for="evening">Evening</label>
-  </div>
 
 {% endform %}

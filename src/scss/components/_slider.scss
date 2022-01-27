@@ -1,0 +1,25 @@
+.wrapper_slider {
+  position: relative;
+
+  .swiper-wrapper {
+    position: relative;
+  }
+  
+  button {
+    z-index: 1;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50px);
+    border-style: none;
+    
+    &.swiper-button {
+      &-prev {
+        left: 0;
+      }
+
+      &-next {
+        right: 0;
+      }
+    }
+  }
+}

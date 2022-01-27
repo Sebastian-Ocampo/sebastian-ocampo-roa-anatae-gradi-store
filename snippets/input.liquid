@@ -34,16 +34,6 @@
       />
     {% endcapture %}
 
-  {% when "checkbox" %}
-    {% capture input %}
-      <input
-        type="checkbox"
-        id="{{ id }}"
-        name="{{ name }}"
-        {%- if required -%}required{%- endif -%}
-      />
-    {% endcapture %}
-
   {% when "textarea" %}
     {% capture input %}
       <textarea
@@ -69,9 +59,27 @@
 
 {% endcase %}
 
-<div class="{{ class }}">
-  {{ input }}
-  <label for="{{ id }}">
+{% if type == "checkbox" %}
+
+  <label class="{{ class }}">
+    <input
+      type="checkbox"
+      id="{{ id }}"
+      name="{{ name }}"
+      {%- if value -%}value="{{ value }}"{%- endif -%}
+      {%- if required -%}required{%- endif -%}
+    />
+    <span class="slider"></span>
     {{ placeholder }}
   </label>
-</div>
+
+{% else %}
+
+  <div class="{{ class }}">
+    {{ input }}
+    <label for="{{ id }}">
+      {{ placeholder }}
+    </label>
+  </div> 
+
+{% endif %}
