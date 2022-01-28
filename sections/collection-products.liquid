@@ -1,15 +1,34 @@
-{% for product in collection.products %}
-  {% render 'product-card'
-    product: product
+{% paginate collection.products by section.settings.pagination %}
+  <div id="collection" class="grid">
+    {% for product in collection.products %}
+      {% render 'product-card'
+        product: product
+      %}
+    {% endfor %}
+  </div>
+
+  {% render 'pagination'
+    paginate: paginate,
+    anchor: '#collection'
   %}
-{% endfor %}
+{% endpaginate %}
 
 {% schema %}
   {
     "name": "Products in collection",
     "tag": "section",
-    "class": "collection grid wrapper",
+    "class": "collection wrapper",
     "settings": [
+      {
+        "type": "range",
+        "id": "pagination",
+        "label": "Products by page",
+        "unit": "Pr",
+        "min": 1,
+        "max": 100,
+        "step": 1,
+        "default": 6
+      }
     ]
   }
 {% endschema %}

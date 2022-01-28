@@ -1,4 +1,8 @@
-<h1>{{ collection.title }}</h1>
+{% render 'heading'
+  heading: 1,
+  class: "h1",
+  content: collection.title
+%}
 <div>
   {% assign order_tags = 'f-type1, f-type2, f-type3' | split: ', ' %}
   
