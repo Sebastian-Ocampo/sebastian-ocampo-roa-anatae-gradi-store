@@ -29,6 +29,7 @@
     {% if tag == tagg %}
       <label class="{{ class }}">
         <input
+          class="filter-input"
           type="radio"
           value="{{ tag | replace: tag_all, '' }}"
           name="filter"

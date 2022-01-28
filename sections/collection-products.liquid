@@ -1,16 +1,18 @@
 {% paginate collection.products by section.settings.pagination %}
-  <div id="collection" class="grid">
-    {% for product in collection.products %}
-      {% render 'product-card'
-        product: product
-      %}
-    {% endfor %}
+  <div id="list-products">
+    <div class="grid">
+      {% for product in collection.products %}
+        {% render 'product-card'
+          product: product
+        %}
+      {% endfor %}
+    </div>
+  
+    {% render 'pagination'
+      paginate: paginate,
+      anchor: '#list-products'
+    %}
   </div>
-
-  {% render 'pagination'
-    paginate: paginate,
-    anchor: '#collection'
-  %}
 {% endpaginate %}
 
 {% schema %}
