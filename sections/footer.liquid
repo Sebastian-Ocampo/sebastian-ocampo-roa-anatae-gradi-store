@@ -34,7 +34,7 @@
               {{ block.settings.newsletter_sub }}
             </span>
           {% endif %}
-          {%- form 'customer', id: 'ContactFooter' -%}
+          {%- form 'customer', id: 'ContactFooter', class: "newslatter-form" -%}
             <input
               type="hidden"
               name="contact[tags]"

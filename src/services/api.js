@@ -98,6 +98,17 @@ class API {
     }
   }
 
+  async shopifySectionByUrl(base, section) {
+    try {
+      const {
+        data: html
+      } = await axios.get(`${base}?section_id=${section}`);
+      return html;
+    } catch (error) {
+      console.error(`Error: ${error.message}`);
+    }
+  }
+
   /**
   * It is used to recommend related products for a specific product
   * @param {{
