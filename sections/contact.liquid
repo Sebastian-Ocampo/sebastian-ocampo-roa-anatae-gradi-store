@@ -1,0 +1,46 @@
+{%- if section.settings.heading != blank -%}
+  <h2 class="contact--title">
+    {{ section.settings.heading }}
+  </h2>
+{%- endif -%}
+
+{% assign topics = section.settings.topics | split: '|' %}
+{% render 'contact-form'
+  topics: topics,
+  legal_text: section.settings.legal_text
+%}
+
+{% schema %}
+{
+  "name": "Contact form",
+  "class": "contact wrapper",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Contact me !"
+    },
+    {
+      "type": "richtext",
+      "id": "legal_text",
+      "label": "Legal checkbox"
+    },
+    {
+      "type": "text",
+      "id": "topics",
+      "label": "Topics in form",
+      "default": "Por qui|Returns|Shipping|Custom order|Other"
+    }
+  ],
+  "presets": [
+     {
+       "name": "Contact form",
+       "settings": {
+         "heading": "Contact me !",
+         "legal_text": "<p>I accept the terms</p>"
+       }
+     }
+  ]
+}
+{% endschema %}

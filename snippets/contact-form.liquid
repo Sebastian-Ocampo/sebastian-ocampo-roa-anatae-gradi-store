@@ -1,0 +1,140 @@
+{% form 'contact', class: "my-contact" %}
+  {{ form_errors | default_errors }}
+
+  {% render 'input'
+    class: "form_textfield",
+    type: "text",
+    name: "contact[first_name]",
+    id: "first-name",
+    placeholder: "Name",
+    required: true
+  %}
+
+  {% render 'input'
+    class: "form_textfield",
+    type: "text",
+    name: "contact[email]",
+    id: "email",
+    placeholder: "Email",
+    required: true
+  %}
+
+  {% render 'input'
+    class: "form_textfield",
+    type: "tel",
+    name: "contact[phone]",
+    id: "phone",
+    placeholder: "Phone",
+    required: false
+  %}
+
+  <div class="form_textfield request-type">
+    <select
+      id="request-type"
+      name="contact[request_type]"
+    > 
+      {% for topic in topics %}
+        <option>{{ topic }}</option>    
+      {% endfor %}
+    </select>
+  </div>
+
+  {% render 'input'
+    class: "form_textfield",
+    type: "textarea",
+    name: "contact[body]",
+    id: "message",
+    placeholder: "Message",
+    required: true
+  %}
+
+  <div class="form_question">
+    <label class="form_question--answer">
+      How do you want us to contact you?
+    </label>
+
+    {% render 'input'
+      class: "form_radio-button",
+      type: "radio",
+      name: "contact[contact_method]",
+      id: "email-method",
+      value: "email",
+      placeholder: "Email",
+      required: false
+    %}
+
+    {% render 'input'
+      class: "form_radio-button",
+      type: "radio",
+      name: "contact[contact_method]",
+      id: "phone-method",
+      value: "phone",
+      placeholder: "Phone",
+      required: false
+    %}
+
+    {% render 'input'
+      class: "form_radio-button",
+      type: "radio",
+      name: "contact[contact_method]",
+      id: "text-method",
+      value: "text",
+      placeholder: "Text message",
+      required: false
+    %}
+  </div>
+
+  <div class="form_question">
+    <label class="form_question--answer">
+      When is the best time to reach you?
+    </label>
+
+    {% render 'input'
+      class: "form_checkbox toggle_checkbox",
+      type: "checkbox",
+      name: "contact[contact_time_1]",
+      id: "contact[contact_time_1]",
+      value: "morning"
+      placeholder: "Morning",
+      required: false
+    %}
+
+    {% render 'input'
+      class: "form_checkbox toggle_checkbox",
+      type: "checkbox",
+      name: "contact[contact_time_2]",
+      id: "contact[contact_time_2]",
+      value: "afternoon"
+      placeholder: "Afternoon",
+      required: false
+    %}
+
+    {% render 'input'
+      class: "form_checkbox toggle_checkbox",
+      type: "checkbox",
+      name: "contact[contact_time_3]",
+      id: "contact[contact_time_3]",
+      value: "evening"
+      placeholder: "Evening",
+      required: false
+    %}
+  </div>
+
+  <hr>
+
+  {% render 'input'
+    class: "form_checkbox toggle_checkbox",
+    type: "checkbox",
+    name: "validation",
+    id: "validation",
+    placeholder: legal_text,
+    required: true
+  %}
+
+  {% render 'button'
+    content: "Register",
+    type: 3
+    action: "submit"
+  %}
+
+{% endform %}

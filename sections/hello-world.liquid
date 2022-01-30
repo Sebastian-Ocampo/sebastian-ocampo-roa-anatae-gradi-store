@@ -1,1 +1,42 @@
-<p>Hello gradi !</p>
+<div class="hello">
+  {%- capture welcome -%}
+    Welcome to <a href="https://gradiweb.github.io/shopifyBase_doc/">Gradi Theme Base</a>
+  {%- endcapture -%}
+
+  <div class="hello-welcome">
+    {% render 'heading' content: welcome %}
+    {{ settings.colors_bg_1 }}
+  </div>
+
+  <div>
+    {% render 'button'
+      content: "Click me",
+      type: 1
+      action: "button"
+    %}
+  </div>
+  <div>
+    {% render 'button'
+      content: "Click me",
+      type: 2
+      action: "button"
+    %}
+  </div>
+  <div>
+    {% render 'button'
+      content: "Click me",
+      type: 3
+      action: "button"
+    %}
+  </div>
+  <div class="hello_headings">
+    <div>
+      <h1>Heading 1</h1>
+      <h2>Heading 2</h2>
+      <h3>Heading 3</h3>
+      <h4>Heading 4</h4>
+      <h5>Heading 5</h5>
+      <h6>Heading 6</h6>
+    </div>
+  </div>
+</div>

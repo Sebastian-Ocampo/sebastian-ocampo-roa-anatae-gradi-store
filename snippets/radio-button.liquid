@@ -1,0 +1,35 @@
+{% comment %}
+  Renders a render images
+
+  Accepts:
+  - value: {String} Input value
+  - name: {String} Input name
+  - label: {String} Text
+  - checked: {Boolean} Input cheched (optional)
+
+  Usage:
+  {% render "radio-button",
+    value: "input_value",
+    name: "input_name"
+    label: "Lable input",
+    checked: false
+  %}
+{% endcomment %}
+
+<label
+  for="{{ value | replace: ' ', '-' }}"
+  class="radio-buttons"
+  title="{{ label }}"
+>
+  <input
+    type="radio"
+    value="{{ value }}"
+    id="{{ value | replace: ' ', '-' }}"
+    name="{{ name }}"
+    {% if checked%}
+      checked
+    {% endif %}
+  >
+  <div class="label">{{ label }}</div>
+  <div class="checkmark"></div>
+</label>

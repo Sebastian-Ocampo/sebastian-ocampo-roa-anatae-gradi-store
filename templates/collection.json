@@ -1,10 +1,14 @@
 {
   "sections": {
     "main": {
-      "type": "hello-world"
+      "type": "main-collection"
+    },
+    "products": {
+      "type": "collection-products"
     }
   },
   "order": [
-    "main"
+    "main",
+    "products"
   ]
 }

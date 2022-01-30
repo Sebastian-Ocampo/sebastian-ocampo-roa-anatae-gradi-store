@@ -35,7 +35,7 @@
   endif
 %}
 
-<div class="{{ wrapper }}">
+<div class="{{ wrapper }} wrapper_slider">
   <!-- Slider main container -->
   <div
     id="slider_{{ section.id }}"
@@ -50,7 +50,7 @@
     <!-- If we need pagination -->
     {% if pagination %}
       <div
-        data-id="slide_{{ section.id }}"
+        data-id="slider_{{ section.id }}"
         class="swiper-pagination"
       >
       </div>
@@ -59,17 +59,17 @@
 
   <!-- If we need navigation buttons -->
   {% if arrows %}
-    <div
-      data-id="slide_{{ section.id }}"
+    <button
+      data-id="slider_{{ section.id }}"
       class="swiper-button-prev"
     >
       prev
-    </div>
-    <div
-      data-id="slide_{{ section.id }}"
+    </button>
+    <button
+      data-id="slider_{{ section.id }}"
       class="swiper-button-next"
     >
       next
-    </div>
+    </button>
   {% endif %}
 </div>

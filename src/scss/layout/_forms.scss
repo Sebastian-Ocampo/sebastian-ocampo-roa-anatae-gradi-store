@@ -1,0 +1,131 @@
+@use '../abstracts/variables';
+
+.my-contact {
+  display: grid;
+  grid-column-gap: 20px;
+  column-gap: 20px;
+  grid-row-gap: 20px;
+  row-gap: 20px;
+  max-width: 440px;
+  margin: 0 auto;
+}
+
+/* form inputs animation */
+.form_textfield {
+  position: relative;
+  display: flex;
+  padding: 5px;
+  border: 1px solid variables.$color-black;
+  border-radius: 5px;
+
+  label {
+    position: absolute;
+    font-size: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: .5s ease;
+  }
+
+  input, textarea {
+    width: 100%;
+    padding: 15px 0 5px;
+    border-style: none;
+    outline: none;
+    font-weight: 600;
+
+    &::placeholder {
+      color: transparent;
+    }
+
+    &:focus + label,
+    &:not(:placeholder-shown) + label {
+      font-size: 12px;
+      top: 0;
+      transform: translateY(5px);
+      opacity: .7;
+    }
+  }
+
+  select {
+    width: 100%;
+    padding: 15px 0;
+    border-style: none;
+    outline: none;
+  }
+}
+
+.form_checkbox {
+  display: flex;
+  
+  input {
+    margin-right: 10px;
+  }
+}
+
+.toggle_checkbox {
+  align-items: center;
+
+  .slider {
+    height: 24px;
+    width: 48px;
+    border-radius: 12px;
+    margin-right: 10px;
+    display: block;
+    position: relative;
+    cursor: pointer;
+    background: #ccc;
+    -webkit-transition: .2s;
+    transition: .2s;
+    
+    &:after {
+      height: 20px;
+      width: 20px;
+      top: 50%;
+      left: 2px;
+      border-radius: 50%;
+      transform: translateY(-50%);
+      position: absolute;
+      content: "";
+      background-color: #FFF;
+      transition: .5s ease;
+    }
+  }
+
+  input {
+    display: none;
+
+    &:checked + .slider {
+      background: var(--color-base-principal);
+
+      &:after {
+        left: auto;
+        right: 2px;
+      }
+    }
+  }
+}
+
+.form_radio-button {
+  display: flex;
+  align-items: center;
+
+  input[type="radio"] {
+    accent-color: #000;
+    height: 20px;
+    width: 20px;
+    margin-right: 10px;
+  }
+}
+
+.form_question {
+  display: grid;
+  grid-column-gap: 20px;
+  column-gap: 20px;
+  grid-row-gap: 20px;
+  row-gap: 20px;
+  text-align: left;
+
+  &--answer {
+    font-weight: bold;
+  }
+}

@@ -1,0 +1,28 @@
+{% comment %}
+    Link
+
+    Accepts:
+    - class: {String} className in img tag (optional)
+    - url: {Object} url object liquid tag
+    - content: {String} text in button
+    - target: {String} target values (optional)
+
+    Usage:
+    {% render 'link'
+      class: "btn type-1 pdn-35",
+      url: section.settings.url,
+      content: section.settings.content
+      target: "_blank"
+    %}
+
+{% endcomment %}
+
+<a
+  class="{{ class }}"
+  href="{{ url }}"
+  title="{{ content | default: 'Link other' }}"
+  target="{{ target | default: '_self' }}"
+  rel="noreferrer"
+>
+  {{ content }}
+</a>
