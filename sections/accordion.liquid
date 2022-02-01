@@ -9,8 +9,7 @@
     {% render 'accordion-item',
     title: block.settings.heading,
     text_content: block.settings.text_content,
-    class: classContent,
-    type: "accordion"
+    class: classContent
     %}
 {% endfor %}
 </div>
@@ -18,17 +17,17 @@
 
 {% schema %}
 {
-  "name": "Accordion",
+  "name": "Accordion - Tabs",
   "blocks": [
     {
       "type": "content",
-      "name": "Accordion content",
+      "name": "Accordion-Tab content",
       "settings": [
         {
           "type": "text",
           "id": "heading",
           "label": "Heading",
-          "default": "Accordion heading"
+          "default": "Accordion-Tab heading"
         },
         {
           "type": "textarea",
@@ -59,7 +58,7 @@
   ],
   "presets": [
      {
-       "name": "Accordion",
+       "name": "Accordion-Tab",
        "blocks": [
           {
             "type": "content"

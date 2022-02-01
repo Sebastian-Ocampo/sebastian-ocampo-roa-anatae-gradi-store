@@ -1,24 +1,27 @@
-{% case type %}
-    {% when 'accordion' %}
-        <div class="{{ class }}">
-            <div class="accordion-title">
-                <h3>{{ title }}</h3>
-                <a href="#" class="icon-expandable"></a>
-            </div>
-            <div class="acordion-content">
-                <p>{{ text_content }}</p>
-            </div>
-        </div>
+{% comment %}
+    accordion-item
 
-    {% when "tabs" %}
-        <div class="{{ class }}">
-            <div class="accordion-title">
-                <h3>{{ title }}</h3>
-                <a href="#" class="icon-expandable"></a>
-            </div>
-            <div class="acordion-content">
-                <p>{{ text_content }}</p>
-            </div>
-        </div>
+    Accepts:
+    - title: {String} Title for each item
+    - text_content: {String} Content for each item
+    - class: {String} ClassName for item
 
-{% endcase %}
+    Usage:
+    {% render 'accordion-item',
+        title: block.settings.heading,
+        text_content: block.settings.text_content,
+        class: classContent
+    %}
+{% endcomment %}
+
+
+<div class="{{ class }}">
+    <div class="accordion-title">
+        <h3>{{ title }}</h3>
+        <a href="#" class="icon-expandable"></a>
+    </div>
+    <div class="acordion-content">
+        <p>{{ text_content }}</p>
+    </div>
+</div>
+
