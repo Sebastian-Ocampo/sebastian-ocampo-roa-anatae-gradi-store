@@ -1,0 +1,39 @@
+.pagination {
+  display: flex;
+  flex-direction: column;
+  margin: 20px 0;
+
+  &--nav {
+    margin: 0 auto;
+    
+    ul {
+      list-style: none;
+      display: flex;
+      align-items: center;
+
+      li {
+        margin: 5px;
+      }
+    }
+  }
+
+  .caret {
+    font-size: 0;
+    
+    &--next {
+      svg {
+        transform: rotateZ(-90deg);
+      }
+    }
+
+    &--prev {
+      svg {
+        transform: rotateZ(90deg);
+      }
+    }
+
+    svg {
+      width: 10px;
+    }
+  }
+}
