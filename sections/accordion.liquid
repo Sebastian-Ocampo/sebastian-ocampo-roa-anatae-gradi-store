@@ -1,0 +1,80 @@
+{% if section.settings.section_type == 'accordion' %}
+  {% assign classContent = "accordion-item" %}
+{% else %}
+  {% assign classContent = "item-tab" %}
+{% endif %}
+
+<div class="ac-tb-container {% if section.settings.section_type == 'accordion' %}accordion-container{% else %}tabs-container{% endif %}" id="{% if section.settings.section_type == 'accordion' %}accordion-container{% else %}tabs-container{% endif %}" data-type-item="{{ classContent }}">
+{% for block in section.blocks %}
+    {% render 'accordion-item',
+    title: block.settings.heading,
+    text_content: block.settings.text_content,
+    class: classContent,
+    type: "accordion"
+    %}
+{% endfor %}
+</div>
+
+
+{% schema %}
+{
+  "name": "Accordion",
+  "blocks": [
+    {
+      "type": "content",
+      "name": "Accordion content",
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading",
+          "default": "Accordion heading"
+        },
+        {
+          "type": "textarea",
+          "id": "text_content",
+          "label": "Content",
+          "default": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+        }
+      ]
+    }
+  ],
+  "settings": [
+    {
+      "type": "select",
+      "id": "section_type",
+      "label": "Type",
+      "options": [
+        {
+          "value": "accordion",
+          "label": "Accordion"
+        },
+        {
+          "value": "tabs",
+          "label": "Tabs"
+        }
+      ],
+      "default": "accordion"
+    }
+  ],
+  "presets": [
+     {
+       "name": "Accordion",
+       "blocks": [
+          {
+            "type": "content"
+          },
+          {
+            "type": "content"
+          },
+          {
+            "type": "content"
+          },
+          {
+            "type": "content"
+          }
+        ]
+     }
+  ]
+}
+{% endschema %}

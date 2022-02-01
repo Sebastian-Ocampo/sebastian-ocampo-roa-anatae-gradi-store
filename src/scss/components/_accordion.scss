@@ -1,0 +1,24 @@
+.accordion-container, .tabs-container{
+    .acordion-content{
+        height: 0;
+        padding: 0;
+        overflow: hidden;
+    }
+    .accordion-item.active .acordion-content, .item-tab.active .acordion-content{
+        height: 100%;
+    }
+}
+
+.tabs-container{
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: space-around;
+    margin-bottom: 20px;
+    .item-tab .acordion-content{
+        position: absolute;
+        right: 0;
+        left: 0;
+        text-align: center;
+    }
+}
