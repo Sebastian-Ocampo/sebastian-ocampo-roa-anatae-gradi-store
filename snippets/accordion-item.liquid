@@ -11,12 +11,13 @@ accordion-item
   Usage:
   {% render 'accordion-item',
     title: block.settings.heading,
-    text_content: capture <HTML>,
+    text_content: itemContentText,
     class: classContent,
     type_title: section.settings.type_title,
     arrow_icon: arrowIcon
   %}
 {% endcomment %}
+
 
 <div class="{{ class }}">
   <div class="title-container">
@@ -29,9 +30,9 @@ accordion-item
     {% if arrowIcon %}
       <a href="#" class="title-container__icon"></a>
     {% endif %}
-  </div>
-  <div class="content-container">
-    {{ text_content }}
-  </div>
+    </div>
+    <div class="content-container">
+      {{ text_content }}
+    </div>
 </div>
 

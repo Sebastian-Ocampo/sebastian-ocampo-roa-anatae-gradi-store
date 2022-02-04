@@ -12,11 +12,15 @@
   endif
 -%}
 
+{% capture itemContentText %}
+  <p class="content-container__text">{{ block.settings.text_content }}</p>
+{% endcapture %}
+
 <div class="{{ classContainer }} {{ classTypeContainer }}" id="{{ classTypeContainer }}" data-type-item="{{ classContent }}">
 {% for block in section.blocks %}
     {% render 'accordion-item',
     title: block.settings.heading,
-    text_content: block.settings.text_content,
+    text_content: itemContentText,
     class: classContent,
     type_title: section.settings.type_title,
     arrow_icon: arrowIcon
