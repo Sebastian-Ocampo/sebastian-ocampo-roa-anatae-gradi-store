@@ -1,15 +1,25 @@
-{% if section.settings.section_type == 'accordion' %}
-  {% assign classContent = "accordion-item" %}
-{% else %}
-  {% assign classContent = "item-tab" %}
-{% endif %}
+{%- liquid
+  assign classContainer = "js-container"
 
-<div class="ac-tb-container {% if section.settings.section_type == 'accordion' %}accordion-container{% else %}tabs-container{% endif %}" id="{% if section.settings.section_type == 'accordion' %}accordion-container{% else %}tabs-container{% endif %}" data-type-item="{{ classContent }}">
+  if section.settings.section_type == 'accordion'
+    assign classContent = "accordion-container__item"
+    assign classTypeContainer = "accordion-container"
+    assign arrowIcon = true
+  else
+    assign classContent = "tabs-container__item"
+    assign classTypeContainer = "tabs-container"
+    assign arrowIcon = false
+  endif
+-%}
+
+<div class="{{ classContainer }} {{ classTypeContainer }}" id="{{ classTypeContainer }}" data-type-item="{{ classContent }}">
 {% for block in section.blocks %}
     {% render 'accordion-item',
     title: block.settings.heading,
     text_content: block.settings.text_content,
-    class: classContent
+    class: classContent,
+    type_title: section.settings.type_title,
+    arrow_icon: arrowIcon
     %}
 {% endfor %}
 </div>
@@ -54,6 +64,22 @@
         }
       ],
       "default": "accordion"
+    },
+    {
+      "type": "select",
+      "id": "type_title",
+      "label": "Type Title",
+      "options": [
+        {
+          "value": "seo",
+          "label": "Title tag h3"
+        },
+        {
+          "value": "withoutseo",
+          "label": "Title tag span"
+        }
+      ],
+      "default": "seo"
     }
   ],
   "presets": [

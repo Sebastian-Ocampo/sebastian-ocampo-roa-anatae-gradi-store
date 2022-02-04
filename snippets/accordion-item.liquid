@@ -5,23 +5,38 @@
     - title: {String} Title for each item
     - text_content: {String} Content for each item
     - class: {String} ClassName for item
+    -type_title: {String} tag type for title <span> or <h3>
+    -arrow_icon: {Boolean} true for render icon or false for don't render
 
     Usage:
     {% render 'accordion-item',
         title: block.settings.heading,
         text_content: block.settings.text_content,
-        class: classContent
+        class: classContent,
+        type_title: section.settings.type_title,
+        arrow_icon: arrowIcon
     %}
 {% endcomment %}
 
+{% capture itemContentText %}
+    <p class="content-container__text">{{ text_content }}</p>
+{% endcapture %}
+
 
 <div class="{{ class }}">
-    <div class="accordion-title">
-        <h3>{{ title }}</h3>
-        <a href="#" class="icon-expandable"></a>
+    <div class="title-container">
+        {% if type_title == "seo" %}
+            <h3 class="title-container__title">{{ title }}</h3>
+        {% else %}
+            <span class="title-container__title">{{ title }}</span>
+        {% endif %}
+
+        {% if arrowIcon %}
+            <a href="#" class="title-container__icon"></a>
+        {% endif %}
     </div>
-    <div class="acordion-content">
-        <p>{{ text_content }}</p>
+    <div class="content-container">
+        {{ itemContentText }}
     </div>
 </div>
 
