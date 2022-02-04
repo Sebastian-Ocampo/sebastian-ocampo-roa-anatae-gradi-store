@@ -3,7 +3,7 @@
 
     Accepts:
     - title: {String} Title for each item
-    - text_content: {String} Content for each item
+    - text_content: {HTML} Content for each item
     - class: {String} ClassName for item
     -type_title: {String} tag type for title <span> or <h3>
     -arrow_icon: {Boolean} true for render icon or false for don't render
@@ -11,16 +11,12 @@
     Usage:
     {% render 'accordion-item',
         title: block.settings.heading,
-        text_content: block.settings.text_content,
+        text_content: itemContentText,
         class: classContent,
         type_title: section.settings.type_title,
         arrow_icon: arrowIcon
     %}
 {% endcomment %}
-
-{% capture itemContentText %}
-    <p class="content-container__text">{{ text_content }}</p>
-{% endcapture %}
 
 
 <div class="{{ class }}">
@@ -36,7 +32,7 @@
         {% endif %}
     </div>
     <div class="content-container">
-        {{ itemContentText }}
+        {{ text_content }}
     </div>
 </div>
 
