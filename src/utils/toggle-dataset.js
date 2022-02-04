@@ -1,4 +1,4 @@
-import { $one } from "./querySelector"
+import { $Q } from "./querySelector"
 
 /**
  * Open nodes with CSS and dataset
@@ -11,9 +11,9 @@ import { $one } from "./querySelector"
 
  export const toggleDataActive = (node, parent, config) => {
   const { overlay } = config ? config : { overlay: false }
-  const toOpen = parent ? $one(parent) : $one(node)
+  const toOpen = parent ? $Q(parent) : $Q(node)
 
-  return $one(node).addEventListener(
+  return $Q(node).addEventListener(
     'click',
     function () {
       dataToggle(toOpen, overlay)
@@ -53,6 +53,6 @@ const overlayActions = ({ isActive, target }) => {
       { overlay: true }
     )
   } else {
-    target.parentNode.removeChild($one(`#overlay--${id}`))
+    target.parentNode.removeChild($Q(`#overlay--${id}`))
   }
 }

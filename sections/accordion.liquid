@@ -1,0 +1,109 @@
+{%- liquid
+  assign classContainer = "js-container"
+
+  if section.settings.section_type == 'accordion'
+    assign classContent = "accordion-container__item"
+    assign classTypeContainer = "accordion-container"
+    assign arrowIcon = true
+  else
+    assign classContent = "tabs-container__item"
+    assign classTypeContainer = "tabs-container"
+    assign arrowIcon = false
+  endif
+-%}
+
+{% capture itemContentText %}
+  <p class="content-container__text">{{ block.settings.text_content }}</p>
+{% endcapture %}
+
+<div class="{{ classContainer }} {{ classTypeContainer }}" id="{{ classTypeContainer }}" data-type-item="{{ classContent }}">
+{% for block in section.blocks %}
+    {% render 'accordion-item',
+    title: block.settings.heading,
+    text_content: itemContentText,
+    class: classContent,
+    type_title: section.settings.type_title,
+    arrow_icon: arrowIcon
+    %}
+{% endfor %}
+</div>
+
+
+{% schema %}
+{
+  "name": "Accordion - Tabs",
+  "blocks": [
+    {
+      "type": "content",
+      "name": "Accordion-Tab content",
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading",
+          "default": "Accordion-Tab heading"
+        },
+        {
+          "type": "textarea",
+          "id": "text_content",
+          "label": "Content",
+          "default": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+        }
+      ]
+    }
+  ],
+  "settings": [
+    {
+      "type": "select",
+      "id": "section_type",
+      "label": "Type",
+      "options": [
+        {
+          "value": "accordion",
+          "label": "Accordion"
+        },
+        {
+          "value": "tabs",
+          "label": "Tabs"
+        }
+      ],
+      "default": "accordion"
+    },
+    {
+      "type": "select",
+      "id": "type_title",
+      "label": "Type Title",
+      "options": [
+        {
+          "value": "seo",
+          "label": "Title tag h3"
+        },
+        {
+          "value": "withoutseo",
+          "label": "Title tag span"
+        }
+      ],
+      "default": "seo"
+    }
+  ],
+  "presets": [
+     {
+       "name": "Accordion-Tab",
+       "blocks": [
+          {
+            "type": "content"
+          },
+          {
+            "type": "content"
+          },
+          {
+            "type": "content"
+          },
+          {
+            "type": "content"
+          }
+        ]
+     }
+  ]
+}
+{% endschema %}

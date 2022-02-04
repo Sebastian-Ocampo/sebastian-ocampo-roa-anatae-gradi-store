@@ -16,16 +16,17 @@
 {% endcomment %}
 
 {%- if paginate.parts.size > 0 -%}
-  <div>
+  <div class="pagination">
     <nav
-      class="pagination"
+      class="pagination--nav"
       role="navigation"
       aria-label="{{ 'general.pagination.label' | t }}"
     >
       <ul role="list">
       {%- if paginate.previous -%}
-        <li>
+        <li class="caret">
           <a
+            class="caret--prev"
             title="{{ 'general.pagination.previous' | t }}"
             href="{{ paginate.previous.url }}{{ anchor }}"
             aria-label="{{ 'general.pagination.previous' | t }}">
@@ -62,8 +63,9 @@
       {%- endfor -%}
 
       {%- if paginate.next -%}
-        <li>
+        <li class="caret">
           <a
+            class="caret--next"
             title="{{ 'general.pagination.next' | t }}"
             href="{{ paginate.next.url }}{{ anchor }}"
             aria-label="{{ 'general.pagination.next' | t }}"

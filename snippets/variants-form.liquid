@@ -1,0 +1,97 @@
+{% comment %}
+  Options in product form
+
+  Accepts:
+  - option_radio: {String} Reference options in radio buttons. To render radio buttons
+
+  Usage:
+  {% render 'variants-form'
+    product: product,
+    option_radio: 'Color Material'
+  %}
+{% endcomment %}
+
+{%- liquid
+  assign first_variant = product.selected_or_first_available_variant
+-%}
+
+<div class="variants">
+  <input
+    type="hidden" 
+    id="variants" 
+    value="{{ product.variants | json | escape }}"
+  >
+  <input 
+    type="hidden"
+    id="options" 
+    value="{{ product.options | json | escape }}"
+  >
+  <input
+    type="hidden"
+    name="id"
+    value="{{ first_variant.id }}"
+  >
+  
+  {%- unless product.has_only_default_variant -%}
+    {%- for option_name in product.options -%}
+      <div class="variants--options">
+        <span class="variants--name">
+          {{ option_name }}
+        </span>
+        
+        {%- if option_radio contains option_name -%}
+          <div
+            class="variants--radio-container"
+            data-type="{{ option_name }}"
+          >
+            {%- for option_value in product.options_by_name[option_name].values -%}
+  
+              <label
+                class="variant_radio-button"
+                title="{{ option_name }} {{ option_value }}"
+              >
+                <input
+                  class="hidden js-option"
+                  type="radio"
+                  name="{{ option_name }}" 
+                  value="{{ option_value }}"
+                  {% if forloop.first == true %}
+                    checked="checked"
+                  {% endif %}
+                >
+                <div
+                  class="variant_radio-button--design option_{{ option_value | handleize }}" 
+                >
+                </div>
+              </label>
+            {%- endfor -%}
+          </div>
+        {%- else -%}
+  
+          <div
+            class="variants--select-container form_textfield"
+            data-type="{{ option_name }}"
+          >
+            <select
+              name="{{ option_name }}"
+              class="variants--select-tag js-option"
+            >
+              {%- for option_value in product.options_by_name[option_name].values -%}
+                <option 
+                  value="{{ option_value }}"
+                  {% if forloop.first == true %}
+                    selected="true"
+                  {% endif %}
+                >
+                  {{ option_value }}
+                </option>
+              {%- endfor -%}
+            </select>
+          </div>
+  
+        {%- endif -%}
+      </div>
+    {%- endfor -%}
+  {%- endunless -%}
+</div>
+  

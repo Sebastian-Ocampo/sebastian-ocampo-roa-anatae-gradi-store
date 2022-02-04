@@ -1,0 +1,25 @@
+.variants {
+  display: grid;
+  grid-row-gap: 10px;
+  row-gap: 10px;
+
+  &--name {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 5px;
+  }
+
+  &--radio-container {
+    display: flex;
+    flex-wrap: wrap;
+
+    label {
+      margin-right: 5px;
+
+      :last-of-type {
+        margin-right: 0;
+      }
+    }
+  }
+
+}

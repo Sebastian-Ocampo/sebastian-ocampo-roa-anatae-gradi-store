@@ -1,5 +1,5 @@
 @mixin btn-type($color, $bg, $border) {
   color: $color;
   background-color: $bg;
-  border-color: $border;
+  border: 1px solid $border;
 }

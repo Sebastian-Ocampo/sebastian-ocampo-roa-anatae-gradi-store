@@ -14,6 +14,10 @@ body {
   @extend %margin-title;
 }
 
+.hidden {
+  display: none !important;
+}
+
 .title {
   display: block;
   font-family: variables.$font-family--title;
