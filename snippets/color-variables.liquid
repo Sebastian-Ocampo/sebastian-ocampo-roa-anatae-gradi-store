@@ -22,4 +22,13 @@
     --color-btn-bg-hover: {{ settings.colors_btn_bg_hover }};
     --color-btn-border-hover: {{ settings.colors_btn_border_hover }};
   }
+  
+  {%- assign setting_color = settings.variant_color_textarea | newline_to_br | split: '<br />' -%}
+  {% for color in setting_color %}
+    {%- assign obj_color = color | split: ':' -%}
+    .option_{{ obj_color | first | handleize }} {
+      background-color: {{ obj_color | last }};
+    }
+  {% endfor %}
+
 {% endstyle %}

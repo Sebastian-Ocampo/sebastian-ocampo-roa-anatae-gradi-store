@@ -1,12 +1,10 @@
-import { $all } from "./query-selector";
-import { $one } from "./query-selector";
-
+import { $Qll, $Q } from "./query-selector";
 
 export function openAccordion(){
-    const container = $all(".js-container");
+    const container = $Qll(".js-container");
     
     container.forEach(el => {
-        let sectionContainer = $one(`#${el.getAttribute("id")}`);
+        let sectionContainer = $Q(`#${el.getAttribute("id")}`);
         const accordionItem = sectionContainer.querySelectorAll(`.${el.getAttribute("data-type-item")}`);
         const accordionHeading = sectionContainer.querySelectorAll(".title-container");
 

@@ -23,9 +23,13 @@
   endif
 %}
 
-<div>
-  <a href="{{ product.url }}">
-    <div>
+<div class="product-card">
+  <a
+    title="{{ product.title }}"
+    class="product-card--head"
+    href="{{ product.url }}"
+  >
+    <div class="product-card--head-images">
       {% render "render-image"
         class: "productcard_image-2",
         img_src: image_second,
@@ -45,7 +49,7 @@
         height: "100"
       %}
     </div>
-    <div>
+    <div class="product-card--head-info">
       <span>
         {{ product.title }}
       </span>
@@ -59,12 +63,17 @@
       </span>
     </div>
   </a>
-  <form action="/cart/add">
-    <input 
-      name="id"
-      value="{{ current_variant.id }}"
-      type="hidden"
-    />
+  <form
+    class="product-card--form"
+    action="/cart/add">
+    
+    <div class="product-card--form-variants">
+      {% render 'variants-form'
+        product: product
+        option_radio: 'Color'
+      %}
+    </div>
+
     <button
       class="btn-2"
       type="button"

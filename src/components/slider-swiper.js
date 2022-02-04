@@ -1,4 +1,4 @@
-import { $all } from '../utils/query-selector'
+import { $Qll } from '../utils/query-selector'
 import Swiper, { Navigation, Pagination, FreeMode, Autoplay } from "swiper";
 import 'swiper/css';
 
@@ -57,13 +57,13 @@ export const swiperSmall = new Swiper(".slider_small", {
 });
 
 export const swiperArrows = (() => {
-  $all(".slider_arrows").map(slide => {
+  $Qll(".slider_arrows").map(slide => {
     configArrows('#' + slide.id)
   })
 })();
 
 export const swiperPagination = (() => {
-  $all(".slider_pagination").map(slide => {
+  $Qll(".slider_pagination").map(slide => {
     configPagination('#' + slide.id)
   })
 })();
