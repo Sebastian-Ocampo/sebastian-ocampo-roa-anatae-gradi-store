@@ -1,14 +1,18 @@
 /**
 * @return {array} Array of nodes in DOM
 */
-const $all = (nodes) => [...document.querySelectorAll(nodes)]
+const $Qll = (nodes, parent) => {
+  return [...(parent ? parent : document).querySelectorAll(nodes)];
+}
 
 /**
 * @return {node} Node in DOM
 */
-const $one = (node, parent) => (parent ? parent : document).querySelector(node)
+const $Q = (node, parent) => {
+  return (parent ? parent : document).querySelector(node);
+}
 
 export {
-  $all,
-  $one
+  $Qll,
+  $Q
 }

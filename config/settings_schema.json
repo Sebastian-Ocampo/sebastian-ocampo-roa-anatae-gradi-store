@@ -150,6 +150,7 @@
         "type": "textarea",
         "label": "Colours of the variants",
         "info": "Enter the colour information as in the example. Ex: Black:#000",
+        "default": "Black:#000;<br />Green:#14D66F;<br />Gray:#C4C4C4;",
         "placeholder": "Colour:#hex<Linefeed>\n\nExample:\nWhite:#fff\nBlack:#000\n..."
       }
     ]

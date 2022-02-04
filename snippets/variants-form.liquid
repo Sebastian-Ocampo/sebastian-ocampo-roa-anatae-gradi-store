@@ -7,14 +7,12 @@
   Usage:
   {% render 'variants-form'
     product: product,
-    option_radio: 'Color'
+    option_radio: 'Color Material'
   %}
 {% endcomment %}
 
 {%- liquid
-  assign setting_color = settings.variant_color_textarea | newline_to_br | split: '<br />'
   assign first_variant = product.selected_or_first_available_variant
-  assign separator = ';|'
 -%}
 
 <div class="variants">
@@ -28,9 +26,9 @@
     id="options" 
     value="{{ product.options | json | escape }}"
   >
-  <input 
+  <input
     type="hidden"
-    id="id" 
+    name="id"
     value="{{ first_variant.id }}"
   >
   
@@ -41,38 +39,28 @@
           {{ option_name }}
         </span>
         
-        {%- if option_name == option_radio -%}
+        {%- if option_radio contains option_name -%}
           <div
             class="variants--radio-container"
             data-type="{{ option_name }}"
           >
             {%- for option_value in product.options_by_name[option_name].values -%}
-              {%- assign color_hex = setting_color | where: option_value | split: ':' | last | replace: '"]', '' -%}
-              {%- assign id = section.id 
-                | append: separator 
-                | append: product.id 
-                | append: separator  
-                | append: option_name 
-                | append: separator 
-                | append: option_value
-              -%}
   
               <label
                 class="variant_radio-button"
-                title="{{ option_name }} {{ option_value }}">
+                title="{{ option_name }} {{ option_value }}"
+              >
                 <input
-                  class="hidden"
+                  class="hidden js-option"
                   type="radio"
-                  name="{{ section.id }}-{{ product.id }}-{{ option_name }}" 
-                  id="{{ id }}"
+                  name="{{ option_name }}" 
+                  value="{{ option_value }}"
                   {% if forloop.first == true %}
                     checked="checked"
                   {% endif %}
-                  value="{{ option_value }}"
                 >
                 <div
-                  class="variant_radio-button--design " 
-                  style="background-color: {{ color_hex }};"
+                  class="variant_radio-button--design option_{{ option_value | handleize }}" 
                 >
                 </div>
               </label>
@@ -84,19 +72,13 @@
             class="variants--select-container form_textfield"
             data-type="{{ option_name }}"
           >
-            <select class="variants--select-tag">
+            <select
+              name="{{ option_name }}"
+              class="variants--select-tag js-option"
+            >
               {%- for option_value in product.options_by_name[option_name].values -%}
-                {%- assign id = section.id 
-                  | append: separator 
-                  | append: product.id 
-                  | append: separator  
-                  | append: option_name 
-                  | append: separator 
-                  | append: option_value
-                -%}
                 <option 
                   value="{{ option_value }}"
-                  data-id="{{ id }}"
                   {% if forloop.first == true %}
                     selected="true"
                   {% endif %}

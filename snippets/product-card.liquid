@@ -66,12 +66,7 @@
   <form
     class="product-card--form"
     action="/cart/add">
-    <input 
-      name="id"
-      value="{{ current_variant.id }}"
-      type="hidden"
-    />
-
+    
     <div class="product-card--form-variants">
       {% render 'variants-form'
         product: product

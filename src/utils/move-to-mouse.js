@@ -1,4 +1,4 @@
-import { $all } from "./querySelector";
+import { $Qll } from "./querySelector";
 
 /**
  * Move to scroll in X
@@ -8,7 +8,7 @@ import { $all } from "./querySelector";
  */
 
 export const moveToMouse = (wrapper) => {
-  const sliderTouch = $all(wrapper);
+  const sliderTouch = $Qll(wrapper);
   let isDown = false;
   let startX;
   let scrollLeft;
