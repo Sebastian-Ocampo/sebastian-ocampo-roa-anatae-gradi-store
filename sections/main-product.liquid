@@ -1,0 +1,80 @@
+{%-liquid
+	assign price = product.selected_or_first_available_variant.price
+	assign compare_at_price = product.selected_or_first_available_variant.compare_at_price
+-%}
+
+<div>
+  <div>
+    {% render 'product-media'
+      product: product
+    %}
+  </div>
+
+	<div>
+
+		<div>
+      <h1>
+        {{ product.title }}
+      </h1>
+
+      {% render 'price'
+        compare_at_price: compare_at_price,
+        price: price
+      %}
+
+			<p>{{ product.description }}</p>
+		</div>
+
+
+    <section>
+      <form 
+        data-product="{{ product.id }}" 
+        action="/cart/add"
+      >
+
+      {% render 'variants-form'
+        product: product,
+        option_radio: 'Couleur cable Taille Color Size',
+        option_text: 'Taille'
+      %}
+
+      <button 
+        type="submit"
+      > 
+        {{ 'products.product.add_to_cart' | t }} 
+      </button>
+
+      </form>
+    </section>
+
+	</section>
+</div>
+
+{% schema %}
+{
+  "name": "Product page",
+  "blocks": [
+    {
+      "type": "content",
+      "name": "Icon",
+      "settings": [
+        {
+          "type": "text",
+          "id": "iconfile",
+          "label": "Name icon file",
+          "default": "paiement-icon"
+        },
+        {
+          "type": "text",
+          "id": "icon_content",
+          "label": "Text content",
+          "default": "Lorem ipsum dolor sit amet."
+        }
+      ]
+    }
+  ],
+  "settings": [
+
+  ]
+}
+{% endschema %}
