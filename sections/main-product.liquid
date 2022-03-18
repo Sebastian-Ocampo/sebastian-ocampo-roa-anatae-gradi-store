@@ -1,80 +1,51 @@
 {%-liquid
 	assign price = product.selected_or_first_available_variant.price
 	assign compare_at_price = product.selected_or_first_available_variant.compare_at_price
--%}
+  assign text_add = 'products.product.add_to_cart' | t
+  -%}
 
-<div>
-  <div>
-    {% render 'product-media'
-      product: product
+<div class="main-product__slider">
+  {% render 'product-media'
+    product: product
+  %}
+</div>
+<div class="main-product__detail">
+  <h1>
+    {{ product.title }}
+  </h1>
+
+  {% render 'price'
+    compare_at_price: compare_at_price,
+    price: price
+  %}
+
+  <p>
+    {{ product.description }}
+  </p>
+  <form 
+    data-product="{{ product.id }}" 
+    action="/cart/add"
+  >
+
+    {% render 'variants-form'
+      product: product,
+      option_radio: 'Color'
     %}
-  </div>
 
-	<div>
+    {% render 'button'
+      class: "btn-add-to-cart",
+      content: text_add,
+      type: 2
+      action: "submit"
+    %}
 
-		<div>
-      <h1>
-        {{ product.title }}
-      </h1>
-
-      {% render 'price'
-        compare_at_price: compare_at_price,
-        price: price
-      %}
-
-			<p>{{ product.description }}</p>
-		</div>
-
-
-    <section>
-      <form 
-        data-product="{{ product.id }}" 
-        action="/cart/add"
-      >
-
-      {% render 'variants-form'
-        product: product,
-        option_radio: 'Couleur cable Taille Color Size',
-        option_text: 'Taille'
-      %}
-
-      <button 
-        type="submit"
-      > 
-        {{ 'products.product.add_to_cart' | t }} 
-      </button>
-
-      </form>
-    </section>
-
-	</section>
+  </form>
 </div>
 
 {% schema %}
 {
   "name": "Product page",
-  "blocks": [
-    {
-      "type": "content",
-      "name": "Icon",
-      "settings": [
-        {
-          "type": "text",
-          "id": "iconfile",
-          "label": "Name icon file",
-          "default": "paiement-icon"
-        },
-        {
-          "type": "text",
-          "id": "icon_content",
-          "label": "Text content",
-          "default": "Lorem ipsum dolor sit amet."
-        }
-      ]
-    }
-  ],
-  "settings": [
-
-  ]
+  "class": "main-product wrapper",
+  "tag": "section"
 }
 {% endschema %}

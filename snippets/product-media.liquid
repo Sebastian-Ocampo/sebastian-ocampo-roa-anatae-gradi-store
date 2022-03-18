@@ -1,6 +1,5 @@
-<div class="swiper slider2">
+<div class="swiper main-product__slider-principal">
   <div class="swiper-wrapper">
-
     {% for image in product.media %}   
       {% assign imgUrl = image | image_url: width: 900 %}
 
@@ -16,36 +15,30 @@
       </div>
 
     {% endfor %}
-
   </div>
-
-</div>
-
-<div thumbsSlider="" class="swiper productSwiper">
-  <div class="swiper-wrapper">
-
-    {% for image in product.media %}   
-    {% assign imgUrl = image | image_url: width: 175 %}
-
-    <div class="swiper-slide">
-      {% render "render-image"
-        class: "",
-        img_src: imgUrl,
-        img: image,
-        width: "175",
-        height: "99"
-      %}
-    </div>
-
-    {% endfor %}
-
-  </div>
-
   <div class="swiper-button swiper-button-next">
     {% render 'icon-arrow' %}
   </div>
   <div class="swiper-button swiper-button-prev">
     {% render 'icon-arrow' %}
   </div>
+</div>
 
+<div class="swiper main-product__slider-thumbs">
+  <div class="swiper-wrapper">
+    {% for image in product.media %}   
+      {% assign imgUrl = image | image_url: width: 175 %}
+
+      <div class="swiper-slide">
+        {% render "render-image"
+          class: "",
+          img_src: imgUrl,
+          img: image,
+          width: "175",
+          height: "99"
+        %}
+      </div>
+
+    {% endfor %}
+  </div>
 </div>
