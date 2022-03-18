@@ -1,0 +1,28 @@
+.accordions {
+  display: grid;
+  grid-row-gap: 20px;
+  row-gap: 20px;
+}
+
+.accordion-item {
+  &__content {
+    display: none;
+  }
+
+  &__button {
+    padding: 5px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid #000;
+    border-radius: 5px;
+
+    svg {
+      width: 20px;
+    }
+
+    &[data-active="true"] ~ div {
+      display: block;
+    }
+  }
+}

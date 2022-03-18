@@ -1,0 +1,28 @@
+{% comment %}
+  Accordion-item
+
+  Accepts:
+  - title: {String} Title for each item
+  - content: {HTML} Content for each item
+
+  Usage:
+  {% render 'accordion-item',
+    title: block.settings.heading,
+    content: block.settings.content
+  %}
+{% endcomment %}
+
+<div class="accordion-item">
+  <div
+    class="accordion-item__button"
+    data-active="false"
+  >
+    <span>
+      {{ title }}
+    </span>
+    {% render 'icon-caret' %}
+  </div>
+  <div class="accordion-item__content">
+    {{ content }}
+  </div>
+</div>

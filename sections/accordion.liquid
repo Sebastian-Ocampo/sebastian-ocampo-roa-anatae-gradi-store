@@ -1,0 +1,68 @@
+{% capture accordions %}
+  {% for block in section.blocks %}
+    {% render 'accordion-item',
+      title: block.settings.heading,
+      content: block.settings.content
+    %}
+  {% endfor %}
+{% endcapture %}
+
+{% render 'accordions',
+  accordions: accordions,
+  toggle: section.settings.toggle,
+  class: 'wrapper'
+%}
+
+{% schema %}
+{
+  "name": "Accordions",
+  "blocks": [
+    {
+      "type": "content",
+      "name": "Accordion item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading",
+          "default": "Accordion-Tab heading"
+        },
+        {
+          "type": "textarea",
+          "id": "content",
+          "label": "Content",
+          "default": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+        }
+      ]
+    }
+  ],
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "toggle",
+      "label": "Is toggle ?",
+      "default": true,
+      "info": "When you click in accordion-item, all items are closed"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Accordions",
+      "blocks": [
+        {
+          "type": "content"
+        },
+        {
+          "type": "content"
+        },
+        {
+          "type": "content"
+        },
+        {
+          "type": "content"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
