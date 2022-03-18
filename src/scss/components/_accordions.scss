@@ -5,12 +5,15 @@
 }
 
 .accordion-item {
+  cursor: pointer;
+
   &__content {
     display: none;
+    margin-top: 15px;
   }
 
   &__button {
-    padding: 5px 10px;
+    padding: 15px 30px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -20,9 +23,9 @@
     svg {
       width: 20px;
     }
+  }
 
-    &[data-active="true"] ~ div {
-      display: block;
-    }
+  &[data-active="true"] > &__content {
+    display: block;
   }
 }
