@@ -1,0 +1,65 @@
+{% comment %}
+  Render card product in upsell cart
+  
+  Accepts:
+  - product: {Object} product object
+  
+  Usage:
+  {% render 'upsell-product-card'
+    product: upsell_product
+  %}
+{% endcomment %}
+
+{%- liquid
+  assign first_variant = product.selected_or_first_available_variant
+  assign imgUrl = product.featured_media | image_url: '116x156'
+  assign image = product.featured_image
+  assign btn_text = 'products.product.add_to_cart' | t 
+-%}
+
+<div class="cart-upsell-container-product swiper-slide">
+
+  <div class="cart-upsell-container-product__image">
+    {% render "render-image"
+      class: "",
+      img_src: imgUrl,
+      img: image,
+      width: "116",
+      height: "116"
+    %}
+  </div>
+
+  <div class="cart-upsell-container-product__mobile-gropup">
+    <div class="cart-upsell-container-product__info">
+      <span class="cart-upsell-container-product__info-title">
+        {{ product.title }}
+      </span>
+      <span class="cart-upsell-container-product__info-price">
+        {{ product.price | money }}
+      </span>
+    </div>
+  
+    <div class="cart-upsell-container-product__btn">
+  
+      <form 
+        data-product="{{ product.id }}"
+        class="add-product-cart-upsell"
+      >
+  
+        <input
+          type="hidden"
+          name="id"
+          value="{{ first_variant.id }}"
+        >
+  
+        {% render 'button'
+          class: "upsell-btn",
+          content: btn_text,
+          type: 3
+          size: 3
+          action: "submit"
+        %}
+      </form>
+    </div>
+  </div>
+</div>

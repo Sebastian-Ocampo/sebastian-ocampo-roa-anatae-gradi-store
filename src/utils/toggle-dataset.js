@@ -1,4 +1,4 @@
-import { $Q } from "./querySelector"
+import { $Q } from "./query-selector"
 
 /**
  * Open nodes with CSS and dataset

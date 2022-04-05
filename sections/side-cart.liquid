@@ -1,0 +1,128 @@
+<div class="cart-upsell">
+  {% render 'cart-upsell'
+    cart: cart,
+    collection: section.settings.upsell_collection
+    title: section.settings.upsell_title
+  %}
+</div>
+
+<div class="cart-products">
+  {% render 'cart-header'
+    cart: cart
+    title: section.settings.cart_title
+    limit_price: section.settings.limit_price
+  %}
+  
+  {% render 'cart-item' 
+    cart: cart
+    cart_empty_message: section.settings.cart_empty
+  %}
+  
+  <div class="cart-upsell cart-upsell-mobile">
+    {% render 'cart-upsell'
+      cart: cart,
+      collection: section.settings.upsell_collection
+      title: section.settings.upsell_title
+    %}
+  </div>
+  
+  {% render 'cart-footer'
+    cart: cart,
+    cart_blocks: section.blocks,
+    cart_content: section.settings.cart_content,
+    shipping_info: section.settings.shipping_info,
+    checkout_button: section.settings.checkout_button
+  %}
+</div>
+
+
+{% schema %}
+{
+  "name": "Cart",
+  "class": "cart",
+  "max_blocks": 3,
+  "settings": [
+    {
+      "type": "collection",
+      "id": "upsell_collection",
+      "label": "Products upsell"
+    },
+    {
+      "type": "header",
+      "content": "Progress Bar"
+    },
+    {
+      "type": "text",
+      "id": "progressbar_title",
+      "label": "Progress bar title",
+      "default": "Plus que 100 euros pour avoir la réduction de 10%"
+    },
+    {
+      "type": "number",
+      "id": "limit_price",
+      "label": "Limit price €",
+      "default": 100
+    },
+    {
+      "type": "header",
+      "content": "Cart configuration"
+    },
+    {
+      "type": "text",
+      "id": "cart_title",
+      "label": "Cart title",
+      "default": "Produit ajouté au panier avec succès"
+    },
+    {
+      "type": "text",
+      "id": "upsell_title",
+      "label": "Upsell title",
+      "default": "Vous aimerez aussi.."
+    },
+    {
+      "type": "textarea",
+      "id": "cart_content",
+      "label": "Cart content",
+      "default": "En réalisant votre commande vous soutenez la filière 100% française et artisanale du bois français éco-responsable 🇫🇷🌳"
+    },
+    {
+      "type": "text",
+      "id": "shipping_info",
+      "label": "Shipping inf",
+      "default": " Le livraison estimé : J+2/3"
+    },
+    {
+      "type": "text",
+      "id": "checkout_button",
+      "label": "Checkout button",
+      "default": "Procéder au paiement"
+    },
+    {
+      "type": "text",
+      "id": "cart_empty",
+      "label": "Message cart empty",
+      "default": "Cart empty"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "content",
+      "name": "Cart icon",
+      "settings": [
+        {
+          "type": "text",
+          "id": "icon_image",
+          "label": "Filename icon image",
+          "default": "Fabrication-icon"
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Icon heading",
+          "default": "icon headind"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
