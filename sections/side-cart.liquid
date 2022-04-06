@@ -1,24 +1,17 @@
-<div class="cart-upsell">
-  {% render 'cart-upsell'
-    cart: cart,
-    collection: section.settings.upsell_collection
-    title: section.settings.upsell_title
-  %}
-</div>
+<div class="cart-wrapper">
 
-<div class="cart-products">
   {% render 'cart-header'
     cart: cart
     title: section.settings.cart_title
     limit_price: section.settings.limit_price
   %}
   
-  {% render 'cart-item' 
+  {% render 'cart-items' 
     cart: cart
     cart_empty_message: section.settings.cart_empty
   %}
-  
-  <div class="cart-upsell cart-upsell-mobile">
+
+  <div class="cart-upsell cart-margins__inline">
     {% render 'cart-upsell'
       cart: cart,
       collection: section.settings.upsell_collection
@@ -33,8 +26,12 @@
     shipping_info: section.settings.shipping_info,
     checkout_button: section.settings.checkout_button
   %}
-</div>
+  
+  <span class="cart-close">
+    {% render 'icon-close' %}
+  </span>
 
+</div>
 
 {% schema %}
 {

@@ -10,11 +10,7 @@
   %}
 {% endcomment %}
 
-<div class="cart-header">
-
-  <span class="cart-header__close-icon cart-view">
-    {% render 'icon-close' %}
-  </span>
+<div class="cart-header cart-margins__inline">
 
   <div class="cart-header__title">
     <span class="cart-header__title--text">
@@ -26,7 +22,7 @@
     {% liquid
       assign cart_total = cart.original_total_price
     %}
-    {% render 'progress-bar'
+    {% render 'cart-progress-bar'
       title: progressbar_title,
       total_price: cart_total,
       limit_price: limit_price
