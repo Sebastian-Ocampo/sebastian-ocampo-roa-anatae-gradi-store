@@ -1,55 +1,36 @@
-import { $Qll } from "./query-selector";
+import { $Q, $Qll } from "./query-selector";
 import { updateCart } from "../components/cart";
 
 /**
-  * Set quantoty
+  * Set quantity
   * Set item quantity with custom input,
   * Execute updateCart function
-* @author Michael Ballen 
+* @author Cristian Velasco
 */
 export const setQuantity = () => {
-  const btnLess = $Qll(".btn-less");
-  const btnPlus = $Qll(".btn-plus");
-
-  if( btnLess ) {
-    changeInputValue(btnLess, "subtract")
-  }
-
-  if( btnPlus ) {
-    changeInputValue(btnPlus, "add")
-  }
-
+  return $Qll(".quantity-label").forEach(
+    labelParent => $Qll('button', labelParent)
+      .forEach(btn => {
+        btn.addEventListener(
+          'click',
+          updateQuantity
+        )
+      })
+  )
 }
 
 /**
  * add or subtract input value
- * @param {DOM element} btn - button for change input value
- * @param {string} operation - add for ++ or subtract for --
- * @author Michael Ballen
+ * @author Cristian Velasco
  */
-const changeInputValue = (btn, operation) => {
-  btn.forEach( element => {
-  
-    element.addEventListener("click", ()=> {
-      const inputId = element.dataset.input;
-      const input = document.getElementById(inputId);
-      const inputs = $Qll(`.id-${inputId}`);
+function updateQuantity() {
+  let input = $Q('input', this.parentElement)
 
-      if( operation === "subtract" ) {
-        if( input.value > 0 ) {
-          inputs.forEach( element => {
-            element.value --
-          })
-        }
-      } else {
-        inputs.forEach( element => {
-          element.value ++
-        })
-      }
+  if (this.dataset.action == "subtr") {
+    input.value > 0 && input.value--
+  } else {
+    input.value++
+  }
 
-      updateCart(inputId, input.value);
-
-    });
-    
-  });
+  return input.dispatchEvent(new Event("change"));
 }

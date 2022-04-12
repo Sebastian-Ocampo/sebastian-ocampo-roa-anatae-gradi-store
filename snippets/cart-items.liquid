@@ -53,30 +53,28 @@
       </div>
     
       <div class="cart-items__container--product-info">
-    
-        <div class="item-quantity">
-          {% render 'input-quantity' 
-            id: item.variant.id
-            cart_item: item
-          %}
-        </div>
-    
         <div class="item-price">
-          <span
-            class="item-delete"
-            data-id="{{ item.variant.id }}"
-          >
-            {% render 'icon-remove' %}
-          </span>
-    
           <span 
             class="price-{{ item.variant.id }}" 
             id="price-{{ item.variant.id }}"
           >
             {{ item.original_line_price | money }}
           </span>
+
+          <span
+            class="item-delete"
+            data-id="{{ item.variant.id }}"
+          >
+            {% render 'icon-remove' %}
+          </span>
         </div>
-    
+
+        <div class="item-quantity">
+          {% render 'input-quantity' 
+            id: item.variant.id
+            cart_item: item
+          %}
+        </div>
       </div>
     </div>
     

@@ -12,7 +12,7 @@
 
 {%- liquid
   assign first_variant = product.selected_or_first_available_variant
-  assign imgUrl = product.featured_media | image_url: '116x156'
+  assign img_url = product.featured_media | img_url: '133x133'
   assign image = product.featured_image
   assign btn_text = 'products.product.add_to_cart' | t 
 -%}
@@ -21,11 +21,12 @@
 
   <div class="cart-upsell-container-product__image">
     {% render "render-image"
-      class: "",
-      img_src: imgUrl,
+      img_src: img_url,
       img: image,
-      width: "116",
-      height: "116"
+      alt: image.alt,
+      size: "50 116"
+      width: "133",
+      height: "133"
     %}
   </div>
 

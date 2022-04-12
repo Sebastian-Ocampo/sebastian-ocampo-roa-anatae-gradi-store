@@ -11,7 +11,10 @@
     cart_empty_message: section.settings.cart_empty
   %}
 
-  <div class="cart-upsell cart-margins__inline">
+  <div
+    id="cart-upsell-container"
+    class="cart-upsell cart-margins__inline"
+  >
     {% render 'cart-upsell'
       cart: cart,
       collection: section.settings.upsell_collection

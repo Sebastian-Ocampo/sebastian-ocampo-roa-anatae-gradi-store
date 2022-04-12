@@ -7,6 +7,7 @@ import {
   btnAddToCart,
   btnAddUpsell,
   deleteItem,
+  onChangeItemCart,
   openCloseCart
 } from "../components/cart";
 import { setQuantity } from "../utils/input-quantity";
@@ -18,3 +19,4 @@ btnAddUpsell();
 openCloseCart();
 deleteItem();
 setQuantity();
+onChangeItemCart();

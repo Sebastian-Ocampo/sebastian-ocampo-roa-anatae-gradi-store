@@ -61,17 +61,29 @@ const addProducts = async (event) => {
         quantity: 1,
       }
     ],
-    sections: "cart"
+    sections: "side-cart"
   };
 
-  const response = await api.addToCart(cartParams);
+  const { sections } = await api.addToCart(cartParams);
 
-  updateCartItems(response.sections.cart);
-  updateCartbutton(response.sections.cart);
-  updatetotalPrice(response.sections.cart);
-  updateUpsell(response.sections.cart);
+  updateCartItems(sections["side-cart"]);
+  updateCartbutton(sections["side-cart"]);
+  updatetotalPrice(sections["side-cart"]);
+  updateUpsell(sections["side-cart"]);
 }
 
+export const onChangeItemCart = () => {
+  $Qll('.item-cart-js input').forEach(
+    input => {
+      input.addEventListener(
+        'change',
+        function () {
+          updateCart(this.id, this.value);
+        }
+      )
+    }
+  )
+}
 
 /**
  * Update quantity for each item in cart
@@ -83,20 +95,20 @@ export const updateCart = async (id, quantity) => {
   const cartParams = {
     id: id,
     quantity: quantity,
-    sections: "cart",
+    sections: "side-cart",
   }
   
-  const response = await api.updateCart(cartParams);
+  const { sections } = await api.updateCart(cartParams);
 
   if (quantity == 0) {
-    updateCartItems(response.sections.cart);
-    updateCartbutton(response.sections.cart);
-    updatetotalPrice(response.sections.cart);
-    updateUpsell(response.sections.cart);
+    updateCartItems(sections["side-cart"]);
+    updateCartbutton(sections["side-cart"]);
+    updatetotalPrice(sections["side-cart"]);
+    updateUpsell(sections["side-cart"]);
   } else {
-    updatePriceItem(response.sections.cart, id);
-    updateCartbutton(response.sections.cart);
-    updatetotalPrice(response.sections.cart);
+    updatePriceItem(sections["side-cart"], id);
+    updateCartbutton(sections["side-cart"]);
+    updatetotalPrice(sections["side-cart"]);
   }
 }
 
