@@ -12,73 +12,75 @@
   %}
 {% endcomment %}
 
-<div
-  class="cart-items cart-margins__inline"
-  id="cart-items"
->
-  {% if cart.item_count == 0 %}
-    <span class="cart-items__empty">
-      {{ cart_empty_message }}
-    </span>
-  {% else %}    
-  {% for item in cart.items %}
-
-    <div
-      class="cart-items__container"
-      data-live-item-key="{{ item.key }}"
-    >
-
-      <div class="cart-items__container--product-title">
-        <div class="cart-items__container--image"> 
-          {% assign imgUrl = item.product.featured_media | image_url: '82x110' %}
-          {% assign image = item.product.featured_image %}
-          {% render "render-image"
-            class: "",
-            attr: "data-live-item-image",
-            img_src: imgUrl,
-            img: image,
-            width: "82",
-            height: "110"
-          %}
+<div class="cartitems-js">
+  <div
+    class="cart-items cart-margins__inline"
+    id="cart-items"
+  >
+    {% if cart.item_count == 0 %}
+      <span class="cart-items__empty">
+        {{ "sections.cart.empty" | t }} 
+      </span>
+    {% else %}    
+    {% for item in cart.items %}
+  
+      <div
+        class="cart-items__container"
+        data-live-item-key="{{ item.key }}"
+      >
+  
+        <div class="cart-items__container--product-title">
+          <div class="cart-items__container--image"> 
+            {% assign imgUrl = item.product.featured_media | image_url: '82x110' %}
+            {% assign image = item.product.featured_image %}
+            {% render "render-image"
+              class: "",
+              attr: "data-live-item-image",
+              img_src: imgUrl,
+              img: image,
+              width: "82",
+              height: "110"
+            %}
+          </div>
+        
+          <div class="cart-items__container--title">
+            <span>
+              {{ item.product.title }}
+            </span>
+            <span>
+              {{ item.variant.title }}
+            </span>
+          </div>
         </div>
       
-        <div class="cart-items__container--title">
-          <span>
-            {{ item.product.title }}
-          </span>
-          <span>
-            {{ item.variant.title }}
-          </span>
+        <div class="cart-items__container--product-info">
+          <div class="item-price">
+            <span 
+              class="price-{{ item.variant.id }}" 
+              id="price-{{ item.variant.id }}"
+            >
+              {{ item.original_line_price | money }}
+            </span>
+  
+            <span
+              class="item-delete"
+              data-id="{{ item.variant.id }}"
+            >
+              {% render 'icon-remove' %}
+            </span>
+          </div>
+  
+          <div class="item-quantity">
+            {% render 'input-quantity' 
+              id: item.variant.id
+              cart_item: item
+            %}
+          </div>
         </div>
       </div>
-    
-      <div class="cart-items__container--product-info">
-        <div class="item-price">
-          <span 
-            class="price-{{ item.variant.id }}" 
-            id="price-{{ item.variant.id }}"
-          >
-            {{ item.original_line_price | money }}
-          </span>
-
-          <span
-            class="item-delete"
-            data-id="{{ item.variant.id }}"
-          >
-            {% render 'icon-remove' %}
-          </span>
-        </div>
-
-        <div class="item-quantity">
-          {% render 'input-quantity' 
-            id: item.variant.id
-            cart_item: item
-          %}
-        </div>
-      </div>
-    </div>
-    
-  {% endfor %}
-  {% endif %}
-
+      
+    {% endfor %}
+    {% endif %}
+  
+  </div>
 </div>

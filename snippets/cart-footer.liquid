@@ -3,51 +3,16 @@
   
   Accepts:
   - cart: {Object} cart object
-  - cart_blocks: {Object} section blocks object
-  - cart_content: {String} text content in cart
   - shipping_info: {String} shipping info in cart
   - checkout_button: {String} text for checkout button
 
   Usage:
   {% render 'cart-footer'
     cart: cart,
-    cart_blocks: section.blocks,
-    cart_content: section.settings.cart_content,
     shipping_info: section.settings.shipping_info,
     checkout_button: section.settings.checkout_button
   %}
 {% endcomment %}
-
-<div class="cart-content cart-margins__inline">
-  <div class="cart-content__text">
-    <span>
-      {{ cart_content }}
-    </span>
-  </div>
-
-  <div class="cart-content__icons">
-    {% for block in cart_blocks %}
-      
-      {% assign iconImage = block.settings.icon_image | append: '.svg' | file_url %}
-      <article class="cart-content__icons-item">
-        <div class="cart-content-icons__item--image">
-          {% render "render-image"
-            class: '',
-            img_src: iconImage,
-            width: "54",
-            height: "54"
-          %}
-        </div>
-        <div class="cart-content-icons__item--text">
-          <span>
-            {{ block.settings.heading }}
-          </span>
-        </div>
-      </article>
-
-    {% endfor %}
-  </div>
-</div>
 
 <div class="cart-footer cart-margins__inline">
   <div class="cart-footer__shipping">
@@ -60,7 +25,7 @@
   >
 
     {% capture content_button %}
-      {{ checkout_button }} 
+      {{ "sections.cart.checkout" | t }} 
       <span id="total-price">
         {{ cart.total_price | money }}
       </span>

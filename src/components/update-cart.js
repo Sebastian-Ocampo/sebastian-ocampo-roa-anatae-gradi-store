@@ -1,7 +1,7 @@
 import { stringToHTML } from '../utils/to-html';
 import { $Q, $Qll } from '../utils/query-selector';
 import { setQuantity } from "../utils/input-quantity";
-import { deleteItem } from "./cart";
+import { deleteItem, onChangeItemCart } from "./cart";
 import { btnAddUpsell } from './cart';
 import { barProgress } from '../utils/bar-progress';
 
@@ -11,15 +11,17 @@ import { barProgress } from '../utils/bar-progress';
  * @author Michael Ballen
  */
 export const updateCartItems = (str) => {
-  const listItems = $Q('#cart-items', stringToHTML(str));
-  const domListItems = $Qll('.cart-items');
-
-  domListItems.forEach( element => {
-    element.innerHTML = listItems.outerHTML;
-  })
+  $Qll('.cartitems-js')
+    .forEach(
+      element => {
+        element.innerHTML = $Q('#cart-items', stringToHTML(str))
+          .outerHTML;
+      }
+    )
 
   setQuantity();
   deleteItem();
+  onChangeItemCart();
 }
 
 /**
@@ -46,12 +48,14 @@ export const updateCartbutton = (str) => {
  * @author Michael Ballen
  */
 export const updatePriceItem = (str, id) => {
-  const priceContainer = $Q(`#price-${id}`, stringToHTML(str));
-  const dompriceContainer = $Qll(`.price-${id}`);
-
-  dompriceContainer.forEach( element => {
-    element.innerHTML = priceContainer.outerText
-  })
+  return $Qll(`.price-${id}`).forEach(
+    element => {
+      element.innerHTML = $Q(
+        `#price-${id}`,
+        stringToHTML(str)
+        ).outerText;
+    }
+  )
 }
 
 /**
@@ -60,11 +64,11 @@ export const updatePriceItem = (str, id) => {
  * @author Michael Ballen
  */
  export const updatetotalPrice = (str) => {
-  const totalprice = $Q("#total-price", stringToHTML(str));
-  const domtotalprice = $Q(".cartpage-footer__info--price");
-
-  if (domtotalprice != null) {
-    domtotalprice.innerHTML = totalprice.outerText
+  if ($Q(".cartpage-footer__info--price") != null) {
+    
+    return $Q(".cartpage-footer__info--price")
+      .innerHTML = $Q("#total-price", stringToHTML(str))
+      .outerText;
   }
 }
 
@@ -74,12 +78,7 @@ export const updatePriceItem = (str, id) => {
  * @author Michael Ballen
  */
 export const updateUpsell = (str) => {
-  const upsellContainer = $Q('#cart-upsell-container', stringToHTML(str));
-  const domupsellContainer = $Qll('.cart-upsell-container');
-
-  domupsellContainer.forEach(element => {
-    element.innerHTML = upsellContainer.innerHTML;
-  });
-
+  $Qll('.upsell-js')
+    .innerHTML = $Q('.cart-upsell-container', stringToHTML(str));
   btnAddUpsell();
 }

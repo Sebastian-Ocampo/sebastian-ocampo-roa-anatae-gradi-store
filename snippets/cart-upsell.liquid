@@ -40,8 +40,10 @@
   {% endfor %}
 {% endcapture %}
 
-{% render 'slider'
-  wrapper: 'cart-upsell-container'
-  content: snippet_content,
-  arrows: true
-%}
+<div class="upsell-js">
+  {% render 'slider'
+    wrapper: 'cart-upsell-container'
+    content: snippet_content,
+    arrows: true
+  %}
+</div>

@@ -19,6 +19,10 @@
   overflow-y: auto;
   z-index: 1;
 
+  @media screen and (max-width: 767px) {
+    width: 100%;
+  }
+
   &[data-active="true"] {
     display: block;
   }

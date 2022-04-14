@@ -64,7 +64,7 @@
     </div>
   </a>
   <form
-    class="product-card--form"
+    class="product-card--form add-product-cart"
     action="/cart/add">
     
     <div class="product-card--form-variants">
@@ -76,7 +76,7 @@
 
     <button
       class="btn-2"
-      type="button"
+      type="submit"
     >
       {%- if product.selected_or_first_available_variant.available -%}
         {{ 'products.product.add_to_cart' | t }}

@@ -1,5 +1,4 @@
 import { $Q, $Qll } from "./query-selector";
-import { updateCart } from "../components/cart";
 
 /**
   * Set quantity

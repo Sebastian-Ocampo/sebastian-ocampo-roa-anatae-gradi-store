@@ -1,6 +1,6 @@
 import api from "../services/api";
 import { $Qll, $Q } from "../utils/query-selector";
-import { toggleDataActive } from "../utils/toggle-dataset";
+import { dataToggle, toggleDataActive } from "../utils/toggle-dataset";
 import { updateCartItems, updatetotalPrice } from "./update-cart";
 import { updateCartbutton } from "./update-cart";
 import { updatePriceItem } from "./update-cart";
@@ -12,34 +12,45 @@ barProgress($Q('#progress-bar-data'));
 /**
  * Listen if add to cart form is submited
  * if add to cart form is submited add products in cart
- */
+ * 
+ * To active this feature - ADD className 'add-product-cart' in form product
+ * */
 export const btnAddToCart = () => {
-  const addForm = $Q(".add-product-cart");
+  const addForms = $Qll(".add-product-cart");
 
-  if(addForm != null ) {
-    submitForm(addForm)
+  if(addForms != null) {
+    addForms.forEach(
+      form => {
+        submitForm(form);
+      }
+    )
   }
 }
 
 export const btnAddUpsell = () => {
   const addFormUpsell = $Qll(".add-product-cart-upsell");
 
-  if(addFormUpsell != null ) {
-
-    addFormUpsell.forEach( element => {
-      submitForm(element)
-    })
+  if(addFormUpsell != null) {
+    addFormUpsell.forEach(
+      form => {
+        submitForm(form)
+      }
+    )
   }
 }
 
 const submitForm = (form) => {
+  return form.addEventListener(
+    "submit",
+    (e) => {
+      e.preventDefault();
+      addProducts(e);
 
-  form.addEventListener("submit", (e) => {
-    e.preventDefault();
-    addProducts(e);
-  })
+      e.target.dataset.form != "upsell"
+       && dataToggle($Q("#shopify-section-side-cart"), true);
+    }
+  )
 }
-
 
 /**
  * Add products in cart
@@ -136,7 +147,7 @@ export const deleteItem = () => {
 */
 export const openCloseCart = () => {
   const cartContainer = $Q(".cart");
-  cartContainer.setAttribute ("data-active", "false");
+  cartContainer.setAttribute("data-active", "false");
 
   toggleDataActive(
     ".cart-close",
