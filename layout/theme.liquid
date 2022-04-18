@@ -7,10 +7,46 @@
     <meta name="theme-color" content="">
     <link rel="canonical" href="{{ canonical_url }}">
     <link rel="preconnect" href="https://cdn.shopify.com" crossorigin>
+    <link rel="dns-prefetch" href="https://cdn.shopify.com" crossorigin>
+    <link rel="dns-prefetch" href="https://unpkg.com" crossorigin>
 
+    <link
+      rel="preload"
+      href="{{ 'fonts.css' | asset_url }}"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
+    >
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="{{ 'fonts.css' | asset_url }}"
+      >
+    </noscript>
+    
     {%- if settings.favicon != blank -%}
-      <link rel="icon" type="image/png" href="{{ settings.favicon | img_url: '32x32' }}">
+      <link
+        rel="icon"
+        type="image/png" 
+        href="{{ settings.favicon | img_url: '32x32' }}"
+      >
     {%- endif -%}
+
+    {% comment %}
+    Active in run build
+
+    <link
+      rel="stylesheet"
+      href="{{ 'theme.css' | asset_url }}"
+    >
+
+    {%- if request.page_type == 'product' -%}
+      <link
+        rel="stylesheet"
+        href="{{ 'product.css' | asset_url }}"
+      >
+    {%- endif -%}
+
+    {% endcomment %}
 
     <title>
       {{ page_title }}
@@ -20,7 +56,10 @@
     </title>
 
     {% if page_description %}
-      <meta name="description" content="{{ page_description | escape }}">
+      <meta
+        name="description"
+        content="{{ page_description | escape }}"
+      >
     {% endif %}
 
     {% render 'meta-tags' %}
@@ -33,20 +72,18 @@
   </head>
 
   <body class="gradient">
-    <a class="skip-to-content-link button visually-hidden" href="#MainContent">
-      {{ "accessibility.skip_to_text" | t }}
-    </a>
-
     {% section 'header' %}
 
-    <main id="MainContent" class="content-for-layout focus-none" role="main" tabindex="-1">
+    <main id="MainContent" role="main" tabindex="-1">
       {{ content_for_layout }}
     </main>
 
     {% section 'footer' %}
 
     <ul hidden>
-      <li id="a11y-refresh-page-message">{{ 'accessibility.refresh_page' | t }}</li>
+      <li id="a11y-refresh-page-message">
+        {{ 'accessibility.refresh_page' | t }}
+      </li>
     </ul>
 
     <script>
@@ -78,6 +115,13 @@
       src="{{ 'theme.js' | asset_url }}"
       defer="defer"
     ></script>
+
+    {%- if request.page_type == 'product' -%}
+      <script 
+        src="{{ 'product.js' | asset_url }}"
+        defer="defer"
+      ></script>
+    {%- endif -%}
 
     <script
       src="{{ 'lazysizes.min.js' | asset_url }}"
