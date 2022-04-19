@@ -1,10 +1,51 @@
 {
   "sections": {
     "main": {
-      "type": "hello-world"
+      "type": "hello-world",
+      "settings": {
+      }
+    },
+    "16479727170648f2b7": {
+      "type": "carousel-products",
+      "blocks": {
+        "16479727173cfca19d-0": {
+          "type": "product",
+          "settings": {
+            "product": "damp-glade"
+          }
+        },
+        "16479727173cfca19d-1": {
+          "type": "product",
+          "settings": {
+            "product": ""
+          }
+        },
+        "16479727173cfca19d-2": {
+          "type": "product",
+          "settings": {
+            "product": ""
+          }
+        },
+        "16479727173cfca19d-3": {
+          "type": "product",
+          "settings": {
+            "product": ""
+          }
+        }
+      },
+      "block_order": [
+        "16479727173cfca19d-0",
+        "16479727173cfca19d-1",
+        "16479727173cfca19d-2",
+        "16479727173cfca19d-3"
+      ],
+      "settings": {
+        "heading": "Heading carousel"
+      }
     }
   },
   "order": [
-    "main"
+    "main",
+    "16479727170648f2b7"
   ]
 }
