@@ -5,7 +5,6 @@ import "../components/slider-swiper";
 import { variantOnChange } from "../components/variants-product";
 import {
   btnAddToCart,
-  btnAddUpsell,
   deleteItem,
   onChangeItemCart,
   openCloseCart
@@ -14,8 +13,9 @@ import { setQuantity } from "../utils/input-quantity";
 
 variantOnChange(".variants");
 
-btnAddToCart();
-btnAddUpsell();
+btnAddToCart(".add-product-cart");
+btnAddToCart(".add-product-cart-upsell");
+
 openCloseCart();
 deleteItem();
 setQuantity();

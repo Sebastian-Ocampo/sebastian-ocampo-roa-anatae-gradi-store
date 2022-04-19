@@ -13,37 +13,40 @@
     title: section.settings.upsell_title
   %}
 {% endcomment %}
+<div
+  class="cart-upsell cart-margins__inline"
+>
+  <span class="cart-upsell-title">
+    {{ title }}
+  </span>
 
-<span class="cart-upsell-title">
-  {{ title }}
-</span>
+  {% capture snippet_content %}
+    {% for upsell_product in collection.products %}
+      {% for line_item in cart.items %}
 
-{% capture snippet_content %}
-  {% for upsell_product in collection.products %}
-    {% for line_item in cart.items %}
+        {% if upsell_product.id == line_item.product.id %}
+          {% assign in_cart = line_item.product.id %}
+          {% break %}
+        {% endif %}
 
-      {% if upsell_product.id == line_item.product.id %}
-        {% assign in_cart = line_item.product.id %}
-        {% break %}
+      {%  endfor %}
+
+      {% if upsell_product.id == in_cart %}
+        {% continue %}
+      {% else %}
+        {% render 'cart-upsell-product'
+          product: upsell_product
+        %}
       {% endif %}
+      
+    {% endfor %}
+  {% endcapture %}
 
-    {%  endfor %}
-
-    {% if upsell_product.id == in_cart %}
-      {% continue %}
-    {% else %}
-      {% render 'cart-upsell-product'
-        product: upsell_product
+  <div id="upsell-js">
+    <div id="cart-upsell-slider">
+      {% render 'slider-upsell'
+        content: snippet_content,
       %}
-    {% endif %}
-    
-  {% endfor %}
-{% endcapture %}
-
-<div class="upsell-js">
-  {% render 'slider'
-    wrapper: 'cart-upsell-container'
-    content: snippet_content,
-    arrows: true
-  %}
+    </div>
+  </div>
 </div>

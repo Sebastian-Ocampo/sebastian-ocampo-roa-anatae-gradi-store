@@ -1,0 +1,40 @@
+{% comment %}
+  Renders slide component
+  
+  Accepts:
+  - content: {Html} Internal sliders **init with for (iteration)
+
+  NOTE: In <content> use className "swiper-slide" in the first item
+
+  Usage:
+  {% render 'slide',
+    content: snippet_content,
+  %}
+{% endcomment %}
+
+<div class="cart-upsell-container wrapper_slider">
+  <!-- Slider main container -->
+  <div
+    id="slider_{{ section.id }}"
+    class="swiper slider_upsell"
+  >
+    <!-- Additional required wrapper -->
+    <div class="swiper-wrapper">
+      <!-- Slides from props snippet -->
+      {{ content }}
+    </div>
+  </div>
+
+  <button
+    data-slider="upsell"
+    class="swiper-button swiper-button-prev"
+  >
+    prev
+  </button>
+  <button
+    data-slider="upsell"
+    class="swiper-button swiper-button-next"
+  >
+    next
+  </button>
+</div>

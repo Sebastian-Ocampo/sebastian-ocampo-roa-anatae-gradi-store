@@ -12,16 +12,11 @@
     cart: cart
   %}
 
-  <div
-    id="cart-upsell-container"
-    class="cart-upsell cart-margins__inline"
-  >
-    {% render 'cart-upsell'
-      cart: cart,
-      collection: section.settings.upsell_collection
-      title: section.settings.upsell_title
-    %}
-  </div>
+  {% render 'cart-upsell'
+    cart: cart,
+    collection: section.settings.upsell_collection
+    title: section.settings.upsell_title
+  %}
   
   {% render 'cart-footer'
     cart: cart,

@@ -1,39 +1,35 @@
 import api from "../services/api";
 import { $Qll, $Q } from "../utils/query-selector";
 import { dataToggle, toggleDataActive } from "../utils/toggle-dataset";
-import { updateCartItems, updatetotalPrice } from "./update-cart";
-import { updateCartbutton } from "./update-cart";
-import { updatePriceItem } from "./update-cart";
+import {
+  updateCartItems,
+  updatetotalPrice,
+  updateUpsell,
+  updateCartbutton,
+  updatePriceItem
+} from "./update-cart";
+
 import { barProgress } from "../utils/bar-progress";
-import { updateUpsell } from "./update-cart";
+import { sliderUpsell } from "./slider-swiper";
 
 barProgress($Q('#progress-bar-data'));
+sliderUpsell();
 
 /**
  * Listen if add to cart form is submited
  * if add to cart form is submited add products in cart
  * 
+ * @param {string} formQuery - className reference in form add-to-cart
+ * 
  * To active this feature - ADD className 'add-product-cart' in form product
  * */
-export const btnAddToCart = () => {
-  const addForms = $Qll(".add-product-cart");
+export const btnAddToCart = (formQuery) => {
+  const addForms = $Qll(formQuery);
 
   if(addForms != null) {
     addForms.forEach(
       form => {
         submitForm(form);
-      }
-    )
-  }
-}
-
-export const btnAddUpsell = () => {
-  const addFormUpsell = $Qll(".add-product-cart-upsell");
-
-  if(addFormUpsell != null) {
-    addFormUpsell.forEach(
-      form => {
-        submitForm(form)
       }
     )
   }
@@ -82,6 +78,10 @@ const addProducts = async (event) => {
   updatetotalPrice(sections["side-cart"]);
   updateUpsell(sections["side-cart"]);
 }
+
+/**
+ * Event onChange in the cart item
+ */
 
 export const onChangeItemCart = () => {
   $Qll('.item-cart-js input').forEach(
@@ -133,11 +133,16 @@ export const deleteItem = () => {
   const deleteIcon = $Qll(".item-delete");
 
   if( deleteIcon ) {
-    deleteIcon.forEach( element => {
-      element.addEventListener("click", ()=> {
-        updateCart(element.dataset.id, 0)
-      })
-    });
+    deleteIcon.forEach(
+      element => {
+        element.addEventListener(
+          "click",
+          () => {
+            updateCart(element.dataset.id, 0)
+          }
+        )
+      }
+    );
   }
 }
 

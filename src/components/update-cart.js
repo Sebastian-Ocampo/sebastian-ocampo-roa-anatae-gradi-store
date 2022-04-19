@@ -1,21 +1,22 @@
 import { stringToHTML } from '../utils/to-html';
 import { $Q, $Qll } from '../utils/query-selector';
 import { setQuantity } from "../utils/input-quantity";
-import { deleteItem, onChangeItemCart } from "./cart";
-import { btnAddUpsell } from './cart';
+import { btnAddToCart, deleteItem, onChangeItemCart } from "./cart";
 import { barProgress } from '../utils/bar-progress';
+import { sliderUpsell } from './slider-swiper';
 
 /**
  * Update cart items section in sidecart
  * @param {string} str - String HTML of section rendeirng
- * @author Michael Ballen
  */
 export const updateCartItems = (str) => {
   $Qll('.cartitems-js')
     .forEach(
       element => {
-        element.innerHTML = $Q('#cart-items', stringToHTML(str))
-          .outerHTML;
+        element.innerHTML = $Q(
+          '#cart-items',
+          stringToHTML(str)
+        ).outerHTML;
       }
     )
 
@@ -27,7 +28,6 @@ export const updateCartItems = (str) => {
 /**
  * Update checkout button section in sidecart
  * @param {string} str - String HTML of section rendeirng
- * @author Michael Ballen
  */
 export const updateCartbutton = (str) => {
   const btnContainer = $Q('#cart-footer__button', stringToHTML(str));
@@ -45,7 +45,6 @@ export const updateCartbutton = (str) => {
  * Update price item for each item in cart items section
  * @param {string} str - String HTML of section rendeirng
  * @param {number} id - Product ID
- * @author Michael Ballen
  */
 export const updatePriceItem = (str, id) => {
   return $Qll(`.price-${id}`).forEach(
@@ -53,7 +52,7 @@ export const updatePriceItem = (str, id) => {
       element.innerHTML = $Q(
         `#price-${id}`,
         stringToHTML(str)
-        ).outerText;
+      ).outerText;
     }
   )
 }
@@ -61,24 +60,26 @@ export const updatePriceItem = (str, id) => {
 /**
  * Update total price in cart page
  * @param {string} str - String HTML of section rendeirng
- * @author Michael Ballen
  */
  export const updatetotalPrice = (str) => {
   if ($Q(".cartpage-footer__info--price") != null) {
-    
-    return $Q(".cartpage-footer__info--price")
-      .innerHTML = $Q("#total-price", stringToHTML(str))
-      .outerText;
+    return $Q(".cartpage-footer__info--price").innerHTML = $Q(
+      "#total-price",
+      stringToHTML(str)
+    ).outerText;
   }
 }
 
 /**
  * Update upsell section in sidecart
  * @param {string} str - String HTML of section rendeirng
- * @author Michael Ballen
  */
 export const updateUpsell = (str) => {
-  $Qll('.upsell-js')
-    .innerHTML = $Q('.cart-upsell-container', stringToHTML(str));
-  btnAddUpsell();
+  $Q('#upsell-js').innerHTML = $Q(
+    '#cart-upsell-slider',
+    stringToHTML(str)
+  ).outerHTML;
+
+  btnAddToCart(".add-product-cart-upsell");
+  sliderUpsell();
 }
