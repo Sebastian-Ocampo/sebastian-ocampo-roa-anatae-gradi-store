@@ -40,24 +40,6 @@ export const configPagination = (id) => {
   });
 }
 
-export const configSwiperUpsell = {
-  modules: [Navigation, FreeMode],
-  slidesPerView: "auto",
-  spaceBetween: 25,
-  navigation: {
-    nextEl: `.swiper-button-next[data-slider="upsell"]`,
-    prevEl: `.swiper-button-prev[data-slider="upsell"]`,
-  },
-  freeMode: true,
-  breakpoints: {
-    749: {
-      slidesPerView: 3,
-      spaceBetween: 28,
-      freeMode: false,
-    },
-  },
-}
-
 export const swiperSmall = new Swiper(".slider_small", {
   modules: [Pagination, Autoplay, FreeMode],
   slidesPerView: 1,
@@ -83,7 +65,3 @@ export const swiperPagination = (() => {
     configPagination('#' + slide.id)
   })
 })();
-
-export const sliderUpsell = () => {
-  new Swiper('.slider_upsell', configSwiperUpsell);
-};

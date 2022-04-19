@@ -1,9 +1,7 @@
 import { stringToHTML } from '../utils/to-html';
 import { $Q, $Qll } from '../utils/query-selector';
 import { setQuantity } from "../utils/input-quantity";
-import { btnAddToCart, deleteItem, onChangeItemCart } from "./cart";
-import { barProgress } from '../utils/bar-progress';
-import { sliderUpsell } from './slider-swiper';
+import { deleteItem, onChangeItemCart } from "./cart";
 
 /**
  * Update cart items section in sidecart
@@ -31,14 +29,11 @@ export const updateCartItems = (str) => {
  */
 export const updateCartbutton = (str) => {
   const btnContainer = $Q('#cart-footer__button', stringToHTML(str));
-  const inputBarProgress = $Q('#progress-bar-data', stringToHTML(str));
   const domBtnContainer = $Qll('.cart-footer__button');
 
   domBtnContainer.forEach( element => {
     element.innerHTML = btnContainer.outerHTML;
   })
-
-  barProgress(inputBarProgress);
 }
 
 /**
@@ -68,18 +63,4 @@ export const updatePriceItem = (str, id) => {
       stringToHTML(str)
     ).outerText;
   }
-}
-
-/**
- * Update upsell section in sidecart
- * @param {string} str - String HTML of section rendeirng
- */
-export const updateUpsell = (str) => {
-  $Q('#upsell-js').innerHTML = $Q(
-    '#cart-upsell-slider',
-    stringToHTML(str)
-  ).outerHTML;
-
-  btnAddToCart(".add-product-cart-upsell");
-  sliderUpsell();
 }

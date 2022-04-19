@@ -17,16 +17,5 @@
       {{ title }}
     </span>
   </div>
-
-  <div class="cart-header__discount">
-    {% liquid
-      assign cart_total = cart.original_total_price
-    %}
-    {% render 'cart-progress-bar'
-      title: progressbar_title,
-      total_price: cart_total,
-      limit_price: limit_price
-    %}
-  </div>
   
 </div>

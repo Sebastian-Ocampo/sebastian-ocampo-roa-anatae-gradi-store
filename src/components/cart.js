@@ -4,16 +4,9 @@ import { dataToggle, toggleDataActive } from "../utils/toggle-dataset";
 import {
   updateCartItems,
   updatetotalPrice,
-  updateUpsell,
   updateCartbutton,
   updatePriceItem
 } from "./update-cart";
-
-import { barProgress } from "../utils/bar-progress";
-import { sliderUpsell } from "./slider-swiper";
-
-barProgress($Q('#progress-bar-data'));
-sliderUpsell();
 
 /**
  * Listen if add to cart form is submited
@@ -76,7 +69,6 @@ const addProducts = async (event) => {
   updateCartItems(sections["side-cart"]);
   updateCartbutton(sections["side-cart"]);
   updatetotalPrice(sections["side-cart"]);
-  updateUpsell(sections["side-cart"]);
 }
 
 /**
@@ -115,7 +107,6 @@ export const updateCart = async (id, quantity) => {
     updateCartItems(sections["side-cart"]);
     updateCartbutton(sections["side-cart"]);
     updatetotalPrice(sections["side-cart"]);
-    updateUpsell(sections["side-cart"]);
   } else {
     updatePriceItem(sections["side-cart"], id);
     updateCartbutton(sections["side-cart"]);
