@@ -1,0 +1,91 @@
+<div class="cartpage-header">
+  <h1 class="cartpage-header__title">
+    {{ section.settings.page_title }}
+  </h1>
+
+  <a href="{{ routes.root_url }}" class="cartpage-header__link">
+    {{ section.settings.link_text }}
+  </a>
+</div>
+
+<div class="cartpage-items">
+  {% render 'cart-items' 
+    cart: cart
+    cart_empty_message: section.settings.cart_empty
+  %}
+</div>
+
+<div class="cartpage-footer">
+  <h2 class="cartpage-footer__total-text">
+    {{ section.settings.total_text }}
+  </h2>
+
+  <div class="cartpage-footer__info">
+    <span id="total-price" class="cartpage-footer__info--price">
+      {{ cart.total_price | money_without_currency | append: cart.currency.symbol }}
+    </span>
+
+    <span class="cartpage-footer__info--shipping">
+      {{ section.settings.shipping_info }}
+    </span>
+  </div>
+
+  <div class="cartpage-footer__btn">  
+    <a href="/checkout">
+
+      {% render 'button'
+        class: "cartpage-footer__btn--btn",
+        content: section.settings.button_text,
+        type: 1
+        size: 3
+        action: "button"
+      %}
+      
+    </a>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Cart-page",
+  "class": "cartpage",
+  "settings": [
+    {
+      "type": "text",
+      "id": "page_title",
+      "label": "Page title",
+      "default": "Votre panier"
+    },
+    {
+      "type": "text",
+      "id": "link_text",
+      "label": "Link text",
+      "default": "Continue shopping"
+    },
+    {
+      "type": "text",
+      "id": "total_text",
+      "label": "Total text",
+      "default": "Total"
+    },
+    {
+      "type": "text",
+      "id": "shipping_info",
+      "label": "Shipping info",
+      "default": " Le livraison estimé : J+2/3"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button text",
+      "default": "Checkout"
+    },
+    {
+      "type": "text",
+      "id": "cart_empty",
+      "label": "Cart empty message",
+      "default": "Cart empty"
+    }
+  ]
+}
+{% endschema %}

@@ -1,12 +1,12 @@
 import api from "../services/api";
-import { $Qll, $Q } from "../utils/query-selector";
-import { dataToggle, toggleDataActive } from "../utils/toggle-dataset";
+import { $Qll } from "../utils/query-selector";
 import {
   updateCartItems,
   updatetotalPrice,
-  updateCartbutton,
   updatePriceItem
 } from "./update-cart";
+
+const CART = "cart-page";
 
 /**
  * Listen if add to cart form is submited
@@ -34,9 +34,6 @@ const submitForm = (form) => {
     (e) => {
       e.preventDefault();
       addProducts(e);
-
-      e.target.dataset.form != "upsell"
-       && dataToggle($Q("#shopify-section-side-cart"), true);
     }
   )
 }
@@ -61,14 +58,14 @@ const addProducts = async (event) => {
         quantity: 1,
       }
     ],
-    sections: "side-cart"
+    sections: CART
   };
 
   const { sections } = await api.addToCart(cartParams);
 
-  updateCartItems(sections["side-cart"]);
-  updateCartbutton(sections["side-cart"]);
-  updatetotalPrice(sections["side-cart"]);
+  updateCartItems(sections[CART]);
+  updatetotalPrice(sections[CART]);
+  window.location.href = "/cart";
 }
 
 /**
@@ -76,7 +73,7 @@ const addProducts = async (event) => {
  */
 
 export const onChangeItemCart = () => {
-  $Qll('.item-cart-js input').forEach(
+  $Qll('.item-cart-js').forEach(
     input => {
       input.addEventListener(
         'change',
@@ -98,19 +95,17 @@ export const updateCart = async (id, quantity) => {
   const cartParams = {
     id: id,
     quantity: quantity,
-    sections: "side-cart",
+    sections: CART,
   }
   
   const { sections } = await api.updateCart(cartParams);
 
   if (quantity == 0) {
-    updateCartItems(sections["side-cart"]);
-    updateCartbutton(sections["side-cart"]);
-    updatetotalPrice(sections["side-cart"]);
+    updateCartItems(sections[CART]);
+    updatetotalPrice(sections[CART]);
   } else {
-    updatePriceItem(sections["side-cart"], id);
-    updateCartbutton(sections["side-cart"]);
-    updatetotalPrice(sections["side-cart"]);
+    updatePriceItem(sections[CART], id);
+    updatetotalPrice(sections[CART]);
   }
 }
 
@@ -135,25 +130,4 @@ export const deleteItem = () => {
       }
     );
   }
-}
-
-
-/**
-* Open and close side cart with various buttons
-*/
-export const openCloseCart = () => {
-  const cartContainer = $Q(".cart");
-  cartContainer.setAttribute("data-active", "false");
-
-  toggleDataActive(
-    ".cart-close",
-    "#shopify-section-side-cart",
-    { overlay: true }
-  )
-
-  toggleDataActive(
-    ".button-cart",
-    "#shopify-section-side-cart",
-    { overlay: true }
-  )
 }

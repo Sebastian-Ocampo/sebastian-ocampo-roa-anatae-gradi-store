@@ -26,7 +26,7 @@ function updateQuantity() {
   let input = $Q('input', this.parentElement)
 
   if (this.dataset.action == "subtr") {
-    input.value > 0 && input.value--
+    input.value > 1 && input.value--
   } else {
     input.value++
   }

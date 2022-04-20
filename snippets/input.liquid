@@ -52,6 +52,7 @@
         name="{{ name }}"
         id="{{ id }}"
         placeholder="{{ placeholder }}"
+        {{ params }}
         {%- if required -%}required{%- endif -%}
         {%- if value -%}value="{{ value }}"{%- endif -%}
       />

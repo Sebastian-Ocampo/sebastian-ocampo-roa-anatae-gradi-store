@@ -2,24 +2,22 @@
   assign class = id | prepend: 'id-'
 -%}
 
-<label
+<div
   class="quantity-label"
-  for="{{ id }}"
 >
   <button type="button"
     data-action="subtr"
   >
     -
   </button>
-  
-  {% render 'input'
-    input_class: "input-quantity",
-    id_class: class
-    class: "item-cart-js"
-    type: "number",
-    id: id,
-    value: cart_item.quantity
-  %}
+
+  <input
+    class="input-quantity item-cart-js"
+    type="number"
+    id="{{ id }}"
+    min="1"
+    value="{{ cart_item.quantity }}"
+  />
   
   <button type="button"
     data-action="plus"
@@ -27,4 +25,4 @@
     +
   </button>
 
-</label>
+</div>

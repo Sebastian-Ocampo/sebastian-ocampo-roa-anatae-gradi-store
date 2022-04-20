@@ -6,17 +6,13 @@ import { variantOnChange } from "../components/variants-product";
 import {
   btnAddToCart,
   deleteItem,
-  onChangeItemCart,
-  openCloseCart
+  onChangeItemCart
 } from "../components/cart";
 import { setQuantity } from "../utils/input-quantity";
 
 variantOnChange(".variants");
 
 btnAddToCart(".add-product-cart");
-btnAddToCart(".add-product-cart-upsell");
-
-openCloseCart();
 deleteItem();
 setQuantity();
 onChangeItemCart();
