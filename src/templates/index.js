@@ -12,7 +12,7 @@ import { setQuantity } from "../utils/input-quantity";
 
 variantOnChange(".variants");
 
-btnAddToCart(".add-product-cart");
+btnAddToCart(".add-cart-js");
 deleteItem();
 setQuantity();
 onChangeItemCart();
