@@ -21,6 +21,7 @@ import { $Q } from "./query-selector"
   )
 }
 
+
 export function dataToggle (nodeToOpen, overlay) {
   const dataset = nodeToOpen.dataset.active
   const isActive = dataset != 'true' ? false : true
