@@ -3,21 +3,6 @@
   class: "h1",
   content: collection.title
 %}
-<div>
-  {% assign order_tags = 'f-type1, f-type2, f-type3' | split: ', ' %}
-  
-  {% render "filter-tag"
-    order_tags: order_tags,
-    collection_tags: collection.all_tags,
-    text_all_products: 'All products',
-    type_filter: 'f-',
-    class: "filter_radio-button"
-  %}
-</div>
-
-<script async>
-  let url_collection = '{{ collection.url }}'
-</script>
 
 {% schema %}
   {

@@ -1,0 +1,40 @@
+.main-product {
+  display: flex;
+
+  &__slider {
+    width: 50%;
+    margin-right: 50px;
+
+    &-principal {
+      position: relative;
+
+      .swiper-button {
+        width: 20px;
+        position: absolute;
+        z-index: 1;
+        top: 50%;
+        transform: translateY(-50%);
+
+        &-next {
+          right: 0;
+        }
+
+        &-prev {
+          left: 0;
+          transform: rotateZ(180deg);
+        }
+      }
+    }
+  }
+
+  &__detail {
+    width: 50%;
+
+    form {
+      button {
+        width: 100%;
+        margin-top: 10px;
+      }
+    }
+  }
+}

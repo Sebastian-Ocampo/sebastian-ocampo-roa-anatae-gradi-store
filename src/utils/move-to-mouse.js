@@ -1,4 +1,4 @@
-import { $Qll } from "./querySelector";
+import { $Qll } from "./query-selector";
 
 /**
  * Move to scroll in X

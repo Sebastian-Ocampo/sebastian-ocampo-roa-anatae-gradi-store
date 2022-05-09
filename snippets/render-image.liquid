@@ -1,23 +1,25 @@
 {% comment %}
-    Renders a render images
-    Accepts:
-    - class: {String} className in img tag (optional)
-    - img_src: {String} to render url image
-    - alt: {String} alt in image
-    - img: {Object} image object
-    - size: {String} size responsive with spaces
-    - width: {String} default width (optional)
-    - height: {String} default height (optional)
-    Usage:
-    {% render "render-image"
-      class: "class_image",
-      img_src: <img_url>,
-      img: <img_object>,
-      size: "220 300 400 500",
-      alt: "Image alt",
-      width: "100",
-      height: "100"
-    %}
+  Renders a render images
+
+  Accepts:
+  - class: {String} className in img tag (optional)
+  - img_src: {String} to render url image
+  - alt: {String} alt in image
+  - img: {Object} image object
+  - size: {String} size responsive with spaces
+  - width: {String} default width (optional)
+  - height: {String} default height (optional)
+
+  Usage:
+  {% render "render-image"
+    class: "class_image",
+    img_src: <img_url>,
+    img: <img_object>,
+    size: "220 300 400 500",
+    alt: "Image alt",
+    width: "100",
+    height: "100"
+  %}
 {% endcomment %}
 
 {% liquid
