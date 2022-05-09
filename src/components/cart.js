@@ -14,7 +14,7 @@ const CART = "cart-page";
  * 
  * @param {string} formQuery - className reference in form add-to-cart
  * 
- * To active this feature - ADD className 'add-product-cart' in form product
+ * To active this feature - ADD className 'add-cart-js' in form product
  * */
 export const btnAddToCart = (formQuery) => {
   const addForms = $Qll(formQuery);

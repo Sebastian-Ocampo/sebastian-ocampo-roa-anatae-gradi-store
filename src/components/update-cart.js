@@ -29,8 +29,6 @@ export const updateCartItems = (str) => {
  * @param {number} id - Product ID
  */
 export const updatePriceItem = (str, id) => {
-  console.log(str);
-  
   return $Qll(`.price-${id}`).forEach(
     element => {
       element.innerHTML = $Q(
