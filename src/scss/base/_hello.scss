@@ -1,6 +1,6 @@
 @use "../abstracts/variables";
 
-main.hello {
+.hello {
   & > section {
     margin-bottom: variables.$margin-section;
 
