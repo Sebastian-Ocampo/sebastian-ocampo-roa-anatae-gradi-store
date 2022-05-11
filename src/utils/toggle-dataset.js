@@ -33,7 +33,7 @@ export const toggleDataActive = (control, node, config = {}) => {
 * @param {HTMLElement} node - Node to manipulate
 * @param {Boolean} overlay - if used to a overlay
 */
-function dataToggle (node, overlay) {
+export function dataToggle (node, overlay) {
   const { dataset, id } = node;
   const active = isActive(dataset);
 
