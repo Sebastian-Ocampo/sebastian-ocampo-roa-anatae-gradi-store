@@ -1,5 +1,8 @@
-import Swiper, { Navigation, Thumbs, FreeMode} from "swiper";
+import Swiper, { Navigation, Thumbs, FreeMode } from "swiper";
 
+/**
+ * SWIPER SLIDER: Thumbs - media product page
+ */
 const swiper = new Swiper(".main-product__slider-thumbs", {
   modules: [FreeMode],
   spaceBetween: 10,
@@ -8,6 +11,9 @@ const swiper = new Swiper(".main-product__slider-thumbs", {
   freeMode: true
 });
 
+/**
+ * SWIPER SLIDER: Feature images - media product page
+ */
 export const swiperPrincipal = new Swiper(".main-product__slider-principal", {
   modules: [Navigation, Thumbs],
   spaceBetween: 10,
