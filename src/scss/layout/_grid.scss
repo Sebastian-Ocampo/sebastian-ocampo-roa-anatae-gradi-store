@@ -8,10 +8,10 @@
   grid-template-rows: var(--rows, 1fr);
 
   @media screen and (max-width: 749px) {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: var(--columns , repeat(2, 1fr));
   }
 
   @media screen and (max-width: 350px) {
-    grid-template-columns: 1fr;
+    grid-template-columns: var(--columns , 1fr);
   }
 }
