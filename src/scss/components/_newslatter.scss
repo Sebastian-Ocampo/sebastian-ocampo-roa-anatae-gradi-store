@@ -1,0 +1,33 @@
+@use "../abstracts/variables";
+
+.newsletter {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: auto variables.$paddings-side;
+  padding-top: variables.$paddings-side;
+  padding-bottom: variables.$paddings-side;
+  text-align: center;
+
+  @media screen and (max-width: 749px) {
+    padding-left: variables.$paddings-side--movil;
+    padding-right: variables.$paddings-side--movil;
+  }
+
+  & > p {
+    margin-bottom: 20px;
+  }
+
+  &-form {
+    &__wrapper {
+      --columns: 1fr;
+    }
+
+    &__message {
+      &--success {
+        margin-top: 20px;
+        background-color: #4caf4f41;
+        border-color: #338536;
+      }
+    }
+  }
+}
