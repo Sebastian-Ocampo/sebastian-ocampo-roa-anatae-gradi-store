@@ -12,8 +12,11 @@
   %}
 {% endcomment %}
 
-<div class="accordion-item" data-active="false">
-  <div class="accordion-item__button">
+<div class="accordion-item">
+  <div
+    class="accordion-item__button"
+    data-active="{{ active | default: 'false' }}"
+  >
     <span>
       {{ title }}
     </span>

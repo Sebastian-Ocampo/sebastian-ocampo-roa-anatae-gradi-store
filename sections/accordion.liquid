@@ -1,8 +1,15 @@
 {% capture accordions %}
   {% for block in section.blocks %}
+    
+    {% assign active = 'false' %}
+    {% if forloop.first %}
+      {% assign active = 'true' %}
+    {% endif %}
+
     {% render 'accordion-item',
       title: block.settings.heading,
-      content: block.settings.content
+      content: block.settings.content,
+      active: active
     %}
   {% endfor %}
 {% endcapture %}
