@@ -1,15 +1,7 @@
 {
-  "parserOptions": {
-    "ecmaVersion": 2020,
-    "sourceType": "module"
-  },
-  "extends": ["eslint:recommended", "prettier"],
-  "env": {
-    "es6": true,
-    "node": true,
-    "jest": true
-  },
+  "extends": "../linter-rules/index.js",
   "rules": {
-    "no-console": "warn"
+    "comma-dangle": 0,
+    "max-len": 0
   }
 }
