@@ -9,7 +9,7 @@ module.exports = {
 
     // specify the maximum cyclomatic complexity allowed in a program
     // https://eslint.org/docs/rules/complexity
-    complexity: ['error', 2],
+    complexity: ['error', 5],
 
     // specify curly brace conventions for all control statements
     // https://eslint.org/docs/rules/curly

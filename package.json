@@ -9,7 +9,9 @@
   "scripts": {
     "clean": "rm assets/theme.js",
     "build": "webpack --config webpack.prod.js --mode production --progress",
-    "dev": "webpack --config webpack.dev.js --watch --mode development --progress"
+    "dev": "webpack --config webpack.dev.js --watch --mode development --progress",
+    "install:codeqa": "cd code-quality && npm prune && npm install",
+    "lint": "cd code-quality && eslint --report-unused-disable-directives ."
   },
   "devDependencies": {
     "eslint": "^7.32.0",

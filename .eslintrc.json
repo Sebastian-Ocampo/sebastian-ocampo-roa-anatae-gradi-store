@@ -1,7 +1,3 @@
 {
-  "extends": "../linter-rules/index.js",
-  "rules": {
-    "comma-dangle": 0,
-    "max-len": 0
-  }
+  "extends": "./code-quality/index.js"
 }
