@@ -1,5 +1,5 @@
 /**
-* Technical Bible Gradiweb Rules
+* Technical Bible Gradiweb Rules - Best practices
 */
 module.exports = {
   rules: {
