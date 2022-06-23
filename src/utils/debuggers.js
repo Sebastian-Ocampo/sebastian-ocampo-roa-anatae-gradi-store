@@ -5,5 +5,5 @@ const warn = (msg) => console.warn(msg);
 export {
   log,
   table,
-  warn
+  warn,
 };
