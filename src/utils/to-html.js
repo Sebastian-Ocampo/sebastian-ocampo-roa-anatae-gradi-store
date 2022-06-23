@@ -24,7 +24,7 @@ const support = () => {
 
   try {
 		parser.parseFromString('x', 'text/html');
-	} catch(err) {
+	} catch (err) {
 		return false;
 	}
 
