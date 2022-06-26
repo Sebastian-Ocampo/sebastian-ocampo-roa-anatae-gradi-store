@@ -1,38 +1,37 @@
 {% liquid
   assign logo = section.settings.logo | append: '.svg' | file_url
+  assign alt_logo = 'Logo ' | append: shop.name
 %}
-{%- capture alt_logo -%}Logo {{ shop.name }}{%- endcapture -%}
 
-<div>
-  {% render 'top-search' %}
-  <div>
-    <a href="{{ routes.root_url }}">
-      {% if logo != blank %}
-        {% render "render-image"
-          class: "",
-          img_src: logo,
-          alt: alt_logo,
-          width: "100",
-          height: "100"
-        %}
-      {% else %}
-        {{ shop.name }}
-      {% endif %}
-    </a>
-  </div>
-  <nav>
-    {% render 'site-nav'
-      linklist: section.settings.menu
-    %}
-  </nav>
-  <div>
-    {% render 'user-nav' %}
-  </div>
+<div class="header_logo">
+  <a href="{{ routes.root_url }}">
+    {% if section.settings.logo != blank %}
+      {% render "render-image"
+        class: "",
+        img_src: logo,
+        alt: alt_logo,
+        width: "100",
+        height: "100"
+      %}
+    {% else %}
+      {{ shop.name }}
+    {% endif %}
+  </a>
+</div>
+<nav>
+  {% render 'site-nav'
+    linklist: section.settings.menu
+  %}
+</nav>
+<div class="header_user">
+  {% render 'user-nav' %}
 </div>
 
 {% schema %}
 {
   "name": "t:sections.header.name",
+  "tag": "section",
+  "class": "header sticky grid",
   "settings": [
     {
       "type": "text",

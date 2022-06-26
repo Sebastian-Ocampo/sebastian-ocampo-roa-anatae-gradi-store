@@ -1,22 +1,24 @@
-<ul>
+<ul class="flex">
 {% for link in linklists[linklist].links %}
   {% if link.links != blank %}
     <li>
       <button>
-        {{ link.title }}
+        <span>{{ link.title }}</span>
+        {% render 'icon-caret' %}
       </button>
-      <div data-active="false" class="dropdown">
-        <ul>
+      <div style="display: none;" data-active="false" class="dropdown">
+        <ul class="grid">
           {% for childlink in link.links %}
             <li>
               <a 
                 href="{{ childlink.url }}"
                 title="{{ childlink.title }}"
+                class="child-title"
               >
                 {{ childlink.title }}
               </a>
               {% if childlink.links != blank %}
-                <ul>
+                <ul class="child-list">
                   {% for grandchildlink in childlink.links %}
                     <li>
                       <a 

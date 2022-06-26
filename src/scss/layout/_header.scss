@@ -1,0 +1,116 @@
+%flex-center {
+  display: flex;
+  align-items: center;
+}
+
+%reset-buttons {
+  background-color: transparent;
+  border-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.header {
+  padding: 20px 50px 20px;
+  background-color: #FFF;
+  z-index: 2;
+  --columns: 2fr 6fr 2fr;
+  box-shadow: 0px -3px 20px rgba(0, 0, 0, 0.20);
+
+  &_logo {
+    @extend %flex-center;
+    a {
+      display: block;
+      text-transform: uppercase;
+      letter-spacing: 5px;
+      text-decoration: none;
+    }
+  }
+
+  nav {
+    ul {
+      list-style: none;
+    }
+
+    & > ul {
+      height: 100%;
+      --justify: center;
+      --gap-flex: 30px;
+
+      & > li {
+        text-transform: uppercase;
+
+        a {
+          text-decoration: none;
+        }
+        
+        button {
+          @extend %reset-buttons;
+          @extend %flex-center;
+          text-transform: inherit;
+
+          & > span {
+            margin-right: 10px;
+          }
+
+          svg {
+            color: black;
+            height: 5px;
+          }
+        }
+
+        & > .dropdown {
+          position: absolute;
+          top: 60px;
+          left: 0;
+          padding: 50px 50px 50px;
+          width: calc(100% - 100px);
+          background-color: #FFF;
+          box-shadow: 0px 15px 10px rgba(0, 0, 0, 0.20);
+          
+          ul {
+            --columns: 1fr 1fr 1fr 1fr;
+            
+            & > li {
+              text-transform: none;
+
+              & > a.child-title {
+                display: block;
+                font-weight: 600;
+                text-transform: uppercase;
+                margin-bottom: 20px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &_user {
+    ul {
+      height: 100%;
+      list-style: none;
+      --justify: flex-end;
+
+      li {
+        a {
+          display: block;
+        }
+
+        svg {
+          color: black;
+          height: 20px;
+          
+          &.icon-cart {
+            height: 30px;
+          }
+        }
+
+        button {
+          @extend %reset-buttons
+        }
+      }
+    }
+  }
+}
