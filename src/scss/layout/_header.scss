@@ -26,7 +26,7 @@
     a {
       display: block;
       text-transform: uppercase;
-      letter-spacing: 5px;
+      letter-spacing: 3px;
       text-decoration: none;
     }
   }
@@ -121,15 +121,17 @@
       }
 
       & > ul {
-        display: none;
-        position: fixed;
         width: 100%;
-        top: 60px;
+        height: calc(100% - 70px);
+        top: 70px;
         left: 0;
-        background-color: #fff;
+        position: fixed;
         flex-direction: column;
         align-items: flex-start;
         justify-content: flex-start;
+        overflow-y: auto;
+        background-color: #fff;
+        display: none;
 
         &[data-active="true"] {
           display: flex;
