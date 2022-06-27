@@ -1,14 +1,16 @@
-<div>
+<div class="grid wrapper footer-blocks">
   {% for block in section.blocks %}
     {% case block.type %}
 
       {% when "link_list" %}
-        <div>
+        <div class="footer-blocks_linklist">
           {% if block.settings.heading != blank %}
-            <span>{{ block.settings.heading }}</span>
+            <span class="footer-title">
+              {{ block.settings.heading }}
+            </span>
           {% endif %}
           {% if block.settings.menu != blank %}
-            <ul>
+            <ul class="footer-list">
               {% for link in linklists[block.settings.menu].links %}
                 <li>
                   <a
@@ -23,14 +25,14 @@
         </div>
 
       {% when "newslatter" %}
-        <div>
+        <div class="footer-blocks_newslatter">
           {% if block.settings.newsletter_heading != blank %}
-            <span>
+            <span class="footer-title">
               {{ block.settings.newsletter_heading }}
             </span>
           {% endif %}
           {% if block.settings.newsletter_sub != blank %}
-            <span>
+            <span class="footer-subtitle">
               {{ block.settings.newsletter_sub }}
             </span>
           {% endif %}
@@ -41,34 +43,39 @@
               value="newsletter"
             >
               
-            <input
-              id="NewsletterForm--{{ section.id }}"
-              type="email"
-              name="contact[email]"
-              value="{{ form.email }}"
-              aria-required="true"
-              autocorrect="off"
-              autocapitalize="off"
-              autocomplete="email"
-              {% if form.errors %}
-                autofocus
-                aria-invalid="true"
-                aria-describedby="ContactFooter-error"
-              {% elsif form.posted_successfully? %}
-                aria-describedby="ContactFooter-success"
-              {% endif %}
-              placeholder="{{ 'newsletter.label' | t }}"
-              required
-            >
+            <div class="form_textfield footer-newslatter">
+              <input
+                id="NewsletterForm--{{ section.id }}"
+                type="email"
+                name="contact[email]"
+                value="{{ form.email }}"
+                aria-required="true"
+                autocorrect="off"
+                autocapitalize="off"
+                autocomplete="email"
+                {% if form.errors %}
+                  autofocus
+                  aria-invalid="true"
+                  aria-describedby="ContactFooter-error"
+                {% elsif form.posted_successfully? %}
+                  aria-describedby="ContactFooter-success"
+                {% endif %}
+                placeholder="{{ 'newsletter.label' | t }}"
+                required
+              >
+              <label for="NewsletterForm--{{ section.id }}">
+                {{ 'newsletter.label' | t }}
+              </label>
+              <button
+                type="submit"
+                name="commit"
+                id="Subscribe"
+                aria-label="{{ 'newsletter.button_label' | t }}"
+              >
+                {% render 'icon-arrow' %}
+              </button>
+            </div>
 
-            <button
-              type="submit"
-              name="commit"
-              id="Subscribe"
-              aria-label="{{ 'newsletter.button_label' | t }}"
-            >
-              {{ 'newsletter.button_label' | t }}
-            </button>
               
             {%- if form.errors -%}
               <small id="ContactFooter-error">
@@ -82,24 +89,44 @@
                 tabindex="-1"
                 autofocus
               >
-                {{ 'newsletter.success' | t }}
+                ✓ {{ 'newsletter.success' | t }}
               </h3>
             {%- endif -%}
           {%- endform -%}
         </div>
 
+      {% when "info" %}
+        <div class="footer-blocks_info">
+          {% if block.settings.heading %}
+            <h2 class="footer-title">
+              {{ block.settings.heading }}
+            </h2>
+          {% endif %}
+          {% if block.settings.sub %}
+            <p class="footer-subtitle">
+              {{ block.settings.sub }}
+            </p>
+          {% endif %}
+        </div>
+
     {% endcase %}
   {% endfor %}
-  
-  <div>
-    {% if section.settings.sub_footer != blank %}
-      <span>
-        {{ section.settings.sub_footer }}
-      </span>
-    {% endif %}
-  </div>
 </div>
 
+<div>
+  {% if section.settings.social_media %}
+    {% render 'media-icons'
+      order_media: 'facebook twitter pinterest'
+    %}
+  {% endif %}
+
+  {% if section.settings.sub_footer != blank %}
+  <span>
+    {{ section.settings.sub_footer }}
+  </span>
+  {% endif %}
+</div>
+  
 {% schema %}
 {
   "name": "t:sections.footer.name",
@@ -143,18 +170,45 @@
           "label": "Sub-heading newslatter"
         }
       ]
+    },
+    {
+      "type": "info",
+      "name": "Only information",
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "default": "Powered by Gradiweb",
+          "label": "Heading"
+        },
+        {
+          "type": "text",
+          "id": "sub",
+          "default": "Modules: JS - SCSS, Based in components and DRY CODE",
+          "label": "Text"
+        }
+      ]
     }
   ],
   "settings": [
     {
       "type": "text",
       "id": "sub_footer",
-      "default": "Gradiweb ©",
+      "default": "© 2022, theme-base Powered by Gradiweb",
       "label": "t:sections.footer.blocks.text.name"
+    },
+    {
+      "type": "checkbox",
+      "id": "social_media",
+      "label": "Display social media snippet",
+      "default": true
     }
   ],
   "default": {
     "blocks": [
+      {
+        "type": "link_list"
+      },
       {
         "type": "link_list"
       },
