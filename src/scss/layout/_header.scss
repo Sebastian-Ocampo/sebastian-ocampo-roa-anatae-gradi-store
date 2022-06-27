@@ -15,10 +15,14 @@
   background-color: #FFF;
   z-index: 2;
   --columns: 2fr 6fr 2fr;
+  --column-gap: 20px;
   box-shadow: 0px -3px 20px rgba(0, 0, 0, 0.20);
 
   &_logo {
     @extend %flex-center;
+    position: relative;
+    z-index: 1;
+
     a {
       display: block;
       text-transform: uppercase;
@@ -28,6 +32,15 @@
   }
 
   nav {
+    .burger-nav {
+      display: none;
+      @extend %reset-buttons;
+
+      svg {
+        width: 20px;
+      }
+    }
+
     ul {
       list-style: none;
     }
@@ -39,6 +52,7 @@
 
       & > li {
         text-transform: uppercase;
+        padding: 5px 0;
 
         a {
           text-decoration: none;
@@ -57,9 +71,20 @@
             color: black;
             height: 5px;
           }
+
+          &[data-active="true"] {
+            & ~ div.dropdown {
+              display: block;
+            }
+      
+            svg {
+              transform: rotateZ(180deg);
+            }
+          }
         }
 
         & > .dropdown {
+          display: none;
           position: absolute;
           top: 60px;
           left: 0;
@@ -85,9 +110,88 @@
         }
       }
     }
+
+    @media screen and (max-width: 800px) {
+      order: -1;
+      display: flex;
+      align-items: center;
+
+      .burger-nav {
+        display: block;
+      }
+
+      & > ul {
+        display: none;
+        position: fixed;
+        width: 100%;
+        top: 60px;
+        left: 0;
+        background-color: #fff;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+
+        &[data-active="true"] {
+          display: flex;
+        }
+
+        & > li.nav-item {
+          padding: 0 20px;
+          margin: 0;
+          width: calc(100% - 40px);
+          border-bottom: 1px solid;
+
+          & > * {
+            padding: 20px 0;
+          }
+
+          & > a {
+            display: block;
+          }
+
+          & > button {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+
+            svg {
+              height: 10px;
+            }
+          }
+
+          & > .dropdown {
+            position: static;
+            padding: 0 0 20px;
+            width: 100%;
+            box-shadow: none;
+
+            ul.grid {
+              display: block;
+
+              & > li:not(:last-of-type) {
+                margin-bottom: 25px;
+              }
+
+              & > li > a.child-title {
+                margin-bottom: 0;
+              }
+
+              & > li > ul.child-list {
+                li {
+                  margin: 5px 0;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
   }
 
   &_user {
+    position: relative;
+    z-index: 1;
+
     ul {
       height: 100%;
       list-style: none;
@@ -100,7 +204,7 @@
 
         svg {
           color: black;
-          height: 20px;
+          height: 17px;
           
           &.icon-cart {
             height: 30px;
@@ -112,5 +216,10 @@
         }
       }
     }
+  }
+
+  @media screen and (max-width: 800px) {
+    padding: 20px;
+    --columns: auto 6fr 2fr;
   }
 }

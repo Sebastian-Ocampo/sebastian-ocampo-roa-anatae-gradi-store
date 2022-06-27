@@ -1,12 +1,20 @@
-<ul class="flex">
+<ul
+  id="nav-list-js"
+  data-event="click"
+  class="flex"
+  data-toggle="true"
+>
 {% for link in linklists[linklist].links %}
   {% if link.links != blank %}
-    <li>
-      <button>
+    <li class="nav-item nav-item-js">
+      <button
+        class="button-dropdown-js"
+        data-active="false"
+      >
         <span>{{ link.title }}</span>
         {% render 'icon-caret' %}
       </button>
-      <div style="display: none;" data-active="false" class="dropdown">
+      <div class="dropdown">
         <ul class="grid">
           {% for childlink in link.links %}
             <li>
@@ -37,7 +45,7 @@
       </div>
     </li>
   {% else %}
-    <li>
+    <li class="nav-item">
       <a 
         href="{{ link.url }}"
         title="{{ link.title }}"
@@ -48,3 +56,9 @@
   {% endif %}
 {% endfor %}
 </ul>
+<button
+  class="burger-nav"
+  id="burger-nav-js"
+>
+  {% render 'icon-hamburger' %}
+</button>

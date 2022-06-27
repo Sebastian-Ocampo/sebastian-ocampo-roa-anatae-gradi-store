@@ -1,0 +1,32 @@
+{% comment %}
+  Accordions
+
+  Accepts:
+  - accordions: {HTML} Multiple accordions items
+  - toggle: {Boolean} is toogle or not
+  - class: {String} query className
+
+  Usage:
+  {% capture accordions %}
+    {% for block in section.blocks %}
+      {% render 'accordion-item',
+        title: block.settings.heading,
+        content: block.settings.content,
+      %}
+    {% endfor %}
+  {% endcapture %}
+
+  {% render 'accordions',
+    accordions: accordions,
+    toggle: true,
+    class: 'wrapper'
+  %}
+
+{% endcomment %}
+
+<div
+  class="accordions {{ class }}"
+  data-toggle="{{ toggle | json }}"
+>
+  {{ accordions }}
+</div>
