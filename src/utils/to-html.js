@@ -21,12 +21,12 @@ const support = () => {
 	if (!window.DOMParser) return false;
 
 	const parser = new DOMParser();
-	
+
   try {
 		parser.parseFromString('x', 'text/html');
-	} catch(err) {
+	} catch (err) {
 		return false;
 	}
-  
+
 	return true;
 };
