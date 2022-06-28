@@ -1,4 +1,5 @@
-import { $Q, $Qll } from "../utils/query-selector"
+import { $Q, $Qll } from "../utils/query-selector";
+import { queryVariants } from "./variants-change";
 
 /**
  * variantOnChange
@@ -33,7 +34,8 @@ function iterationOptions (parent) {
     option.addEventListener(
       'change',
       () => {
-        selectVariant(parent)
+        selectVariant(parent);
+        queryVariants();
       }
     );
   });
