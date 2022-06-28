@@ -23,7 +23,13 @@
   }
 
   li:hover {
-    text-decoration: underline;
+    & > a {
+      text-decoration: underline;
+    }
+
+    & > button {
+      text-decoration: underline;
+    }
   }
 
   &_logo {
@@ -36,6 +42,7 @@
       text-transform: uppercase;
       letter-spacing: 3px;
       text-decoration: none;
+      font-weight: 600;
     }
   }
 
@@ -72,7 +79,7 @@
           text-transform: inherit;
 
           & > span {
-            margin-right: 10px;
+            margin-right: 5px;
           }
 
           svg {
