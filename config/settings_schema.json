@@ -235,5 +235,17 @@
         "info": "t:settings_schema.favicon.settings.favicon.info"
       }
     ]
+  },
+  {
+    "name": "Variants color",
+    "settings": [
+      {
+        "type": "text",
+        "id": "variants_color",
+        "label": "Variants color",
+        "info": "Allow render the color variable",
+        "default": "Color"
+      }
+    ]
   }
 ]

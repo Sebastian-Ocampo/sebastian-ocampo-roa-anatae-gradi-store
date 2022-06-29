@@ -5,11 +5,12 @@
   assign text_add = 'products.product.add_to_cart' | t
   -%}
 
-<div class="main-product__slider">
-  {% render 'product-media'
-    product: product
-  %}
-</div>
+
+{% render 'product-media'
+  product: product,
+  direction: 2
+%}
+
 <div class="main-product__detail">
   <h1>
     {{ product.title }}

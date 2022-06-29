@@ -39,3 +39,23 @@
     }
   }
 }
+
+.vertical-swipper {
+  display: flex;
+  flex-direction: row-reverse;
+
+  &-principal {
+    flex: 2;
+  }
+
+  &-thumbs {
+    flex: 0.5;
+
+    .swiper-wrapper {
+
+      .image-elements__image-thumbs.swiper-slide {
+        height: auto !important;
+      }
+    }
+  }
+}
