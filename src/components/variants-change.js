@@ -32,9 +32,7 @@ async function sectionHandle(handle, variantid){
   const htmlResponse = await api.shopifyVariantByUrl(dataHandle,variantid);
   const variantPrice = await $Q(".regular", stringToHTML(htmlResponse));
   const variantAvailable = await $Q('[name="available"]', stringToHTML(htmlResponse));
-  const imagesVariant = await $Q(".main-product__slider", stringToHTML(htmlResponse));
 
-  updateImages(imagesVariant);
   updatePrice(variantPrice);
   updateVariant(variantAvailable.value);
   
@@ -75,68 +73,4 @@ function updateVariant(variantAvailable) {
     sectionAvailable.classList.add('hidden')
   }
 }
-
-/** 
- * Inject new images node to the section and reloade the swiper
- * 
- * @param { object } imagesVariant Object with the main images
- * 
- */
-
-function updateImages(imagesVariant) {
-  const sectionPrincipal = $Q('.main-product__slider');
-  const directionSlider = $Q('.main-product__slider-principal')
-
-  sectionPrincipal.innerHTML = imagesVariant.innerHTML;
-
-  if ( directionSlider.dataset.direction === "2" ) {
-    swiperVertical()
-  } else {
-    swiperHorizontal();  
-  }
-}
-
-/** 
- * Update the swiper with the thumbnails horizontally
- * 
- */
-
-function swiperHorizontal(){
-  const swiperHorizontal = new Swiper(".horizontal-swipper-thumbs", horizontalSlider);
-
-  new Swiper(".horizontal-swipper-principal", {
-    modules: [Navigation, Thumbs],
-    spaceBetween: 10,
-    thumbs: {
-      swiper: swiperHorizontal,
-    },
-    navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev"
-    }
-  });
-}
-
-/** 
- * Update the swiper with the thumbnails vertically
- * 
- */
-
-function swiperVertical(){
-  const swiperVertical = new Swiper(".vertical-swipper-thumbs", verticalSlider);
-
-  new Swiper(".vertical-swipper-principal", {
-    modules: [Navigation, Thumbs],
-    spaceBetween: 10,
-    thumbs: {
-      swiper: swiperVertical,
-    },
-    navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev"
-    }
-  });
-}
-
-
 
