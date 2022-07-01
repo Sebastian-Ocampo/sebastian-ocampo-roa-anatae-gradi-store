@@ -33,9 +33,9 @@ function iterationOptions (parent) {
   return options(parent).forEach(option => {
     option.addEventListener(
       'change',
-      () => {
+      (e) => {
         selectVariant(parent);
-        queryVariants();
+        queryVariants(e);
       }
     );
   });

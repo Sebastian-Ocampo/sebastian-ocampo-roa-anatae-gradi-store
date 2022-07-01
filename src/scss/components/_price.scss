@@ -1,0 +1,11 @@
+div.product.price {
+  & > .compare {
+    font-size: 14px;
+    text-decoration: line-through;
+  }
+
+  & > .regular {
+    font-size: 18px;
+    font-weight: 600;
+  }
+}

@@ -1,0 +1,20 @@
+{% comment %}
+
+
+  {% render 'button-add-cart'
+    btn_type: 'btn-2',
+    class: 'btn-add-to-cart',
+    available: product.selected_or_first_available_variant.available
+  %}
+{% endcomment %}
+
+<button
+  class="{{ btn_type }} {{ class }} btn-cart-js"
+  type="submit"
+>
+  {%- if available -%}
+    {{ 'products.product.add_to_cart' | t }}
+  {%- else -%}
+    {{ 'products.product.sold_out' | t }}
+  {%- endif -%}
+</button>

@@ -3,18 +3,18 @@
   
   Accepts:
   - Product: {object} Product object element
-  - Direction: { int } 1 for horizontal direction or 2 for vertical direction of thumbnails
+  - Direction: {int} 1 for horizontal direction or 2 for vertical direction of thumbnails
 
   NOTE: In <content> use className "swiper-slide" in the first item
 
   Usage:
   {% render 'product-media'
-     product: product,
-     direction: 1 Horizontal - 2 vertical
+    product: product,
+    direction: 1
   %}
 {% endcomment %}
 
-{%-liquid
+{%- liquid
 	assign option_radio = settings.variants_color
 
   if direction == 2
@@ -29,7 +29,10 @@
 
 <div class="main-product__slider {{ swiper_direction }}">
 
-  <div class="swiper main-product__slider-principal {{ slide_direction }}" data-direction="{{ direction }}">
+  <div
+    class="swiper main-product__slider-principal {{ slide_direction }}"
+    data-direction="{{ direction }}"
+  >
     <div class="swiper-wrapper">
       {% for image in product.media %}   
         {% assign imgUrl = image | image_url: width: 900 %}
@@ -44,7 +47,6 @@
             height: "506"
           %}
         </div>
-  
       {% endfor %}
     </div>
     <div class="swiper-button swiper-button-next">
@@ -55,7 +57,7 @@
     </div>
   </div>
 
-  <div class="swiper main-product__slider-thumbs {{ thumbs_direction }} ">
+  <div class="swiper main-product__slider-thumbs {{ thumbs_direction }}">
     <div class="swiper-wrapper">
       {% for image in product.media %}   
         {% assign imgUrl = image | image_url: width: 175 %}

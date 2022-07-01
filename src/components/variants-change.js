@@ -1,76 +1,77 @@
 import { $Q } from "../utils/query-selector";
 import api from "../services/api"
-import { stringToHTML } from "../utils/to-html"
-import Swiper, { Navigation, Thumbs} from "swiper";
-import { horizontalSlider, verticalSlider } from "../utils/slider-configuration";
+import { stringToHTML } from "../utils/to-html";
 
 /**
-  * Section rendering to return images of the selected variant
-  * 
-  * @returns {Object} - main image section
-  * @returns {Object} - thumbs image section
-  * 
-  * @author Andres Briñez
-  */
+ * Section rendering to dynamic price and available data
+ * 
+ * @param {HTMLElement} param0 - Node with event change
+ * 
+ * @author Andres Briñez
+ * @author Cristian Velasco
+ * @version 2.0
+ */
+export async function queryVariants({ target }) {
+  const { value, dataset } = $Q('[name="id"]');
 
-export function queryVariants(){
-  const variantSelected = $Q('[name="id"]').value;
-  const handleVariant = $Q('[name="id"]');
+  const {
+    price,
+    available,
+    button
+  } = await sectionHandle(dataset.variant, value);
 
-  sectionHandle(handleVariant.dataset.variant, variantSelected)
+  updatePrice(price, target.closest('.product-js'));
+  updateButton(available, target.closest('.product-js'), button);
 }
 
 /**
- * Captures the HTML section of the product in question and returns the node of the images, price and stock to replace
+ * Captures the HTML section of the product in question and returns data
  * 
- * @param { data } handle Data element of the product to which the query will be made 
- * @param { String } variantid Id of the selected variant
+ * @param {String} handle Data element of the product to which the query will be made 
+ * @param {String} variantId Id of the selected variant
+ * @returns Object - price, available, button
  */
+async function sectionHandle(handle, variantId) {
+  const htmlResponse = await api.shopifyVariantByUrl(`/products/${handle}`, variantId);
+  const variantPrice = $Q(".price-product-js", stringToHTML(htmlResponse));
+  const variantAvailable = $Q('[name="available"]', stringToHTML(htmlResponse));
+  const button = $Q('.btn-cart-js', stringToHTML(htmlResponse));
 
-async function sectionHandle(handle, variantid){
-  const dataHandle = `/products/${handle}`;
-  const htmlResponse = await api.shopifyVariantByUrl(dataHandle,variantid);
-  const variantPrice = await $Q(".regular", stringToHTML(htmlResponse));
-  const variantAvailable = await $Q('[name="available"]', stringToHTML(htmlResponse));
-
-  updatePrice(variantPrice);
-  updateVariant(variantAvailable.value);
-  
+  return {
+    price: variantPrice.outerHTML,
+    available: variantAvailable.value,
+    button: button.textContent
+  }
 }
 
 /** 
  * Inject new price node to the section
  * 
- * @param { object } variantPrice Object with the price value
+ * @param {HTMLCollection} variantPrice - Object with the price value
+ * @param {HTMLElement} parent - Parent node to closest with className 'product-js'
  * 
  */
+function updatePrice(variantPrice, parent) {
+  const sectionPrice = $Q(".price-product-js", parent);
 
-function updatePrice(variantPrice) {
-  const sectionPrice = $Q(".regular");
-
-  sectionPrice.innerHTML = variantPrice.innerHTML;
+  sectionPrice.innerHTML = variantPrice;
 }
 
-/** 
+/**
  * Show not available of the variant, depending of the stock
  * 
- * @param { object } variantAvailable Object with the stock value
- * 
+ * @param {String} available - Dataset available
+ * @param {HTMLElement} parent - Parent node to closest with className 'product-js'
+ * @param {String} newText - New text in button add to cart
  */
+function updateButton(available, parent, newText) {
+  const button = $Q('.btn-cart-js', parent);
+  button.innerHTML = newText;
 
-function updateVariant(variantAvailable) {
-  const sectionAvailable = $Q('.main-product__detail--available');
-  const button = $Q('.btn-add-to-cart')
-
-  if ( variantAvailable == 'false' ) {
-    button.disabled = true
-
-    sectionAvailable.classList.remove('hidden')
+  if (available === 'false') {
+    button.disabled = true;
   }
   else {
-    button.disabled = false
-
-    sectionAvailable.classList.add('hidden')
+    button.disabled = false;
   }
 }
-

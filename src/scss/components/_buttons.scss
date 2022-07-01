@@ -17,6 +17,10 @@
       var(--color-btn-border-hover)
     );
   }
+
+  &:disabled {
+    opacity: 0.3;
+  }
 }
 
 .btn {
