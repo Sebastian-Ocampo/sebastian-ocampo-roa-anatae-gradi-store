@@ -12,7 +12,10 @@ import { stringToHTML } from "../utils/to-html";
  * @version 2.0
  */
 export async function queryVariants({ target }) {
-  const { value, dataset } = $Q('[name="id"]');
+  const {
+    value,
+    dataset
+  } = $Q('[name="id"]', target.closest('.product-js'));
 
   const {
     price,
