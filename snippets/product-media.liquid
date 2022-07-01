@@ -60,7 +60,7 @@
       {% for image in product.media %}   
         {% assign imgUrl = image | image_url: width: 175 %}
   
-        <div class="image-elements__image-thumbs swiper-slide">
+        <div class="swiper-slide image-elements__image-thumbs">
           {% render "render-image"
             class: "",
             img_src: imgUrl,
