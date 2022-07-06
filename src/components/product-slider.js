@@ -1,42 +1,32 @@
-import Swiper, { Navigation, Thumbs } from "swiper";
-import { horizontalSlider, verticalSlider } from "../utils/slider-configuration";
+import Swiper from "swiper";
+import { principalConfig, thumbsConfig } from "../utils/slider-configuration";
+import { $Q } from "../utils/query-selector";
 
-/**
- * HORIZONTAL SWIPER SLIDER: Thumbs - media product page
- */
-const swiperHorizontal = new Swiper(".horizontal-swipper-thumbs", horizontalSlider);
+function mountSlider (main) {
+  const { dataset: { direction = null } } = main;
+  let thumbnails;
+  let principalClass;
 
-/**
- * HORIZONTAL SWIPER SLIDER: Feature images - media product page
- */
-export const swiperHorizontalPrincipal = new Swiper(".horizontal-swipper-principal", {
-  modules: [Navigation, Thumbs],
-  spaceBetween: 10,
-  thumbs: {
-    swiper: swiperHorizontal,
-  },
-  navigation: {
-    nextEl: ".swiper-button-next",
-    prevEl: ".swiper-button-prev"
+  if(direction === '1') {
+    /**
+     * HORIZONTAL SWIPER SLIDER: media product page
+     */
+    thumbnails = new Swiper(".horizontal-swipper-thumbs", thumbsConfig(3, false));
+    principalClass = ".horizontal-swipper-principal";
+  } else {
+    /**
+     * VERTICAL SWIPER SLIDER: media product page
+     */
+    thumbnails = new Swiper(".vertical-swipper-thumbs", thumbsConfig(4, true));
+    principalClass = ".vertical-swipper-principal";
   }
-});
 
-/**
- * VERTICAL SWIPER SLIDER: Thumbs - media product page
- */
-const swiperVertical = new Swiper(".vertical-swipper-thumbs", verticalSlider);
+  direction && (
+    new Swiper(
+      principalClass,
+      principalConfig(thumbnails)
+    )
+  )
+};
 
-/**
- * VERTICAL SWIPER SLIDER: Feature images - media product page
- */
-export const swiperVerticalPrincipal = new Swiper(".vertical-swipper-principal", {
-  modules: [Navigation, Thumbs],
-  spaceBetween: 10,
-  thumbs: {
-    swiper: swiperVertical,
-  },
-  navigation: {
-    nextEl: ".swiper-button-next",
-    prevEl: ".swiper-button-prev"
-  }
-});
+mountSlider($Q('.swiper.main-product__slider-principal'));
