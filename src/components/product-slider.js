@@ -1,27 +1,30 @@
-import Swiper, { Navigation, Thumbs, FreeMode } from "swiper";
+import Swiper from "swiper";
+import { principalConfig, thumbsConfig } from "../utils/slider-configuration";
+import { $Q } from "../utils/query-selector";
 
-/**
- * SWIPER SLIDER: Thumbs - media product page
- */
-const swiper = new Swiper(".main-product__slider-thumbs", {
-  modules: [FreeMode],
-  spaceBetween: 10,
-  slidesPerView: 3,
-  watchSlidesProgress: true,
-  freeMode: true
-});
+export function mountSlider (main) {
+  const { dataset: { direction = null } } = main;
+  let thumbnails;
+  let principalClass;
 
-/**
- * SWIPER SLIDER: Feature images - media product page
- */
-export const swiperPrincipal = new Swiper(".main-product__slider-principal", {
-  modules: [Navigation, Thumbs],
-  spaceBetween: 10,
-  thumbs: {
-    swiper: swiper,
-  },
-  navigation: {
-    nextEl: ".swiper-button-next",
-    prevEl: ".swiper-button-prev"
+  if(direction === '1') {
+    /**
+     * HORIZONTAL SWIPER SLIDER: media product page
+     */
+    thumbnails = new Swiper(".horizontal-swipper-thumbs", thumbsConfig(3, false));
+    principalClass = ".horizontal-swipper-principal";
+  } else {
+    /**
+     * VERTICAL SWIPER SLIDER: media product page
+     */
+    thumbnails = new Swiper(".vertical-swipper-thumbs", thumbsConfig(4, true));
+    principalClass = ".vertical-swipper-principal";
   }
-});
+
+  direction && (
+    new Swiper(
+      principalClass,
+      principalConfig(thumbnails)
+    )
+  )
+};

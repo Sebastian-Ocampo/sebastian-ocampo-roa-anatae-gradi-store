@@ -110,6 +110,26 @@ class API {
   }
 
   /**
+   * Render HTML with given variant
+   * @param {String} base - URL for the API call
+   * @param {String} variantID - Id of the selected variant
+   * @returns {Object} - Section mainproduct for variant selected
+   * 
+   * @author Andres Briñez
+   */
+
+   async shopifyVariantByUrl(base, variantID) {
+    try {
+      const {
+        data: html
+      } = await axios.get(`${base}?variant=${variantID}`);
+      return html;
+    } catch (error) {
+      console.error(`Error: ${error.message}`);
+    }
+  }
+
+  /**
   * It is used to recommend related products for a specific product
   * @param {{
   *   id: number,

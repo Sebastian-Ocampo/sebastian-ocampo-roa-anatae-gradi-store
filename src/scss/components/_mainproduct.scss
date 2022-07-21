@@ -39,3 +39,17 @@
     }
   }
 }
+
+.vertical-swipper {
+  display: flex;
+  flex-direction: row-reverse;
+
+  &-principal {
+    flex: 2;
+  }
+
+  &-thumbs {
+    height: 100%;
+    max-height: 600px;
+  }
+}

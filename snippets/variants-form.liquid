@@ -30,10 +30,22 @@
     type="hidden"
     name="id"
     value="{{ first_variant.id }}"
+    data-variant="{{ product.handle }}"
   >
-  
+
   {%- unless product.has_only_default_variant -%}
     {%- for option_name in product.options -%}
+
+      {% liquid
+        if forloop.index == 1
+          assign available_value = first_variant.option1 | strip
+        elsif forloop.index == 2
+          assign available_value = first_variant.option2 | strip
+        elsif forloop.index == 3
+          assign available_value = first_variant.option3 | strip
+        endif
+      %}
+    
       <div class="variants--options">
         <span class="variants--name">
           {{ option_name }}
@@ -55,7 +67,7 @@
                   type="radio"
                   name="{{ option_name }}" 
                   value="{{ option_value }}"
-                  {% if forloop.first == true %}
+                  {% if option_value == available_value %}
                     checked="checked"
                   {% endif %}
                 >
@@ -79,7 +91,7 @@
               {%- for option_value in product.options_by_name[option_name].values -%}
                 <option 
                   value="{{ option_value }}"
-                  {% if forloop.first == true %}
+                  {% if available_value == option_value %}
                     selected="true"
                   {% endif %}
                 >

@@ -1,44 +1,78 @@
-<div class="swiper main-product__slider-principal">
-  <div class="swiper-wrapper">
-    {% for image in product.media %}   
-      {% assign imgUrl = image | image_url: width: 900 %}
+{% comment %}
+  Renders product slider component
+  
+  Accepts:
+  - Product: {object} Product object element
+  - Direction: {int} 1 for horizontal direction or 2 for vertical direction of thumbnails
 
-      <div class="swiper-slide">
-        {% render "render-image"
-          class: "",
-          img_src: imgUrl,
-          img: image,
-          size: "300 400 900",
-          width: "900",
-          height: "506"
-        %}
-      </div>
+  NOTE: In <content> use className "swiper-slide" in the first item
 
-    {% endfor %}
+  Usage:
+  {% render 'product-media'
+    product: product,
+    direction: 1
+  %}
+{% endcomment %}
+
+{%- liquid
+	assign option_radio = settings.variants_color
+
+  if direction == 2
+    assign slide_direction = "vertical-swipper-principal"
+    assign thumbs_direction = "vertical-swipper-thumbs"
+    assign swiper_direction = "vertical-swipper"
+  else
+    assign slide_direction = "horizontal-swipper-principal"
+    assign thumbs_direction = "horizontal-swipper-thumbs"
+  endif
+-%}
+
+<div class="main-product__slider {{ swiper_direction }}">
+
+  <div
+    class="swiper main-product__slider-principal {{ slide_direction }}"
+    data-direction="{{ direction }}"
+  >
+    <div class="swiper-wrapper">
+      {% for image in product.media %}   
+        {% assign imgUrl = image | image_url: width: 900 %}
+  
+        <div class="swiper-slide">
+          {% render "render-image"
+            class: "",
+            img_src: imgUrl,
+            img: image,
+            size: "300 400 900",
+            width: "900",
+            height: "506"
+          %}
+        </div>
+      {% endfor %}
+    </div>
+    <div class="swiper-button swiper-button-next">
+      {% render 'icon-arrow' %}
+    </div>
+    <div class="swiper-button swiper-button-prev">
+      {% render 'icon-arrow' %}
+    </div>
   </div>
-  <div class="swiper-button swiper-button-next">
-    {% render 'icon-arrow' %}
-  </div>
-  <div class="swiper-button swiper-button-prev">
-    {% render 'icon-arrow' %}
-  </div>
-</div>
 
-<div class="swiper main-product__slider-thumbs">
-  <div class="swiper-wrapper">
-    {% for image in product.media %}   
-      {% assign imgUrl = image | image_url: width: 175 %}
-
-      <div class="swiper-slide">
-        {% render "render-image"
-          class: "",
-          img_src: imgUrl,
-          img: image,
-          width: "175",
-          height: "99"
-        %}
-      </div>
-
-    {% endfor %}
+  <div class="swiper main-product__slider-thumbs {{ thumbs_direction }}">
+    <div class="swiper-wrapper">
+      {% for image in product.media %}   
+        {% assign imgUrl = image | image_url: width: 175 %}
+  
+        <div class="swiper-slide image-elements__image-thumbs">
+          {% render "render-image"
+            class: "",
+            img_src: imgUrl,
+            img: image,
+            width: "175",
+            height: "99"
+          %}
+        </div>
+  
+      {% endfor %}
+    </div>
   </div>
 </div>
