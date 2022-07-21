@@ -1,0 +1,246 @@
+%flex-center {
+  display: flex;
+  align-items: center;
+}
+
+%reset-buttons {
+  background-color: transparent;
+  border-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.header {
+  padding: 20px 50px 20px;
+  background-color: #FFF;
+  z-index: 1;
+  --columns: 2fr 6fr 2fr;
+  --column-gap: 20px;
+  box-shadow: 0px -3px 20px rgba(0, 0, 0, 0.20);
+
+  a {
+    color: #000;
+  }
+
+  li:hover {
+    & > a {
+      text-decoration: underline;
+    }
+
+    & > button {
+      text-decoration: underline;
+    }
+  }
+
+  &_logo {
+    @extend %flex-center;
+    position: relative;
+    z-index: 1;
+
+    a {
+      display: block;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      text-decoration: none;
+      font-weight: 600;
+    }
+  }
+
+  nav {
+    .burger-nav {
+      display: none;
+      @extend %reset-buttons;
+
+      svg {
+        width: 20px;
+      }
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    & > ul {
+      height: 100%;
+      --justify: center;
+      --gap-flex: 30px;
+
+      & > li {
+        text-transform: uppercase;
+        padding: 5px 0;
+
+        a {
+          text-decoration: none;
+        }
+        
+        button {
+          @extend %reset-buttons;
+          @extend %flex-center;
+          text-transform: inherit;
+
+          & > span {
+            margin-right: 5px;
+          }
+
+          svg {
+            color: black;
+            height: 5px;
+            transition: transform ease .2s;
+          }
+
+          &[data-active="true"] {
+            & ~ div.dropdown {
+              display: block;
+            }
+      
+            svg {
+              transform: rotateZ(180deg);
+            }
+          }
+        }
+
+        & > .dropdown {
+          display: none;
+          position: absolute;
+          top: 50px;
+          left: 0;
+          padding: 50px 50px 50px;
+          width: calc(100% - 100px);
+          background-color: #FFF;
+          box-shadow: 0px 15px 10px rgba(0, 0, 0, 0.20);
+          
+          ul {
+            --columns: 1fr 1fr 1fr 1fr;
+            
+            & > li {
+              text-transform: none;
+
+              & > a.child-title {
+                display: block;
+                font-weight: 600;
+                text-transform: uppercase;
+                margin-bottom: 20px;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    @media screen and (max-width: 800px) {
+      order: -1;
+      display: flex;
+      align-items: center;
+
+      .burger-nav {
+        display: block;
+      }
+
+      & > ul {
+        width: 100%;
+        height: calc(100% - 70px);
+        top: 70px;
+        left: 0;
+        position: fixed;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        overflow-y: auto;
+        background-color: #fff;
+        display: none;
+
+        &[data-active="true"] {
+          display: flex;
+        }
+
+        & > li.nav-item {
+          padding: 0 20px;
+          margin: 0;
+          width: calc(100% - 40px);
+          border-bottom: 1px solid;
+
+          & > * {
+            padding: 20px 0;
+          }
+
+          & > a {
+            display: block;
+          }
+
+          & > button {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+
+            svg {
+              height: 10px;
+            }
+          }
+
+          & > .dropdown {
+            position: static;
+            padding: 0 0 20px;
+            width: 100%;
+            box-shadow: none;
+
+            ul.grid {
+              display: block;
+
+              & > li:not(:last-of-type) {
+                margin-bottom: 25px;
+              }
+
+              & > li > a.child-title {
+                margin-bottom: 0;
+              }
+
+              & > li > ul.child-list {
+                li {
+                  margin: 5px 0;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &_user {
+    position: relative;
+    z-index: 1;
+
+    ul {
+      height: 100%;
+      list-style: none;
+      --justify: flex-end;
+      --gap-flex: 15px;
+
+      li {
+        a {
+          display: block;
+        }
+
+        svg {
+          color: black;
+          width: 20px;
+          height: 20px;
+          
+          &.icon-cart {
+            height: 40px;
+            width: 40px;
+          }
+        }
+
+        button {
+          @extend %reset-buttons
+        }
+      }
+    }
+  }
+
+  @media screen and (max-width: 800px) {
+    padding: 20px;
+    --columns: auto 6fr 2fr;
+  }
+}

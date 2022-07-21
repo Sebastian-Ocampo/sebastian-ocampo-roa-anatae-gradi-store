@@ -1,0 +1,5 @@
+.sticky {
+  position: sticky;
+  position: -webkit-sticky;
+  top: var(--top, 0);
+}

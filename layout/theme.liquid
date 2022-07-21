@@ -31,9 +31,6 @@
       >
     {%- endif -%}
 
-    {% comment %}
-    Active in run build
-
     <link
       rel="stylesheet"
       href="{{ 'theme.css' | asset_url }}"
@@ -45,8 +42,6 @@
         href="{{ 'product.css' | asset_url }}"
       >
     {%- endif -%}
-
-    {% endcomment %}
 
     <title>
       {{ page_title }}
@@ -72,9 +67,9 @@
   </head>
 
   <body class="gradient">
-    {% section 'header' %}
-
+    
     <main id="MainContent" role="main" tabindex="-1">
+      {% section 'header' %}
       {{ content_for_layout }}
     </main>
 
