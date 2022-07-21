@@ -2,7 +2,7 @@ import Swiper from "swiper";
 import { principalConfig, thumbsConfig } from "../utils/slider-configuration";
 import { $Q } from "../utils/query-selector";
 
-function mountSlider (main) {
+export function mountSlider (main) {
   const { dataset: { direction = null } } = main;
   let thumbnails;
   let principalClass;
@@ -28,5 +28,3 @@ function mountSlider (main) {
     )
   )
 };
-
-mountSlider($Q('.swiper.main-product__slider-principal'));

@@ -1,2 +1,5 @@
 import "../scss/product.scss";
-import "../components/product-slider";
+import { mountSlider } from "../components/product-slider";
+import { $Q } from "../utils/query-selector";
+
+mountSlider($Q('.swiper.main-product__slider-principal'));
