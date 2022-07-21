@@ -43,7 +43,7 @@ function accordionAction(element, accordions) {
  * @param {HTMLElement} parent - Parent to valuate
  * @returns Action to change dataset active to 'false' at all buttons
  */
-function closeAll (nodeAll, parent) {
+export function closeAll (nodeAll, parent) {
   return $Qll(nodeAll, parent)
     .forEach(node => (
       node.children[0].dataset.active = 'false'
