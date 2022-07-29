@@ -1,0 +1,41 @@
+.cta {
+  position: relative;
+  display: flex;
+  background-color: var(--color-background-cta);
+
+  &__image {
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    object-position: top;
+    object-fit: cover;
+  }
+
+  &__content {
+    display: flex;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+    justify-content: space-between;
+    align-items: center;
+    flex-flow: row wrap;
+
+    &--50 {
+      flex-basis: 50%;
+    }
+  }
+  
+  &__title {
+    flex-basis: 60%;
+  }
+
+  &__buttons-wrapper {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  &__button {
+    margin: .5rem;
+  }
+}
