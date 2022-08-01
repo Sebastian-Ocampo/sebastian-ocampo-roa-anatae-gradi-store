@@ -2,9 +2,13 @@
   "sections": {
     "main": {
       "type": "main-product"
+    },
+    "hero": {
+      "type": "hero-simple"
     }
   },
   "order": [
+    "hero",
     "main"
   ]
 }

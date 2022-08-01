@@ -1,0 +1,118 @@
+<div class="hero__image">
+  {% if section.settings.background_desk != blank  %}
+    <picture>
+      {% if section.settings.background_mobile != blank %}
+        <source
+          media="(max-width:767px)"
+          srcSet={{ section.settings.background_mobile | img_url }}
+        />
+      {% endif %}
+      <img
+        src={{ section.settings.background_desk  | img_url }}
+        height="100%"
+        width="100%"
+        alt="Picture"
+      />
+    </picture>
+  {% elsif  section.settings.video_external != blank %}
+    {% if section.settings.video_external.type == "youtube"%}
+      <iframe width="100%" height="100%" src="https://www.youtube.com/embed/{{section.settings.video_external.id}}">
+      </iframe>
+    {% endif %}
+    {% if section.settings.video_external.type == "vimeo" %}
+      <iframe width="100%" height="100%" src="{{section.settings.video_external | escape }}">
+      </iframe>
+    {% endif %}
+  {% else %}
+    {{section.settings.video_embed}}
+  {% endif %}
+</div>
+<div class="hero__description {% if section.settings.position_block == 'middle-left' %}middle-left{% elsif section.settings.position_block == 'middle-center' %}middle-center{% else %} middle-right {% endif %}">
+  <div class="description__container">
+    {% if section.settings.hero_title != blank %}
+      <h1>{{ section.settings.hero_title }}</h1>
+    {% endif %}
+    {% if section.settings.hero_description != blank %}
+      <p>{{ section.settings.hero_description }}</p>
+    {% endif %}
+    {% render 'link'
+     url:  section.settings.link_CTA
+     content: section.settings.title_CTA 
+    %}
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Hero Simple",
+    "class": "hero--siemple",
+    "tag": "section",
+    "settings": [
+      {
+        "type": "text",
+        "id": "hero_title",
+        "label": "Title"
+      },
+      {
+        "type": "richtext",
+        "id": "hero_description",
+        "label": "Description"
+      },
+      {
+        "type": "text",
+        "id": "title_CTA",
+        "label": "Title CTA"
+      },
+      {
+        "type": "url",
+        "id": "link_CTA",
+        "label": "Link CTA"
+      },
+      {
+        "type": "select",
+        "id": "position_block",
+        "label": "Vertical alignment",
+        "options": [
+          {
+            "value": "middle-left",
+            "label": "Middle left"
+          },
+          {
+            "value": "middle-center",
+            "label": "Middle center"
+          },
+          {
+            "value": "middle-right",
+            "label": "Middle right"
+          }
+        ],
+        "default": "middle-center"
+      },
+      {
+        "type": "image_picker",
+        "id": "background_desk",
+        "label": "Background Desktop"
+      },
+      {
+        "type": "image_picker",
+        "id": "background_mobile",
+        "label": "Background Mobile"
+      },
+      {
+        "type": "html",
+        "id": "video_embed",
+        "label": "Video embed"
+      },
+      {
+        "type": "video_url",
+        "id": "video_external",
+        "label": "Video external",
+        "accept": [
+          "youtube",
+          "vimeo"
+        ]
+      }
+      
+    ]
+  }
+{% endschema %} 
