@@ -1,11 +1,6 @@
-$breakpoint-ssxs: 290px;
-$breakpoint-sxs: 325px;
-$breakpoint-xs: 400px;
+$breakpoint-sxs: 368px;
 $breakpoint-sm: 768px;
-$breakpoint-md: 992px;
-$breakpoint-lg: 1200px;
-$breakpoint-xxl: 1400px;
-$breakpoint-xxxl: 1750px;
+$breakpoint-xxl: 1440px;
 
 @mixin btn-type($color, $bg, $border) {
   color: $color;
@@ -19,38 +14,18 @@ $breakpoint-xxxl: 1750px;
 }
 
 @mixin mediaThemeGradi($media) {
-  @if $media == ssxs {
-    @media (min-width: $breakpoint-ssxs) {
-      @content;
-    }
-  }
   @if $media == sxs {
     @media (min-width: $breakpoint-sxs) {
       @content;
     }
   }
-  @if $media == xs {
-    @media (min-width: $breakpoint-xs) {
-      @content;
-    }
-  } @else if $media == sm {
+  @if $media == sm {
     @media (min-width: $breakpoint-sm) {
       @content;
     }
-  } @else if $media == md {
-    @media (min-width: $breakpoint-md) {
-      @content;
-    }
-  } @else if $media == lg {
-    @media (min-width: $breakpoint-lg) {
-      @content;
-    }
-  } @else if $media == xxl {
+  } 
+  @if $media == xxl {
     @media (min-width: $breakpoint-xxl) {
-      @content;
-    }
-  } @else if $media == xxxl {
-    @media (min-width: $breakpoint-xxxl) {
       @content;
     }
   }
