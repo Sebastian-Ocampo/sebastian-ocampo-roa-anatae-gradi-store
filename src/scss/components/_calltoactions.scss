@@ -14,8 +14,7 @@
 
   &__content {
     display: flex;
-    padding-top: 4rem;
-    padding-bottom: 4rem;
+    margin: 4rem 0;
     justify-content: space-between;
     align-items: center;
     flex-flow: row wrap;
@@ -32,10 +31,15 @@
   &__buttons-wrapper {
     display: flex;
     justify-content: space-between;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
   }
 
-  &__button {
-    margin: .5rem;
+  &__title, &__buttons-wrapper {
+    margin: .5rem 0;
   }
+
+  &__button:nth-child(2) {
+    margin-left: 0.5rem;
+  }
+
 }

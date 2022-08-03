@@ -19,26 +19,16 @@
 
   <div class="cta__buttons-wrapper">
     {% if section.settings.text_button_one != blank and section.settings.url_button_one != blank %}
-      {% if with_mode_class == '' %}
-        {% assign button_one_class = "btn-2 cta__button" %}
-      {% else %}
-        {% assign button_one_class = "btn-2" %}
-      {% endif %}
       {% render 'link'
-        class: button_one_class,
+        class: "btn-2 cta__button",
         url: section.settings.url_button_one,
         content: section.settings.text_button_one
       %}
     {% endif %}
 
     {% if section.settings.text_button_two != blank and section.settings.url_button_two != blank %}
-      {% if with_mode_class == '' %}
-        {% assign button_two_class = "btn-1 cta__button" %}
-      {% else %}
-        {% assign button_two_class = "btn-1" %}
-      {% endif %}
       {% render 'link'
-        class: button_two_class,
+        class: "btn-3 cta__button",
         url: section.settings.url_button_two,
         content: section.settings.text_button_two
       %}
