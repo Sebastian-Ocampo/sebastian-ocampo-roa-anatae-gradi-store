@@ -9,17 +9,17 @@ import { dataToggle } from "../utils/toggle-dataset";
 export function openDropDown() {
   const { dataset } = $Q('#nav-list-js');
 
-  if (dataset.event === "click") {
+  if (dataset.event === 'click' || innerWidth < 800) {
     $Qll('.button-dropdown-js')
-    .forEach(item => (
-      eventDropDown(item, dataset.event, item)
-    ))
+      .forEach(item => (
+        eventDropDown(item, 'click', item)
+      ))
   } else {
     $Qll('.nav-item-js')
-    .forEach(item => {
-      eventDropDown(item, dataset.event, item.children[0])
-      eventDropDown(item, 'mouseleave', item.children[0])
-    })
+      .forEach(item => {
+        eventDropDown(item, 'mouseenter', item.children[0])
+        eventDropDown(item, 'mouseleave', item.children[0])
+      })
   }
 }
 
@@ -45,7 +45,7 @@ function eventDropDown(
  * @param {HTMLElement} element - Node to change data active
  */
 function dropDownAction(element) {
-  element.dataset.active != "true" 
+  element.dataset.active != 'true' 
     && closeAll('.nav-item-js', $Q('#nav-list-js'));
 
   dataToggle(element);
