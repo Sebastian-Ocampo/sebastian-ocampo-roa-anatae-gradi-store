@@ -5,12 +5,11 @@
       height: 80vh;
       object-fit: cover;
     }
-
     .hero__description{
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
-      width: 35%;
+      width: 80%;
       h1{
         color: white;
       }
@@ -40,4 +39,20 @@
     .middle-right{
       right: 10%;
     }
+}
+
+@media (min-width: 576px){
+  .hero--siemple{
+    .hero__description{
+      width: 55%;
+    }
+  }
+}
+
+@media (min-width: 768px){
+  .hero--siemple{
+    .hero__description{
+      width: 35%;
+    }
+  }
 }

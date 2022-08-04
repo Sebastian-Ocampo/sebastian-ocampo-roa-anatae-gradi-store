@@ -11,7 +11,7 @@
         src={{ section.settings.background_desk  | img_url }}
         height="100%"
         width="100%"
-        alt="Picture"
+        alt= "{{ section.settings.background_desk.alt }}"
       />
     </picture>
   {% elsif  section.settings.video_external != blank %}
@@ -35,10 +35,12 @@
     {% if section.settings.hero_description != blank %}
       <p>{{ section.settings.hero_description }}</p>
     {% endif %}
-    {% render 'link'
-     url:  section.settings.link_CTA
-     content: section.settings.title_CTA 
-    %}
+    {% if section.settings.link_CTA != blank and section.settings.title_CTA  != blank %}
+      {% render 'link'
+        url:  section.settings.link_CTA
+        content: section.settings.title_CTA 
+      %}
+    {% endif %}
   </div>
 </div>
 
