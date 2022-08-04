@@ -1,0 +1,50 @@
+.cta {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-background-cta);
+
+  &__image {
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    object-position: top;
+    object-fit: cover;
+    filter: brightness(0.7);
+  }
+
+  &__content {
+    display: flex;
+    margin: 4rem auto;
+    justify-content: space-between;
+    align-items: center;
+    flex-flow: row wrap;
+
+    &--50 {
+      @media screen and (min-width: 768px) {
+        width: 50%;
+      }
+    }
+  }
+  
+  &__title {
+    flex-basis: 60%;
+    color: var(--color-font);
+  }
+
+  &__buttons-wrapper {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+  }
+
+  &__title, &__buttons-wrapper {
+    margin: .5rem 0;
+  }
+
+  &__button:nth-child(2) {
+    margin-left: 0.5rem;
+  }
+
+}
