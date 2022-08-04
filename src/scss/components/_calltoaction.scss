@@ -1,6 +1,7 @@
 .cta {
   position: relative;
   display: flex;
+  flex-direction: column;
   background-color: var(--color-background-cta);
 
   &__image {
@@ -10,22 +11,26 @@
     height: 100%;
     object-position: top;
     object-fit: cover;
+    filter: brightness(0.7);
   }
 
   &__content {
     display: flex;
-    margin: 4rem 0;
+    margin: 4rem auto;
     justify-content: space-between;
     align-items: center;
     flex-flow: row wrap;
 
     &--50 {
-      flex-basis: 50%;
+      @media screen and (min-width: 768px) {
+        width: 50%;
+      }
     }
   }
   
   &__title {
     flex-basis: 60%;
+    color: var(--color-font);
   }
 
   &__buttons-wrapper {

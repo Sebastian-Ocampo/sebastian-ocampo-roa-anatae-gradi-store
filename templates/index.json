@@ -1,5 +1,8 @@
 {
   "sections": {
+    "cta": {
+      "type": "call-to-action"
+    },
     "main": {
       "type": "hello-world",
       "settings": {
@@ -46,6 +49,7 @@
   },
   "order": [
     "main",
-    "16479727170648f2b7"
+    "16479727170648f2b7",
+    "cta"
   ]
 }
