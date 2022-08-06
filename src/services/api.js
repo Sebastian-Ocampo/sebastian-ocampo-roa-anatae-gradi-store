@@ -82,6 +82,47 @@ class API {
   }
 
   /**
+  * Update the cart's line item quantities
+  * @param {{
+   *   line: number,
+   *   quantity: number,
+   *   sections: string
+   * }} config – Contains the product variant,
+   * the quantity and section to update
+   * @returns {object} The JSON of the cart and HTML of the sections
+   */
+  async changeCart({
+    line,
+    quantity,
+    sections = undefined,
+  }) {
+ 
+    let formData = {
+    'line': line,
+    'quantity': quantity
+    };
+ 
+    //Support bundled section rendering
+    if (sections) {
+      formData.sections = sections;
+    }
+ 
+    try {
+      const { data } = await axios({
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        url: `${routes.cart_change_url}.js`,
+        data: JSON.stringify(formData),
+      });
+      return data;
+    } catch (error) {
+      console.error(`Error: ${error.message}`);
+    }
+  }
+
+  /**
   * Render up to five sections with the use of Section Rendering API
   * @param {string} sections – section IDs
   * @returns {object} Includes pairs for each section ID and its

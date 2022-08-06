@@ -56,8 +56,8 @@
         <div class="cart-items__container--product-info">
           <div class="item-price">
             <span 
-              class="price-{{ item.variant.id }}" 
-              id="price-{{ item.variant.id }}"
+              class="price-{{ item.variant.id }}-{{ forloop.index }}" 
+              id="price-{{ item.variant.id }}-{{ forloop.index }}"
             >
               {{ item.original_line_price | money }}
             </span>
@@ -65,6 +65,7 @@
             <span
               class="item-delete"
               data-id="{{ item.variant.id }}"
+              data-index="{{ forloop.index }}"
             >
               {% render 'icon-remove' %}
             </span>
@@ -73,7 +74,8 @@
           <div class="item-quantity">
             {% render 'input-quantity' 
               id: item.variant.id
-              cart_item: item
+              cart_item: item,
+              index: forloop.index,
             %}
           </div>
         </div>

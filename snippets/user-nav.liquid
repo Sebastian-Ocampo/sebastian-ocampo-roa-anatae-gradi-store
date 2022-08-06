@@ -5,9 +5,12 @@
     </a>
   </li>
   <li>
-    <button class="button-cart">
+    <a
+      href="{{ routes.cart_url }}"
+      title="{{ 'templates.cart.cart' | t }}"
+    >
       {% render 'icon-cart' %}
-    </button>
+    </a>
   </li>
   <li>
     <button>

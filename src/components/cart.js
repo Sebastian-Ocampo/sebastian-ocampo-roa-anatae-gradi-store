@@ -61,7 +61,7 @@ const addProducts = async (event) => {
     sections: CART
   };
 
-  const { sections } = await api.addToCart(cartParams);
+  const { sections = null } = await api.addToCart(cartParams);
 
   updateCartItems(sections[CART]);
   updatetotalPrice(sections[CART]);
@@ -78,7 +78,7 @@ export const onChangeItemCart = () => {
       input.addEventListener(
         'change',
         function () {
-          updateCart(this.id, this.value);
+          updateCart(this.dataset.index, this.value, this.id);
         }
       )
     }
@@ -90,21 +90,21 @@ export const onChangeItemCart = () => {
  * @param {number} id Product ID
  * @param {number} quantity new quantity
  */
-export const updateCart = async (id, quantity) => {
+export const updateCart = async (line, quantity, id) => {
 
   const cartParams = {
-    id: id,
-    quantity: quantity,
+    line,
+    quantity,
     sections: CART,
   }
   
-  const { sections } = await api.updateCart(cartParams);
+  const { sections = null } = await api.changeCart(cartParams);
 
   if (quantity == 0) {
     updateCartItems(sections[CART]);
     updatetotalPrice(sections[CART]);
   } else {
-    updatePriceItem(sections[CART], id);
+    updatePriceItem(sections[CART], `${id}-${line}`);
     updatetotalPrice(sections[CART]);
   }
 }
@@ -118,13 +118,13 @@ export const updateCart = async (id, quantity) => {
 export const deleteItem = () => {
   const deleteIcon = $Qll(".item-delete");
 
-  if( deleteIcon ) {
+  if (deleteIcon) {
     deleteIcon.forEach(
       element => {
         element.addEventListener(
           "click",
           () => {
-            updateCart(element.dataset.id, 0)
+            updateCart(element.dataset.index, 0, element.dataset.id)
           }
         )
       }
