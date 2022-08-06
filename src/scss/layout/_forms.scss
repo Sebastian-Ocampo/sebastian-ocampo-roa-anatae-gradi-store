@@ -14,7 +14,7 @@
 .form_textfield {
   position: relative;
   display: flex;
-  padding: 5px;
+  padding: 2px;
   border: 1px solid variables.$color-black;
   border-radius: 5px;
 
@@ -48,7 +48,7 @@
 
   select {
     width: 100%;
-    padding: 15px 0;
+    padding: 10px 0;
     border-style: none;
     outline: none;
   }
@@ -128,4 +128,12 @@
   &--answer {
     font-weight: bold;
   }
+}
+
+.form__message {
+  display: block;
+  padding: 10px;
+  border: 2px solid #000;
+  border-radius: 5px;
+  background-color: #f1f1f1;
 }

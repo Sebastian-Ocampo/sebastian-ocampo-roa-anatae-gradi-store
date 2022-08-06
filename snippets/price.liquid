@@ -1,8 +1,10 @@
-{% if price < compare_at_price %}
-  <span class="compare {{ hide_price }}">
-    {{ compare_at_price | money_with_currency -}}
+<div class="product price price-product-js">
+  {% if price < compare_at_price %}
+    <span class="compare {{ hide_price }}">
+      {{ compare_at_price | money_with_currency -}}
+    </span>
+  {% endif %}
+  <span class="regular">
+    {{ price | money_with_currency -}}
   </span>
-{% endif %}
-<span class="regular">
-  {{ price | money_with_currency -}}
-</span>
+</div>

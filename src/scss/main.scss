@@ -1,9 +1,14 @@
 @import "base/hello";
-
 @import "base/reset";
+
 @import "theme/theme";
+@import "layout/header";
+
 @import "layout/forms";
+@import "layout/footer";
 @import "layout/grid";
+@import "layout/flex";
+@import "layout/sticky";
 
 @import "components/slider";
 @import "components/buttons";
@@ -15,4 +20,13 @@
 @import "components/pagination";
 @import "components/radiobutton";
 @import "components/variantsform";
+
 @import "components/cart";
+
+@import "components/price";
+@import "components/loader";
+
+@import "components/accordions";
+@import "components/mediaicons";
+@import "components/search";
+@import "components/calltoaction";

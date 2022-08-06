@@ -1,59 +1,70 @@
 import { $Q } from "./query-selector"
 
 /**
- * Open nodes with CSS and dataset
- * @param {String} node selector who detect click
- * @param {String} query selector with the node to open
- * @param {Object} config Obejct with attribute from config open
- * 
- * @return {Function}
+ * To validate state in dataset node
  */
+ const isActive = ({ active }) => active === "true";
 
- export const toggleDataActive = (node, parent, config) => {
-  const { overlay } = config ? config : { overlay: false }
-  const toOpen = parent ? $Q(parent) : $Q(node)
+/**
+ * Data Active toggle
+ *
+ * @param {String} control - ID button control
+ * @param {String} node - ID modal
+ * @param {Object} config - Object with overlay, closeSelector
+ */
+export const toggleDataActive = (control, node, config = {}) => {
+  const { overlay, closeSelector } = config;
 
-  return $Q(node).addEventListener(
-    'click',
+  $Q(control).addEventListener("click", function () {
+    dataToggle($Q(node), overlay);
+  });
+
+  closeSelector && $Q(closeSelector).addEventListener(
+    "click",
     function () {
-      dataToggle(toOpen, overlay)
+      dataToggle($Q(node), overlay);
     }
-  )
+  );
 }
 
+/**
+* Data Toggle
+*
+* @param {HTMLElement} node - Node to manipulate
+* @param {Boolean} overlay - if used to a overlay
+*/
+export function dataToggle (node, overlay) {
+  const { dataset, id } = node;
+  const active = isActive(dataset);
 
-export function dataToggle (nodeToOpen, overlay) {
-  const dataset = nodeToOpen.dataset.active
-  const isActive = dataset != 'true' ? false : true
-  
-  if (!dataset) return null
-
-  if (!isActive) {
-    nodeToOpen.dataset.active = 'true'
+  if (active) {
+    dataset.active = "false";
   } else {
-    nodeToOpen.dataset.active = 'false'
+    dataset.active = "true";
   }
 
-  overlay && overlayActions({ 
-    isActive,
-    target: nodeToOpen
-  })
+  overlay && overlayActions(id, active, node);
 }
 
-const overlayActions = ({ isActive, target }) => {
-  const id = target.getAttribute('id')
+/**
+ *
+ * @param {String} id - ID from node manipulate
+ * @param {Boolean} active - If modal active
+ * @param {HTMLElement} node - Node to manipulate
+ */
+const overlayActions = (id, active, node) => {
+  const idOverlay = `overlay--${id}`;
+  const parent = node.parentNode;
 
-  if (!isActive) {
-    const before = document.createElement('div')
-    before.setAttribute('id', `overlay--${id}`)
-    before.classList.add('overlay')
-    target.parentNode.insertBefore(before, target)
-    toggleDataActive(
-      `#overlay--${id}`,
-      `#${id}`,
-      { overlay: true }
-    )
+  if (!active) {
+    const overlay = document.createElement("div");
+
+    overlay.setAttribute("id", idOverlay);
+    overlay.classList.add("overlay");
+
+    parent.insertBefore(overlay, node);
+    toggleDataActive("#" + idOverlay, "#" + id, { overlay: true });
   } else {
-    target.parentNode.removeChild($Q(`#overlay--${id}`))
+    parent.removeChild($Q("#" + idOverlay));
   }
 }

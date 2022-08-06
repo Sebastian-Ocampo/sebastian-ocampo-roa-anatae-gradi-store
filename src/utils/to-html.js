@@ -3,7 +3,6 @@
  * @param  {String} str The template string
  * @return {Node}       The template HTML
  */
-
  export const stringToHTML = (str) => {
 	// If DOMParser is supported, use it
 	if (support()) {
@@ -22,12 +21,12 @@ const support = () => {
 	if (!window.DOMParser) return false;
 
 	const parser = new DOMParser();
-	
+
   try {
 		parser.parseFromString('x', 'text/html');
-	} catch(err) {
+	} catch (err) {
 		return false;
 	}
-  
+
 	return true;
 };

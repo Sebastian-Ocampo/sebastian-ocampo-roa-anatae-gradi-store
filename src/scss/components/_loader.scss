@@ -1,0 +1,18 @@
+#loading {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  border: 3px solid transparent;
+  border-radius: 50%;
+  border-top-color: #FFF;
+  animation: spin .7s ease-in-out infinite;
+  -webkit-animation: spin .7s ease-in-out infinite;
+}
+
+@keyframes spin {
+  to { -webkit-transform: rotate(360deg); }
+}
+
+@-webkit-keyframes spin {
+  to { -webkit-transform: rotate(360deg); }
+}

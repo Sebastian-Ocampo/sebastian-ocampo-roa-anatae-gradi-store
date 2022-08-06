@@ -1,5 +1,37 @@
+$breakpoint-sxs: 368px;
+$breakpoint-sm: 768px;
+$breakpoint-xxl: 1440px;
+
 @mixin btn-type($color, $bg, $border) {
   color: $color;
   background-color: $bg;
   border: 1px solid $border;
+
+  & > div#loading {
+    border: 3px solid transparent;
+    border-top-color: $color;
+  }
+}
+
+@mixin mediaThemeGradi($media) {
+  @if $media == sxs {
+    @media (min-width: $breakpoint-sxs) {
+      @content;
+    }
+  }
+  @if $media == sm {
+    @media (min-width: $breakpoint-sm) {
+      @content;
+    }
+  } 
+  @if $media == xxl {
+    @media (min-width: $breakpoint-xxl) {
+      @content;
+    }
+  }
+}
+@mixin mediaCustom($media) {
+  @media (min-width: $media) {
+    @content;
+  }
 }

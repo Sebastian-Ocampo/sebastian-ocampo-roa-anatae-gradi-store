@@ -1,6 +1,10 @@
 import { $Qll } from '../utils/query-selector'
 import Swiper, { Navigation, Pagination, FreeMode, Autoplay } from "swiper";
 
+/**
+ * Create new slider with arrows
+ * @param {String} id - className reference in DOM
+ */
 const configArrows = (id) => {
   new Swiper(id, {
     modules: [Navigation, FreeMode],
@@ -21,6 +25,10 @@ const configArrows = (id) => {
   });
 }
 
+/**
+ * Create new slider with pagination
+ * @param {String} id - className reference in DOM
+ */
 export const configPagination = (id) => {
   new Swiper(id, {
     modules: [Pagination, FreeMode],
@@ -40,6 +48,10 @@ export const configPagination = (id) => {
   });
 }
 
+/**
+ * Create new slider - 1 slide per view
+ * @param {String} id - className reference in DOM
+ */
 export const swiperSmall = new Swiper(".slider_small", {
   modules: [Pagination, Autoplay, FreeMode],
   slidesPerView: 1,
@@ -54,12 +66,18 @@ export const swiperSmall = new Swiper(".slider_small", {
   },
 });
 
+/**
+ * Iteration to create all sliders with arrows
+ */
 export const swiperArrows = (() => {
   $Qll(".slider_arrows").map(slide => {
     configArrows('#' + slide.id)
   })
 })();
 
+/**
+ * Iteration to create all sliders with pagination
+ */
 export const swiperPagination = (() => {
   $Qll(".slider_pagination").map(slide => {
     configPagination('#' + slide.id)

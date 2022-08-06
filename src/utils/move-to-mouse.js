@@ -18,6 +18,14 @@ export const moveToMouse = (wrapper) => {
   }
 }
 
+/**
+ * Interaction with the mouse
+ * @param {Object} param0
+ * Slider: {HTMLElements} - Elements to manipulate DOM with the mouse
+ * isDown: {Boolean} - Check if mouse down slider
+ * startX: {Number} - Position start in x
+ * scrollLeft: {Number} - Translate with the mouse scroll
+ */
 function eventsMouse({
   slider,
   isDown,

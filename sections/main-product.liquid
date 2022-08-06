@@ -1,14 +1,14 @@
 {%-liquid
-	assign price = product.selected_or_first_available_variant.price
-	assign compare_at_price = product.selected_or_first_available_variant.compare_at_price
-  assign text_add = 'products.product.add_to_cart' | t
-  -%}
+  assign price = product.selected_or_first_available_variant.price
+  assign compare_at_price = product.selected_or_first_available_variant.compare_at_price
+  assign available = product.selected_or_first_available_variant.available
+-%}
 
-<div class="main-product__slider">
-  {% render 'product-media'
-    product: product
-  %}
-</div>
+{% render 'product-media'
+  product: product,
+  direction: 1
+%}
+
 <div class="main-product__detail">
   <h1>
     {{ product.title }}
@@ -18,6 +18,12 @@
     compare_at_price: compare_at_price,
     price: price
   %}
+
+  <input 
+    type="hidden" 
+    name="available" 
+    value="{{ available }}"
+  >
 
   <p>
     {{ product.description }}
@@ -33,20 +39,19 @@
       option_radio: 'Color'
     %}
 
-    {% render 'button'
-      class: "btn-add-to-cart",
-      content: text_add,
-      type: 2
-      action: "submit"
+    {% render 'button-add-cart'
+      btn_type: 'btn-2',
+      class: 'btn-add-to-cart',
+      available: available
     %}
 
   </form>
 </div>
 
 {% schema %}
-{
-  "name": "Product page",
-  "class": "main-product wrapper",
-  "tag": "section"
-}
+  {
+    "name": "Product page",
+    "class": "main-product wrapper product-js",
+    "tag": "section"
+  }
 {% endschema %}

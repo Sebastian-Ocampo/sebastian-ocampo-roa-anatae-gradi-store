@@ -1,12 +1,46 @@
+{% liquid 
+  assign name_label = 'templates.contact.form.name' | t
+  assign emal_label = 'templates.contact.form.email' | t
+  assign phone_label = 'templates.contact.form.phone' | t
+  assign comment_label = 'templates.contact.form.comment' | t
+  assign send_label = 'templates.contact.form.send' | t
+%}
+
 {% form 'contact', class: "my-contact" %}
-  {{ form_errors | default_errors }}
+  
+  {%- if form.posted_successfully? -%}
+    <div
+      tabindex="-1"
+      autofocus
+    >
+      {% render 'icon-success' %} {{ 'templates.contact.form.post_success' | t }}
+    </div>
+  {%- elsif form.errors -%}
+    <div>
+      <span
+        role="alert"
+        tabindex="-1"
+        autofocus
+      >
+        {% render 'icon-error' %} {{ 'templates.contact.form.error_heading' | t }}
+      </span>
+    </div>
+
+    <ul role="list">
+      <li>
+        <a>
+          {{ form.errors.translated_fields['email'] | capitalize }} {{ form.errors.messages['email'] }}
+        </a>
+      </li>
+    </ul>
+  {%- endif -%}
 
   {% render 'input'
     class: "form_textfield",
     type: "text",
-    name: "contact[first_name]",
+    name: "contact[{{ name_label }}]",
     id: "first-name",
-    placeholder: "Name",
+    placeholder: name_label,
     required: true
   %}
 
@@ -15,16 +49,25 @@
     type: "text",
     name: "contact[email]",
     id: "email",
-    placeholder: "Email",
+    placeholder: emal_label,
     required: true
   %}
+
+  {%- if form.errors contains 'email' -%}
+    <small>
+      <span>{{ 'accessibility.error' | t }}</span>
+      <span class="form__message">
+        {% render 'icon-error' %}{{ form.errors.translated_fields['email'] | capitalize }} {{ form.errors.messages['email'] }}
+      </span>
+    </small>
+  {%- endif -%}
 
   {% render 'input'
     class: "form_textfield",
     type: "tel",
-    name: "contact[phone]",
+    name: "contact[{{ phone_label }}]",
     id: "phone",
-    placeholder: "Phone",
+    placeholder: phone_label,
     required: false
   %}
 
@@ -42,11 +85,14 @@
   {% render 'input'
     class: "form_textfield",
     type: "textarea",
-    name: "contact[body]",
+    name: "contact[{{ comment_label }}]",
     id: "message",
-    placeholder: "Message",
+    placeholder: comment_label,
     required: true
   %}
+
+  {%- comment -%}
+  *--- EXTENDS ADDITIONAl INFO: Contact Method ---*
 
   <div class="form_question">
     <label class="form_question--answer">
@@ -84,6 +130,8 @@
     %}
   </div>
 
+  * --- EXTENDS ADDITIONAl INFO: Contact time --- *
+
   <div class="form_question">
     <label class="form_question--answer">
       When is the best time to reach you?
@@ -120,6 +168,8 @@
     %}
   </div>
 
+  {%- endcomment -%}
+
   <hr>
 
   {% render 'input'
@@ -132,7 +182,7 @@
   %}
 
   {% render 'button'
-    content: "Register",
+    content: send_label,
     type: 3
     action: "submit"
   %}

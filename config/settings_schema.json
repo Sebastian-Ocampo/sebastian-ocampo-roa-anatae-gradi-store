@@ -13,7 +13,7 @@
       {
         "type": "color",
         "id": "colors_brand",
-        "default": "#14d66f",
+        "default": "#fafafa",
         "label": "Color brand",
         "info": "To use in a predominant color on the page"
       },
@@ -25,7 +25,7 @@
         "type": "color_background",
         "id": "colors_bg_1",
         "label": "Principal Background",
-        "default": "linear-gradient(46deg, rgba(57, 190, 227, 1), rgba(20, 214, 111, 1) 60%)"
+        "default": "linear-gradient(46deg, rgba(236, 236, 236, 1), rgba(222, 222, 222, 1) 58%)"
       },
       {
         "type": "header",
@@ -46,7 +46,7 @@
       {
         "type": "color",
         "id": "colors_link",
-        "default": "#39bee3",
+        "default": "#8c8c8c",
         "label": "Link"
       },
       {
@@ -88,7 +88,7 @@
       {
         "type": "color",
         "id": "colors_btn_bg_2",
-        "default": "#39BEE3",
+        "default": "#000000",
         "label": "Background 2"
       },
       {
@@ -110,7 +110,7 @@
       {
         "type": "color",
         "id": "colors_btn_bg_3",
-        "default": "#14D66F",
+        "default": "#cecccc",
         "label": "Background 3"
       },
       {
@@ -126,19 +126,19 @@
       {
         "type": "color",
         "id": "colors_btn_color_hover",
-        "default": "#14D66F",
+        "default": "#8c8c8c",
         "label": "Color hover"
       },
       {
         "type": "color",
         "id": "colors_btn_bg_hover",
-        "default": "#FFFFFF",
+        "default": "#fafafa",
         "label": "Background hover"
       },
       {
         "type": "color",
         "id": "colors_btn_border_hover",
-        "default": "#14D66F",
+        "default": "#737373",
         "label": "Border hover"
       },
       {
@@ -164,20 +164,30 @@
       },
       {
         "type": "text",
+        "id": "order_media",
+        "label": "Order icons",
+        "info": "Ex: facebook instagram linkedin",
+        "default": "facebook instagram linkedin"
+      },
+      {
+        "type": "text",
         "id": "social_twitter_link",
         "label": "t:settings_schema.social-media.settings.social_twitter_link.label",
+        "default": "t:settings_schema.social-media.settings.social_twitter_link.info",
         "info": "t:settings_schema.social-media.settings.social_twitter_link.info"
       },
       {
         "type": "text",
         "id": "social_facebook_link",
         "label": "t:settings_schema.social-media.settings.social_facebook_link.label",
+        "default": "t:settings_schema.social-media.settings.social_facebook_link.info",
         "info": "t:settings_schema.social-media.settings.social_facebook_link.info"
       },
       {
         "type": "text",
         "id": "social_pinterest_link",
         "label": "t:settings_schema.social-media.settings.social_pinterest_link.label",
+        "default": "t:settings_schema.social-media.settings.social_pinterest_link.info",
         "info": "t:settings_schema.social-media.settings.social_pinterest_link.info"
       },
       {
@@ -226,6 +236,18 @@
         "id": "favicon",
         "label": "t:settings_schema.favicon.settings.favicon.label",
         "info": "t:settings_schema.favicon.settings.favicon.info"
+      }
+    ]
+  },
+  {
+    "name": "Variants color",
+    "settings": [
+      {
+        "type": "text",
+        "id": "variants_color",
+        "label": "Variants color",
+        "info": "Allow render the color variable",
+        "default": "Color"
       }
     ]
   }
