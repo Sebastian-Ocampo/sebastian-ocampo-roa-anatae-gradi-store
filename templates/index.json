@@ -1,5 +1,8 @@
 {
   "sections": {
+    "hero": {
+      "type": "hero-simple"
+    },
     "cta": {
       "type": "call-to-action"
     },
@@ -48,6 +51,7 @@
     }
   },
   "order": [
+    "hero",
     "cta",
     "main",
     "16479727170648f2b7"

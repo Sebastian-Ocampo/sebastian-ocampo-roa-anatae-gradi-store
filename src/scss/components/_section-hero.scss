@@ -1,0 +1,24 @@
+.hero--simple {
+  position: relative;
+  
+  & > .hero__image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    img {
+      object-fit: cover;
+      filter: brightness(0.5);
+      width: 100%;
+      height: 100%;
+    }
+  }
+  
+  .hero__description {
+    position: relative;
+    padding-top: 100px;
+    padding-bottom: 100px;
+  }
+}
