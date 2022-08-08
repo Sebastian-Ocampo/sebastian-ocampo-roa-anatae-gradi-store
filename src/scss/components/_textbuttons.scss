@@ -1,0 +1,30 @@
+@use "../abstracts/variables";
+
+.text-buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  
+  & > * {
+    display: block;
+    text-decoration: none;
+  }
+
+  & > h1 {
+    color: variables.$color-white;
+  }
+
+  &__p {
+    margin-bottom: 20px;
+    text-align: justify;
+    color: variables.$color-white;
+  }
+  
+  &.center {
+    align-items: center;
+  }
+
+  &.right {
+    align-items: flex-end;
+  }
+}

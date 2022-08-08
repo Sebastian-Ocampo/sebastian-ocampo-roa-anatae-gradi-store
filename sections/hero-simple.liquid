@@ -1,53 +1,47 @@
-<div class="hero__image">
-  {% if section.settings.background_desk != blank  %}
-    <picture>
-      {% if section.settings.background_mobile != blank %}
-        <source
-          media="(max-width:767px)"
-          srcSet={{ section.settings.background_mobile | img_url }}
-        />
-      {% endif %}
-      <img
-        src={{ section.settings.background_desk  | img_url }}
-        height="100%"
-        width="100%"
-        alt= "{{ section.settings.background_desk.alt }}"
-      />
-    </picture>
-  {% elsif  section.settings.video_external != blank %}
-    {% if section.settings.video_external.type == "youtube"%}
-      <iframe width="100%" height="100%" src="https://www.youtube.com/embed/{{section.settings.video_external.id}}">
-      </iframe>
-    {% endif %}
-    {% if section.settings.video_external.type == "vimeo" %}
-      <iframe width="100%" height="100%" src="{{section.settings.video_external | escape }}">
-      </iframe>
-    {% endif %}
-  {% else %}
-    {{section.settings.video_embed}}
+{% comment %}
+  If require support mobile image.
+  Create new setting type image_picker 'background_mobile' and use:
+
+  Usage before tag img:
+  {% if section.settings.background_mobile != blank %}
+    <source
+      media="(max-width:767px)"
+      srcSet={{ section.settings.background_mobile | img_url }}
+    />
   {% endif %}
+{% endcomment %}
+
+{% if section.settings.background != blank  %}
+<div class="hero__image">
+  <picture>
+    {% assign img_src = section.settings.background | img_url: '1440x' %}
+    <img
+      src={{ img_src }}
+      height="100%"
+      width="100%"
+      alt= "{{ section.settings.background.alt }}"
+    />
+  </picture>
 </div>
-<div class="hero__description {% if section.settings.position_block == 'middle-left' %}middle-left{% elsif section.settings.position_block == 'middle-center' %}middle-center{% else %} middle-right {% endif %}">
-  <div class="description__container">
-    {% if section.settings.hero_title != blank %}
-      <h1>{{ section.settings.hero_title }}</h1>
-    {% endif %}
-    {% if section.settings.hero_description != blank %}
-      <p>{{ section.settings.hero_description }}</p>
-    {% endif %}
-    {% if section.settings.link_CTA != blank and section.settings.title_CTA  != blank %}
-      {% render 'link'
-        url:  section.settings.link_CTA
-        content: section.settings.title_CTA 
-      %}
-    {% endif %}
-  </div>
+{% endif %}
+
+<div
+  class="hero__description"
+>
+  {% render "text-buttons"
+    title: section.settings.hero_title,
+    description: section.settings.hero_description,
+    link: section.settings.link_CTA,
+    link_text: section.settings.title_CTA,
+    position: 'left',
+    class: 'hero__description-container'
+  %}
 </div>
 
 {% schema %}
   {
     "name": "Hero Simple",
-    "class": "hero--siemple",
+    "class": "hero--simple",
     "tag": "section",
     "settings": [
       {
@@ -71,48 +65,9 @@
         "label": "Link CTA"
       },
       {
-        "type": "select",
-        "id": "position_block",
-        "label": "Vertical alignment",
-        "options": [
-          {
-            "value": "middle-left",
-            "label": "Middle left"
-          },
-          {
-            "value": "middle-center",
-            "label": "Middle center"
-          },
-          {
-            "value": "middle-right",
-            "label": "Middle right"
-          }
-        ],
-        "default": "middle-center"
-      },
-      {
         "type": "image_picker",
-        "id": "background_desk",
-        "label": "Background Desktop"
-      },
-      {
-        "type": "image_picker",
-        "id": "background_mobile",
-        "label": "Background Mobile"
-      },
-      {
-        "type": "html",
-        "id": "video_embed",
-        "label": "Video embed"
-      },
-      {
-        "type": "video_url",
-        "id": "video_external",
-        "label": "Video external",
-        "accept": [
-          "youtube",
-          "vimeo"
-        ]
+        "id": "background",
+        "label": "Background image"
       }
     ],
     "presets": [
