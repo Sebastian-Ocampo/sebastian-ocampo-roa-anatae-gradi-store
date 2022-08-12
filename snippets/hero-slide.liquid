@@ -1,0 +1,104 @@
+{% comment %}
+  Renders Hero Slide
+
+  Accepts:
+  - title: {String} Title slide
+  - description: {String} Description slide
+  - ctatext: {String} Button text slide
+  - ctalink: {String} Button link slide
+  - imagedesktop: {Object} Image desktop slide
+  - imagemobile: {Object} Image mobile slide
+  - size: {String} String with size image
+
+  Usage:
+  {% render 'hero-slide',
+    title: <title>,
+    description: <description>,
+    ctatext: <ctatext>,
+    ctalink: <ctalink>,
+    imagedesktop: <imagedesktop>,
+    imagemobile: <imagemobile>,
+    size: <size>
+  %}
+{% endcomment %}
+
+{%- assign full_size = size | split: ' ' | last | append: 'x' -%}
+{%- assign img_lg_src = imagedesktop | image_url: full_size -%}
+{%- assign img_mb_src = imagemobile | image_url: full_size -%}
+
+{% capture position %}
+    {% if position_block == 'middle-left' %}
+        middle-left
+    {%- elsif position_block == 'middle-center' -%}
+        middle-center
+    {%- else -%} 
+        middle-right 
+    {% endif %}
+{% endcapture %}
+
+<div class="hero-slide">
+  <div class="hero-slide__image">
+    {% if imagemobile != blank or imagedesktop != blank %}
+        {% render "render-image"
+        class: 'hero-slide__image-mb'
+        img_src: img_mb_src,
+        img: imagemobile,
+        size: size
+        alt: title,
+        width: "100%",
+        height: "auto"
+        %}
+        {% render "render-image"
+        class: 'hero-slide__image-lg'
+        img_src: img_lg_src,
+        img: imagedesktop,
+        size: size
+        alt: title,
+        width: "100%",
+        height: "auto"
+        %}
+    {% elsif  video_external != blank %}
+        {% if video_external.type == "youtube"%}
+          <iframe width="100%" height="100%" src="https://www.youtube.com/embed/{{video_external.id}}">
+          </iframe>
+        {% endif %}
+        {% if video_external.type == "vimeo" %}
+          <iframe width="100%" height="100%" src="{{video_external | escape }}">
+          </iframe>
+        {% endif %}
+    {% else %}
+        {% style %}
+          .hero-slide__background-color-container {
+            background-color: {{ background_color }}
+          }
+        {% endstyle %}
+        <div class="hero-slide__background-color-container"></div>
+    {% endif %}
+  </div>
+  <div class="hero-slide__info wrapper {{ position }}">
+        {% style %}
+            .hero-slide__title, .hero-slide__description {
+            color: {{ textcolor }}
+            }
+        {% endstyle %}
+        <p class="hero-slide__title">
+          {{ title }}
+        </p>
+        {% if index == 1 %}
+          <h1 class="hero-slide__description">
+            {{ description | strip_html }}
+          </h1>
+        {% else %}
+          <h2 class="hero-slide__description">
+            {{ description | strip_html }}
+          </h2>
+        {% endif %}
+        {% unless ctalink == blank %}  
+          {% render 'link'
+            class: "btn-2 cta__button",
+            url: ctalink,
+            content: ctatext
+           %}
+        {% endunless %}
+  </div>
+</div>
