@@ -16,10 +16,11 @@
   <picture>
     {% assign img_src = section.settings.background | img_url: '1440x' %}
     <img
-      src={{ img_src }}
+      src="{{ img_src }}"
       height="100%"
       width="100%"
-      alt= "{{ section.settings.background.alt }}"
+      title="{{ section.settings.background.alt }}"
+      alt="{{ section.settings.background.alt }}"
     />
   </picture>
 </div>
@@ -53,7 +54,8 @@
       {
         "type": "richtext",
         "id": "hero_description",
-        "label": "Description"
+        "label": "Description",
+        "default": "<p>Hello <em>hero<\/em> <strong>banner <\/strong><a href=\"\/collections\/all\" title=\"All\"><strong>link<\/strong><\/a><\/p>"
       },
       {
         "type": "text",

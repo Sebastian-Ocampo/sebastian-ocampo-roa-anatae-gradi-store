@@ -20,12 +20,7 @@
 {% endcomment %}
 
 <div 
-  class="{{ class }} text-buttons wrapper{% if position == 'left' %} left
-  {%- elsif position == 'center' -%}
-  center
-  {%- else -%}
-  right
-  {%- endif -%}"
+  class="{{ class }} text-buttons wrapper {{ position }}"
 >
   {% if title != blank %}
     <h1>
