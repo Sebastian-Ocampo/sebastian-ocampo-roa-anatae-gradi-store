@@ -1,0 +1,25 @@
+ .error-page {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+ }
+ .error-page_center{
+  text-align: center;
+ }
+ .error-page_left{
+  text-align: start;
+ }
+ .error-page_right{
+  text-align: end;
+
+ }
+.padding404-section{
+  padding: 15px;
+}
+
+.img404-order_top{
+order: -1;
+}
+.img404-order_bottom{
+  order: 4;
+}

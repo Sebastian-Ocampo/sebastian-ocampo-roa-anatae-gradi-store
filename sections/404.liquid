@@ -1,0 +1,135 @@
+{% if section.settings.layout-position ==  'layout-404' %}
+{% assign error-page = 'error-page_center' %}
+{% elsif section.settings.layout-position ==  'layout-left' %}
+{% assign error-page = 'error-page_left' %}
+{% elsif section.settings.layout-position ==  'layout-right' %}
+{% assign error-page = 'error-page_right' %}
+{% endif %}
+
+<div class="error-page {{error-page}}">
+    <div class="text404-title padding404-section">
+      <h1 class="error-page__title">
+        {{ section.settings.main-message }}
+      </h1>
+    </div>
+
+    {% assign img_src = section.settings.background | img_url: '680x' %}
+    {% assign image_404 = section.settings.image-position %}
+    <div  class="padding404-section {{ image_404 }}">
+      <img
+        src="{{ img_src }}"
+        height="100%"
+        width={{ section.settings.image-size }}
+      />
+    </div>
+    <div class="padding404-section">
+      <p class="error-page__text">
+        {{ section.settings.page_text }}
+      </p>
+    </div>
+
+    <div class="btn-404 padding404-section">
+      <a href="{{ section.settings.btn-url }}" class="error-page__btn">
+        {% render 'button'
+          class: "",
+          content: section.settings.btn-text,
+          type: 2
+          action: "button"
+        %}
+      </a>
+    </div>
+</div>
+
+{% schema %}
+{
+  "name": "Page error",
+  "settings": [
+    {
+      "type": "text",
+      "id": "main-message",
+      "label": "Main error text",
+      "default": "404"
+    },
+    {
+      "type": "richtext",
+      "id": "page_text",
+      "label": "Page text",
+      "default": "<p>It seems we can't find what you're looking for.</p>"
+    },
+    {
+      "type": "text",
+      "id": "btn-text",
+      "label": "Button text",
+      "default": "Homepage"
+    },
+    {
+      "type": "url",
+      "id": "btn-url",
+      "label": "Url Button"
+    },
+    {
+      "type": "image_picker",
+      "id": "background",
+      "label": "Background image"
+    },
+    {
+      "type": "select",
+      "id": "image-size",
+      "label": "Image Size",
+      "options": [
+        {
+          "value": "100%",
+          "label": "Big"
+        },
+        {
+          "value": "50%",
+          "label": "Medium"
+        },
+        {
+          "value": "30%",
+          "label": "Small"
+        }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "layout-position",
+      "label": "Layout position",
+      "options": [
+        {
+          "value": "layout-left",
+          "label": "Left"
+        },
+        {
+          "value": "layout-right",
+          "label": "Right"
+        },
+        {
+          "value": "layout-404",
+          "label": "Center"
+        }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "image-position",
+      "label": "Layout position",
+      "options": [
+        {
+          "value": "img404-order_top",
+          "label": "Top"
+        },
+        {
+          "value": "img404-order_bottom",
+          "label": "Bottom"
+        },
+        {
+          "value": "",
+          "label": "Default"
+        }
+      ]
+    }
+
+  ]
+}
+{% endschema %}
