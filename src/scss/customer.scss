@@ -1,0 +1,227 @@
+.login .container__recover,
+.container__login{
+  display: none;
+}
+.login .container__login,
+.container__register{
+  display: flex;
+}
+
+.container__login,
+.container__register,
+.container__recover {
+  flex-direction: column;
+  align-items: center;
+  h1{
+    text-align: center;
+    margin: 0;
+  }
+  .container__form {
+    min-width: 250px;
+    width: 80%;
+    max-width: 350px;
+  }
+  form{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    .field{
+      border-radius: 20px;
+      border: 1px solid #000;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      margin-top: 15px;
+      padding: 5px 20px;
+      width: 100%;
+      label{
+        font-size: 10px;
+      }
+      input{
+        margin-top: 5px;
+        outline: none;
+        border: 0;
+        width: 100%;
+      }
+    }
+    a#recover{
+      margin-top: 5px;
+      color: #000;
+      font-size: 14px;
+    }
+    .container__buttons{
+      display: flex;
+      flex-direction: column;
+      align-self: center;
+
+      button{
+        background-color: #000;
+        color: white;
+        font-weight: 600;
+        border-radius: 20px;
+        padding: 7px 20px;
+        margin: 25px 0 10px;
+        box-sizing: border-box;
+      }
+      a{
+        color: #000;
+        font-size: 14px;
+        text-align: center;
+      }
+    }
+  }
+}
+
+.container__recover .container__form{
+  margin: 20px auto;
+  p{
+    text-align: center;
+  }
+}
+.title-account, .btn-addresses, .title-addresses, #container-addresses-list{
+  text-align: center;
+}
+.btn-account{
+  border-radius: 25px;
+  width: 100%;
+  margin-top: 10px;
+}
+.customer, .title-addresses{
+  padding: 15px;
+}
+.addresses-title{
+  margin-bottom: 0px;
+}
+
+.list-addresses, .url-suscriptions{
+  text-align: center;
+  padding: 20px 0px;
+}
+.content-title_address{
+  background-color: #d0cfcf;
+  padding: 6px;
+  width: 25%;
+  margin: auto;
+  border-radius: 25px;
+  margin-top: 20px;
+}
+.address-container{
+  padding: 10px;
+  line-height: 25px;
+}
+.flex-button-addresses{
+  padding: 10px;
+}
+.btn-addresses_secundary{
+  background-color: transparent;
+  border-radius: 20px;
+  padding: 2px 50px;
+}
+.btn-addresses_primary{
+    background-color: #000000;
+    color: #ffffff;
+    padding: 10px 20px;
+    border-radius: 25px;
+    text-align: center;
+}
+.btn-addresses_actions{
+  background-color: #929292;
+  color: #ffffff;
+  font-weight: bold;
+  padding: 15px 100px;
+  border: none;
+}
+.cancel-operation{
+  color: #000000;
+  text-decoration: none;
+  margin-top: 15px;
+  font-weight: bold;
+}
+.check-addresses input{
+  width: 10%!important;
+}
+.buttons-actions{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.btn-add_address{
+  background-color: transparent;
+  border: none;
+}
+.grid-form-addresse input, .grid-form-addresse select{
+  border: 1px solid #000;
+  padding: 8px 0px;
+  margin-bottom: 20px;
+  width: 100%;
+  text-indent: 10px;
+}
+.grid-form-addresse{
+  padding: 10px;
+}
+.form-col{
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.space-row{
+  width: 48%!important;
+}
+.newsletter{
+  background-color: #EBEBEB;
+  padding: 20px;
+  text-align: center;
+}
+.newsletter-email{
+  padding: 20px;
+}
+.newsletter-email input{
+  border-radius: 25px;
+  padding: 5px 20px;
+  width: 80%;
+}
+.btn-newsletter{
+  border-radius: 25px;
+}
+.content-orders{
+  padding-top: 30px;
+}
+.content-order, .row-order, .section-space{
+  padding: 20px 0px;
+}
+.order-number{
+  background-color: #F7F6F6;
+  padding: 10px;
+  border: 1px solid #000000;
+  text-align: center;
+  border-radius: 25px;
+}
+.header-content_order{
+font-size: 20px;
+font-weight: bold;
+}
+.data-content_order{
+font-size: 18px;
+}
+.total-order, .item-order{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.account-detail p{
+font-size: 18px;
+line-height: 25px;
+}
+.item-content_order{
+  font-size: 18px;
+  width: 60%;
+  text-align: end;
+  }
+  .item-order{
+    padding: 10px 0px;
+  }
+.section-space p:first-of-type, .title-edit{
+  font-size: 20px;
+  font-weight: bold;
+}
