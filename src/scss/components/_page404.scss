@@ -1,21 +1,22 @@
  .error-page {
-  display: flex;
-  flex-direction: column;
-  padding: 20px;
- }
- .error-page__title{
-  font-size: 48px;
- }
- .error-page_center{
-  text-align: center;
- }
- .error-page_left{
-  text-align: start;
- }
- .error-page_right{
-  text-align: end;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    &__title{
+      font-size: 48px;
+    }
+    &_center{
+      text-align: center;
+    }
+    &_left{
+      text-align: start;
+    }
+    &_right{
+      text-align: end;
 
+    }
  }
+
 .padding404-section{
   padding: 15px;
 }

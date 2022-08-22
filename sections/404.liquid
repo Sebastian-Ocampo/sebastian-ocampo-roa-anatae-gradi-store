@@ -1,48 +1,51 @@
-{% if section.settings.layout-position ==  'layout-404' %}
-{% assign error-page = 'error-page_center' %}
-{% elsif section.settings.layout-position ==  'layout-left' %}
-{% assign error-page = 'error-page_left' %}
-{% elsif section.settings.layout-position ==  'layout-right' %}
-{% assign error-page = 'error-page_right' %}
-{% endif %}
-
-<div class="error-page {{error-page}}">
+<div class="error-page {{section.settings.layout-position}}">
     <div class="text404-title padding404-section">
+      {%- if section.settings.main-message != blank -%}
       <h1 class="error-page__title">
         {{ section.settings.main-message }}
       </h1>
+      {%- endif -%}
     </div>
-
+    {%- if section.settings.background != blank -%}
     {% assign img_src = section.settings.background | img_url: '680x' %}
+    {%- if section.settings.image-position != blank -%}
     {% assign image_404 = section.settings.image-position %}
+    {%- endif -%}
     <div  class="padding404-section {{ image_404 }}">
       <img
         src="{{ img_src }}"
         height="100%"
+        {%- if section.settings.image-size != blank -%}
         width={{ section.settings.image-size }}
+        {%- endif -%}
       />
     </div>
+    {%- endif -%}
     <div class="padding404-section">
+      {%- if section.settings.page_text != blank -%}
       <p class="error-page__text">
         {{ section.settings.page_text }}
       </p>
+      {%- endif -%}
     </div>
-
     <div class="btn-404 padding404-section">
+      {%- if  section.settings.btn-url != blank -%}
       <a href="{{ section.settings.btn-url }}" class="error-page__btn">
+        {%- endif -%}
+        {%- if  section.settings.btn-text != blank -%}
         {% render 'button'
           class: "",
           content: section.settings.btn-text,
           type: 2
           action: "button"
         %}
+        {%- endif -%}
       </a>
     </div>
 </div>
-
 {% schema %}
 {
-  "name": "Page error",
+  "name": "404",
   "settings": [
     {
       "type": "text",
@@ -78,16 +81,16 @@
       "label": "Image Size",
       "options": [
         {
+          "value": "30%",
+          "label": "Small"
+        },
+        {
           "value": "100%",
           "label": "Big"
         },
         {
           "value": "50%",
           "label": "Medium"
-        },
-        {
-          "value": "30%",
-          "label": "Small"
         }
       ]
     },
@@ -97,16 +100,17 @@
       "label": "Layout position",
       "options": [
         {
-          "value": "layout-left",
-          "label": "Left"
+          "value": "error-page_center",
+          "label": "Center"
+
         },
         {
-          "value": "layout-right",
+          "value": "error-page_right",
           "label": "Right"
         },
         {
-          "value": "layout-404",
-          "label": "Center"
+          "value": "error-page_left",
+          "label": "Left"
         }
       ]
     },
@@ -116,16 +120,16 @@
       "label": "Layout position",
       "options": [
         {
+          "value": "",
+          "label": "Default"
+        },
+        {
           "value": "img404-order_top",
           "label": "Top"
         },
         {
           "value": "img404-order_bottom",
           "label": "Bottom"
-        },
-        {
-          "value": "",
-          "label": "Default"
         }
       ]
     }
