@@ -1,11 +1,11 @@
 <div class="error-page {{section.settings.layout-position}}">
+  {%- if section.settings.main_message != blank -%}
     <div class="text404-title padding404-section">
-      {%- if section.settings.main-message != blank -%}
       <h1 class="error-page__title">
-        {{ section.settings.main-message }}
+        {{ section.settings.main_message }}
       </h1>
-      {%- endif -%}
     </div>
+    {%- endif -%}
     {%- if section.settings.background != blank -%}
     {% assign img_src = section.settings.background | img_url: '680x' %}
     {%- if section.settings.image_position != blank -%}
@@ -21,27 +21,25 @@
       />
     </div>
     {%- endif -%}
+    {%- if section.settings.page_text != blank -%}
     <div class="padding404-section">
-      {%- if section.settings.page_text != blank -%}
       <p class="error-page__text">
         {{ section.settings.page_text }}
       </p>
-      {%- endif -%}
     </div>
+    {%- endif -%}
+    {%- if  section.settings.btn-url != blank and section.settings.btn-text != blank  -%}
     <div class="btn-404 padding404-section">
-      {%- if  section.settings.btn-url != blank -%}
       <a href="{{ section.settings.btn-url }}" class="error-page__btn">
-        {%- endif -%}
-        {%- if  section.settings.btn-text != blank -%}
         {% render 'button'
           class: "",
           content: section.settings.btn-text,
           type: 2
           action: "button"
         %}
-        {%- endif -%}
       </a>
     </div>
+    {%- endif -%}
 </div>
 {% schema %}
 {
@@ -49,7 +47,7 @@
   "settings": [
     {
       "type": "text",
-      "id": "main-message",
+      "id": "main_message",
       "label": "Main error text",
       "default": "404"
     },
