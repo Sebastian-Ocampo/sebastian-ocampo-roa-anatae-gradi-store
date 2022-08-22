@@ -112,25 +112,28 @@
 .flex-button-addresses{
   padding: 10px;
 }
-.btn-addresses_secundary{
-  background-color: transparent;
-  border-radius: 20px;
-  padding: 2px 50px;
-}
-.btn-addresses_primary{
+.btn-addresses {
+  &_secundary{
+    background-color: transparent;
+    border-radius: 20px;
+    padding: 2px 50px;
+  }
+  &_primary{
     background-color: #000000;
     color: #ffffff;
     padding: 10px 20px;
     border-radius: 25px;
     text-align: center;
+  }
+  &_actions{
+    background-color: #929292;
+    color: #ffffff;
+    font-weight: bold;
+    padding: 15px 100px;
+    border: none;
+  }
 }
-.btn-addresses_actions{
-  background-color: #929292;
-  color: #ffffff;
-  font-weight: bold;
-  padding: 15px 100px;
-  border: none;
-}
+
 .cancel-operation{
   color: #000000;
   text-decoration: none;
@@ -149,15 +152,15 @@
   background-color: transparent;
   border: none;
 }
-.grid-form-addresse input, .grid-form-addresse select{
-  border: 1px solid #000;
-  padding: 8px 0px;
-  margin-bottom: 20px;
-  width: 100%;
-  text-indent: 10px;
-}
 .grid-form-addresse{
   padding: 10px;
+  input, .grid-form-addresse select{
+    border: 1px solid #000;
+    padding: 8px 0px;
+    margin-bottom: 20px;
+    width: 100%;
+    text-indent: 10px;
+  }
 }
 .form-col{
   display: flex;
@@ -172,14 +175,14 @@
   background-color: #EBEBEB;
   padding: 20px;
   text-align: center;
-}
-.newsletter-email{
-  padding: 20px;
-}
-.newsletter-email input{
-  border-radius: 25px;
-  padding: 5px 20px;
-  width: 80%;
+  &-email{
+    padding: 20px;
+    input{
+      border-radius: 25px;
+      padding: 5px 20px;
+      width: 80%;
+    }
+  }
 }
 .btn-newsletter{
   border-radius: 25px;
@@ -224,4 +227,22 @@ line-height: 25px;
 .section-space p:first-of-type, .title-edit{
   font-size: 20px;
   font-weight: bold;
+}
+@media screen and (min-width: 768px) {
+ .customer{
+  padding-left: 200px;
+  padding-right: 200px;
+ }
+ .btn-addresses{
+  display: flex;
+ }
+ .newsletter-email{
+  input{
+    width: auto;
+  }
+ }
+ .btn-addresses_primary {
+  width: 30%;
+  margin: auto;
+}
 }
