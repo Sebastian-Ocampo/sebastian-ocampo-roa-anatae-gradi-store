@@ -1,4 +1,4 @@
-<div class="error-page {{section.settings.layout-position}}">
+<div class="error-page {{section.settings.layout_position}}">
   {%- if section.settings.main_message != blank -%}
     <div class="text404-title padding404-section">
       <h1 class="error-page__title">
@@ -11,12 +11,15 @@
     {%- if section.settings.image_position != blank -%}
     {% assign image_404 = section.settings.image_position %}
     {%- endif -%}
+    {%- if section.settings.image_size != blank -%}
+    {% assign width = section.settings.image_size %}
+    {%- endif -%}
     <div  class="padding404-section {{ image_404 }}">
       <img
         src="{{ img_src }}"
         height="100%"
-        {%- if section.settings.image-size != blank -%}
-        width={{ section.settings.image-size }}
+        {%- if section.settings.image_size != blank -%}
+        width={{ width }}
         {%- endif -%}
       />
     </div>
@@ -28,12 +31,12 @@
       </p>
     </div>
     {%- endif -%}
-    {%- if  section.settings.btn-url != blank and section.settings.btn-text != blank  -%}
+    {%- if  section.settings.btn_url != blank and section.settings.btn_text != blank  -%}
     <div class="btn-404 padding404-section">
-      <a href="{{ section.settings.btn-url }}" class="error-page__btn">
+      <a href="{{ section.settings.btn_url }}" title="{{ section.settings.link_title }}" class="error-page__btn">
         {% render 'button'
           class: "",
-          content: section.settings.btn-text,
+          content: section.settings.btn_text,
           type: 2
           action: "button"
         %}
@@ -59,14 +62,19 @@
     },
     {
       "type": "text",
-      "id": "btn-text",
+      "id": "btn_text",
       "label": "Button text",
       "default": "Homepage"
     },
     {
       "type": "url",
-      "id": "btn-url",
+      "id": "btn_url",
       "label": "Url Button"
+    },
+    {
+      "type": "text",
+      "id": "link_title",
+      "label": "Button title"
     },
     {
       "type": "image_picker",
@@ -75,7 +83,7 @@
     },
     {
       "type": "select",
-      "id": "image-size",
+      "id": "image_size",
       "label": "Image Size",
       "options": [
         {
@@ -94,7 +102,7 @@
     },
     {
       "type": "select",
-      "id": "layout-position",
+      "id": "layout_position",
       "label": "Layout position",
       "options": [
         {
