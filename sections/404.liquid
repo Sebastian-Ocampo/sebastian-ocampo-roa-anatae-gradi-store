@@ -8,8 +8,8 @@
     </div>
     {%- if section.settings.background != blank -%}
     {% assign img_src = section.settings.background | img_url: '680x' %}
-    {%- if section.settings.image-position != blank -%}
-    {% assign image_404 = section.settings.image-position %}
+    {%- if section.settings.image_position != blank -%}
+    {% assign image_404 = section.settings.image_position %}
     {%- endif -%}
     <div  class="padding404-section {{ image_404 }}">
       <img
@@ -116,7 +116,7 @@
     },
     {
       "type": "select",
-      "id": "image-position",
+      "id": "image_position",
       "label": "Layout position",
       "options": [
         {
