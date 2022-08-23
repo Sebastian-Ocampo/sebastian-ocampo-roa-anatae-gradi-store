@@ -62,6 +62,7 @@ const addProducts = async (event) => {
   };
 
   const { sections = null } = await api.addToCart(cartParams);
+  if (sections) return null;
 
   updateCartItems(sections[CART]);
   updatetotalPrice(sections[CART]);
@@ -99,6 +100,7 @@ export const updateCart = async (line, quantity, id) => {
   }
   
   const { sections = null } = await api.changeCart(cartParams);
+  if (sections) return null;
 
   if (quantity == 0) {
     updateCartItems(sections[CART]);
