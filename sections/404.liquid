@@ -1,0 +1,155 @@
+<div
+  class="error-page {{ section.settings.layout_position }}"
+>
+  {%- if section.settings.main_message != blank -%}
+    <div class="text404-title padding404-section">
+      <h1 class="error-page__title">
+        {{ section.settings.main_message }}
+      </h1>
+    </div>
+  {%- endif -%}
+
+  {%- if section.settings.background != blank -%}
+    {% liquid 
+      assign img_src = section.settings.background | img_url: '680x'
+
+      if section.settings.image_position != blank
+        assign image_404 = section.settings.image_position
+    
+      elsif section.settings.image_size != blank
+        assign width = section.settings.image_size
+      endif
+    %}
+
+    <div class="padding404-section {{ image_404 }}">
+      <img
+        src="{{ img_src }}"
+        height="100%"
+        {%- if section.settings.image_size != blank -%}
+        width={{ width }}
+        {%- endif -%}
+      />
+    </div>
+
+  {%- endif -%}
+
+  {%- if section.settings.page_text != blank -%}
+  <div class="padding404-section">
+    <p class="error-page__text">
+      {{ section.settings.page_text }}
+    </p>
+  </div>
+  {%- endif -%}
+
+  {%- if section.settings.btn_url != blank and section.settings.btn_text != blank -%}
+  <div class="btn-404 padding404-section">
+    <a
+      href="{{ section.settings.btn_url }}"
+      title="{{ section.settings.btn_text }}"
+      class="error-page__btn"
+    >
+      {% render 'button'
+        class: "",
+        content: section.settings.btn_text,
+        type: 2
+        action: "button"
+      %}
+    </a>
+  </div>
+  {%- endif -%}
+</div>
+
+{% schema %}
+{
+  "name": "404",
+  "settings": [
+    {
+      "type": "text",
+      "id": "main_message",
+      "label": "Main error text",
+      "default": "404"
+    },
+    {
+      "type": "richtext",
+      "id": "page_text",
+      "label": "Page text",
+      "default": "<p>It seems we can't find what you're looking for.</p>"
+    },
+    {
+      "type": "text",
+      "id": "btn_text",
+      "label": "Button text",
+      "default": "Homepage"
+    },
+    {
+      "type": "url",
+      "id": "btn_url",
+      "label": "Url Button"
+    },
+    {
+      "type": "image_picker",
+      "id": "background",
+      "label": "Background image"
+    },
+    {
+      "type": "select",
+      "id": "image_size",
+      "label": "Image Size",
+      "options": [
+        {
+          "value": "30%",
+          "label": "Small"
+        },
+        {
+          "value": "100%",
+          "label": "Big"
+        },
+        {
+          "value": "50%",
+          "label": "Medium"
+        }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "layout_position",
+      "label": "Layout position",
+      "options": [
+        {
+          "value": "error-page_center",
+          "label": "Center"
+
+        },
+        {
+          "value": "error-page_right",
+          "label": "Right"
+        },
+        {
+          "value": "error-page_left",
+          "label": "Left"
+        }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "image_position",
+      "label": "Layout position",
+      "options": [
+        {
+          "value": "",
+          "label": "Default"
+        },
+        {
+          "value": "img404-order_top",
+          "label": "Top"
+        },
+        {
+          "value": "img404-order_bottom",
+          "label": "Bottom"
+        }
+      ]
+    }
+
+  ]
+}
+{% endschema %}

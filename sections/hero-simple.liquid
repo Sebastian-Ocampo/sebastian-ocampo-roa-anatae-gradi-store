@@ -1,0 +1,83 @@
+{% comment %}
+  If require support mobile image.
+  Create new setting type image_picker 'background_mobile' and use:
+
+  Usage before tag img:
+  {% if section.settings.background_mobile != blank %}
+    <source
+      media="(max-width:767px)"
+      srcSet={{ section.settings.background_mobile | img_url }}
+    />
+  {% endif %}
+{% endcomment %}
+
+{% if section.settings.background != blank  %}
+<div class="hero__image">
+  <picture>
+    {% assign img_src = section.settings.background | img_url: '1440x' %}
+    <img
+      src="{{ img_src }}"
+      height="100%"
+      width="100%"
+      title="{{ section.settings.background.alt }}"
+      alt="{{ section.settings.background.alt }}"
+    />
+  </picture>
+</div>
+{% endif %}
+
+<div
+  class="hero__description"
+>
+  {% render "text-buttons"
+    title: section.settings.hero_title,
+    description: section.settings.hero_description,
+    link: section.settings.link_CTA,
+    link_text: section.settings.title_CTA,
+    position: 'left',
+    class: 'hero__description-container'
+  %}
+</div>
+
+{% schema %}
+  {
+    "name": "Hero Simple",
+    "class": "hero--simple",
+    "tag": "section",
+    "settings": [
+      {
+        "type": "text",
+        "id": "hero_title",
+        "label": "Title",
+        "default": "Title hero responsive"
+      },
+      {
+        "type": "richtext",
+        "id": "hero_description",
+        "label": "Description",
+        "default": "<p>Hello <em>hero<\/em> <strong>banner <\/strong><a href=\"\/collections\/all\" title=\"All\"><strong>link<\/strong><\/a><\/p>"
+      },
+      {
+        "type": "text",
+        "id": "title_CTA",
+        "label": "Title CTA",
+        "default": "CTA"
+      },
+      {
+        "type": "url",
+        "id": "link_CTA",
+        "label": "Link CTA"
+      },
+      {
+        "type": "image_picker",
+        "id": "background",
+        "label": "Background image"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Hero simple"
+      }
+    ]
+  }
+{% endschema %} 

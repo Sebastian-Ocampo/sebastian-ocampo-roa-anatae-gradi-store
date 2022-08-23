@@ -1,0 +1,37 @@
+@use "../abstracts/variables";
+
+.text-buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  
+  & > * {
+    display: block;
+    text-decoration: none;
+  }
+
+  & > h1 {
+    color: variables.$color-white;
+  }
+
+  &__p {
+    margin-bottom: 20px;
+    text-align: inherit;
+    color: variables.$color-white;
+
+    strong {
+      font-weight: 600;
+    }
+  }
+  
+  &.center {
+    align-items: center;
+    text-align: center;
+  }
+
+  &.right {
+    align-items: flex-end;
+    text-align: right;
+  }
+}
