@@ -1,4 +1,4 @@
-<div class="customer login">
+<div class="wrapper customer login">
   <h1 id="recover" tabindex="-1">
     {{ 'customer.recover_password.title' | t }}
   </h1>
@@ -9,7 +9,7 @@
 
     {%- form 'recover_customer_password' -%}
       {% assign recover_success = form.posted_successfully? %}
-      <div class="field">
+      <div class="form_textfield field">
         <input type="email"
           value=""
           name="email"
@@ -40,7 +40,7 @@
         </small>
       {%- endif -%}
 
-      <button>
+      <button class="btn-2">
         {{ 'customer.login_page.submit' | t }}
       </button>
 
@@ -79,7 +79,7 @@
         {{ form.errors | default_errors }}
       {%- endif -%}
 
-      <div class="field">        
+      <div class="form_textfield field">        
         <input
           type="email"
           name="customer[email]"
@@ -98,7 +98,7 @@
       </div>
 
       {%- if form.password_needed -%}
-        <div class="field">          
+        <div class="form_textfield field">          
           <input
             type="password"
             value=""
@@ -120,7 +120,7 @@
         </a>
       {%- endif -%}
 
-      <button>
+      <button class="btn-2">
         {{ 'customer.login_page.sign_in' | t }}
       </button>
 
@@ -137,7 +137,7 @@
       <h2>{{ 'customer.login_page.guest_title' | t }}</h2>
 
       {%- form 'guest_login' -%}
-        <button>
+        <button class="btn-2">
           {{ 'customer.login_page.guest_continue' | t }}
         </button>
       {%- endform -%}
