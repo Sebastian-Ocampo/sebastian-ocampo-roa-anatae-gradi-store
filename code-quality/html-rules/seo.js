@@ -14,10 +14,10 @@ module.exports = {
       // <title><title/> tag is used to define the document's title.
       // The content of the title is used by the search engine to decide the order of search results.
       // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/title
-      "@html-eslint/require-title": "error",
+      "@html-eslint/require-title": "warn",
 
       // Enforce to use <meta name="description" ...> in the <head></head>
       // https://moz.com/learn/seo/meta-description
-      "@html-eslint/require-meta-description": "error"
+      "@html-eslint/require-meta-description": "warn"
     }
   };
