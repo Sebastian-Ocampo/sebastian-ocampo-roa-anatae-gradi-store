@@ -118,6 +118,7 @@ class API {
         url: `${routes.cart_change_url}.js`,
         data: JSON.stringify(formData),
       });
+  
       return data;
     } catch (error) {
       console.error(`Error: ${error.message}`);

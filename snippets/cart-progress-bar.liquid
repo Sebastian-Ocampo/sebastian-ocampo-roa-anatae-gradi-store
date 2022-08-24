@@ -1,0 +1,17 @@
+{%- assign title_total = title | split: '['  -%} 
+{%- assign total_max = title_total |  last | remove: ']'  -%} 
+{%- assign title_text = title_total | first  -%} 
+<input 
+  type="hidden" 
+  id="progress-bar-data"
+  data-total="{{ total_price }}"
+  data-limit="{{ limit_price }}"
+>
+
+<span>{{ title_text }} <span class="total-max">{{ total_max }}</span></span>
+
+<div class="bar">
+  <div class="bar-progress">
+    <span></span>
+  </div>
+</div>

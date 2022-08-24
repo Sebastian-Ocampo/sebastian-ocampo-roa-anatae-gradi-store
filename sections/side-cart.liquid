@@ -12,14 +12,18 @@
     cart: cart
   %}
   
+  {% render 'cart-upsell'
+    cart: cart,
+    collection: section.settings.upsell_collection
+    title: section.settings.upsell_title
+  %}
+  
   {% render 'cart-footer'
     cart: cart,
     shipping_info: section.settings.shipping_info
   %}
   
-  <span class="cart-close">
-    {% render 'icon-close' %}
-  </span>
+ 
 
 </div>
 

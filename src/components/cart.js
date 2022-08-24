@@ -1,15 +1,23 @@
 import api from "../services/api";
 import { $Q, $Qll } from "../utils/query-selector";
 import { dataToggle, toggleDataActive } from "../utils/toggle-dataset";
+import { sliderUpsell } from "./slider-swiper";
 import {
   updateCartItems,
   updatetotalPrice,
+  updateUpsell,
   updateCartbutton,
-  updatePriceItem
+  updatePriceItem,
+  updateOnCartPage
 } from "./update-cart";
+
+import { barProgress } from "../utils/bar-progress";
+
 
 const CART_SECTION = "side-cart,cart-page";
 
+barProgress($Q('#progress-bar-data'));
+sliderUpsell();
 /**
  * Listen if add to cart form is submited
  * if add to cart form is submited add products in cart
@@ -67,12 +75,13 @@ const addProducts = async (event) => {
     sections: CART_SECTION
   };
 
-  const { sections = null } = await api.addToCart(cartParams);
+  const { sections } = await api.addToCart(cartParams);
   if (!sections) return null;
 
   updateCartItems(sections["side-cart"]);
   updateCartbutton(sections["side-cart"]);
   updatetotalPrice(sections["side-cart"]);
+  updateUpsell(sections["side-cart"]);
 }
 
 /**
@@ -105,19 +114,35 @@ export const updateCart = async (line, quantity, id) => {
     sections: CART_SECTION,
   }
 
-  const { sections = null } = await api.changeCart(cartParams);
+  const { sections, items } = await api.changeCart(cartParams);
   if (!sections) return null;
 
   if (quantity === 0) {
     updateCartItems(sections["side-cart"]);
     updateCartbutton(sections["side-cart"]);
     updatetotalPrice(sections["side-cart"]);
+    updateUpsell(sections["side-cart"]);
   } else {
     updatePriceItem(sections["side-cart"], id);
     updateCartbutton(sections["side-cart"]);
     updatetotalPrice(sections["side-cart"]);
   }
 }
+
+/* const getItemAvalible = (items, id_product, quantity) => {
+
+  const item = items.filter(e => e.id === Number(id_product.split('-')[0]));
+  const element= $Q(`.item-cart-js[id="${id_product}"]`).parentElement;
+
+  if(item[0].quantity < quantity){
+    element.querySelector('[data-action="plus"]').setAttribute('disabled', 'disabled') 
+    updateOnCartPage(id_product, item[0].quantity);
+    return;
+  }
+
+  element.querySelector('[data-action="plus"]').removeAttribute('disabled')
+  
+} */
 
 
 /**
