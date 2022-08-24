@@ -1,4 +1,7 @@
-<div class="cartpage-header">
+<div 
+  id="cart-page"
+  class="cartpage-header"
+>
   <h1 class="cartpage-header__title">
     {{ section.settings.page_title }}
   </h1>
@@ -21,7 +24,7 @@
   </h2>
 
   <div class="cartpage-footer__info">
-    <span id="total-price" class="cartpage-footer__info--price">
+    <span class="cartpage-footer__info--price">
       {{ cart.total_price | money_without_currency | append: cart.currency.symbol }}
     </span>
 

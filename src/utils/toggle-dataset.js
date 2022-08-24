@@ -34,6 +34,7 @@ export const toggleDataActive = (control, node, config = {}) => {
 * @param {Boolean} overlay - if used to a overlay
 */
 export function dataToggle (node, overlay) {
+
   const { dataset, id } = node;
   const active = isActive(dataset);
 

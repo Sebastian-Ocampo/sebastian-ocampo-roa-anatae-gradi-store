@@ -1,12 +1,14 @@
 import api from "../services/api";
-import { $Qll } from "../utils/query-selector";
+import { $Q, $Qll } from "../utils/query-selector";
+import { dataToggle, toggleDataActive } from "../utils/toggle-dataset";
 import {
   updateCartItems,
   updatetotalPrice,
+  updateCartbutton,
   updatePriceItem
 } from "./update-cart";
 
-const CART = "cart-page";
+const CART_SECTION = "side-cart,cart-page";
 
 /**
  * Listen if add to cart form is submited
@@ -34,6 +36,9 @@ const submitForm = (form) => {
     (e) => {
       e.preventDefault();
       addProducts(e);
+      console.log("que peee");
+      e.target.dataset.form != "upsell"
+       && dataToggle($Q("#shopify-section-side-cart"), true);
     }
   )
 }
@@ -43,6 +48,7 @@ const submitForm = (form) => {
  * @param {event} event -Event submit from add to cart form
  */
 const addProducts = async (event) => {
+
   let itemId = 0;
   
   for(const input of event.target) {
@@ -58,15 +64,15 @@ const addProducts = async (event) => {
         quantity: 1,
       }
     ],
-    sections: CART
+    sections: CART_SECTION
   };
 
   const { sections = null } = await api.addToCart(cartParams);
   if (!sections) return null;
 
-  updateCartItems(sections[CART]);
-  updatetotalPrice(sections[CART]);
-  window.location.href = "/cart";
+  updateCartItems(sections["side-cart"]);
+  updateCartbutton(sections["side-cart"]);
+  updatetotalPrice(sections["side-cart"]);
 }
 
 /**
@@ -96,18 +102,20 @@ export const updateCart = async (line, quantity, id) => {
   const cartParams = {
     line,
     quantity,
-    sections: CART,
+    sections: CART_SECTION,
   }
-  
+
   const { sections = null } = await api.changeCart(cartParams);
   if (!sections) return null;
 
-  if (quantity == 0) {
-    updateCartItems(sections[CART]);
-    updatetotalPrice(sections[CART]);
+  if (quantity === 0) {
+    updateCartItems(sections["side-cart"]);
+    updateCartbutton(sections["side-cart"]);
+    updatetotalPrice(sections["side-cart"]);
   } else {
-    updatePriceItem(sections[CART], `${id}-${line}`);
-    updatetotalPrice(sections[CART]);
+    updatePriceItem(sections["side-cart"], id);
+    updateCartbutton(sections["side-cart"]);
+    updatetotalPrice(sections["side-cart"]);
   }
 }
 
@@ -132,4 +140,25 @@ export const deleteItem = () => {
       }
     );
   }
+}
+
+
+/**
+* Open and close side cart with various buttons
+*/
+export const openCloseCart = () => {
+  const cartContainer = $Q(".cart");
+  cartContainer.setAttribute("data-active", "false");
+
+  toggleDataActive(
+    ".cart-close",
+    "#shopify-section-side-cart",
+    { overlay: true }
+  )
+
+  toggleDataActive(
+    ".button-cart",
+    "#shopify-section-side-cart",
+    { overlay: true }
+  )
 }

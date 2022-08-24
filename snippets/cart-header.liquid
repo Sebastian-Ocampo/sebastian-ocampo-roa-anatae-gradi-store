@@ -1,0 +1,21 @@
+{% comment %}
+  Render side cart header
+  
+  Accepts:
+  - title: {String} title of header
+  
+  Usage:
+  {% render 'cart-header'
+    title: section.settings.cart_title
+  %}
+{% endcomment %}
+
+<div class="cart-header cart-margins__inline">
+
+  <div class="cart-header__title">
+    <span class="cart-header__title--text">
+      {{ title }}
+    </span>
+  </div>
+  
+</div>

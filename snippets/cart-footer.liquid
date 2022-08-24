@@ -1,0 +1,44 @@
+{% comment %}
+  Render footer in cart
+  
+  Accepts:
+  - cart: {Object} cart object
+  - shipping_info: {String} shipping info in cart
+  - checkout_button: {String} text for checkout button
+
+  Usage:
+  {% render 'cart-footer'
+    cart: cart,
+    shipping_info: section.settings.shipping_info,
+    checkout_button: section.settings.checkout_button
+  %}
+{% endcomment %}
+
+<div class="cart-footer cart-margins__inline">
+  <div class="cart-footer__shipping">
+    <span>{{ shipping_info }}</span>
+  </div>
+
+  <div
+    class="cart-footer__button"
+    id="cart-footer__button"
+  >
+
+    {% capture content_button %}
+      {{ "sections.cart.checkout" | t }} 
+      <span id="total-price">
+        {{ cart.total_price | money }}
+      </span>
+    {% endcapture %}
+
+    <a href="/checkout">    
+      {% render 'button'
+        class: "cart-footer__button--btn",
+        content: content_button,
+        type: 1
+        size: 1
+        action: "button"
+      %}
+    </a>
+  </div>
+</div>

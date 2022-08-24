@@ -7,7 +7,8 @@ import { variantOnChange } from "../components/variants-product";
 import {
   btnAddToCart,
   deleteItem,
-  onChangeItemCart
+  onChangeItemCart,
+  openCloseCart
 } from "../components/cart";
 import { setQuantity } from "../utils/input-quantity";
 
@@ -17,7 +18,10 @@ import { toggleDataActive } from "../utils/toggle-dataset";
 
 variantOnChange(".variants");
 
-btnAddToCart(".add-cart-js");
+btnAddToCart(".add-product-cart");
+btnAddToCart(".add-product-cart-upsell");
+
+openCloseCart();
 deleteItem();
 setQuantity();
 onChangeItemCart();

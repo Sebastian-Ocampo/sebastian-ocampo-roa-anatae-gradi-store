@@ -12,6 +12,8 @@ import { stringToHTML } from "../utils/to-html";
  * @version 2.0
  */
 export async function queryVariants({ target }) {
+
+  console.log("qqqqqqqqqqqqqqqqqqqqq");
   const addcartBtn = $Q('.btn-cart-js', target.closest('.product-js'));
   const {
     value,

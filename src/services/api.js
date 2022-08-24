@@ -15,6 +15,7 @@ class API {
   * @returns {object} Line items associated with the added items and sections
   */
   async addToCart({ items, sections = undefined }) {
+
     let formData = {
       items: items,
     };
@@ -33,6 +34,7 @@ class API {
         url: `${routes.cart_add_url}.js`,
         data: JSON.stringify(formData),
       });
+
       return data;
     } catch (error) {
       console.error(`Error: ${error.message}`);

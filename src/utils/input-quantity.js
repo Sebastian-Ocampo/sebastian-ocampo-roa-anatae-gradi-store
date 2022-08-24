@@ -7,6 +7,7 @@ import { $Q, $Qll } from "./query-selector";
 * @author Cristian Velasco
 */
 export const setQuantity = () => {
+  
   return $Qll(".quantity-label").forEach(
     labelParent => $Qll('button', labelParent)
       .forEach(btn => {
@@ -23,6 +24,7 @@ export const setQuantity = () => {
  * @author Cristian Velasco
  */
 function updateQuantity() {
+
   let input = $Q('input', this.parentElement)
 
   if (this.dataset.action == "subtr") {
