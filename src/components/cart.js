@@ -36,7 +36,7 @@ const submitForm = (form) => {
     (e) => {
       e.preventDefault();
       addProducts(e);
-      console.log("que peee");
+
       e.target.dataset.form != "upsell"
        && dataToggle($Q("#shopify-section-side-cart"), true);
     }
