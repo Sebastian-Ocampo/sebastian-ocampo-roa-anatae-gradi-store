@@ -11,4 +11,17 @@ module.exports = {
     sourceType: 'module',
   },
   rules: {},
+  plugins: ["@html-eslint"],
+  overrides: [
+    {
+      files: ["*.liquid"],
+      parser: "@html-eslint/parser",
+      extends: [
+        './html-rules/seo',
+        './html-rules/style',
+        './html-rules/best-practices',
+        './html-rules/accessibility'
+      ],
+    },
+  ],
 };
