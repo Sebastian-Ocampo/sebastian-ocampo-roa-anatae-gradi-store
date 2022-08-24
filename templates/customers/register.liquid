@@ -7,12 +7,12 @@
       <path d="M5.87413 3.17832H5.51535L5.52424 3.537L5.6245 7.58083L5.63296 7.92216H5.97439H7.02713H7.36856L7.37702 7.58083L7.47728 3.537L7.48617 3.17832H7.12739H5.87413ZM6.50076 10.0109C7.06121 10.0109 7.5317 9.57872 7.5317 9.00504C7.5317 8.43137 7.06121 7.99918 6.50076 7.99918C5.94031 7.99918 5.46982 8.43137 5.46982 9.00504C5.46982 9.57872 5.94031 10.0109 6.50076 10.0109Z" fill="white" stroke="#EB001B" stroke-width="0.7">
     </symbol>
   </svg>
-  <h1>
+  <h2 class="h2 title">
     {{ 'customer.register.title' | t }}
-  </h1>
+  </h2>
   {%- form 'create_customer', novalidate: 'novalidate' -%}
     {%- if form.errors -%}
-      <h2 class="form__message" tabindex="-1" autofocus>
+      <h2 class="h2 form__message" tabindex="-1" autofocus>
         <svg aria-hidden="true" focusable="false" role="presentation">
           <use href="#icon-error" />
         </svg>
@@ -33,7 +33,7 @@
         {%- endfor -%}
       </ul>
     {%- endif -%}
-    <div class="form_textfield field">      
+    <div class="form_textfield form_textfield--spaced">      
       <input
         type="text"
         name="customer[first_name]"
@@ -46,7 +46,7 @@
         {{ 'customer.register.first_name' | t }}
       </label>
     </div>
-    <div class="form_textfield field">
+    <div class="form_textfield form_textfield--spaced">
       <input
         type="text"
         name="customer[last_name]"
@@ -59,7 +59,7 @@
         {{ 'customer.register.last_name' | t }}
       </label>
     </div>
-    <div class="form_textfield field">      
+    <div class="form_textfield form_textfield--spaced">      
       <input
         type="email"
         name="customer[email]"
@@ -87,7 +87,7 @@
         {{ form.errors.translated_fields['email'] | capitalize }} {{ form.errors.messages['email'] }}.
       </span>
     {%- endif -%}
-    <div class="form_textfield field">     
+    <div class="form_textfield form_textfield--spaced">     
       <input
         type="password"
         name="customer[password]"

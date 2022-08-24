@@ -1,7 +1,7 @@
 <div class="wrapper customer login">
-  <h1 id="recover" tabindex="-1">
+  <h2 id="recover" class="title h2" tabindex="-1">
     {{ 'customer.recover_password.title' | t }}
-  </h1>
+  </h2>
   <div>
     <p>
       {{ 'customer.recover_password.subtext' | t }}
@@ -9,7 +9,7 @@
 
     {%- form 'recover_customer_password' -%}
       {% assign recover_success = form.posted_successfully? %}
-      <div class="form_textfield field">
+      <div class="form_textfield form_textfield--spaced">
         <input type="email"
           value=""
           name="email"
@@ -39,20 +39,24 @@
           {{ form.errors.messages['form'] }}
         </small>
       {%- endif -%}
-
-      <button class="btn-2">
-        {{ 'customer.login_page.submit' | t }}
-      </button>
-
-      <a href="#login">
-        {{ 'customer.login_page.cancel' | t }}
-      </a>
+      <div class="flex">
+        <div>
+          <button class="btn-2">
+            {{ 'customer.login_page.submit' | t }}
+          </button>
+        </div>
+        <div>
+          <a href="#login">
+            {{ 'customer.login_page.cancel' | t }}
+          </a>
+        </div>
+      </div>
     {%- endform -%}
   </div>
 
-  <h1 id="login" tabindex="-1">
+  <h2 id="login" class="title h2" tabindex="-1">
     {{ 'customer.login_page.title' | t }}
-  </h1>
+  </h2>
   <div>
     {%- if recover_success == true -%}
       <h3 class="form__message" tabindex="-1" autofocus>
@@ -79,7 +83,7 @@
         {{ form.errors | default_errors }}
       {%- endif -%}
 
-      <div class="form_textfield field">        
+      <div class="form_textfield form_textfield--spaced">        
         <input
           type="email"
           name="customer[email]"
@@ -98,7 +102,7 @@
       </div>
 
       {%- if form.password_needed -%}
-        <div class="form_textfield field">          
+        <div class="form_textfield form_textfield--spaced">          
           <input
             type="password"
             value=""
@@ -119,14 +123,18 @@
           {{ 'customer.login_page.forgot_password' | t }}
         </a>
       {%- endif -%}
-
-      <button class="btn-2">
-        {{ 'customer.login_page.sign_in' | t }}
-      </button>
-
-      <a href="{{ routes.account_register_url }}">
-        {{ 'customer.login_page.create_account' | t }}
-      </a>
+        <div class="flex" id="login-buttons">
+          <div>
+            <button class="btn-2">
+              {{ 'customer.login_page.sign_in' | t }}
+            </button>
+          </div>
+          <div>
+            <a href="{{ routes.account_register_url }}">
+              {{ 'customer.login_page.create_account' | t }}
+            </a>
+          </div>
+        </div>
       
     {%- endform -%}
   </div>
