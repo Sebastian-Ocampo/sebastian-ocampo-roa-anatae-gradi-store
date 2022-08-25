@@ -11,7 +11,7 @@
     "build": "webpack --config webpack.prod.js --mode production --progress",
     "dev": "webpack --config webpack.dev.js --watch --mode development --progress",
     "install:codeqa": "cd code-quality && npm prune && npm install",
-    "lint": "cd code-quality && eslint --quiet ../"
+    "lint": "stylelint **/*.scss & (cd code-quality && eslint --quiet ../)"
   },
   "devDependencies": {
     "@babel/core": "^7.11.1",
