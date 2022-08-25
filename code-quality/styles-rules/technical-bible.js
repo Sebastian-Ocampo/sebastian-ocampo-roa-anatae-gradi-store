@@ -32,7 +32,7 @@ module.exports = {
         "no-invalid-double-slash-comments": true,
 
         // Require numeric or named (where possible) font-weight values. Also, when named values are expected, require only valid names.
-        "font-weight-notation": true,
+        "font-weight-notation": "numeric",
 
         // Specify lowercase for keywords values.
         "value-keyword-case": "lower",
