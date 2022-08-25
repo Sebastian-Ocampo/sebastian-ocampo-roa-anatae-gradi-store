@@ -33,11 +33,7 @@
     "eclint": "^2.8.1",
     "eslint": "^7.32.0 || ^8.2.0",
     "eslint-find-rules": "^4.1.0",
-    "eslint-plugin-import": "^2.26.0",
-    "@html-eslint/eslint-plugin": "^0.13.2",
-    "@html-eslint/parser": "^0.13.2",
-    "postcss-scss": "^4.0.4",
-    "stylelint": "^14.11.0"
+    "eslint-plugin-import": "^2.26.0"
   },
   "peerDependencies": {
     "eslint": "^7.32.0 || ^8.2.0",
