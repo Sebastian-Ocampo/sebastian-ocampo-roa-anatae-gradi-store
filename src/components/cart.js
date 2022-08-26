@@ -99,6 +99,7 @@ export const onChangeItemCart = () => {
  */
 export const updateCart = async (line, quantity, id) => {
 
+  updateLoading('block', id);
   const cartParams = {
     line,
     quantity,
@@ -106,6 +107,9 @@ export const updateCart = async (line, quantity, id) => {
   }
 
   const { sections = null } = await api.changeCart(cartParams);
+  
+  updateLoading('hidden', id);
+  
   if (!sections) return null;
 
   if (quantity === 0) {
@@ -117,6 +121,25 @@ export const updateCart = async (line, quantity, id) => {
     updateCartbutton(sections["side-cart"]);
     updatetotalPrice(sections["side-cart"]);
   }
+}
+
+/**
+ * Show or hidde spinner
+ * @param {number} id Product ID
+ * @param {string} params hidden or show
+ */
+const updateLoading = (params, id) => {
+
+  const idOnly = id.split('-')[0];
+  const spinnerLoad = $Q('.spinn-'+idOnly);
+  if(!spinnerLoad) return;
+
+  if(params === 'hidden'){
+    spinnerLoad.style.display = 'none';
+    return;
+  }
+
+  spinnerLoad.style.display = 'block';
 }
 
 
