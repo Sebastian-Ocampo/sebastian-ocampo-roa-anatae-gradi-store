@@ -5,7 +5,8 @@
     cart: cart,
     title: cart_title,
     limit_price: section.settings.limit_price,
-    progressbar_title: section.settings.progressbar_title
+    progressbar_title: section.settings.progressbar_title,
+    text_free_shipping: section.settings.free_shipping
   %}
   
   {% render 'cart-items' 
@@ -22,8 +23,6 @@
     cart: cart,
     shipping_info: section.settings.shipping_info
   %}
-  
- 
 
 </div>
 
@@ -46,6 +45,11 @@
       "id": "progressbar_title",
       "label": "Progress bar title",
       "default": "Plus que 100 euros pour avoir la réduction de 10%"
+    },{
+      "type": "text",
+      "id": "free_shipping",
+      "label": "Text free shipping",
+      "default": "sa livraison gratuite"
     },
     {
       "type": "number",

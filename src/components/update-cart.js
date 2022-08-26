@@ -30,15 +30,28 @@ export const updateCartItems = (str) => {
  * @param {string} str - String HTML of section rendeirng
  */
  export const updateCartbutton = (str) => {
-  const btnContainer = $Q('#cart-footer__button', stringToHTML(str));
+
   const inputBarProgress = $Q('#progress-bar-data', stringToHTML(str));
-  const domBtnContainer = $Qll('.cart-footer__button');
+   
+  const btnContainer = $Q('.cart-footer', stringToHTML(str));
+  const domBtnContainer = $Qll('#container-footer-js');
+
+  barProgress(inputBarProgress);
+  
+  if (btnContainer) {
+
+    domBtnContainer.forEach( element => {
+      element.innerHTML = btnContainer.outerHTML;
+    })
+
+    return;
+  }
 
   domBtnContainer.forEach( element => {
-    element.innerHTML = btnContainer.outerHTML;
+    element.innerHTML = '';
   })
   
-  barProgress(inputBarProgress);
+  
 }
 
 /**
@@ -78,12 +91,17 @@ export const updatePriceItem = (str, id) => {
  * @param {string} str - String HTML of section rendeirng
  */
  export const updatetotalPrice = (str) => {
-  if ($Q(".cartpage-footer__info--price") != null) {
+  
+  if(!$Q('.cartpage-footer__info--price')) return;
+  
+  if ($Q("#total-price", stringToHTML(str)) != null) {
     return $Q(".cartpage-footer__info--price").innerHTML = $Q(
       "#total-price",
       stringToHTML(str)
     ).outerText;
   }
+
+  $Q('.cartpage-footer').style.display = 'none';
 }
 
 /**

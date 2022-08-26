@@ -1,6 +1,7 @@
-{%- assign title_total = title | split: '['  -%} 
-{%- assign total_max = title_total |  last | remove: ']'  -%} 
-{%- assign title_text = title_total | first  -%} 
+{%- assign title_residuary = title | split: '['  -%} 
+{%- assign total_residuary = '0€'  -%} 
+{%- assign title_text = title_residuary | first  -%} 
+{%- assign title_text_last = title_residuary | last | split: ']' | last  -%} 
 <input 
   type="hidden" 
   id="progress-bar-data"
@@ -8,7 +9,19 @@
   data-limit="{{ limit_price }}"
 >
 
-<span>{{ title_text }} <span class="total-max">{{ total_max }}</span></span>
+<span class="progress-text-js">
+  {{ title_text }} 
+  <span 
+    class="total-residuary"
+  >
+    {{ total_residuary }}
+  </span>
+  {{ title_text_last }}
+</span>
+
+<span class="shipping-free">
+  {{ text_free_shipping }}
+</span>
 
 <div class="bar">
   <div class="bar-progress">

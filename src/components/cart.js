@@ -108,13 +108,17 @@ export const onChangeItemCart = () => {
  */
 export const updateCart = async (line, quantity, id) => {
 
+  updateLoading('block', id);
   const cartParams = {
     line,
     quantity,
     sections: CART_SECTION,
   }
 
-  const { sections, items } = await api.changeCart(cartParams);
+  const { sections = null } = await api.changeCart(cartParams);
+  
+  updateLoading('hidden', id);
+  
   if (!sections) return null;
 
   if (quantity === 0) {
@@ -129,20 +133,24 @@ export const updateCart = async (line, quantity, id) => {
   }
 }
 
-/* const getItemAvalible = (items, id_product, quantity) => {
+/**
+ * Show or hidde spinner
+ * @param {number} id Product ID
+ * @param {string} params hidden or show
+ */
+const updateLoading = (params, id) => {
 
-  const item = items.filter(e => e.id === Number(id_product.split('-')[0]));
-  const element= $Q(`.item-cart-js[id="${id_product}"]`).parentElement;
+  const idOnly = id.split('-')[0];
+  const spinnerLoad = $Q('.spinn-'+idOnly);
+  if(!spinnerLoad) return;
 
-  if(item[0].quantity < quantity){
-    element.querySelector('[data-action="plus"]').setAttribute('disabled', 'disabled') 
-    updateOnCartPage(id_product, item[0].quantity);
+  if(params === 'hidden'){
+    spinnerLoad.style.display = 'none';
     return;
   }
 
-  element.querySelector('[data-action="plus"]').removeAttribute('disabled')
-  
-} */
+  spinnerLoad.style.display = 'block';
+}
 
 
 /**
