@@ -19,16 +19,18 @@ module.exports = {
 
       // This rule checks whether the tag has closing tag or not.
       // https://html.spec.whatwg.org/multipage/syntax.html#void-elements
-      "@html-eslint/require-closing-tags": "error",
+      "@html-eslint/require-closing-tags": [
+        "error",
+        {
+          "selfClosing": "always"
+        }
+      ],
 
       // Enforce to use <meta charset="..."> in the <head></head>.
       "@html-eslint/no-multiple-empty-lines": "error",
 
       // Disallow usage of unsafe target='_blank'
       "@html-eslint/no-target-blank": "error",
-
-      // This rule disallow the use of duplicate attributes.
-      "@html-eslint/no-duplicate-attrs": "error",
 
       // This rule enforces use of a valid type attribute for button elements. ("button", "submit", "reset")
       // https://html.spec.whatwg.org/multipage/form-elements.html#attr-button-type

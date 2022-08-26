@@ -3,6 +3,15 @@
 */
 module.exports = {
     rules: {
+        // Always indent at-rules, rules, comments, declarations, inside parentheses and multi-line values by 2 spaces.
+        "indentation": [
+            2,
+            { baseIndentLevel: 1 }
+        ],
+
+        // There must always be a single space before the opening brace.
+        "block-opening-brace-space-before": "always",
+
         // Disallow end-of-line whitespace.
         "no-eol-whitespace": [
             true,
@@ -17,13 +26,8 @@ module.exports = {
         // Disallow unknown units
         "unit-no-unknown": true,
 
-        // Disallow selectors of lower specificity from coming after overriding selectors of higher specificity.
-        "no-descending-specificity": [
-            true,
-            {
-                "ignore": ["selectors-within-list"]
-            }
-        ],
+        // Disallow longhand properties that can be combined into one shorthand property.
+        "declaration-block-no-redundant-longhand-properties": true,
 
         // Specify percentage or number notation for alpha-values.
         "alpha-value-notation": "number",
