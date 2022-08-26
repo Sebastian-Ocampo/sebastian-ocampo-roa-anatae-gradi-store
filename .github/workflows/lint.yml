@@ -1,6 +1,12 @@
 name: Linting # name of the action (displayed in the github interface)
 
-on: [push]
+on:
+  pull_request:
+    types: 
+      - opened
+      - synchronize
+    branches:
+      - 'staging'
 
 env: # environment variables (available in any part of the action)
   NODE_VERSION: 16
