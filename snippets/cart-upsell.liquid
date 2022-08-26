@@ -22,7 +22,8 @@
 
   {% capture snippet_content %}
     {% for upsell_product in collection.products %}
-      {% for line_item in cart.items %}
+    <script>console.log({{ upsell_product | json }})</script>  
+    {% for line_item in cart.items %}
 
         {% if upsell_product.id == line_item.product.id %}
           {% assign in_cart = line_item.product.id %}
@@ -33,7 +34,7 @@
 
       {% if upsell_product.id == in_cart %}
         {% continue %}
-      {% else %}
+      {% elsif upsell_product.available %}
         {% render 'cart-upsell-product'
           product: upsell_product
         %}
