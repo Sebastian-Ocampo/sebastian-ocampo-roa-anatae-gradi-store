@@ -18,35 +18,40 @@
   %}
 </div>
 
-<div class="cartpage-footer">
-  <h2 class="cartpage-footer__total-text">
-    {{ section.settings.total_text }}
-  </h2>
-
-  <div class="cartpage-footer__info">
-    <span class="cartpage-footer__info--price">
-      {{ cart.total_price | money_without_currency | append: cart.currency.symbol }}
-    </span>
-
-    <span class="cartpage-footer__info--shipping">
-      {{ section.settings.shipping_info }}
-    </span>
-  </div>
-
-  <div class="cartpage-footer__btn">  
-    <a href="/checkout">
-
-      {% render 'button'
-        class: "cartpage-footer__btn--btn",
-        content: section.settings.button_text,
-        type: 1
-        size: 3
-        action: "button"
-      %}
-      
-    </a>
-  </div>
+<div id="container-cart-page">
+  {% if cart.item_count > 0 %}
+    <div class="cartpage-footer">
+      <h2 class="cartpage-footer__total-text">
+        {{ section.settings.total_text }}
+      </h2>
+    
+      <div class="cartpage-footer__info">
+        <span class="cartpage-footer__info--price">
+          {{ cart.total_price | money_without_currency | append: cart.currency.symbol }}
+        </span>
+    
+        <span class="cartpage-footer__info--shipping">
+          {{ section.settings.shipping_info }}
+        </span>
+      </div>
+    
+      <div class="cartpage-footer__btn">  
+        <a href="/checkout">
+    
+          {% render 'button'
+            class: "cartpage-footer__btn--btn",
+            content: section.settings.button_text,
+            type: 1
+            size: 3
+            action: "button"
+          %}
+          
+        </a>
+      </div>
+    </div>
+  {% endif %}
 </div>
+
 
 {% schema %}
 {

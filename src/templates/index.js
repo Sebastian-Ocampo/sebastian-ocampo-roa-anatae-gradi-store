@@ -19,7 +19,6 @@ import { toggleDataActive } from "../utils/toggle-dataset";
 variantOnChange(".variants");
 
 btnAddToCart(".add-product-cart");
-btnAddToCart(".add-product-cart-upsell");
 
 openCloseCart();
 deleteItem();
