@@ -20,7 +20,7 @@ module.exports = {
       // This rule checks whether the tag has closing tag or not.
       // https://html.spec.whatwg.org/multipage/syntax.html#void-elements
       "@html-eslint/require-closing-tags": [
-        "error",
+        "warn",
         {
           "selfClosing": "always"
         }
