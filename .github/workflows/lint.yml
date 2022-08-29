@@ -20,6 +20,9 @@ jobs: # list of things to do
         uses: actions/setup-node@v2
         with:
           node-version: ${{ env.NODE_VERSION }}
+      
+      - name: Install Ruby
+        uses: ruby/setup-ruby@v1
 
       - name: Code Checkout
         uses: actions/checkout@v2
@@ -29,6 +32,9 @@ jobs: # list of things to do
 
       - name: Install Code QA Dependencies
         run: npm run install:codeqa
+
+      - name: Install Theme-Check
+        run: gem install theme-check
 
       - name: Code Linting
         run: npm run lint
