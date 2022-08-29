@@ -15,7 +15,7 @@ module.exports = {
   plugins: ["@html-eslint"],
   overrides: [
     {
-      files: ["*.liquid"],
+      files: ["*.liquid","**/*.liquid"],
       parser: "@html-eslint/parser",
       extends: [
         './html-rules/seo',
