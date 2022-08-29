@@ -10,7 +10,7 @@ module.exports = {
     ecmaVersion: 2018,
     sourceType: 'module',
   },
-  ignorePatterns: ["heading.liquid", "slider.liquid", "assets/*.*"],
+  ignorePatterns: ["*.liquid", "assets/*.*"],
   rules: {},
   plugins: ["@html-eslint"],
   overrides: [
