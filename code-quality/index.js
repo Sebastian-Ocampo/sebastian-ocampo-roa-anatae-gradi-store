@@ -10,12 +10,12 @@ module.exports = {
     ecmaVersion: 2018,
     sourceType: 'module',
   },
-  ignorePatterns: ["*.liquid", "assets/*.*"],
+  ignorePatterns: ["assets/*.*"],
   rules: {},
   plugins: ["@html-eslint"],
   overrides: [
     {
-      files: ["*.liquid","**/*.liquid"],
+      files: ["*.liquid", "**/*.liquid"],
       parser: "@html-eslint/parser",
       extends: [
         './html-rules/seo',
