@@ -97,8 +97,8 @@ export const onChangeItemCart = () => {
  * @param {number} quantity new quantity
  */
 export const updateCart = async (line, quantity, id) => {
-
-  updateLoading('block', id);
+  addSpinner(`#price-${id}`);
+  
   const cartParams = {
     line,
     quantity,
@@ -116,29 +116,17 @@ export const updateCart = async (line, quantity, id) => {
     updateCartbutton(sections["side-cart"]);
     updatetotalPrice(sections["side-cart"]);
   } else {
-    updatePriceItem(sections["side-cart"], id);
-    updateCartbutton(sections["side-cart"]);
-    updatetotalPrice(sections["side-cart"]);
+    updatePriceItem(sections[CART], `${id}-${line}`);
+    updatetotalPrice(sections[CART]);
   }
 }
 
 /**
- * Show or hidde spinner
- * @param {number} id Product ID
- * @param {string} params hidden or show
+ * Replace en element with a spinner
+ * @param {String} element 
  */
-const updateLoading = (params, id) => {
-
-  const idOnly = id.split('-')[0];
-  const spinnerLoad = $Q('.spinn-'+idOnly);
-  if(!spinnerLoad) return;
-
-  if(params === 'hidden'){
-    spinnerLoad.style.display = 'none';
-    return;
-  }
-
-  spinnerLoad.style.display = 'block';
+ const addSpinner = (element) => {
+  $Q(element).innerHTML = "<div class='spinner'></div>";
 }
 
 
