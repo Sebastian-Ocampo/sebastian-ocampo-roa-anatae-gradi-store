@@ -58,6 +58,7 @@
             <span 
               class="price-{{ item.variant.id }}-{{ forloop.index }}" 
               id="price-{{ item.variant.id }}-{{ forloop.index }}"
+              data-quantity="{{ item.quantity }}"
             >
               {{ item.original_line_price | money }}
             </span>
@@ -69,6 +70,7 @@
             >
               {% render 'icon-remove' %}
             </span>
+            </div>
           </div>
   
           <div class="item-quantity">
