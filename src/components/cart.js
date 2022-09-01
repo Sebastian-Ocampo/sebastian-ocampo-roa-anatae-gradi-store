@@ -107,8 +107,6 @@ export const updateCart = async (line, quantity, id) => {
 
   const { sections = null } = await api.changeCart(cartParams);
   
-  updateLoading('hidden', id);
-  
   if (!sections) return null;
 
   if (quantity === 0) {
@@ -116,8 +114,9 @@ export const updateCart = async (line, quantity, id) => {
     updateCartbutton(sections["side-cart"]);
     updatetotalPrice(sections["side-cart"]);
   } else {
-    updatePriceItem(sections[CART], `${id}-${line}`);
-    updatetotalPrice(sections[CART]);
+    updatePriceItem(sections["side-cart"], id);
+    updateCartbutton(sections["side-cart"]);
+    updatetotalPrice(sections["side-cart"]);
   }
 }
 
@@ -126,7 +125,7 @@ export const updateCart = async (line, quantity, id) => {
  * @param {String} element 
  */
  const addSpinner = (element) => {
-  $Q(element).innerHTML = "<div class='spinner'></div>";
+  $Q(element).innerHTML = '<div class="loading"></div>';
 }
 
 
@@ -141,10 +140,11 @@ export const deleteItem = () => {
   if (deleteIcon) {
     deleteIcon.forEach(
       element => {
+        const { dataset: { id, index } } = element;
         element.addEventListener(
           "click",
           () => {
-            updateCart(element.dataset.index, 0, element.dataset.id)
+            updateCart(index, 0, `${id}-${index}`)
           }
         )
       }

@@ -55,7 +55,7 @@ export const updatePriceItem = (str, id) => {
 
   const {
     dataset,
-    outerText
+    outerText,
   } = $Q(`#price-${id}`, stringToHTML(str));
 
   $Qll(`.price-${id}`).forEach(
@@ -72,7 +72,6 @@ export const updatePriceItem = (str, id) => {
  * @param {String} quantity - Quantity variant by item cart
  */
  const updateOnCartPage = (id, quantity) => {
-
   $Qll(`.item-cart-js[id="${id}"]`).forEach(
     element => element.value = quantity
   )
@@ -95,6 +94,4 @@ export const updatePriceItem = (str, id) => {
       stringToHTML(str)
     ).outerText;
   }
-
-  $Q('.cartpage-footer').style.display = 'none';
 }

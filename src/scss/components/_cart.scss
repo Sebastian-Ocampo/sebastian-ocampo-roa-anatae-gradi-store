@@ -1,3 +1,5 @@
+@use '../abstracts/variables';
+
 .overlay {
   width: 100%;
   height: 100%;
@@ -9,9 +11,10 @@
 }
 
 .cart {
-    &::-webkit-scrollbar {
-      display: none;
-    }
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
   visibility: hidden;
   opacity:0;
   height: 100%;
@@ -88,6 +91,7 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       grid-column-gap: 10px;
+      --loading-color: variables.$color-black;
 
       &--product-title {
         display: grid;
@@ -127,45 +131,6 @@
       &--btn {
         width: 100%;
       }
-    }
-
-    .spinner {
-      border: 4px solid rgba(0, 0, 0, 0.1);
-      width: 20px;
-      height: 20px;
-      border-radius: 50%;
-      border-left-color: transparent;
-  
-      animation: spin 1s linear infinite;
-    }
-  
-    @keyframes spin {
-      0% {
-        transform: rotate(0deg);
-      }
-      100% {
-        transform: rotate(360deg);
-      }
-    }
-  }
-
-  .spinner {
-    display: none;
-    border: 4px solid rgba(0, 0, 0, 0.1);
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    border-left-color: transparent;
-
-    animation: spin 1s linear infinite;
-  }
-
-  @keyframes spin {
-    0% {
-      transform: rotate(0deg);
-    }
-    100% {
-      transform: rotate(360deg);
     }
   }
 }
