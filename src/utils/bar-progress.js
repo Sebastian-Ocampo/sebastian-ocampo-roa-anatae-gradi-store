@@ -2,7 +2,7 @@ import { $Q } from './query-selector'
 
 /**
  * Update the width of bar progress
- * @param {DOM element} input - input hidde with data
+ * @param {HTMLElement} input - input hidde with data
  */
 export const barProgress = (input) => {
   const totalPrice = parseFloat(input.dataset.total) / 100;
@@ -15,6 +15,7 @@ export const barProgress = (input) => {
 
   const barWidth = totalPrice / limitPrice * 100;
   const residuaryPrice = limitPrice - totalPrice;
+
   if (barWidth > 100) {
     progress.style.width = "100%";
     textProgress.style.display = "none";
@@ -24,6 +25,5 @@ export const barProgress = (input) => {
     elementTotal.innerHTML = `${residuaryPrice.toFixed()}€`;
     textProgress.style.display = "block";
     textFreeShipping.style.display = "none";
-
   }
 }

@@ -30,17 +30,14 @@ export const updateCartItems = (str) => {
  * @param {string} str - String HTML of section rendeirng
  */
  export const updateCartbutton = (str) => {
-
   const inputBarProgress = $Q('#progress-bar-data', stringToHTML(str));
-   
   const btnContainer = $Q('.cart-footer', stringToHTML(str));
   const domBtnContainer = $Qll('#container-footer-js');
 
   barProgress(inputBarProgress);
   
   if (btnContainer) {
-
-    domBtnContainer.forEach( element => {
+    domBtnContainer.forEach(element => {
       element.innerHTML = btnContainer.outerHTML;
     })
 
@@ -50,8 +47,6 @@ export const updateCartItems = (str) => {
   domBtnContainer.forEach( element => {
     element.innerHTML = '';
   })
-  
-  
 }
 
 /**
@@ -63,7 +58,7 @@ export const updatePriceItem = (str, id) => {
 
   const {
     dataset,
-    outerText
+    outerText,
   } = $Q(`#price-${id}`, stringToHTML(str));
 
   $Qll(`.price-${id}`).forEach(
@@ -79,8 +74,7 @@ export const updatePriceItem = (str, id) => {
  * @param {String} id - Variant id item cart
  * @param {String} quantity - Quantity variant by item cart
  */
- export const updateOnCartPage = (id, quantity) => {
-
+ const updateOnCartPage = (id, quantity) => {
   $Qll(`.item-cart-js[id="${id}"]`).forEach(
     element => element.value = quantity
   )
@@ -91,17 +85,18 @@ export const updatePriceItem = (str, id) => {
  * @param {string} str - String HTML of section rendeirng
  */
  export const updatetotalPrice = (str) => {
-  
-  if(!$Q('.cartpage-footer__info--price')) return;
-  
-  if ($Q("#total-price", stringToHTML(str)) != null) {
+
+  if(!$Q("#total-price", stringToHTML(str))){
+    $Q('.cartpage-footer').style.display = 'none';
+    return;
+  }
+
+  if ($Q(".cartpage-footer__info--price") != null) {
     return $Q(".cartpage-footer__info--price").innerHTML = $Q(
       "#total-price",
       stringToHTML(str)
     ).outerText;
   }
-
-  $Q('.cartpage-footer').style.display = 'none';
 }
 
 /**

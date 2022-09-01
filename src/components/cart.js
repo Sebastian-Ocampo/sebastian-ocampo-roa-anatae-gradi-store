@@ -7,8 +7,7 @@ import {
   updatetotalPrice,
   updateUpsell,
   updateCartbutton,
-  updatePriceItem,
-  updateOnCartPage
+  updatePriceItem
 } from "./update-cart";
 
 import { barProgress } from "../utils/bar-progress";
@@ -42,11 +41,13 @@ const submitForm = (form) => {
   return form.addEventListener(
     "submit",
     (e) => {
+      const { target: { dataset: form } } = e;
       e.preventDefault();
       addProducts(e);
 
-      e.target.dataset.form != "upsell"
-       && dataToggle($Q("#shopify-section-side-cart"), true);
+      if (form != "upsell") {
+        dataToggle($Q("#shopify-section-side-cart"), true);
+      }
     }
   )
 }
@@ -107,8 +108,8 @@ export const onChangeItemCart = () => {
  * @param {number} quantity new quantity
  */
 export const updateCart = async (line, quantity, id) => {
-
-  updateLoading('block', id);
+  addSpinner(`#price-${id}`);
+  
   const cartParams = {
     line,
     quantity,
@@ -116,8 +117,6 @@ export const updateCart = async (line, quantity, id) => {
   }
 
   const { sections = null } = await api.changeCart(cartParams);
-  
-  updateLoading('hidden', id);
   
   if (!sections) return null;
 
@@ -134,22 +133,11 @@ export const updateCart = async (line, quantity, id) => {
 }
 
 /**
- * Show or hidde spinner
- * @param {number} id Product ID
- * @param {string} params hidden or show
+ * Replace en element with a spinner
+ * @param {String} element 
  */
-const updateLoading = (params, id) => {
-
-  const idOnly = id.split('-')[0];
-  const spinnerLoad = $Q('.spinn-'+idOnly);
-  if(!spinnerLoad) return;
-
-  if(params === 'hidden'){
-    spinnerLoad.style.display = 'none';
-    return;
-  }
-
-  spinnerLoad.style.display = 'block';
+ const addSpinner = (element) => {
+  $Q(element).innerHTML = '<div class="loading"></div>';
 }
 
 
@@ -164,10 +152,11 @@ export const deleteItem = () => {
   if (deleteIcon) {
     deleteIcon.forEach(
       element => {
+        const { dataset: { id, index } } = element;
         element.addEventListener(
           "click",
           () => {
-            updateCart(element.dataset.index, 0, element.dataset.id)
+            updateCart(index, 0, `${id}-${index}`)
           }
         )
       }
