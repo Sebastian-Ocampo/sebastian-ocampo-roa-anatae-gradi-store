@@ -92,7 +92,8 @@ export const onChangeItemCart = () => {
  * @param {number} quantity new quantity
  */
 export const updateCart = async (line, quantity, id) => {
-
+  addSpinner(`#price-${id}`);
+  
   const cartParams = {
     line,
     quantity,
@@ -109,6 +110,14 @@ export const updateCart = async (line, quantity, id) => {
     updatePriceItem(sections[CART], `${id}-${line}`);
     updatetotalPrice(sections[CART]);
   }
+}
+
+/**
+ * Replace en element with a spinner
+ * @param {String} element 
+ */
+ const addSpinner = (element) => {
+  $Q(element).innerHTML = "<div class='spinner'></div>";
 }
 
 
