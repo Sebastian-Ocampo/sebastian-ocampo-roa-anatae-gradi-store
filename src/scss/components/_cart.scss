@@ -91,7 +91,7 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       grid-column-gap: 10px;
-      --loading-color: variables.$color-black;
+      --loading-color: #000;
 
       &--product-title {
         display: grid;
