@@ -41,7 +41,7 @@ const submitForm = (form) => {
   return form.addEventListener(
     "submit",
     (e) => {
-      const { target: { dataset: form } } = e;
+      const { target: { dataset: { form } } } = e;
       e.preventDefault();
       addProducts(e);
 
