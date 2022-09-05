@@ -86,9 +86,11 @@
 
               <select
                 required
+                required
                 id="AddressCountryNew"
                 class="input-grid  form_textfield"
                 name="address[country]"
+                placeholder="{{ 'customer.addresses.country' | t }}"
                 placeholder="{{ 'customer.addresses.country' | t }}"
                 data-default="{{ form.country }}"
                 autocomplete="country">{{ all_country_option_tags }}</select>

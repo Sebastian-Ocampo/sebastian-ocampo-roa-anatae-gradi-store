@@ -6,9 +6,12 @@
   </svg>
   <div>
     <div class="title-addresses">
-      <h1 class="addresses-title">{{ 'customer.account.title' | t }}</h1>
-      <a class="retour-account underline green-panda-txt block-href"
+      <div class="title-addresses">
+      <h1 class="addresses-title" class="addresses-title">{{ 'customer.account.title' | t }}</h1>
+        <a class="retour-account underline green-panda-txt block-href"
+      class="retour-account underline green-panda-txt block-href"
       href="{{ routes.account_url }}">{{ 'customer.account.return' | t }}</a>
+    </div>
     </div>
   </div>
 
@@ -162,7 +165,7 @@
         </p>
         {{ order.billing_address | format_address }}
       </div>
-      <div class="section-space">
+      <div class="section-space" class="section-space">
         <h2>{{ 'customer.order.shipping_address' | t }}</h2>
         <p>
           <strong>{{ 'customer.order.fulfillment_status' | t }}:</strong>
