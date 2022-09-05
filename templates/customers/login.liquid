@@ -9,7 +9,7 @@
 
     {%- form 'recover_customer_password' -%}
       {% assign recover_success = form.posted_successfully? %}
-      <div class="field">
+      <div class="field form_textfield">
         <input type="email"
           value=""
           name="email"
@@ -79,7 +79,7 @@
         {{ form.errors | default_errors }}
       {%- endif -%}
 
-      <div class="field">        
+      <div class="field form_textfield">        
         <input
           type="email"
           name="customer[email]"
@@ -98,7 +98,7 @@
       </div>
 
       {%- if form.password_needed -%}
-        <div class="field">          
+        <div class="field form_textfield">          
           <input
             type="password"
             value=""
@@ -137,7 +137,7 @@
       <h2>{{ 'customer.login_page.guest_title' | t }}</h2>
 
       {%- form 'guest_login' -%}
-        <button>
+        <button class="btn-2">
           {{ 'customer.login_page.guest_continue' | t }}
         </button>
       {%- endform -%}

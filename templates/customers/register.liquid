@@ -33,7 +33,7 @@
         {%- endfor -%}
       </ul>
     {%- endif -%}
-    <div class="field">      
+    <div class="field form_textfield">      
       <input
         type="text"
         name="customer[first_name]"
@@ -46,7 +46,7 @@
         {{ 'customer.register.first_name' | t }}
       </label>
     </div>
-    <div class="field">
+    <div class="field form_textfield">
       <input
         type="text"
         name="customer[last_name]"
@@ -59,7 +59,7 @@
         {{ 'customer.register.last_name' | t }}
       </label>
     </div>
-    <div class="field">      
+    <div class="field form_textfield">      
       <input
         type="email"
         name="customer[email]"
@@ -87,7 +87,7 @@
         {{ form.errors.translated_fields['email'] | capitalize }} {{ form.errors.messages['email'] }}.
       </span>
     {%- endif -%}
-    <div class="field">     
+    <div class="field form_textfield">     
       <input
         type="password"
         name="customer[password]"

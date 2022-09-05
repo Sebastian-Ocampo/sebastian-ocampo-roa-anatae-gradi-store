@@ -9,10 +9,10 @@
       </a>
     </div>
 
-    <div class="flex-button-addresses btn-addresses_primary" id="btn-new_addresse">
+    <div class="flex-button-addresses text-buttons center" id="btn-new_addresse">
       <button
         data-account="new-addresse"
-        class="edit-addresse button-item-nav button-green-suscription padding-x-button btn-add_address"
+        class="edit-addresse btn-2"
         data-event='new'
         id="new-addresse-button">
         {{ 'customer.addresses.add_new' | t }}
@@ -28,7 +28,7 @@
                 <input
                 required
                 type="text"
-                class="input-grid width-customadd space-row"
+                class="input-grid width-customadd space-row form_textfield"
                 id="AddressFirstNameNew"
                 name="address[first_name]"
                 placeholder="{{ 'customer.addresses.first_name' | t }}"
@@ -38,7 +38,7 @@
               <input
                 required
                 type="text"
-                class="input-grid width-customadd space-row"
+                class="input-grid width-customadd space-row  form_textfield"
                 id="AddressLastNameNew"
                 name="address[last_name]"
                 placeholder="{{ 'customer.addresses.last_name' | t }}"
@@ -48,7 +48,7 @@
 
               <input
                 type="text"
-                class="input-grid width-customadd"
+                class="input-grid width-customadd  form_textfield"
                 id="AddressCompanyNew"
                 name="address[company]"
                 placeholder="{{ 'customer.addresses.company' | t }}"
@@ -58,7 +58,7 @@
               <input
                 required
                 type="text"
-                class="input-grid width-customadd"
+                class="input-grid width-customadd  form_textfield"
                 id="AddressAddress1New"
                 name="address[address1]"
                 placeholder="{{ 'customer.addresses.address1' | t }}"
@@ -67,7 +67,7 @@
 
               <input
                 type="text"
-                class="input-grid width-customadd"
+                class="input-grid width-customadd  form_textfield"
                 id="AddressAddress2New"
                 name="address[address2]"
                 placeholder="{{ 'customer.addresses.address2' | t }}"
@@ -77,7 +77,7 @@
               <input
                 required
                 type="text"
-                class="input-grid width-customadd"
+                class="input-grid width-customadd  form_textfield"
                 id="AddressCityNew"
                 name="address[city]"
                 placeholder="{{ 'customer.addresses.city' | t }}"
@@ -87,7 +87,7 @@
               <select
                 required
                 id="AddressCountryNew"
-                class="input-grid"
+                class="input-grid  form_textfield"
                 name="address[country]"
                 placeholder="{{ 'customer.addresses.country' | t }}"
                 data-default="{{ form.country }}"
@@ -96,7 +96,7 @@
               <input
                 required
                 type="text"
-                class="input-grid width-customadd"
+                class="input-grid width-customadd  form_textfield"
                 id="AddressZipNew"
                 name="address[zip]"
                 placeholder="{{ 'customer.addresses.zip' | t }}"
@@ -107,7 +107,7 @@
               <input
                 required
                 type="tel"
-                class="input-grid width-customadd"
+                class="input-grid width-customadd  form_textfield"
                 id="AddressPhoneNew"
                 name="address[phone]"
                 placeholder="{{ 'customer.addresses.phone' | t }}"
@@ -123,7 +123,7 @@
           </div>
 
           <div class="buttons-actions">
-            <input type="submit" class="btn-addresses_secundary btn-addresses_actions" value="{{ 'customer.addresses.add' | t }}">
+            <input type="submit" class="btn-1 btn-addresses_actions" value="{{ 'customer.addresses.add' | t }}">
             <a data-account="addresses" data-event='cancel-new' type="button" active="active" class="edit-addresse cancel-operation" id="addresses-button">
               {{ 'customer.addresses.cancel' | t }}
             </a>
@@ -160,7 +160,7 @@
 
                       <button
                         type="button"
-                        class="edit-addresse button-green-suscription btn-addresses_secundary"
+                        class="edit-addresse btn-1"
                         data-event='edit'
                         data-form="{{ address.id }}">
                         {{ 'customer.addresses.edit' | t }}
@@ -168,7 +168,7 @@
 
                       <button
                         type="button"
-                        class="btn-addresses_secundary address-delete"
+                        class="address-delete btn-1"
                         data-target="{{ address.url }}"
                         data-confirm-message="{{ 'customer.addresses.delete_confirm' | t }}">
                         {{ 'customer.addresses.delete' | t }}
@@ -192,7 +192,7 @@
                             <input
                             required
                             type="text"
-                            class="input-grid width-customadd space-row"
+                            class="input-grid width-customadd space-row form_textfield"
                             name="address[first_name]"
                             placeholder="{{ 'customer.addresses.first_name' | t }}"
                             value="{{ form.first_name }}"
@@ -201,7 +201,7 @@
                           <input
                             required
                             type="text"
-                            class="input-grid width-customadd space-row"
+                            class="input-grid width-customadd space-row form_textfield"
                             name="address[last_name]"
                             placeholder="{{ 'customer.addresses.last_name' | t }}"
                             value="{{ form.last_name }}"
@@ -210,7 +210,7 @@
 
                           <input
                             type="text"
-                            class="input-grid width-customadd"
+                            class="input-grid width-customadd form_textfield"
                             name="address[company]"
                             placeholder="{{ 'customer.addresses.company' | t }}"
                             value="{{ form.company }}"
@@ -219,7 +219,7 @@
                           <input
                             required
                             type="text"
-                            class="input-grid width-customadd"
+                            class="input-grid width-customadd form_textfield"
                             name="address[address1]"
                             placeholder="{{ 'customer.addresses.address1' | t }}"
                             value="{{ form.address1 }}"
@@ -227,7 +227,7 @@
 
                           <input
                             type="text"
-                            class="input-grid width-customadd"
+                            class="input-grid width-customadd form_textfield"
                             name="address[address2]"
                             placeholder="{{ 'customer.addresses.address2' | t }}"
                             value="{{ form.address2 }}"
@@ -236,7 +236,7 @@
                           <input
                             required
                             type="text"
-                            class="input-grid width-customadd"
+                            class="input-grid width-customadd form_textfield"
                             name="address[city]"
                             placeholder="{{ 'customer.addresses.city' | t }}"
                             value="{{ form.city }}"
@@ -244,7 +244,7 @@
 
                           <select
                             required
-                            class="input-grid"
+                            class="input-grid form_textfield"
                             name="address[country]"
                             placeholder="{{ 'customer.addresses.country' | t }}"
                             data-default="{{ form.country }}"
@@ -253,7 +253,7 @@
                           <input
                             required
                             type="text"
-                            class="input-grid width-customadd"
+                            class="input-grid width-customadd form_textfield"
                             name="address[zip]"
                             placeholder="{{ 'customer.addresses.zip' | t }}"
                             value="{{ form.zip }}"
@@ -263,7 +263,7 @@
                           <input
                             required
                             type="tel"
-                            class="input-grid width-customadd"
+                            class="input-grid width-customadd form_textfield"
                             name="address[phone]"
                             placeholder="{{ 'customer.addresses.phone' | t }}"
                             value="{{ form.phone }}"
@@ -278,7 +278,7 @@
                       </div>
 
                       <div class="buttons-actions">
-                        <input type="submit" class="btn-addresses_secundary btn-addresses_actions" value="{{ 'customer.addresses.update' | t }}">
+                        <input type="submit" class="btn-1 btn-addresses_actions" value="{{ 'customer.addresses.update' | t }}">
                         <a href="" class="edit-addresse cancel-operation" data-event='cancel' data-form="{{ form.id }}">{{ 'customer.addresses.cancel' | t }}</a>
                       </div>
                     {% endform %}
@@ -313,5 +313,5 @@
     </div>
 
   </div>
-{% render 'newsletter' %}
+{% section 'newslatter' %}
 </div>

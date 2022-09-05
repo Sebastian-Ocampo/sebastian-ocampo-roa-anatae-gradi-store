@@ -1,36 +1,82 @@
+import { $Q, $Qll } from "../utils/query-selector"
+
+/**
+ * Event handler form Addresses
+ * @param {String} ev event
+ */
 const clickFormAddresse = (ev) => {
   const target = ev.target;
   const id = target.dataset.form;
   const eventType = target.dataset.event;
 
-  console.log(eventType);
+  return eventHandler(eventType, id);
+}
 
-  if(eventType === "edit") {
-    document.getElementById('container-addresses-list').classList.add('hidden');
-    document.getElementById('container-addresses-forms').classList.remove('hidden');
-    document.querySelector(`.address-container[data-form="${id}"]`).classList.add('hidden');
-    document.querySelector(`.form-edit-addresse[data-form="${id}"]`).classList.remove('hidden');
-  }else if (eventType === "new"){
-    document.getElementById('containers-new-addresse').classList.remove('hidden');
-    document.getElementById('btn-new_addresse').classList.add('hidden');
+/**
+ * Handle form events
+ * @param {String} eventType 
+ * @param {String} id 
+ * @returns {Function}
+ */
+const eventHandler = (eventType, id) => {
+  let events = {
+    edit: () => {
+      toggleHideElement(
+        '#container-addresses-list', 
+        '#container-addresses-forms'
+      );
+      toggleHideElement(
+        `.address-container[data-form="${id}"]`, 
+        `.form-edit-addresse[data-form="${id}"]`
+      );
+    },
+    new: () => {
+      toggleHideElement(
+        '#btn-new_addresse', 
+        '#containers-new-addresse'
+      );
+    },
+    "cancel-new": () => {
+      toggleHideElement(
+        '#containers-new-addresse', 
+        '#btn-new_addresse'
+      );
+    }
   }
-  else if (eventType === "cancel-new"){
-    document.getElementById('containers-new-addresse').classList.add('hidden');
-    document.getElementById('btn-new_addresse').classList.remove('hidden');
-  }
-  else {
-    document.getElementById('container-addresses-list').classList.remove('hidden');
-    document.getElementById('container-addresses-forms').classList.add('hidden');
-    document.querySelector(`.address-container[data-form="${id}"]`).classList.remove('hidden');
-    document.querySelector(`.form-edit-addresse[data-form="${id}"]`).classList.add('hidden');
 
-  }
+  if (!eventType in events) {
+    let res = () => {
+      toggleHideElement(
+      '#container-addresses-forms', 
+      '#container-addresses-list'
+      );
+      toggleHideElement(
+        `.form-edit-addresse[data-form="${id}"]`, 
+        `.address-container[data-form="${id}"]`
+      );
+    }
+    return res();
+  } 
 
+  return events[eventType]();
+}
+
+/**
+ * Hide / unhide elements
+ * @param {String} hide 
+ * @param {String} unhide 
+ */
+const toggleHideElement = (hide, unhide) => {
+  $Q(hide).classList.add('hidden');
+  $Q(unhide).classList.remove('hidden');
 }
 
 
+/**
+ * Open address edit form 
+ */
 export const openFormEdit = () => {
-  const buttonEdit = document.querySelectorAll('.edit-addresse');
+  const buttonEdit = $Qll('.edit-addresse');
   for (let button of buttonEdit) {
     button.addEventListener('click', (e) => {
       clickFormAddresse(e);
