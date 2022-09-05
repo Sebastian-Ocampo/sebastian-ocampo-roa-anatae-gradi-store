@@ -46,13 +46,19 @@
       "copy_to_clipboard": "Copier le lien",
       "share_url": "Lien",
       "success_message": "Lien copié dans le presse-papiers",
-      "close": "Fermer le partage"
+      "close": "Fermer le partage",
+      "title": "Les nouvelles culottées",
+      "description": "Inscrivez-vous a notre newsletter et ne manquez aucune de nos aventures !",
+      "btn-text": "submit"
     }
   },
   "newsletter": {
     "label": "E-mail",
     "success": "Merci de votre inscription",
-    "button_label": "S'inscrire"
+    "button_label": "S'inscrire",
+    "title": "Les nouvelles culottées",
+    "description": "Inscrivez-vous a notre newsletter et ne manquez aucune de nos aventures !",
+    "btn-text": "submit"
   },
   "accessibility": {
     "skip_to_text": "Ignorer et passer au contenu",
@@ -379,6 +385,9 @@
       "tracking_company": "Transporteur",
       "tracking_number": "Numéro de suivi",
       "subtotal": "Sous-total"
+    },
+    "subscriptions": {
+      "manage_subscriptions": "Gérer les abonnements"
     }
   },
   "gift_cards": {

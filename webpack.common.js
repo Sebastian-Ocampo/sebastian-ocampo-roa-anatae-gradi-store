@@ -7,7 +7,8 @@ const JS_DIR = path.resolve(__dirname, './src');
 const entry = {
   theme: './src/templates/index.js',
   product: './src/templates/product.js',
-  password: './src/templates/password.js'
+  password: './src/templates/password.js',
+  customer: './src/templates/customer.js'
 }
 
 const output = {

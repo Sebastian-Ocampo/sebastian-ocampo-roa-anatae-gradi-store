@@ -1,0 +1,24 @@
+
+ <div class="newsletter">
+  {% assign btn_text =  'newsletter.btn-text' | t %}
+  <div class="title-newsletter">
+    <h1>{{ 'newsletter.title' | t }}</h1>
+  </div>
+  <div class="newsletter-description">
+    <span>{{ 'newsletter.description' | t }}</span>
+  </div>
+  <div class="newsletter-email">
+    <input
+    type="email"
+    class="input-grid width-customadd"
+    name="newsletter-email"
+    placeholder="email"
+   >
+  </div>
+  {% render 'button'
+  class: "btn-newsletter",
+  content: btn_text,
+  type: 2,
+  action: "submit"
+%}
+ </div>
