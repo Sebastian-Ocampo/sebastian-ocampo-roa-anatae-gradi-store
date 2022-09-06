@@ -72,6 +72,12 @@
   }
 }
 
+.customer {
+  .title {
+    text-align: center;
+  }
+}
+
 .container__recover .container__form{
   margin: 20px auto;
   p{
@@ -235,6 +241,7 @@ line-height: 25px;
  }
  .btn-addresses{
   display: flex;
+  justify-content: center;
  }
  .newsletter-email{
   input{
@@ -244,5 +251,64 @@ line-height: 25px;
  .btn-addresses_primary {
   width: 30%;
   margin: auto;
-}
+ }
+  .account-detail {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .btn-addresses--mobile {
+    display: none;
+  }
+
+  .orders--wrapper {
+    display: flex;
+
+    .content-orders {
+      width: 75%;
+
+      h2 {
+        text-align: left;
+      }
+
+      p {
+        text-align: center;
+      }
+    }
+
+    .account-detail {
+      width: 25%;
+
+      p {
+        font-size: 16px;
+      }
+    }
+  }
+
+  .flex-button-addresses {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+
+    button {
+      margin: 0;
+    }
+  }
+
+  #container-addresses-list {
+    display: flex;
+
+    .address-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+
+      .content-title_address {
+        margin: 0 auto auto;
+      }
+    }
+  }
 }

@@ -2,7 +2,7 @@
   <div class="title">
     <h1>{{ 'customer.account.title' | t }}</h1>
   </div>
-  <div class="btn-addresses">
+  <div class="btn-addresses btn-addresses--mobile">
     <a href="{{ routes.account_addresses_url}}">
       {% render 'button'
         class: "btn-1",
@@ -20,121 +20,123 @@
       %}
     </a>
   </div>
-    <div class="content-orders">
-      <h2>{{ 'customer.orders.title' | t }}</h2>
-
-      {% paginate customer.orders by 20 %}
-        {%- if customer.orders.size > 0 -%}
-        {%- for order in customer.orders -%}
-
+    <div class="orders--wrapper">
+      <div class="content-orders">
+        <h2>{{ 'customer.orders.title' | t }}</h2>
+  
+        {% paginate customer.orders by 20 %}
+          {%- if customer.orders.size > 0 -%}
+          {%- for order in customer.orders -%}
+  
+          <div class="btn-addresses">
+            <a href="{{ order.customer_url }}">
+              {% render 'button'
+                class: "btn-1",
+                content:  order.name,
+                type: 1,
+                action: "button"
+              %}
+            </a>
+          </div>
+  
+          <div class="content-order">
+           <div class="row-order">
+            <p class="header-content_order">{{"customer.orders.date" | t}}</p>
+            <span class="data-content_order">
+              {{ order.created_at | time_tag: format: 'date' }}
+            </span>
+           </div>
+            <div class="row-order">
+              <p class="header-content_order">{{"customer.orders.date" | t}}</p>
+            <span class="data-content_order">
+              {{ order.financial_status_label }}
+            </span>
+            </div>
+            <div class="row-order">
+              <p class="header-content_order">{{"customer.orders.payment_status" | t}}</p>
+            <span class="data-content_order">
+              {{ order.fulfillment_status_label }}
+            </span>
+            </div>
+            <div class="total-order">
+              <p class="header-content_order">{{"customer.orders.total" | t}}</p>
+              <p class="header-content_order">
+                {{ order.total_price | money }}
+              </p>
+  
+            </div>
+  
+          </div>
+        {% endfor %}
+          {%- else -%}
+            <p>{{ 'customer.orders.none' | t }}</p>
+          {%- endif -%}
+  
+          {%- if paginate.pages > 1 -%}
+            {%- if paginate.parts.size > 0 -%}
+                <nav class="pagination" role="navigation" aria-label="{{ 'general.pagination.label' | t }}">
+                  <ul role="list">
+                  {%- if paginate.previous -%}
+                    <li>
+                      <a href="{{ paginate.previous.url }}" aria-label="{{ 'general.pagination.previous' | t }}">
+                        <svg aria-hidden="true" focusable="false" viewBox="0 0 10 6">
+                          <path fill-rule="evenodd" clip-rule="evenodd" d="M9.354.646a.5.5 0 00-.708 0L5 4.293 1.354.646a.5.5 0 00-.708.708l4 4a.5.5 0 00.708 0l4-4a.5.5 0 000-.708z" fill="currentColor">
+                        </svg>
+                      </a>
+                    </li>
+                  {%- endif -%}
+  
+                  {%- for part in paginate.parts -%}
+                    <li>
+                      {%- if part.is_link -%}
+                        <a href="{{ part.url }}" aria-label="{{ 'general.pagination.page' | t: number: part.title }}">{{ part.title }}</a>
+                      {%- else -%}
+                        {%- if part.title == paginate.current_page -%}
+                          <span aria-current="page" aria-label="{{ 'general.pagination.page' | t: number: part.title }}">{{ part.title }}</span>
+                        {%- else -%}
+                          <span>{{ part.title }}</span>
+                        {%- endif -%}
+                      {%- endif -%}
+                    </li>
+                  {%- endfor -%}
+  
+                  {%- if paginate.next -%}
+                    <li>
+                      <a href="{{ paginate.next.url }}" aria-label="{{ 'general.pagination.next' | t }}" >
+                        <svg aria-hidden="true" focusable="false" viewBox="0 0 10 6">
+                          <path fill-rule="evenodd" clip-rule="evenodd" d="M9.354.646a.5.5 0 00-.708 0L5 4.293 1.354.646a.5.5 0 00-.708.708l4 4a.5.5 0 00.708 0l4-4a.5.5 0 000-.708z" fill="currentColor">
+                        </svg>
+                      </a>
+                    </li>
+                  {%- endif -%}
+                  </ul>
+                </nav>
+            {%- endif -%}
+          {%- endif -%}
+        {% endpaginate %}
+      </div>
+      <div class="account-detail">
+        <h2>{{ 'customer.account.details' | t }}</h2>
+  
+        {{ customer.default_address | format_address }}
+  
         <div class="btn-addresses">
-          <a href="{{ order.customer_url }}">
+          <a href="{{ routes.account_addresses_url }}">
+            {% assign title_button = 'customer.account.view_addresses' | t concat: customer.addresses_count %}
             {% render 'button'
               class: "btn-1",
-              content:  order.name,
-              type: 1,
+              content: title_button,
+              type: 2,
               action: "button"
             %}
           </a>
         </div>
-
-        <div class="content-order">
-         <div class="row-order">
-          <p class="header-content_order">{{"customer.orders.date" | t}}</p>
-          <span class="data-content_order">
-            {{ order.created_at | time_tag: format: 'date' }}
-          </span>
-         </div>
-          <div class="row-order">
-            <p class="header-content_order">{{"customer.orders.date" | t}}</p>
-          <span class="data-content_order">
-            {{ order.financial_status_label }}
-          </span>
-          </div>
-          <div class="row-order">
-            <p class="header-content_order">{{"customer.orders.payment_status" | t}}</p>
-          <span class="data-content_order">
-            {{ order.fulfillment_status_label }}
-          </span>
-          </div>
-          <div class="total-order">
-            <p class="header-content_order">{{"customer.orders.total" | t}}</p>
-            <p class="header-content_order">
-              {{ order.total_price | money }}
-            </p>
-
-          </div>
-
+        <div class="url-suscriptions">
+          <a href="{{ routes.account_addresses_url }}">
+           {{'customer.subscriptions.manage_subscriptions' | t }}
+          </a>
         </div>
-      {% endfor %}
-        {%- else -%}
-          <p>{{ 'customer.orders.none' | t }}</p>
-        {%- endif -%}
-
-        {%- if paginate.pages > 1 -%}
-          {%- if paginate.parts.size > 0 -%}
-              <nav class="pagination" role="navigation" aria-label="{{ 'general.pagination.label' | t }}">
-                <ul role="list">
-                {%- if paginate.previous -%}
-                  <li>
-                    <a href="{{ paginate.previous.url }}" aria-label="{{ 'general.pagination.previous' | t }}">
-                      <svg aria-hidden="true" focusable="false" viewBox="0 0 10 6">
-                        <path fill-rule="evenodd" clip-rule="evenodd" d="M9.354.646a.5.5 0 00-.708 0L5 4.293 1.354.646a.5.5 0 00-.708.708l4 4a.5.5 0 00.708 0l4-4a.5.5 0 000-.708z" fill="currentColor">
-                      </svg>
-                    </a>
-                  </li>
-                {%- endif -%}
-
-                {%- for part in paginate.parts -%}
-                  <li>
-                    {%- if part.is_link -%}
-                      <a href="{{ part.url }}" aria-label="{{ 'general.pagination.page' | t: number: part.title }}">{{ part.title }}</a>
-                    {%- else -%}
-                      {%- if part.title == paginate.current_page -%}
-                        <span aria-current="page" aria-label="{{ 'general.pagination.page' | t: number: part.title }}">{{ part.title }}</span>
-                      {%- else -%}
-                        <span>{{ part.title }}</span>
-                      {%- endif -%}
-                    {%- endif -%}
-                  </li>
-                {%- endfor -%}
-
-                {%- if paginate.next -%}
-                  <li>
-                    <a href="{{ paginate.next.url }}" aria-label="{{ 'general.pagination.next' | t }}" >
-                      <svg aria-hidden="true" focusable="false" viewBox="0 0 10 6">
-                        <path fill-rule="evenodd" clip-rule="evenodd" d="M9.354.646a.5.5 0 00-.708 0L5 4.293 1.354.646a.5.5 0 00-.708.708l4 4a.5.5 0 00.708 0l4-4a.5.5 0 000-.708z" fill="currentColor">
-                      </svg>
-                    </a>
-                  </li>
-                {%- endif -%}
-                </ul>
-              </nav>
-          {%- endif -%}
-        {%- endif -%}
-      {% endpaginate %}
     </div>
-    <div class="account-detail">
-      <h2>{{ 'customer.account.details' | t }}</h2>
-
-      {{ customer.default_address | format_address }}
-
-      <div class="btn-addresses">
-        <a href="{{ routes.account_addresses_url }}">
-          {% assign title_button = 'customer.account.view_addresses' | t concat: customer.addresses_count %}
-          {% render 'button'
-            class: "btn-1",
-            content: title_button,
-            type: 2,
-            action: "button"
-          %}
-        </a>
-      </div>
-      <div class="url-suscriptions">
-        <a href="{{ routes.account_addresses_url }}">
-         {{'customer.subscriptions.manage_subscriptions' | t }}
-        </a>
-      </div>
-  </div>
+    </div>
 </div>
 {% section 'newslatter' %}
