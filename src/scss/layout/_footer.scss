@@ -1,3 +1,5 @@
+@use '../abstracts/variables';
+
 .footer {
   --column-gap: 30px;
   --row-gap: 50px;
@@ -80,11 +82,11 @@
 #ContactFooter {
   &-success {
     @extend %notification;
-    color: #23C552;
+    color: variables.$color-success;
   }
 
   &-error {
     @extend %notification;
-    color: #F84F31;
+    color: variables.$color-error;
   }
 }

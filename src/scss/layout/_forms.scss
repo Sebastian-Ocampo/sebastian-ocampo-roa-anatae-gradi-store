@@ -136,9 +136,37 @@
 }
 
 .form__message {
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  margin-bottom: 10px;
   padding: 10px;
-  border: 2px solid #000;
+  border: 1px solid;
   border-radius: 5px;
-  background-color: #f1f1f1;
+  background-color: transparent;
+
+  svg {
+    width: 25px;
+    height: 25px;
+    margin-right: 10px;
+  }
+
+  &--success {
+    color: variables.$color-success;
+    border-color: variables.$color-success;
+  }
+
+  &--error {
+    color: variables.$color-error;
+    border-color: variables.$color-error;
+  }
+}
+
+.errors {
+  & > ul {
+    list-style: none;
+  }
+
+  margin-bottom: 20px;
 }
