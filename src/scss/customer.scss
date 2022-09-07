@@ -1,4 +1,147 @@
+@use './abstracts/variables';
+
 @import "components/address";
+@import "components/auth";
+
+$break-customer: 800px;
+$margin-customer: 50px;
+
+.customer {
+  max-width: 900px;
+  margin-top: variables.$margin-section;
+  margin-bottom: variables.$margin-section;
+
+  &__title {
+    text-align: center;
+  }
+
+  &__nav-link {
+    text-align: center;
+    display: block;
+    margin-bottom: $margin-customer;
+  }
+
+  &__layout {
+    display: flex;
+    flex-direction: column-reverse;
+
+    @media screen and (max-width: $break-customer) {
+      & > *:last-child {
+        margin-bottom: $margin-customer;
+      }
+    }
+
+    @media screen and (min-width: $break-customer) {
+      flex-direction: row;
+      flex-wrap: nowrap;
+
+      & > *:first-child {
+        margin-right: $margin-customer;
+      }
+    }
+  }
+
+  &__2-3 {
+    width: 100%;
+
+    @media screen and (min-width: $break-customer) {
+      width: 80%;
+    }
+  }
+
+  &__1-3 {
+    width: 100%;
+
+    @media screen and (min-width: $break-customer) {
+      width: 20%;
+    }
+  }
+
+  &__order {
+    &-list {
+      --columns: 1fr 2fr 2fr 2fr 1fr;
+      --column-gap: 30px;
+  
+      &--header {
+        display: none;
+  
+        @media screen and (min-width: $break-customer) {
+          display: grid;
+          font-weight: 600;
+          margin-bottom: 20px;
+        }
+      }
+  
+      &--detail {
+        --columns: 3fr 2fr 2fr 1fr 1fr;
+
+        &:not(:last-of-type) {
+          margin-bottom: 10px;
+        }
+
+        & > *:last-child {
+          text-align: right;
+        }
+      }
+  
+      &:not(:last-of-type) {
+        padding-bottom: 10px;
+        border-bottom: 1px solid;
+      }
+  
+      & > div > .ref__hidden {
+        display: none;
+      }
+  
+      @media screen and (max-width: $break-customer) {
+        --columns: 1fr;
+        --row-gap: 30px;
+  
+        &:not(:last-of-type) {
+          margin-bottom: $margin-customer;
+        }
+  
+        & > div {
+          display: flex;
+          justify-content: space-between;
+  
+          & > .ref__hidden {
+            display: block;
+            margin-right: $margin-customer;
+          }
+  
+          & > *:last-child {
+            text-align: right;
+          }
+        }
+      }
+    }
+
+    &-total {
+      display: flex;
+      justify-content: space-between;
+
+      &:not(:last-of-type) {
+        margin-bottom: 10px;
+      }
+
+      & > *:first-child {
+        display: block;
+        margin-right: $margin-customer;
+      }
+
+      & > *:last-child {
+        text-align: right;
+      }
+    }
+  }
+
+  &__section-space {
+    &:first-of-type {
+      margin-bottom: $margin-customer;
+    }
+  }
+}
 
 .login .container__recover,
 .container__login{
@@ -74,243 +217,9 @@
   }
 }
 
-.customer {
-  .title {
-    text-align: center;
-  }
-}
-
-.container__recover .container__form{
+.container__recover .container__form {
   margin: 20px auto;
   p{
     text-align: center;
-  }
-}
-.title-account, .btn-addresses, .title-addresses, #container-addresses-list{
-  text-align: center;
-}
-.btn-account{
-  border-radius: 25px;
-  width: 100%;
-  margin-top: 10px;
-}
-.customer, .title-addresses{
-  padding: 15px;
-}
-.addresses-title{
-  margin-bottom: 0px;
-}
-
-.list-addresses, .url-suscriptions{
-  text-align: center;
-  padding: 20px 0px;
-}
-.content-title_address{
-  background-color: #d0cfcf;
-  padding: 6px;
-  width: 25%;
-  margin: auto;
-  border-radius: 25px;
-  margin-top: 20px;
-}
-.address-container{
-  padding: 10px;
-  line-height: 25px;
-}
-.flex-button-addresses{
-  padding: 10px;
-}
-.btn-addresses {
-  &_secundary{
-    background-color: transparent;
-    border-radius: 20px;
-    padding: 2px 50px;
-  }
-  &_primary{
-    background-color: #000000;
-    color: #ffffff;
-    padding: 10px 20px;
-    border-radius: 25px;
-    text-align: center;
-  }
-  &_actions{
-    background-color: #929292;
-    color: #ffffff;
-    font-weight: bold;
-    padding: 15px 100px;
-    border: none;
-  }
-}
-
-.cancel-operation{
-  color: #000000;
-  text-decoration: none;
-  margin-top: 15px;
-  font-weight: bold;
-}
-.check-addresses input{
-  width: 10%!important;
-}
-.buttons-actions{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.btn-add_address{
-  background-color: transparent;
-  border: none;
-}
-.grid-form-addresse{
-  padding: 10px;
-  input, .grid-form-addresse select{
-    border: 1px solid #000;
-    padding: 8px 0px;
-    margin-bottom: 20px;
-    width: 100%;
-    text-indent: 10px;
-  }
-}
-.form-col{
-  display: flex;
-  width: 100%;
-  flex-direction: row;
-  justify-content: space-between;
-}
-.space-row{
-  width: 48%!important;
-}
-.newsletter{
-  background-color: #EBEBEB;
-  padding: 20px;
-  text-align: center;
-  &-email{
-    padding: 20px;
-    input{
-      border-radius: 25px;
-      padding: 5px 20px;
-      width: 80%;
-    }
-  }
-}
-.btn-newsletter{
-  border-radius: 25px;
-}
-.content-orders{
-  padding-top: 30px;
-}
-.content-order, .row-order, .section-space{
-  padding: 20px 0px;
-}
-.order-number{
-  background-color: #F7F6F6;
-  padding: 10px;
-  border: 1px solid #000000;
-  text-align: center;
-  border-radius: 25px;
-}
-.header-content_order{
-font-size: 20px;
-font-weight: bold;
-}
-.data-content_order{
-font-size: 18px;
-}
-.total-order, .item-order{
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
-.account-detail p{
-font-size: 18px;
-line-height: 25px;
-}
-.item-content_order{
-  font-size: 18px;
-  width: 60%;
-  text-align: end;
-  }
-  .item-order{
-    padding: 10px 0px;
-  }
-.section-space p:first-of-type, .title-edit{
-  font-size: 20px;
-  font-weight: bold;
-}
-@media screen and (min-width: 768px) {
- .customer{
-  padding-left: 200px;
-  padding-right: 200px;
- }
- .btn-addresses{
-  display: flex;
-  justify-content: center;
- }
- .newsletter-email{
-  input{
-    width: auto;
-  }
- }
- .btn-addresses_primary {
-  width: 30%;
-  margin: auto;
- }
-  .account-detail {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .btn-addresses--mobile {
-    display: none;
-  }
-
-  .orders--wrapper {
-    display: flex;
-
-    .content-orders {
-      width: 75%;
-
-      h2 {
-        text-align: left;
-      }
-
-      p {
-        text-align: center;
-      }
-    }
-
-    .account-detail {
-      width: 25%;
-
-      p {
-        font-size: 16px;
-      }
-    }
-  }
-
-  .flex-button-addresses {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-
-    button {
-      margin: 0;
-    }
-  }
-
-  #container-addresses-list {
-    display: flex;
-
-    .address-container {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      align-items: center;
-
-      .content-title_address {
-        margin: 0 auto auto;
-      }
-    }
   }
 }
