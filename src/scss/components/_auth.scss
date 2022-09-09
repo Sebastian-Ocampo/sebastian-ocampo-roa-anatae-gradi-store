@@ -1,42 +1,26 @@
 @use '../abstracts/mixins';
 
-/* ReCaptcha */
-.shopify-challenge {
-  &__container {
-    margin: 7rem auto !important;
+.auth {
+  text-align: center;
+
+  &.customer {
+    max-width: 600px;
   }
 
-  &__message {
+  & > * {
     display: block;
-    font-size: 18px;
-    font-weight: 600;
-    margin-bottom: 25px;
-  }
 
-  &__button {
-    border-style: none;
-    padding: 15px 30px;
-    border-radius: 0px;
-    border-width: 1px;
-    font-weight: 600;
-    transition: 0.3s ease;
-    transition-property: background-color;
-    cursor: pointer;
-
-    &:hover {
-      @include mixins.btn-type(
-        var(--color-btn-color-hover),
-        var(--color-btn-bg-hover),
-        var(--color-btn-border-hover)
-      );
-    }
-
-    &:disabled {
-      opacity: 0.3;
+    &[data-active="false"] {
+      display: none;
     }
   }
-}
 
-.g-recaptcha {
-  margin: 1rem auto;
+  &__buttons {
+    --direction: column;
+    margin-top: 20px;
+
+    & > *:not(:last-of-type) {
+      margin: 0 0 20px;
+    }
+  }
 }
