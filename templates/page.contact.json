@@ -1,10 +1,14 @@
 {
   "sections": {
+    "hero": {
+      "type": "hero-simple"
+    },
     "main": {
       "type": "contact"
     }
   },
   "order": [
+    "hero",
     "main"
   ]
 }
