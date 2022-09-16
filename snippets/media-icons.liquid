@@ -12,38 +12,40 @@
 {% endcomment %}
 
 {%- assign order = order_media | default: settings.order_media -%}
-{%- assign socials = order | split: ' ' -%}  
+{%- assign socials = order | split: ' ' -%}
 
 <ul class="flex list-icons-social">
   {%- for social in socials -%}
-  
-  {% capture render_icon %}
-    {% case social %}
-      {% when 'twitter' %}
-        {% render 'icon-twitter' %}
-      {% when 'facebook' %}
-        {% render 'icon-facebook' %}
-      {% when 'pinterest' %}
-        {% render 'icon-pinterest' %} 
-      {% when 'instagram' %}
-        {% render 'icon-instagram' %}
-      {% when 'tiktok' %}
-        {% render 'icon-tiktok' %}
-      {% when 'tumblr' %}
-        {% render 'icon-tumblr' %}
-      {% when 'snapchat' %}
-        {% render 'icon-snapchat' %}
-      {% when 'youtube' %}
-        {% render 'icon-youtube' %}
-      {% when 'linkedin' %}
-        {% render 'icon-linkedin' %}
-    {% endcase %}
-  {% endcapture %}
+  {% liquid
+    capture render_icon
+      case social
+        when 'twitter'
+          render 'icon-twitter'
+        when 'facebook'
+          render 'icon-facebook'
+        when 'pinterest'
+          render 'icon-pinterest'
+        when 'instagram'
+          render 'icon-instagram'
+        when 'tiktok'
+          render 'icon-tiktok'
+        when 'tumblr'
+          render 'icon-tumblr'
+        when 'snapchat'
+          render 'icon-snapchat'
+        when 'youtube'
+          render 'icon-youtube'
+        when 'linkedin'
+          render 'icon-linkedin'
+      endcase
+    endcapture
+  %}
 
+  <!-- eslint-disable-next-line max-len -->
   {%- assign social_link = social | prepend: 'social_' | append: '_link' | downcase -%}
   {% if settings[social_link] != blank %}
-    <li class="list-icons-social_item">
-      <a 
+    <li class="list-icons-social__item">
+      <a
         href="{{ settings[social_link] | escape }}"
         title="{{ social | capitalize }}"
         target="_blank"

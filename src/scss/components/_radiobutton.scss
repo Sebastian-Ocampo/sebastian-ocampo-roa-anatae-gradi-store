@@ -1,8 +1,8 @@
 .variant {
-  &_radio-button {
+  &__radio-button {
     
     input {
-      &:checked + .variant_radio-button--design {
+      &:checked + .variant__radio-button--design {
         border: 1px solid #000;
         box-shadow: 0 2px 5px rgba($color: #000000, $alpha: 0.3);
       }

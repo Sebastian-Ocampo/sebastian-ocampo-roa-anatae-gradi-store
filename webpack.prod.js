@@ -1,3 +1,4 @@
+/* eslint-disable */
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const { merge } = require("webpack-merge");
 const common = require("./webpack.common");

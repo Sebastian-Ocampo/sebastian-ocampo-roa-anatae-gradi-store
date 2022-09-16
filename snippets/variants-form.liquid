@@ -2,7 +2,8 @@
   Options in product form
 
   Accepts:
-  - option_radio: {String} Reference options in radio buttons. To render radio buttons include string with: 'Color'
+  - option_radio: {String} Reference options in radio buttons.
+  To render radio buttons include string with: 'Color'
 
   Usage:
   {% render 'variants-form'
@@ -17,21 +18,21 @@
 
 <div class="variants">
   <input
-    type="hidden" 
-    id="variants" 
-    value="{{ product.variants | json | escape }}"
-  >
-  <input 
     type="hidden"
-    id="options" 
+    id="variants"
+    value="{{ product.variants | json | escape }}"
+  />
+  <input
+    type="hidden"
+    id="options"
     value="{{ product.options | json | escape }}"
-  >
+  />
   <input
     type="hidden"
     name="id"
     value="{{ first_variant.id }}"
     data-variant="{{ product.handle }}"
-  >
+  />
 
   {%- unless product.has_only_default_variant -%}
     {%- for option_name in product.options -%}
@@ -45,43 +46,44 @@
           assign available_value = first_variant.option3 | strip
         endif
       %}
-    
+
       <div class="variants--options">
         <span class="variants--name">
           {{ option_name }}
         </span>
-        
+
         {%- if option_radio contains option_name -%}
           <div
             class="variants--radio-container"
             data-type="{{ option_name }}"
           >
+            <!-- eslint-disable max-len -->
             {%- for option_value in product.options_by_name[option_name].values -%}
-  
               <label
-                class="variant_radio-button"
+                class="variant__radio-button"
                 title="{{ option_name }} {{ option_value }}"
               >
                 <input
                   class="hidden js-option"
                   type="radio"
-                  name="{{ option_name }}" 
+                  name="{{ option_name }}"
                   value="{{ option_value }}"
                   {% if option_value == available_value %}
                     checked="checked"
                   {% endif %}
-                >
+                />
                 <div
-                  class="variant_radio-button--design option_{{ option_value | handleize }}" 
+                  class="variant__radio-button--design option_
+                  {{ option_value | handleize }}"
                 >
                 </div>
               </label>
             {%- endfor -%}
           </div>
         {%- else -%}
-  
+
           <div
-            class="variants--select-container form_textfield"
+            class="variants--select-container form__textfield"
             data-type="{{ option_name }}"
           >
             <select
@@ -89,7 +91,7 @@
               class="variants--select-tag js-option"
             >
               {%- for option_value in product.options_by_name[option_name].values -%}
-                <option 
+                <option
                   value="{{ option_value }}"
                   {% if available_value == option_value %}
                     selected="true"
@@ -98,12 +100,12 @@
                   {{ option_value }}
                 </option>
               {%- endfor -%}
+              <!-- eslint-enable max-len -->
             </select>
           </div>
-  
+
         {%- endif -%}
       </div>
     {%- endfor -%}
   {%- endunless -%}
 </div>
-  

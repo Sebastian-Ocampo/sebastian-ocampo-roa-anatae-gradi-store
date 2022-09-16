@@ -3,7 +3,8 @@
 
   Accepts:
   - paginate: {Object}
-  - anchor: {String} (optional) This can be added so that on page reload it takes you to wherever you've placed your anchor tag.
+  - anchor: {String} (optional) This can be added so that on page
+    reload it takes you to wherever you've placed your anchor tag.
 
   Usage:
   {% paginate results by 2 %}
@@ -36,6 +37,7 @@
       {%- endif -%}
 
       {%- for part in paginate.parts -%}
+        <!-- eslint-disable max-len -->
         <li>
           {%- if part.is_link -%}
             <a
@@ -60,6 +62,7 @@
             {%- endif -%}
           {%- endif -%}
         </li>
+        <!-- eslint-enable max-len -->
       {%- endfor -%}
 
       {%- if paginate.next -%}

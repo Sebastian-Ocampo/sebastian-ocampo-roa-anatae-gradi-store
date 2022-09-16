@@ -3,10 +3,10 @@
   width: 15px;
   height: 15px;
   border: 3px solid transparent;
-  border-radius: 50%;
   border-top-color: #FFF;
-  animation: spin .7s ease-in-out infinite;
   -webkit-animation: spin .7s ease-in-out infinite;
+  animation: spin .7s ease-in-out infinite;
+  border-radius: 50%;
 }
 
 @keyframes spin {

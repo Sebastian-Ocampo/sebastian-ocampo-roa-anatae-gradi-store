@@ -1,6 +1,7 @@
+<!-- eslint-disable @html-eslint/require-closing-tags -->
 {% comment %}
   Renders slide component
-  
+
   Accepts:
   - content: {Html} Internal sliders **init with for (iteration)
   - arrows: {Boolean} Show arrows
@@ -19,6 +20,7 @@
     perpage: 1
   %}
 {% endcomment %}
+<!-- eslint-enable @html-eslint/require-closing-tags -->
 
 {% liquid
   if arrows and pagination
@@ -36,7 +38,7 @@
   endif
 %}
 
-<div class="{{ wrapper }} wrapper_slider">
+<div class="{{ wrapper }} wrapper__slider">
   <!-- Slider main container -->
   <div
     id="slider_{{ section.id }}"
@@ -61,12 +63,14 @@
   <!-- If we need navigation buttons -->
   {% if arrows %}
     <button
+      type="button"
       data-id="slider_{{ section.id }}"
       class="swiper-button swiper-button-prev"
     >
       prev
     </button>
     <button
+      type="button"
       data-id="slider_{{ section.id }}"
       class="swiper-button swiper-button-next"
     >

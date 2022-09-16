@@ -17,6 +17,7 @@
     {{ section.settings.title }}
   </h2>
 
+  <!-- eslint-disable max-len -->
   <div class="cta__buttons-wrapper">
     {% if section.settings.text_button_one != blank and section.settings.url_button_one != blank %}
       {% render 'link'
@@ -34,6 +35,7 @@
       %}
     {% endif %}
   </div>
+  <!-- eslint-enable max-len -->
 </div>
 
 {% if section.settings.background_image != blank %}
@@ -50,76 +52,76 @@
 {% endstyle %}
 
 {% schema %}
-  {
-    "name": "Call To Action",
-    "class": "cta",
-    "settings": [
-      {
-        "type": "radio",
-        "id": "width_mode",
-        "label": "Width Mode",
-        "options": [
-          {
-            "value": "50",
-            "label": "50%"
-          },
-          {
-            "value": "100",
-            "label": "100%"
-          }
-        ],
-        "default": "100"
-      },
-      {
-        "type": "text",
-        "id": "title",
-        "label": "Title",
-        "default": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-      },
-      {
-        "type": "color",
-        "id": "background_color",
-        "label": "Background Color",
-        "default": "#989898"
-      },
-      {
-        "type": "color",
-        "id": "color_title",
-        "label": "Font Color",
-        "default": "#FFFFFF"
-      },
-      {
-        "type": "image_picker",
-        "id": "background_image",
-        "label": "Background Image"
-      },
-      {
-        "type": "text",
-        "id": "text_button_one",
-        "label": "Text Button One",
-        "default": "Go to cart"
-      },
-      {
-        "type": "url",
-        "id": "url_button_one",
-        "label": "Link Button One"
-      },
-      {
-        "type": "text",
-        "id": "text_button_two",
-        "label": "Text Button Two",
-        "default": "Go to checkout"
-      },
-      {
-        "type": "url",
-        "id": "url_button_two",
-        "label": "Link Button Two"
-      }
-    ],
-    "presets": [
-      {
-        "name": "Call To Action Section"
-      }
-    ]
-  }
+{
+  "name": "Call To Action",
+  "class": "cta",
+  "settings": [
+    {
+      "type": "radio",
+      "id": "width_mode",
+      "label": "Width Mode",
+      "options": [
+        {
+          "value": "50",
+          "label": "50%"
+        },
+        {
+          "value": "100",
+          "label": "100%"
+        }
+      ],
+      "default": "100"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background Color",
+      "default": "#989898"
+    },
+    {
+      "type": "color",
+      "id": "color_title",
+      "label": "Font Color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "image_picker",
+      "id": "background_image",
+      "label": "Background Image"
+    },
+    {
+      "type": "text",
+      "id": "text_button_one",
+      "label": "Text Button One",
+      "default": "Go to cart"
+    },
+    {
+      "type": "url",
+      "id": "url_button_one",
+      "label": "Link Button One"
+    },
+    {
+      "type": "text",
+      "id": "text_button_two",
+      "label": "Text Button Two",
+      "default": "Go to checkout"
+    },
+    {
+      "type": "url",
+      "id": "url_button_two",
+      "label": "Link Button Two"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Call To Action Section"
+    }
+  ]
+}
 {% endschema %}

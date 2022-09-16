@@ -1,13 +1,12 @@
 import Swiper from "swiper";
 import { principalConfig, thumbsConfig } from "../utils/slider-configuration";
-import { $Q } from "../utils/query-selector";
 
-export function mountSlider (main) {
+export function mountSlider(main) {
   const { dataset: { direction = null } } = main;
   let thumbnails;
   let principalClass;
 
-  if(direction === '1') {
+  if (direction === '1') {
     /**
      * HORIZONTAL SWIPER SLIDER: media product page
      */
@@ -21,10 +20,11 @@ export function mountSlider (main) {
     principalClass = ".vertical-swipper-principal";
   }
 
+  // eslint-disable-next-line no-unused-expressions
   direction && (
     new Swiper(
       principalClass,
-      principalConfig(thumbnails)
+      principalConfig(thumbnails),
     )
   )
-};
+}

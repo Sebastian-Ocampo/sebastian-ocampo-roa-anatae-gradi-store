@@ -14,9 +14,9 @@
   }
 
   > *:last-child {
+    padding: 20px 0;
     border-top: 1px solid;
     text-align: center;
-    padding: 20px 0;
     --gap-flex: 10px;
 
     & > span {
@@ -25,10 +25,10 @@
   }
 
   .footer-title {
-    font-weight: 600;
-    font-size: 18px;
-    margin-bottom: 25px;
     display: block;
+    margin-bottom: 25px;
+    font-size: 18px;
+    font-weight: 600;
   }
 
   .footer-subtitle {
@@ -44,9 +44,9 @@
     }
 
     li > a {
+      color: #000;
       font-size: 16px;
       text-decoration: none;
-      color: #000;
 
       &:hover {
         text-decoration: underline;
@@ -57,12 +57,12 @@
   .footer-newslatter {
     padding: 2px 10px;
     button {
-      padding: 0;
-      margin: 0;
-      border-style: none;
-      background-color: transparent;
       display: flex;
       align-items: center;
+      padding: 0;
+      border-style: none;
+      margin: 0;
+      background-color: transparent;
 
       svg {
         width: 20px;
@@ -73,8 +73,8 @@
 
 %notification {
   display: block;
-  font-size: 16px;
   margin-top: 15px;
+  font-size: 16px;
 }
 
 #ContactFooter {

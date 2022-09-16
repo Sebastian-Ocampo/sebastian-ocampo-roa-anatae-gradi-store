@@ -1,3 +1,4 @@
+<!-- eslint-disable max-len -->
 {% style %}
   :root {
     --color-base-principal: rgba({{ settings.colors_brand.red }}, {{ settings.colors_brand.green }}, {{ settings.colors_brand.blue }});
@@ -5,7 +6,7 @@
     --color-base-title: {{ settings.colors_title }};
     --color-base-bg: {{ settings.colors_bg_1 }};
     --color-base-link: {{ settings.colors_link }};
-    
+
     --color-btn-color-1: {{ settings.colors_btn_color_1 }};
     --color-btn-bg-1: {{ settings.colors_btn_bg_1 }};
     --color-btn-border-1: {{ settings.colors_btn_border_1 }};
@@ -22,7 +23,7 @@
     --color-btn-bg-hover: {{ settings.colors_btn_bg_hover }};
     --color-btn-border-hover: {{ settings.colors_btn_border_hover }};
   }
-  
+
   {%- assign setting_color = settings.variant_color_textarea | newline_to_br | split: '<br />' -%}
   {% for color in setting_color %}
     {%- assign obj_color = color | split: ':' -%}

@@ -2,16 +2,17 @@
 
 .my-contact {
   display: grid;
-  grid-column-gap: 20px;
-  column-gap: 20px;
-  grid-row-gap: 20px;
-  row-gap: 20px;
   max-width: 440px;
   margin: 0 auto;
+  column-gap: 20px;
+  grid-column-gap: 20px;
+  /* stylelint-disable-next-line declaration-block-no-redundant-longhand-properties */
+  grid-row-gap: 20px;
+  row-gap: 20px;
 }
 
 /* form inputs animation */
-.form_textfield {
+.form__textfield {
   position: relative;
   display: flex;
   padding: 2px;
@@ -20,8 +21,8 @@
 
   label {
     position: absolute;
-    font-size: 16px;
     top: 50%;
+    font-size: 16px;
     transform: translateY(-50%);
     transition: .5s ease;
   }
@@ -30,8 +31,8 @@
     width: 100%;
     padding: 15px 0 5px;
     border-style: none;
-    outline: none;
     font-weight: 600;
+    outline: none;
 
     &::placeholder {
       color: transparent;
@@ -39,10 +40,10 @@
 
     &:focus + label,
     &:not(:placeholder-shown) + label {
-      font-size: 12px;
       top: 0;
-      transform: translateY(5px);
+      font-size: 12px;
       opacity: .7;
+      transform: translateY(5px);
     }
   }
 
@@ -54,7 +55,7 @@
   }
 }
 
-.form_checkbox {
+.form__checkbox {
   display: flex;
   
   input {
@@ -62,31 +63,31 @@
   }
 }
 
-.toggle_checkbox {
+.toggle__checkbox {
   align-items: center;
 
   .slider {
-    height: 24px;
-    width: 48px;
-    border-radius: 12px;
-    margin-right: 10px;
-    display: block;
     position: relative;
-    cursor: pointer;
+    display: block;
+    width: 48px;
+    height: 24px;
+    margin-right: 10px;
     background: #ccc;
+    border-radius: 12px;
+    cursor: pointer;
     -webkit-transition: .2s;
     transition: .2s;
     
     &:after {
-      height: 20px;
-      width: 20px;
+      position: absolute;
       top: 50%;
       left: 2px;
-      border-radius: 50%;
-      transform: translateY(-50%);
-      position: absolute;
-      content: "";
+      width: 20px;
+      height: 20px;
       background-color: #FFF;
+      border-radius: 50%;
+      content: "";
+      transform: translateY(-50%);
       transition: .5s ease;
     }
   }
@@ -98,35 +99,36 @@
       background: var(--color-base-principal);
 
       &:after {
-        left: auto;
         right: 2px;
+        left: auto;
       }
     }
   }
 }
 
-.form_radio-button {
+.form__radio-button {
   display: flex;
   align-items: center;
 
   input[type="radio"] {
-    accent-color: #000;
-    height: 20px;
     width: 20px;
+    height: 20px;
     margin-right: 10px;
+    accent-color: #000;
   }
 }
 
-.form_question {
+.form__question {
   display: grid;
-  grid-column-gap: 20px;
   column-gap: 20px;
+  grid-column-gap: 20px;
+  /* stylelint-disable-next-line declaration-block-no-redundant-longhand-properties */
   grid-row-gap: 20px;
   row-gap: 20px;
   text-align: left;
 
   &--answer {
-    font-weight: bold;
+    font-weight: 600;
   }
 }
 
@@ -134,6 +136,6 @@
   display: block;
   padding: 10px;
   border: 2px solid #000;
-  border-radius: 5px;
   background-color: #f1f1f1;
+  border-radius: 5px;
 }

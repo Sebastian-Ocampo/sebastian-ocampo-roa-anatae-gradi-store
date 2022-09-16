@@ -9,15 +9,15 @@
 
   Usage:
   {% render 'card-content',
-    title: <title>,
-    description: <description>,
-    image: <image>,
-    size: <size>
+    title: {title},
+    description: {description},
+    image: {image},
+    size: {size}
   %}
 {% endcomment %}
 
-{%- assign full_size = size | split: ' ' | last | append: 'x' -%}
-{%- assign img_src = image | img_url: full_size -%}
+{%- assign full_size = size | split: ' ' | last -%}
+{%- assign img_src = image | image_url: width: full_size -%}
 
 <div class="card-content">
   <div class="card-content--image">
