@@ -8,7 +8,7 @@ $margin-customer: 50px;
 
 .customer {
   max-width: 900px;
-  margin-top: variables.$margin-section;
+  margin: variables.$margin-section auto;
   margin-bottom: variables.$margin-section;
 
   &__title {
