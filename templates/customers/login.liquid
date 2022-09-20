@@ -15,6 +15,10 @@
   
       {%- form 'recover_customer_password' -%}
         {% assign recover_success = form.posted_successfully? %}
+        {% assign errors = form.errors %}
+        <script>
+          console.log({{ recover_success | json }});
+        </script>
         <div class="form_textfield form_textfield--spaced">
           <input type="email"
             value=""
@@ -34,15 +38,6 @@
             {{ 'customer.login_page.email' | t }}
           </label>
         </div>
-        {%- if form.errors -%}
-          <small
-            id="RecoverEmail-email-error"
-            class="form__message form__message--error"
-          >
-            {% render 'icon-error' %}
-            {{ form.errors.messages['form'] }}
-          </small>
-        {%- endif -%}
         <div class="flex auth__buttons">
           <div>
             <button class="btn-2">
@@ -69,7 +64,7 @@
     <div>
       {%- if recover_success == true -%}
         <h3
-          class="form__message form__message--success"
+          class="form__message form__message--success test"
           tabindex="-1"
           autofocus
         >
@@ -77,6 +72,15 @@
           {{ 'customer.recover_password.success' | t }}
         </h3>
       {%- endif -%}
+      {% if errors %}
+      <small
+        id="RecoverEmail-email-error"
+        class="form__message form__message--error"
+      >
+        {% render 'icon-error' %}
+        {{ errors.messages['form'] }}
+      </small>
+      {% endif %}
       {%- form 'customer_login', novalidate: 'novalidate' -%}
         {%- if form.errors -%}
           <h2
