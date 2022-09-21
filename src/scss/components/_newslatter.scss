@@ -28,6 +28,12 @@
         background-color: #4caf4f41;
         border-color: #338536;
       }
+      &--error {
+        display: none;
+        margin-top: 20px;
+        background-color: #af4c4c41;
+        border-color: #853833;
+      }
     }
   }
 }

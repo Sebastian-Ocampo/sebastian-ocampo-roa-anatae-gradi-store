@@ -65,17 +65,17 @@
     </span>
   {%- elsif  form.errors -%}
     <small
-      class="newsletter-form__message form__message"
+      class="newsletter-form__message newsletter-form__message--error form__message"
       id="Newsletter-error--{{ section.id }}"
     >
       {{ form.errors.translated_fields['email'] | capitalize }} {{ form.errors.messages['email'] }}
     </small>
   {%- else -%}
       <small
-        class="newsletter-form__message form__message"
+        class="newsletter-form__message newsletter-form__message--error form__message error-js"
         id="Newsletter-error--{{ section.id }}"
       >
-        mensaje usuario registrado
+        {{ 'newsletter.registered' | t }}
       </small>
     {%- endif -%}
 {% endform %}
