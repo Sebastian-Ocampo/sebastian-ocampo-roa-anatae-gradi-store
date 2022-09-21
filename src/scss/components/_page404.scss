@@ -3,7 +3,16 @@
     flex-direction: column;
     padding: 20px;
     &__title{
-      font-size: 48px;
+      
+      &--large {
+        font-size: 120px;
+      }
+      &--medium {
+        font-size: 84px;
+      }
+      &--small {
+        font-size: 48px;
+      }
     }
     &_center{
       text-align: center;
