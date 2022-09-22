@@ -4,9 +4,9 @@
 >
   {%- if section.settings.main_message != blank -%}
     <div class="text404-title padding404-section">
-      <h1 class="error-page__title">
-        {{ section.settings.main_message }}
-      </h1>
+      {% render 'code-404'
+        size: 'small'
+      %}
     </div>
   {%- endif -%}
 
@@ -134,7 +134,7 @@
     {
       "type": "select",
       "id": "image_position",
-      "label": "Layout position",
+      "label": "Image position",
       "options": [
         {
           "value": "",

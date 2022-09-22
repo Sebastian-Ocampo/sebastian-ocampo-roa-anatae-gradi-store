@@ -52,6 +52,7 @@
   "newsletter": {
     "label": "Email",
     "success": "Thanks for subscribing",
+    "registered": "Registered user",
     "button_label": "Subscribe"
   },
   "accessibility": {
