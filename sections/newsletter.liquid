@@ -52,15 +52,6 @@
     >
       {{ 'newsletter.button_label' | t }}
     </button>
-    
-    {%- if form.errors -%}
-      <small
-        class="newsletter-form__message form__message"
-        id="Newsletter-error--{{ section.id }}"
-      >
-        {{ form.errors.translated_fields['email'] | capitalize }} {{ form.errors.messages['email'] }}
-      </small>
-    {%- endif -%}
   </div>
 
   {%- if form.posted_successfully? -%}
@@ -72,12 +63,26 @@
     >
       {{ 'newsletter.success' | t }}
     </span>
-  {%- endif -%}
+  {%- elsif  form.errors -%}
+    <small
+      class="newsletter-form__message newsletter-form__message--error form__message"
+      id="Newsletter-error--{{ section.id }}"
+    >
+      {{ form.errors.translated_fields['email'] | capitalize }} {{ form.errors.messages['email'] }}
+    </small>
+  {%- else -%}
+      <small
+        class="newsletter-form__message newsletter-form__message--error form__message error-js"
+        id="Newsletter-error--{{ section.id }}"
+      >
+        {{ 'newsletter.registered' | t }}
+      </small>
+    {%- endif -%}
 {% endform %}
 
 {% schema %}
   {
-    "name": "Newslatter",
+    "name": "Newsletter",
     "class": "newsletter",
     "tag": "section",
     "settings": [

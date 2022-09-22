@@ -11,7 +11,7 @@
     grid-template-columns: var(--columns , repeat(2, 1fr));
   }
 
-  @media screen and (max-width: 350px) {
+  @media screen and (max-width: 430px) {
     grid-template-columns: var(--columns , 1fr);
   }
 }

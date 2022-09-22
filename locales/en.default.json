@@ -53,6 +53,7 @@
     "label": "Email",
     "success": "Thanks for subscribing",
     "button_label": "Subscribe",
+    "registered": "Registered user",
     "title": "Les nouvelles culottées",
     "description": "Inscrivez-vous a notre newsletter et ne manquez aucune de nos aventures !",
     "btn-text": "submit"
