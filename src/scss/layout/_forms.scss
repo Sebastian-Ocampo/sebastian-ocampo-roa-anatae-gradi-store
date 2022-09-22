@@ -159,17 +159,23 @@
     color: variables.$color-error;
     border-color: variables.$color-error;
   }
+
+  & > svg {
+    width: 25px;
+    height: 25px;
+    margin-right: 10px;
+  }
 }
+
 .icon-error {
   width: 25px;
   height: 25px;
   margin-right: 10px;
 }
 
-.list-errors{
+.list-errors {
   list-style: none;
 }
-
 
 .errors {
   & > ul {

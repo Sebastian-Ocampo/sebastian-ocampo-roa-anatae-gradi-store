@@ -27,12 +27,13 @@
             autocorrect="off"
             autocapitalize="off"
             autocomplete="email"
+            required
             {% if form.errors %}
               aria-invalid="true"
               aria-describedby="RecoverEmail-email-error"
               autofocus
             {% endif %}
-            placeholder="{{ 'customer.login_page.email' | t }}"
+            placeholder="{{ 'customer.login_page.email' | t | append: '*' }}"
           >
           <label for="RecoverEmail">
             {{ 'customer.login_page.email' | t }}
