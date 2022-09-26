@@ -107,15 +107,9 @@
         .item-price {
           display: flex;
         }
-      }
-    }
-  }
-
-  &-upsell {
-    &-container-product {
-      .upsell-btn {
-        padding: 10px;
-        width: 100%;
+        .item-delete, .item-quantity button {
+          cursor: pointer;
+        }
       }
     }
   }
