@@ -36,8 +36,6 @@ const submitForm = (form) => {
     (e) => {
       e.preventDefault();
       addProducts(e);
-
-      dataToggle($Q("#shopify-section-side-cart"), true);
     }
   )
 }
@@ -68,6 +66,7 @@ const addProducts = async (event) => {
 
   const { sections = null } = await api.addToCart(cartParams);
   if (!sections) return null;
+  dataToggle($Q("#shopify-section-side-cart"), true);
 
   updateCartItems(sections["side-cart"]);
   updateCartbutton(sections["side-cart"]);
