@@ -7,57 +7,27 @@ import {
   updatetotalPrice,
   updateUpsell,
   updateCartbutton,
-  updatePriceItem
+  updatePriceItem,
 } from "./update-cart";
 
 import { barProgress } from "../utils/bar-progress";
-
 
 const CART_SECTION = "side-cart,cart-page";
 
 barProgress($Q('#progress-bar-data'));
 sliderUpsell();
-/**
- * Listen if add to cart form is submited
- * if add to cart form is submited add products in cart
- * 
- * @param {string} formQuery - className reference in form add-to-cart
- * 
- * To active this feature - ADD className 'add-cart-js' in form product
- * */
-export const btnAddToCart = (formQuery) => {
-  const addForms = $Qll(formQuery);
-
-  if(addForms != null) {
-    addForms.forEach(
-      form => {
-        submitForm(form);
-      }
-    )
-  }
-}
-
-const submitForm = (form) => {
-  return form.addEventListener(
-    "submit",
-    (e) => {
-      e.preventDefault();
-      addProducts(e);
-    }
-  )
-}
 
 /**
  * Add products in cart
  * @param {event} event -Event submit from add to cart form
  * @param {event} event -Event submit from add to cart form
  */
-const addProducts = async (event) => {
+ const addProducts = async (event) => {
 
   let itemId = 0;
-  
-  for(const input of event.target) {
-    if(input.name === "id"){
+
+  for (const input of event.target) {
+    if (input.name === "id") {
       itemId = input.value;
     }
   }
@@ -67,15 +37,15 @@ const addProducts = async (event) => {
       {
         id: itemId,
         quantity: 1,
-      }
+      },
     ],
-    sections: CART_SECTION
+    sections: CART_SECTION,
   };
 
   const { sections } = await api.addToCart(cartParams);
   if (!sections) return null;
-  
-  if (event.target.dataset.form != "upsell") {
+
+  if (event.target.dataset.form !== "upsell") {
     dataToggle($Q("#shopify-section-side-cart"), true);
   }
   updateCartItems(sections["side-cart"]);
@@ -84,21 +54,42 @@ const addProducts = async (event) => {
   updateUpsell(sections["side-cart"]);
 }
 
-/**
- * Event onChange in the cart item
- */
-
-export const onChangeItemCart = () => {
-  $Qll('.item-cart-js').forEach(
-    input => {
-      input.addEventListener(
-        'change',
-        function () {
-          updateCart(this.dataset.index, this.value, this.id);
-        }
-      )
-    }
+const submitForm = (form) => {
+  form.addEventListener(
+    "submit",
+    (e) => {
+      e.preventDefault();
+      addProducts(e);
+    },
   )
+}
+
+/**
+ * Listen if add to cart form is submited
+ * if add to cart form is submited add products in cart
+ *
+ * @param {string} formQuery - className reference in form add-to-cart
+ *
+ * To active this feature - ADD className 'add-cart-js' in form product
+ * */
+export const btnAddToCart = (formQuery) => {
+  const addForms = $Qll(formQuery);
+
+  if (addForms != null) {
+    addForms.forEach(
+      (form) => {
+        submitForm(form);
+      },
+    )
+  }
+}
+
+/**
+ * Replace en element with a spinner
+ * @param {String} element
+ */
+ const addSpinner = (element) => {
+  $Q(element).innerHTML = '<div class="loading"></div>';
 }
 
 /**
@@ -108,7 +99,7 @@ export const onChangeItemCart = () => {
  */
 export const updateCart = async (line, quantity, id) => {
   addSpinner(`#price-${id}`);
-  
+
   const cartParams = {
     line,
     quantity,
@@ -116,10 +107,10 @@ export const updateCart = async (line, quantity, id) => {
   }
 
   const { sections = null } = await api.changeCart(cartParams);
-  
+
   if (!sections) return null;
 
-  if (quantity === 0) {
+  if (Number(quantity) === 0) {
     updateCartItems(sections["side-cart"]);
     updateCartbutton(sections["side-cart"]);
     updatetotalPrice(sections["side-cart"]);
@@ -132,13 +123,21 @@ export const updateCart = async (line, quantity, id) => {
 }
 
 /**
- * Replace en element with a spinner
- * @param {String} element 
+ * Event onChange in the cart item
  */
- const addSpinner = (element) => {
-  $Q(element).innerHTML = '<div class="loading"></div>';
-}
 
+export const onChangeItemCart = () => {
+  $Qll('.item-cart-js').forEach(
+    (input) => {
+      input.addEventListener(
+        'change',
+        function () {
+          updateCart(this.dataset.index, this.value, this.id);
+        },
+      )
+    },
+  )
+}
 
 /**
  * Delete item in cart
@@ -150,19 +149,18 @@ export const deleteItem = () => {
 
   if (deleteIcon) {
     deleteIcon.forEach(
-      element => {
+      (element) => {
         const { dataset: { id, index } } = element;
         element.addEventListener(
           "click",
           () => {
             updateCart(index, 0, `${id}-${index}`)
-          }
+          },
         )
-      }
+      },
     );
   }
 }
-
 
 /**
 * Open and close side cart with various buttons
@@ -174,12 +172,12 @@ export const openCloseCart = () => {
   toggleDataActive(
     ".cart-close",
     "#shopify-section-side-cart",
-    { overlay: true }
+    { overlay: true },
   )
 
   toggleDataActive(
     ".button-cart",
     "#shopify-section-side-cart",
-    { overlay: true }
+    { overlay: true },
   )
 }

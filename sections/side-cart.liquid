@@ -13,11 +13,13 @@
     cart: cart
   %}
   
-  {% render 'cart-upsell'
-    cart: cart,
-    collection: section.settings.upsell_collection
-    title: section.settings.upsell_title
-  %}
+  {% if section.settings.upsell_collection != blank %}
+    {% render 'cart-upsell'
+      cart: cart,
+      collection: section.settings.upsell_collection
+      title: section.settings.upsell_title
+    %}
+  {% endif %}
   
   {% render 'cart-footer'
     cart: cart,

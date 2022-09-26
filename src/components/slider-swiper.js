@@ -52,6 +52,7 @@ export const configSwiperUpsell = {
   modules: [Navigation, FreeMode],
   slidesPerView: "auto",
   spaceBetween: 25,
+  loop: true,
   navigation: {
     nextEl: `.swiper-button-next[data-slider="upsell"]`,
     prevEl: `.swiper-button-prev[data-slider="upsell"]`,

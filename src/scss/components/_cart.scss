@@ -108,6 +108,9 @@
         .item-price {
           display: flex;
         }
+        .item-delete, .item-quantity button {
+          cursor: pointer;
+        }
       }
     }
   }
