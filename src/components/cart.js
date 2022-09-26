@@ -41,19 +41,15 @@ const submitForm = (form) => {
   return form.addEventListener(
     "submit",
     (e) => {
-      const { target: { dataset: { form } } } = e;
       e.preventDefault();
       addProducts(e);
-
-      if (form != "upsell") {
-        dataToggle($Q("#shopify-section-side-cart"), true);
-      }
     }
   )
 }
 
 /**
  * Add products in cart
+ * @param {event} event -Event submit from add to cart form
  * @param {event} event -Event submit from add to cart form
  */
 const addProducts = async (event) => {
@@ -78,7 +74,10 @@ const addProducts = async (event) => {
 
   const { sections } = await api.addToCart(cartParams);
   if (!sections) return null;
-
+  
+  if (event.target.dataset.form != "upsell") {
+    dataToggle($Q("#shopify-section-side-cart"), true);
+  }
   updateCartItems(sections["side-cart"]);
   updateCartbutton(sections["side-cart"]);
   updatetotalPrice(sections["side-cart"]);
