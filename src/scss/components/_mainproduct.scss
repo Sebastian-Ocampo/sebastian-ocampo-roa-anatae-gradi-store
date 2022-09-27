@@ -15,6 +15,9 @@
         z-index: 1;
         top: 50%;
         transform: translateY(-50%);
+        svg {
+          cursor: pointer;
+        }
 
         &-next {
           right: 0;
@@ -22,6 +25,32 @@
 
         &-prev {
           left: 0;
+          transform: rotateZ(180deg);
+        }
+      }
+    }
+    .image-elements__image-thumbs {
+      cursor: pointer;
+    }
+
+    &-thumbs {
+      .swiper-button {
+        width: 20px;
+        position: absolute;
+        z-index: 1;
+        top: 50%;
+        transform: translateY(-50%);
+        svg {
+          cursor: pointer;
+        }
+
+        &-next {
+          right: 0;
+        }
+
+        &-prev {
+          left: 0;
+          top: 39px;
           transform: rotateZ(180deg);
         }
       }
