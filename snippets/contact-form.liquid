@@ -36,6 +36,15 @@
       </li>
     </ul>
   {%- endif -%}
+  <span
+    role="alert"
+    tabindex="-1"
+    autofocus
+    class="form__message form__message--error error-user-exist"
+  >
+    {% render 'icon-error' %} 
+    {{ 'newsletter.registered' | t }}
+  </span>
 
   <input type="hidden" name="contact[tags]" value="newsletter, contact">
 
@@ -50,7 +59,7 @@
 
   {% render 'input'
     class: "form_textfield",
-    type: "text",
+    type: "email",
     name: "contact[email]",
     id: "email",
     placeholder: emal_label,
@@ -59,7 +68,7 @@
 
   {% render 'input'
     class: "form_textfield",
-    type: "tel",
+    type: "number",
     name: "contact[{{ phone_label }}]",
     id: "phone",
     placeholder: phone_label,
@@ -166,7 +175,7 @@
   {%- endcomment -%}
 
   <hr>
-
+  
   {% render 'input'
     class: "form_checkbox toggle_checkbox",
     type: "checkbox",
@@ -175,10 +184,19 @@
     placeholder: legal_text,
     required: true
   %}
+  <span
+    role="alert"
+    tabindex="-1"
+    autofocus
+    class="form__message form__message--error error-check-js"
+  >
+    {% render 'icon-error' %} {{ 'templates.contact.form.error_checkbox' | t }}
+  </span>
 
   {% render 'button'
     content: send_label,
-    type: 2
+    class: 'send-contact',
+    type: 2,
     action: "submit"
   %}
 
