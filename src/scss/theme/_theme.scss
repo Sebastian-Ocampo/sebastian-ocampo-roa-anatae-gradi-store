@@ -65,6 +65,11 @@ h6 {
 }
 
 a {
-  color: var(--color-base-link);
-  text-decoration: underline;
+  font-size: 16px;
+  text-decoration: none;
+  color: #000;
+
+  &:hover {
+    text-decoration: underline;
+  }
 }
