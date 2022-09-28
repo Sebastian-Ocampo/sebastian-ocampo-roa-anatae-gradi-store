@@ -1,3 +1,4 @@
+import { forceNumeric } from "../utils/numeric-validation";
 import { $Q } from "../utils/query-selector"
 
 const validateForm = (e) => {
@@ -12,10 +13,6 @@ const validateForm = (e) => {
     $Q('.error-check-js').style.display = 'none'
   }
 
-}
-
-function forceNumeric(e) {
-  e.target.value = e.target.value.replace(/[^\d]/,'')
 }
 
 export const validateFormContact = () => {

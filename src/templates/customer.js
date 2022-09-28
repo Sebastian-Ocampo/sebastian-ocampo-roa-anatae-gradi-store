@@ -8,6 +8,8 @@ const toggleContainer = (elementShow, elementhidden) => {
 };
 
 (function recoverToggle() {
+  if (!$Q('#display-recover')) return;
+
   $Q('#display-recover').addEventListener('click',
     () => toggleContainer('#recover-container', '#login-container'),
   );

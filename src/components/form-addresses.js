@@ -1,3 +1,4 @@
+import { forceNumeric } from '../utils/numeric-validation';
 import { $Q, $Qll } from '../utils/query-selector';
 
 /**
@@ -76,6 +77,7 @@ const clickFormAddresse = (ev) => {
  */
  (function initAdresses() {
   const buttonEdit = $Qll('.address-js');
+  $Q('input[type=number]').addEventListener('input', forceNumeric)
 
   buttonEdit.forEach((button) => {
     button.addEventListener('click', (e) => {

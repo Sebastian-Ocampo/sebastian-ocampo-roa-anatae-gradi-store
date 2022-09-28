@@ -17,18 +17,18 @@
         {{ 'customer.orders.title' | t }}
       </h2>
 
-      <div
-        class="grid customer__order-list--header customer__order-list"
-      >
-        <span>{{ "customer.orders.order_number" | t }}</span>
-        <span>{{ "customer.orders.date" | t }}</span>
-        <span>{{ "customer.orders.payment_status" | t }}</span>
-        <span>{{ "customer.orders.fulfillment_status" | t }}</span>
-        <span>{{ "customer.orders.total" | t }}</span>
-      </div>
-
       {% paginate customer.orders by 20 %}
         {%- if customer.orders.size > 0 -%}
+          <div
+            class="grid customer__order-list--header customer__order-list"
+          >
+            <span>{{ "customer.orders.order_number" | t }}</span>
+            <span>{{ "customer.orders.date" | t }}</span>
+            <span>{{ "customer.orders.payment_status" | t }}</span>
+            <span>{{ "customer.orders.fulfillment_status" | t }}</span>
+            <span>{{ "customer.orders.total" | t }}</span>
+          </div>
+
           {%- for order in customer.orders -%}
 
             <div class="grid customer__order-list">
