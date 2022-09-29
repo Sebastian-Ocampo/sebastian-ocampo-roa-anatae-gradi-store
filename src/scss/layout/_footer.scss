@@ -44,16 +44,6 @@
     li:not(:last-of-type) {
       margin-bottom: 10px;
     }
-
-    li > a {
-      font-size: 16px;
-      text-decoration: none;
-      color: #000;
-
-      &:hover {
-        text-decoration: underline;
-      }
-    }
   }
 
   .footer-newslatter {

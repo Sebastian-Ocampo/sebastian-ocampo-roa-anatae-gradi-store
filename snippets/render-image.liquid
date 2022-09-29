@@ -5,6 +5,7 @@
   - class: {String} className in img tag (optional)
   - img_src: {String} to render url image
   - alt: {String} alt in image
+  - title: {String} title image
   - img: {Object} image object
   - size: {String} size responsive with spaces
   - width: {String} default width (optional)
@@ -13,6 +14,7 @@
   Usage:
   {% render "render-image"
     class: "class_image",
+    title: "Image alt",
     img_src: <img_url>,
     img: <img_object>,
     size: "220 300 400 500",
@@ -36,6 +38,7 @@
 <img
   class="{{ class }} lazyload blur-up"
   loading="lazy"
+  title="{{ alt | default: 'Image to render'}}"
   data-sizes="auto"
   src="{{ default | default: img_src }}"
   data-srcset="
