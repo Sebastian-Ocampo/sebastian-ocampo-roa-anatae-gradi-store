@@ -76,6 +76,7 @@ const clickFormAddresse = (ev) => {
  * Open address edit form
  */
  (function initAdresses() {
+  if ($Qll('.address-js').length === 0) return;
   const buttonEdit = $Qll('.address-js');
   $Q('input[type=number]').addEventListener('input', forceNumeric)
 
