@@ -6,7 +6,7 @@
   assign send_label = 'templates.contact.form.send' | t
 %}
 
-{% form 'customer', class: "my-contact" %}
+{% form 'contact', class: "my-contact" %}
 
   {%- if form.posted_successfully? -%}
     <div
@@ -51,7 +51,7 @@
   {% render 'input'
     class: "form_textfield",
     type: "text",
-    name: "contact[{{ name_label }}]",
+    name: "contact[first_name]",
     id: "first-name",
     placeholder: name_label,
     required: true
@@ -69,7 +69,7 @@
   {% render 'input'
     class: "form_textfield",
     type: "number",
-    name: "contact[{{ phone_label }}]",
+    name: "contact[phone]",
     id: "phone",
     placeholder: phone_label,
     required: false
@@ -89,7 +89,7 @@
   {% render 'input'
     class: "form_textfield",
     type: "textarea",
-    name: "contact[{{ comment_label }}]",
+    name: "contact[message]",
     id: "message",
     placeholder: comment_label,
     required: true
