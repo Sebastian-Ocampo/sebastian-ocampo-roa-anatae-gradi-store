@@ -1,26 +1,51 @@
-{%- if section.settings.heading != blank -%}
-  <h2 class="contact--title">
-    {{ section.settings.heading }}
-  </h2>
-{%- endif -%}
+<div 
+  class="contact 
+  {% if section.settings.layout_left %}
+    align-left
+  {% endif %}
+">
+  <div class="contact-heading">
+    {%- if section.settings.heading != blank -%}
+      <h2 class="contact--title">
+        {{ section.settings.heading }}
+      </h2>
+    {%- endif -%}
+    {%- if section.settings.description != blank -%}
+      <div class="contact--description">
+        {{ section.settings.description }}
+      </div>
+    {%- endif -%}
+  </div>
 
-{% assign topics = section.settings.topics | split: '|' %}
-{% render 'contact-form'
-  topics: topics,
-  legal_text: section.settings.legal_text
-%}
-
+  {% assign topics = section.settings.topics | split: '|' %}
+  {% render 'contact-form'
+    topics: topics,
+    legal_text: section.settings.legal_text
+  %}
+</div>
 {% schema %}
 {
   "name": "Contact form",
-  "class": "contact wrapper",
+  "class": "wrapper",
+  "tag": "section",
   "settings": [
+    {
+      "type": "checkbox",
+      "id": "layout_left",
+      "label": "Select layout left",
+      "default": false
+    },
     {
       "type": "text",
       "id": "heading",
       "label": "Heading",
       "default": "Contact me !"
     },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Descrition"
+    },  
     {
       "type": "richtext",
       "id": "legal_text",

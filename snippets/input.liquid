@@ -31,8 +31,8 @@
         name="{{ name }}"
         id="{{ id }}"
         placeholder="{{ placeholder }}"
-        {%- if required -%}required{%- endif -%}
-        {%- if value -%} value="{{ value }}"{%- endif -%}
+        {% if required %} required{% endif %}
+        {% if value %} value="{{ value }}"{% endif %}
       />
     {% endcapture %}
 

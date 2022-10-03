@@ -1,0 +1,2 @@
+(()=>{"use strict";const e=e=>{e.target.value=e.target.value.replace(/[^\d]/,"")},t=(e,t)=>(t||document).querySelector(e),r=e=>{const r=e.target.closest("form"),s=t("#validation",r),c=t("textarea",r);!s.checked&&c.value.length>0?t(".error-check-js").style.display="flex":t(".error-check-js").style.display="none"};(()=>{const{location:{href:e}}=window;e.includes("form_type=customer")&&(t(".error-user-exist").style.display="flex")})(),t(".send-contact").addEventListener("click",r),t('input[type="number"]').addEventListener("input",e)})();
+//# sourceMappingURL=contact.js.map

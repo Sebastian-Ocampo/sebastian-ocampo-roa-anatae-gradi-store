@@ -1,0 +1,144 @@
+@use './abstracts/variables';
+
+@import "components/address";
+@import "components/auth";
+
+$break-customer: 800px;
+$margin-customer: 50px;
+
+.customer {
+  max-width: 900px;
+  margin: variables.$margin-section auto;
+  margin-bottom: variables.$margin-section;
+
+  &__title {
+    text-align: center;
+  }
+
+  &__nav-link {
+    text-align: center;
+    display: block;
+    margin-bottom: $margin-customer;
+  }
+
+  &__layout {
+    display: flex;
+    flex-direction: column-reverse;
+
+    @media screen and (max-width: $break-customer) {
+      & > *:last-child {
+        margin-bottom: $margin-customer;
+      }
+    }
+
+    @media screen and (min-width: $break-customer) {
+      flex-direction: row;
+      flex-wrap: nowrap;
+
+      & > *:first-child {
+        margin-right: $margin-customer;
+      }
+    }
+  }
+
+  &__2-3 {
+    width: 100%;
+
+    @media screen and (min-width: $break-customer) {
+      width: 80%;
+    }
+  }
+
+  &__1-3 {
+    width: 100%;
+
+    @media screen and (min-width: $break-customer) {
+      width: 20%;
+    }
+  }
+
+  &__order {
+    &-list {
+      --columns: 1fr 2fr 2fr 2fr 1fr;
+      --column-gap: 30px;
+  
+      &--header {
+        display: none;
+  
+        @media screen and (min-width: $break-customer) {
+          display: grid;
+          font-weight: 600;
+          margin-bottom: 20px;
+        }
+      }
+  
+      &--detail {
+        --columns: 3fr 2fr 2fr 1fr 1fr;
+
+        &:not(:last-of-type) {
+          margin-bottom: 10px;
+        }
+
+        & > *:last-child {
+          text-align: right;
+        }
+      }
+  
+      &:not(:last-of-type) {
+        padding-bottom: 10px;
+        border-bottom: 1px solid;
+      }
+  
+      & > div > .ref__hidden {
+        display: none;
+      }
+  
+      @media screen and (max-width: $break-customer) {
+        --columns: 1fr;
+        --row-gap: 30px;
+  
+        &:not(:last-of-type) {
+          margin-bottom: $margin-customer;
+        }
+  
+        & > div {
+          display: flex;
+          justify-content: space-between;
+  
+          & > .ref__hidden {
+            display: block;
+            margin-right: $margin-customer;
+          }
+  
+          & > *:last-child {
+            text-align: right;
+          }
+        }
+      }
+    }
+
+    &-total {
+      display: flex;
+      justify-content: space-between;
+
+      &:not(:last-of-type) {
+        margin-bottom: 10px;
+      }
+
+      & > *:first-child {
+        display: block;
+        margin-right: $margin-customer;
+      }
+
+      & > *:last-child {
+        text-align: right;
+      }
+    }
+  }
+
+  &__section-space {
+    &:first-of-type {
+      margin-bottom: $margin-customer;
+    }
+  }
+}

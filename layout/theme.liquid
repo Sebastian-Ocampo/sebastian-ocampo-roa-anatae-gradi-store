@@ -46,6 +46,13 @@
       />
     {%- endif -%}
 
+    {%- if request.page_type contains 'customers' -%}
+      <link
+        rel="stylesheet"
+        href="{{ 'customer.css' | asset_url }}"
+      >
+    {%- endif -%}
+
     <title>
       {{ page_title }}
       {%- if current_tags %}
@@ -125,6 +132,20 @@
     {%- if request.page_type == 'product' -%}
       <script
         src="{{ 'product.js' | asset_url }}"
+        defer="defer"
+      ></script>
+    {%- endif -%}
+
+    {%- if request.path contains 'contact' -%}
+      <script 
+        src="{{ 'contact.js' | asset_url }}"
+        defer="defer"
+      ></script>
+    {%- endif -%}
+
+    {%- if request.page_type contains 'customers' -%}
+      <script 
+        src="{{ 'customer.js' | asset_url }}"
         defer="defer"
       ></script>
     {%- endif -%}

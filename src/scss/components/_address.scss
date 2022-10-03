@@ -1,0 +1,60 @@
+@use '../abstracts/variables';
+
+$margin-adresses: 30px; 
+
+.address {
+  max-width: 600px;
+  text-align: center;
+  margin-top: variables.$margin-section;
+  margin-bottom: variables.$margin-section;
+
+  &__detail,
+  &__actions,
+  &__btn-new,
+  &__edit {
+    &[data-active="false"] {
+      display: none;
+    }
+  }
+
+  &__return {
+    margin-bottom: $margin-adresses;
+  }
+
+  &__title {
+    display: block;
+    font-weight: 600;
+    margin-bottom: $margin-adresses;
+  }
+
+  &__cancel {
+    background-color: transparent;
+    border-style: none;
+    text-decoration: underline;
+    font-weight: 600;
+    margin-top: 15px;
+    cursor: pointer;
+  }
+
+  & > ul {
+    margin-top: 50px;
+    list-style: none;
+
+    & > li:not(:last-of-type) {
+      margin-bottom: 50px;
+    }
+  }
+
+  &__actions {
+    --columns: 1fr 1fr;
+    margin-top: $margin-adresses;
+  }
+
+  &__form {
+    --columns: 1fr 1fr;
+
+    &-100 {
+      grid-column: 1 / span 2;
+    }
+  }
+}

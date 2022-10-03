@@ -1,6 +1,28 @@
 @use "../abstracts/variables";
 
 .contact {
-  margin-bottom: variables.$margin-section;
   text-align: center;
+  margin: variables.$margin-section 0;
+  display: flex;
+  flex-direction: column;
+
+  &.align-left {
+    flex-direction: row;
+
+    .contact-heading {
+      width: 50%;
+    }
+  }
+
+  &--description {
+    padding: 10px;
+    margin-bottom: 20px;
+
+    strong {
+      font-weight: 600;
+    }
+  }
+  .error-check-js, .error-user-exist {
+    display: none;
+  }
 }

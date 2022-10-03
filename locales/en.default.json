@@ -52,8 +52,11 @@
   "newsletter": {
     "label": "Email",
     "success": "Thanks for subscribing",
+    "button_label": "Subscribe",
     "registered": "Registered user",
-    "button_label": "Subscribe"
+    "title": "Les nouvelles culottées",
+    "description": "Inscrivez-vous a notre newsletter et ne manquez aucune de nos aventures !",
+    "btn-text": "submit"
   },
   "accessibility": {
     "skip_to_text": "Skip to content",
@@ -201,7 +204,8 @@
         "comment": "Comment",
         "send": "Send",
         "post_success": "Thanks for contacting us. We'll get back to you as soon as possible.",
-        "error_heading": "Please adjust the following:"
+        "error_heading": "Please adjust the following:",
+        "error_checkbox": "Option is required"
       }
     },
     "404": {
@@ -381,6 +385,9 @@
       "password": "Password",
       "password_confirm": "Confirm password",
       "submit": "Reset password"
+    },
+    "subscriptions": {
+      "manage_subscriptions": "Manage subscriptions"
     }
   },
   "gift_cards": {

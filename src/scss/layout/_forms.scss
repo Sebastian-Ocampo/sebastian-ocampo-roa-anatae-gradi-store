@@ -1,14 +1,14 @@
 @use '../abstracts/variables';
+@use "../abstracts/mixins";
 
 .my-contact {
   display: grid;
-  max-width: 440px;
-  margin: 0 auto;
-  column-gap: 20px;
   grid-column-gap: 20px;
-  /* stylelint-disable-next-line declaration-block-no-redundant-longhand-properties */
+  column-gap: 20px;
   grid-row-gap: 20px;
   row-gap: 20px;
+  width: 50%;
+  margin: 0 auto;
 }
 
 /* form inputs animation */
@@ -21,8 +21,8 @@
 
   label {
     position: absolute;
-    top: 50%;
     font-size: 16px;
+    top: 22px;
     transform: translateY(-50%);
     transition: .5s ease;
   }
@@ -31,8 +31,8 @@
     width: 100%;
     padding: 15px 0 5px;
     border-style: none;
-    font-weight: 600;
     outline: none;
+    font-weight: 600;
 
     &::placeholder {
       color: transparent;
@@ -40,10 +40,10 @@
 
     &:focus + label,
     &:not(:placeholder-shown) + label {
-      top: 0;
       font-size: 12px;
-      opacity: .7;
+      top: 0;
       transform: translateY(5px);
+      opacity: .7;
     }
   }
 
@@ -52,6 +52,11 @@
     padding: 10px 0;
     border-style: none;
     outline: none;
+    background: none;
+  }
+
+  &--spaced {
+    margin-bottom: 0.5rem;
   }
 }
 
@@ -67,27 +72,28 @@
   align-items: center;
 
   .slider {
-    position: relative;
-    display: block;
-    width: 48px;
     height: 24px;
-    margin-right: 10px;
-    background: #ccc;
+    width: 48px;
     border-radius: 12px;
+    border: 1px solid rgb(179, 179, 179);
+    margin-right: 10px;
+    display: block;
+    position: relative;
     cursor: pointer;
+    background: #ccc;
     -webkit-transition: .2s;
     transition: .2s;
     
     &:after {
-      position: absolute;
+      height: 20px;
+      width: 20px;
       top: 50%;
       left: 2px;
-      width: 20px;
-      height: 20px;
-      background-color: #FFF;
       border-radius: 50%;
-      content: "";
       transform: translateY(-50%);
+      position: absolute;
+      content: "";
+      background-color: #FFF;
       transition: .5s ease;
     }
   }
@@ -99,8 +105,10 @@
       background: var(--color-base-principal);
 
       &:after {
-        right: 2px;
         left: auto;
+        right: 2px;
+        background-color: rgb(82, 82, 82);
+
       }
     }
   }
@@ -111,31 +119,68 @@
   align-items: center;
 
   input[type="radio"] {
-    width: 20px;
-    height: 20px;
-    margin-right: 10px;
     accent-color: #000;
+    height: 20px;
+    width: 20px;
+    margin-right: 10px;
   }
 }
 
 .form__question {
   display: grid;
-  column-gap: 20px;
   grid-column-gap: 20px;
-  /* stylelint-disable-next-line declaration-block-no-redundant-longhand-properties */
+  column-gap: 20px;
   grid-row-gap: 20px;
   row-gap: 20px;
   text-align: left;
 
   &--answer {
-    font-weight: 600;
+    font-weight: bold;
   }
 }
 
 .form__message {
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  margin-bottom: 10px;
   padding: 10px;
-  border: 2px solid #000;
-  background-color: #f1f1f1;
+  border: 1px solid;
   border-radius: 5px;
+  background-color: transparent;
+
+  &--success {
+    color: variables.$color-success;
+    border-color: variables.$color-success;
+  }
+
+  &--error {
+    color: variables.$color-error;
+    border-color: variables.$color-error;
+  }
+
+  & > svg {
+    width: 25px;
+    height: 25px;
+    margin-right: 10px;
+  }
+}
+
+.icon-error {
+  width: 25px;
+  height: 25px;
+  margin-right: 10px;
+}
+
+.list-errors {
+  list-style: none;
+}
+
+.errors {
+  & > ul {
+    list-style: none;
+  }
+
+  margin-bottom: 20px;
 }
