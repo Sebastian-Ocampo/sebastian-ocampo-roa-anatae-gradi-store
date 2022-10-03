@@ -19,7 +19,7 @@
   %}
 {% endcomment %}
 
-<div 
+<div
   class="{{ class }} text-buttons wrapper {{ position }}"
 >
   {% if title != blank %}
@@ -34,9 +34,9 @@
     </div>
   {% endif %}
 
-  {% if link != blank and link_text  != blank %}
+  {% if link != blank and link_text != blank %}
     {% render 'link'
-      url:  link,
+      url: link,
       content: link_text,
       class: 'btn-1'
     %}

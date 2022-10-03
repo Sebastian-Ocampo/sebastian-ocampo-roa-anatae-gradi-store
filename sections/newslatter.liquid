@@ -1,4 +1,3 @@
-
 {% if section.settings.heading != blank %}
   <h2 class="h1">
     {{ section.settings.heading }}
@@ -16,10 +15,10 @@
     type="hidden"
     name="contact[tags]"
     value="newsletter"
-  >
+  />
 
   <div class="grid newsletter-form__wrapper">
-    <div class="form_textfield">
+    <div class="form__textfield">
       <input
         id="NewsletterForm--{{ section.id }}"
         type="email"
@@ -35,7 +34,7 @@
         {% endif %}
         placeholder="{{ 'newsletter.label' | t }}"
         required
-      >
+      />
       <label
         for="NewsletterForm--{{ section.id }}"
       >
@@ -52,9 +51,21 @@
     >
       {{ 'newsletter.button_label' | t }}
     </button>
+
+    {%- if form.errors -%}
+      <small
+        class="newsletter-form__message form__message"
+        id="Newsletter-error--{{ section.id }}"
+      >
+        <!-- eslint-disable max-len -->
+        {{ form.errors.translated_fields['email'] | capitalize }} {{ form.errors.messages['email'] }}
+        <!-- eslint-enable max-len -->
+      </small>
+    {%- endif -%}
   </div>
 
   {%- if form.posted_successfully? -%}
+    <!-- eslint-disable max-len -->
     <span
       class="newsletter-form__message newsletter-form__message--success form__message"
       id="Newsletter-success--{{ section.id }}"
@@ -63,21 +74,8 @@
     >
       {{ 'newsletter.success' | t }}
     </span>
-  {%- elsif  form.errors -%}
-    <small
-      class="newsletter-form__message newsletter-form__message--error form__message"
-      id="Newsletter-error--{{ section.id }}"
-    >
-      {{ form.errors.translated_fields['email'] | capitalize }} {{ form.errors.messages['email'] }}
-    </small>
-  {%- else -%}
-      <small
-        class="newsletter-form__message newsletter-form__message--error form__message error-js"
-        id="Newsletter-error--{{ section.id }}"
-      >
-        {{ 'newsletter.registered' | t }}
-      </small>
-    {%- endif -%}
+    <!-- eslint-enable max-len -->
+  {%- endif -%}
 {% endform %}
 
 {% schema %}

@@ -1,3 +1,4 @@
+<!-- eslint-disable @html-eslint/require-closing-tags -->
 {% comment %}
   Renders a render images
 
@@ -23,6 +24,7 @@
     height: "100"
   %}
 {% endcomment %}
+<!-- eslint-enable @html-eslint/require-closing-tags -->
 
 {% liquid
   if size contains ' '
@@ -31,7 +33,7 @@
     assign size_split = '220 300 600 900' | split: ' '
   endif
   if img
-    assign default = img | img_url: '30x'
+    assign default = img | image_url: width: 30
   endif
 %}
 
@@ -46,7 +48,7 @@
     {%- for img_size in size_split -%}
       {%- assign sizex = img_size | append: 'x' -%}
       {%- assign sizew = img_size | append: 'w' -%}
-      {%- assign imge_url = img | img_url: sizex -%}
+      {%- assign imge_url = img | image_url: height: img_size -%}
       {{ imge_url }} {{ sizew }},
     {%- endfor -%}
   {%- else -%}

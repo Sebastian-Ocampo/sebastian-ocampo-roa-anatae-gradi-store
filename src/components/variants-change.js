@@ -3,38 +3,10 @@ import api from "../services/api"
 import { stringToHTML } from "../utils/to-html";
 
 /**
- * Section rendering to dynamic price and available data
- * 
- * @param {HTMLElement} param0 - Node with event change
- * 
- * @author Andres Briñez
- * @author Cristian Velasco
- * @version 2.0
- */
-export async function queryVariants({ target }) {
-  const addcartBtn = $Q('.btn-cart-js', target.closest('.product-js'));
-  const {
-    value,
-    dataset
-  } = $Q('[name="id"]', target.closest('.product-js'));
-
-  addcartBtn.disabled = true;
-  addcartBtn.innerHTML = '<div id="loading"></div>';
-
-  const {
-    price,
-    available,
-    button
-  } = await sectionHandle(dataset.variant, value);
-
-  updatePrice(price, target.closest('.product-js'));
-  updateButton(available, target.closest('.product-js'), button);
-}
-
-/**
  * Captures the HTML section of the product in question and returns data
- * 
- * @param {String} handle Data element of the product to which the query will be made 
+ *
+ * @param {String} handle Data element of the product
+ * to which the query will be made
  * @param {String} variantId Id of the selected variant
  * @returns Object - price, available, button
  */
@@ -47,16 +19,17 @@ async function sectionHandle(handle, variantId) {
   return {
     price: variantPrice.outerHTML,
     available: variantAvailable.value,
-    button: button.textContent
+    button: button.textContent,
   }
 }
 
-/** 
+/**
  * Inject new price node to the section
- * 
+ *
  * @param {HTMLCollection} variantPrice - Object with the price value
- * @param {HTMLElement} parent - Parent node to closest with className 'product-js'
- * 
+ * @param {HTMLElement} parent - Parent node to closest
+ * with className 'product-js'
+ *
  */
 function updatePrice(variantPrice, parent) {
   const sectionPrice = $Q(".price-product-js", parent);
@@ -66,9 +39,10 @@ function updatePrice(variantPrice, parent) {
 
 /**
  * Show not available of the variant, depending of the stock
- * 
+ *
  * @param {String} available - Dataset available
- * @param {HTMLElement} parent - Parent node to closest with className 'product-js'
+ * @param {HTMLElement} parent - Parent node to closest
+ * with className 'product-js'
  * @param {String} newText - New text in button add to cart
  */
 function updateButton(available, parent, newText) {
@@ -77,8 +51,36 @@ function updateButton(available, parent, newText) {
 
   if (available === 'false') {
     button.disabled = true;
-  }
-  else {
+  } else {
     button.disabled = false;
   }
+}
+
+/**
+ * Section rendering to dynamic price and available data
+ *
+ * @param {HTMLElement} param0 - Node with event change
+ *
+ * @author Andres Briñez
+ * @author Cristian Velasco
+ * @version 2.0
+ */
+ export async function queryVariants({ target }) {
+  const addcartBtn = $Q('.btn-cart-js', target.closest('.product-js'));
+  const {
+    value,
+    dataset,
+  } = $Q('[name="id"]', target.closest('.product-js'));
+
+  addcartBtn.disabled = true;
+  addcartBtn.innerHTML = '<div id="loading"></div>';
+
+  const {
+    price,
+    available,
+    button,
+  } = await sectionHandle(dataset.variant, value);
+
+  updatePrice(price, target.closest('.product-js'));
+  updateButton(available, target.closest('.product-js'), button);
 }

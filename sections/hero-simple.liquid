@@ -11,16 +11,17 @@
   {% endif %}
 {% endcomment %}
 
-{% if section.settings.background != blank  %}
+{% if section.settings.background != blank %}
 <div class="hero__image">
   <picture>
-    {% assign img_src = section.settings.background | img_url: '1440x' %}
+    {% assign img_src = section.settings.background | image_url: width: 1440 %}
     <img
       src="{{ img_src }}"
-      height="100%"
-      width="100%"
+      height="100"
+      width="100"
       title="{{ section.settings.background.alt }}"
       alt="{{ section.settings.background.alt }}"
+      loading="lazy"
     />
   </picture>
 </div>
@@ -39,45 +40,47 @@
   %}
 </div>
 
+<!-- eslint-disable @html-eslint/element-newline -->
+<!-- eslint-disable max-len -->
 {% schema %}
-  {
-    "name": "Hero Simple",
-    "class": "hero--simple",
-    "tag": "section",
-    "settings": [
-      {
-        "type": "text",
-        "id": "hero_title",
-        "label": "Title",
-        "default": "Title hero responsive"
-      },
-      {
-        "type": "richtext",
-        "id": "hero_description",
-        "label": "Description",
-        "default": "<p>Hello <em>hero<\/em> <strong>banner <\/strong><a href=\"\/collections\/all\" title=\"All\"><strong>link<\/strong><\/a><\/p>"
-      },
-      {
-        "type": "text",
-        "id": "title_CTA",
-        "label": "Title CTA",
-        "default": "CTA"
-      },
-      {
-        "type": "url",
-        "id": "link_CTA",
-        "label": "Link CTA"
-      },
-      {
-        "type": "image_picker",
-        "id": "background",
-        "label": "Background image"
-      }
-    ],
-    "presets": [
-      {
-        "name": "Hero simple"
-      }
-    ]
-  }
-{% endschema %} 
+{
+  "name": "Hero Simple",
+  "class": "hero--simple",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "hero_title",
+      "label": "Title",
+      "default": "Title hero responsive"
+    },
+    {
+      "type": "richtext",
+      "id": "hero_description",
+      "label": "Description",
+      "default": "<p>Hello <em>hero</em> <strong>banner </strong><a href=\"/collections/all\" title=\"All\"><strong>link</strong></a></p>"
+    },
+    {
+      "type": "text",
+      "id": "title_CTA",
+      "label": "Title CTA",
+      "default": "CTA"
+    },
+    {
+      "type": "url",
+      "id": "link_CTA",
+      "label": "Link CTA"
+    },
+    {
+      "type": "image_picker",
+      "id": "background",
+      "label": "Background image"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hero simple"
+    }
+  ]
+}
+{% endschema %}

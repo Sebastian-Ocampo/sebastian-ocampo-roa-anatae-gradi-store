@@ -2,15 +2,15 @@
 
 .newsletter {
   max-width: 600px;
-  margin: 0 auto;
   padding: auto variables.$paddings-side;
   padding-top: variables.$paddings-side;
   padding-bottom: variables.$paddings-side;
+  margin: 0 auto;
   text-align: center;
 
   @media screen and (max-width: 749px) {
-    padding-left: variables.$paddings-side--movil;
     padding-right: variables.$paddings-side--movil;
+    padding-left: variables.$paddings-side--movil;
   }
 
   & > p {
@@ -24,15 +24,15 @@
 
     &__message {
       &--success {
+        border-color: #338536;
         margin-top: 20px;
         background-color: #4caf4f41;
-        border-color: #338536;
       }
       &--error {
         display: none;
+        border-color: #853833;
         margin-top: 20px;
         background-color: #af4c4c41;
-        border-color: #853833;
       }
     }
   }

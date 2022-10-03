@@ -139,7 +139,8 @@
       },
       "view_full_details": "查看完整详细信息",
       "include_taxes": "含税费。",
-      "shipping_policy_html": "结账时计算的<a href=\"{{ link }}\">运费</a>。"
+      "shipping_policy_html": "结账时计算的<a href=\"{{ link }}\">运费</a>。",
+      "not_available": "TODO"
     },
     "modal": {
       "label": "媒体图库"

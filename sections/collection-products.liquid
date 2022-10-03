@@ -7,7 +7,7 @@
         %}
       {% endfor %}
     </div>
-  
+
     {% render 'pagination'
       paginate: paginate,
       anchor: '#list-products'
@@ -16,21 +16,21 @@
 {% endpaginate %}
 
 {% schema %}
-  {
-    "name": "Products in collection",
-    "tag": "section",
-    "class": "collection wrapper",
-    "settings": [
-      {
-        "type": "range",
-        "id": "pagination",
-        "label": "Products by page",
-        "unit": "Pr",
-        "min": 1,
-        "max": 100,
-        "step": 1,
-        "default": 6
-      }
-    ]
-  }
+{
+  "name": "Products in collection",
+  "tag": "section",
+  "class": "collection wrapper",
+  "settings": [
+    {
+      "type": "range",
+      "id": "pagination",
+      "label": "Products by page",
+      "unit": "Pr",
+      "min": 1,
+      "max": 100,
+      "step": 1,
+      "default": 6
+    }
+  ]
+}
 {% endschema %}

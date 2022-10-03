@@ -1,9 +1,11 @@
+<!-- eslint-disable @html-eslint/require-closing-tags -->
 {% comment %}
   Renders product slider component
-  
+
   Accepts:
   - Product: {object} Product object element
-  - Direction: {int} 1 for horizontal direction or 2 for vertical direction of thumbnails
+  - Direction: {int} 1 for horizontal direction
+  or 2 for vertical direction of thumbnails
 
   NOTE: In <content> use className "swiper-slide" in the first item
 
@@ -13,9 +15,9 @@
     direction: 1
   %}
 {% endcomment %}
+<!-- eslint-enable @html-eslint/require-closing-tags -->
 
 {%- liquid
-	assign option_radio = settings.variants_color
 
   if direction == 2
     assign slide_direction = "vertical-swipper-principal"
@@ -34,9 +36,9 @@
     data-direction="{{ direction }}"
   >
     <div class="swiper-wrapper">
-      {% for image in product.media %}   
+      {% for image in product.media %}
         {% assign imgUrl = image | image_url: width: 900 %}
-  
+
         <div class="swiper-slide">
           {% render "render-image"
             class: "",
@@ -53,9 +55,9 @@
 
   <div class="swiper main-product__slider-thumbs {{ thumbs_direction }}">
     <div class="swiper-wrapper">
-      {% for image in product.media %}   
+      {% for image in product.media %}
         {% assign imgUrl = image | image_url: width: 175 %}
-  
+
         <div class="swiper-slide image-elements__image-thumbs">
           {% render "render-image"
             class: "",
@@ -65,7 +67,7 @@
             height: "99"
           %}
         </div>
-  
+
       {% endfor %}
     </div>
     <div class="swiper-button swiper-button-next">

@@ -1,21 +1,22 @@
+<!-- eslint-disable max-len -->
 <div
   class="error-page {{ section.settings.layout_position }}"
 >
   {%- if section.settings.main_message != blank -%}
     <div class="text404-title padding404-section">
-      {% render 'code-404' 
+      {% render 'code-404'
         size: 'small'
       %}
     </div>
   {%- endif -%}
 
   {%- if section.settings.background != blank -%}
-    {% liquid 
-      assign img_src = section.settings.background | img_url: '680x'
-
+    {% liquid
+      assign img_src = section.settings.background | image_url: width: 680
+      assign img_alt = section.settings.background.alt
       if section.settings.image_position != blank
         assign image_404 = section.settings.image_position
-    
+
       elsif section.settings.image_size != blank
         assign width = section.settings.image_size
       endif
@@ -24,10 +25,12 @@
     <div class="padding404-section {{ image_404 }}">
       <img
         src="{{ img_src }}"
-        height="100%"
+        alt = "{{ img_alt }}"
+        height="100"
         {%- if section.settings.image_size != blank -%}
-        width={{ width }}
+          width= "{{ width }}"
         {%- endif -%}
+        loading="lazy"
       />
     </div>
 
@@ -40,7 +43,6 @@
     </p>
   </div>
   {%- endif -%}
-
   {%- if section.settings.btn_url != blank and section.settings.btn_text != blank -%}
   <div class="btn-404 padding404-section">
     <a
@@ -116,16 +118,15 @@
       "label": "Layout position",
       "options": [
         {
-          "value": "error-page_center",
+          "value": "error-page__center",
           "label": "Center"
-
         },
         {
-          "value": "error-page_right",
+          "value": "error-page__right",
           "label": "Right"
         },
         {
-          "value": "error-page_left",
+          "value": "error-page__left",
           "label": "Left"
         }
       ]
@@ -140,16 +141,15 @@
           "label": "Default"
         },
         {
-          "value": "img404-order_top",
+          "value": "img404-order__top",
           "label": "Top"
         },
         {
-          "value": "img404-order_bottom",
+          "value": "img404-order__bottom",
           "label": "Bottom"
         }
       ]
     }
-
   ]
 }
 {% endschema %}

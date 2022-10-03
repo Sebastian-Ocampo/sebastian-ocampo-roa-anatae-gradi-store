@@ -1,4 +1,4 @@
-{% liquid 
+{% liquid
   assign name_label = 'templates.contact.form.name' | t
   assign emal_label = 'templates.contact.form.email' | t
   assign phone_label = 'templates.contact.form.phone' | t
@@ -7,13 +7,15 @@
 %}
 
 {% form 'contact', class: "my-contact" %}
-  
+
   {%- if form.posted_successfully? -%}
     <div
       tabindex="-1"
       autofocus
     >
+      <!-- eslint-disable max-len -->
       {% render 'icon-success' %} {{ 'templates.contact.form.post_success' | t }}
+      <!-- eslint-enable max-len -->
     </div>
   {%- elsif form.errors -%}
     <div>
@@ -22,21 +24,25 @@
         tabindex="-1"
         autofocus
       >
+        <!-- eslint-disable max-len -->
         {% render 'icon-error' %} {{ 'templates.contact.form.error_heading' | t }}
+        <!-- eslint-enable max-len -->
       </span>
     </div>
 
     <ul role="list">
       <li>
         <a>
+          <!-- eslint-disable max-len -->
           {{ form.errors.translated_fields['email'] | capitalize }} {{ form.errors.messages['email'] }}
+          <!-- eslint-enable max-len -->
         </a>
       </li>
     </ul>
   {%- endif -%}
 
   {% render 'input'
-    class: "form_textfield",
+    class: "form__textfield",
     type: "text",
     name: "contact[{{ name_label }}]",
     id: "first-name",
@@ -45,7 +51,7 @@
   %}
 
   {% render 'input'
-    class: "form_textfield",
+    class: "form__textfield",
     type: "text",
     name: "contact[email]",
     id: "email",
@@ -57,13 +63,15 @@
     <small>
       <span>{{ 'accessibility.error' | t }}</span>
       <span class="form__message">
+        <!-- eslint-disable max-len -->
         {% render 'icon-error' %}{{ form.errors.translated_fields['email'] | capitalize }} {{ form.errors.messages['email'] }}
+        <!-- eslint-enable max-len -->
       </span>
     </small>
   {%- endif -%}
 
   {% render 'input'
-    class: "form_textfield",
+    class: "form__textfield",
     type: "tel",
     name: "contact[{{ phone_label }}]",
     id: "phone",
@@ -71,19 +79,19 @@
     required: false
   %}
 
-  <div class="form_textfield request-type">
+  <div class="form__textfield request-type">
     <select
       id="request-type"
       name="contact[request_type]"
-    > 
+    >
       {% for topic in topics %}
-        <option>{{ topic }}</option>    
+        <option>{{ topic }}</option>
       {% endfor %}
     </select>
   </div>
 
   {% render 'input'
-    class: "form_textfield",
+    class: "form__textfield",
     type: "textarea",
     name: "contact[{{ comment_label }}]",
     id: "message",
@@ -94,13 +102,13 @@
   {%- comment -%}
   *--- EXTENDS ADDITIONAl INFO: Contact Method ---*
 
-  <div class="form_question">
-    <label class="form_question--answer">
+  <div class="form__question">
+    <label class="form__question--answer">
       How do you want us to contact you?
     </label>
 
     {% render 'input'
-      class: "form_radio-button",
+      class: "form__radio-button",
       type: "radio",
       name: "contact[contact_method]",
       id: "email-method",
@@ -110,7 +118,7 @@
     %}
 
     {% render 'input'
-      class: "form_radio-button",
+      class: "form__radio-button",
       type: "radio",
       name: "contact[contact_method]",
       id: "phone-method",
@@ -120,7 +128,7 @@
     %}
 
     {% render 'input'
-      class: "form_radio-button",
+      class: "form__radio-button",
       type: "radio",
       name: "contact[contact_method]",
       id: "text-method",
@@ -132,13 +140,13 @@
 
   * --- EXTENDS ADDITIONAl INFO: Contact time --- *
 
-  <div class="form_question">
-    <label class="form_question--answer">
+  <div class="form__question">
+    <label class="form__question--answer">
       When is the best time to reach you?
     </label>
 
     {% render 'input'
-      class: "form_checkbox toggle_checkbox",
+      class: "form__checkbox toggle__checkbox",
       type: "checkbox",
       name: "contact[contact_time_1]",
       id: "contact[contact_time_1]",
@@ -148,7 +156,7 @@
     %}
 
     {% render 'input'
-      class: "form_checkbox toggle_checkbox",
+      class: "form__checkbox toggle__checkbox",
       type: "checkbox",
       name: "contact[contact_time_2]",
       id: "contact[contact_time_2]",
@@ -158,7 +166,7 @@
     %}
 
     {% render 'input'
-      class: "form_checkbox toggle_checkbox",
+      class: "form__checkbox toggle__checkbox",
       type: "checkbox",
       name: "contact[contact_time_3]",
       id: "contact[contact_time_3]",
@@ -170,10 +178,10 @@
 
   {%- endcomment -%}
 
-  <hr>
+  <hr/>
 
   {% render 'input'
-    class: "form_checkbox toggle_checkbox",
+    class: "form__checkbox toggle__checkbox",
     type: "checkbox",
     name: "validation",
     id: "validation",

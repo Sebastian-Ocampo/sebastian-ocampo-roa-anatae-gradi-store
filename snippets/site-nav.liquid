@@ -9,6 +9,7 @@
   {% if link.links != blank %}
     <li class="nav-item nav-item-js">
       <button
+        type="button"
         class="button-dropdown-js"
         data-active="false"
       >
@@ -19,7 +20,7 @@
         <ul class="grid">
           {% for childlink in link.links %}
             <li>
-              <a 
+              <a
                 href="{{ childlink.url }}"
                 title="{{ childlink.title }}"
                 class="child-title"
@@ -30,7 +31,7 @@
                 <ul class="child-list">
                   {% for grandchildlink in childlink.links %}
                     <li>
-                      <a 
+                      <a
                         href="{{ grandchildlink.url }}"
                         title="{{ grandchildlink.title }}"
                       >
@@ -47,7 +48,7 @@
     </li>
   {% else %}
     <li class="nav-item">
-      <a 
+      <a
         href="{{ link.url }}"
         title="{{ link.title }}"
       >
@@ -60,6 +61,7 @@
 <button
   class="burger-nav"
   id="burger-nav-js"
+  type="button"
 >
   {% render 'icon-hamburger' %}
   {% render 'icon-close' %}

@@ -1,3 +1,18 @@
+/* eslint-disable no-undef */
+const support = () => {
+	if (!window.DOMParser) return false;
+
+	const parser = new DOMParser();
+
+  try {
+		parser.parseFromString('x', 'text/html');
+	} catch (err) {
+		return false;
+	}
+
+	return true;
+};
+
 /**
  * Convert a template string into HTML DOM nodes
  * @param  {String} str The template string
@@ -15,18 +30,4 @@
 	const dom = document.createElement('div');
 	dom.innerHTML = str;
 	return dom;
-};
-
-const support = () => {
-	if (!window.DOMParser) return false;
-
-	const parser = new DOMParser();
-
-  try {
-		parser.parseFromString('x', 'text/html');
-	} catch (err) {
-		return false;
-	}
-
-	return true;
-};
+}

@@ -141,7 +141,8 @@
       },
       "view_full_details": "Žiūrėti visą informaciją",
       "include_taxes": "Mokesčiai įtraukti.",
-      "shipping_policy_html": "<a href=\"{{ link }}\">Siuntimo išlaidos</a> apskaičiuojamos atsiskaitant."
+      "shipping_policy_html": "<a href=\"{{ link }}\">Siuntimo išlaidos</a> apskaičiuojamos atsiskaitant.",
+      "not_available": "TODO"
     },
     "modal": {
       "label": "Medijų galerija"

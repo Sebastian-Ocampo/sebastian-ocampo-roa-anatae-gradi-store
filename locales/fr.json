@@ -140,7 +140,8 @@
       },
       "view_full_details": "Afficher tous les détails",
       "include_taxes": "Taxes incluses.",
-      "shipping_policy_html": "<a href=\"{{ link }}\">Frais d'expédition</a> calculés à l'étape de paiement."
+      "shipping_policy_html": "<a href=\"{{ link }}\">Frais d'expédition</a> calculés à l'étape de paiement.",
+      "not_available": "TODO"
     },
     "modal": {
       "label": "Galerie de supports multimédias"

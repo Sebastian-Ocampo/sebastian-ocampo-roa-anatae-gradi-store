@@ -139,7 +139,8 @@
       },
       "view_full_details": "Покажи пълните подробности",
       "include_taxes": "С включени данъци.",
-      "shipping_policy_html": "<a href=\"{{ link }}\">Доставката</a> се изчислява при плащане."
+      "shipping_policy_html": "<a href=\"{{ link }}\">Доставката</a> се изчислява при плащане.",
+      "not_available": "TODO"
     },
     "modal": {
       "label": "Мултимедийна галерия"

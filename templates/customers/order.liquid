@@ -1,9 +1,12 @@
+<!-- eslint-disable @html-eslint/no-inline-styles -->
 <div class="customer order">
+  <!-- eslint-disable max-len -->
   <svg style="display:none">
     <symbol id="icon-discount" viewBox="0 0 12 12">
-      <path fill-rule="evenodd" clip-rule="evenodd" d="M7 0h3a2 2 0 012 2v3a1 1 0 01-.3.7l-6 6a1 1 0 01-1.4 0l-4-4a1 1 0 010-1.4l6-6A1 1 0 017 0zm2 2a1 1 0 102 0 1 1 0 00-2 0z" fill="currentColor">
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M7 0h3a2 2 0 012 2v3a1 1 0 01-.3.7l-6 6a1 1 0 01-1.4 0l-4-4a1 1 0 010-1.4l6-6A1 1 0 017 0zm2 2a1 1 0 102 0 1 1 0 00-2 0z" fill="currentColor"/>
     </symbol>
   </svg>
+  <!-- eslint-enable max-len -->
   <div>
     <h1>{{ 'customer.account.title' | t }}</h1>
     <a href="{{ routes.account_url }}">{{ 'customer.account.return' | t }}</a>
@@ -11,24 +14,68 @@
 
   <div>
     <div>
-      <h2>{{ 'customer.order.title' | t: name: order.name }}</h2>
+      <h2>
+        {{ 'customer.order.title' | t: name: order.name }}
+      </h2>
+      <!-- eslint-disable max-len -->
       {%- assign order_date = order.created_at | time_tag: format: "date_at_time" -%}
-      <p>{{ 'customer.order.date_html' | t: date: order_date }}</p>
+      <p>
+        {{ 'customer.order.date_html' | t: date: order_date }}
+      </p>
       {%- if order.cancelled -%}
         {%- assign cancelled_at = order.cancelled_at | time_tag: format: "date_at_time" -%}
-        <p>{{ 'customer.order.cancelled_html' | t: date: cancelled_at }}</p>
-        <p>{{ 'customer.order.cancelled_reason' | t: reason: order.cancel_reason_label }}</p>
+        <p>
+          {{ 'customer.order.cancelled_html' | t: date: cancelled_at }}
+        </p>
+        <p>
+          {{ 'customer.order.cancelled_reason' | t: reason: order.cancel_reason_label }}
+        </p>
+        <!-- eslint-enable max-len -->
       {%- endif -%}
 
       <table role="table" class="order-details">
-        <caption class="visually-hidden">{{ 'customer.order.title' | t: name: order.name }}</caption>
+        <caption
+          class="visually-hidden"
+        >
+          {{ 'customer.order.title' | t: name: order.name }}
+        </caption>
         <thead role="rowgroup">
           <tr role="row">
-            <th id="ColumnProduct" scope="col" role="columnheader">{{ 'customer.order.product' | t }}</th>
-            <th id="ColumnSku" scope="col" role="columnheader">{{ 'customer.order.sku' | t }}</th>
-            <th id="ColumnPrice" scope="col" role="columnheader">{{ 'customer.order.price' | t }}</th>
-            <th id="ColumnQuantity" scope="col" role="columnheader">{{ 'customer.order.quantity' | t }}</th>
-            <th id="ColumnTotal" scope="col" role="columnheader">{{ 'customer.order.total' | t }}</th>
+            <th
+              id="ColumnProduct"
+              scope="col"
+              role="columnheader"
+            >
+              {{ 'customer.order.product' | t }}
+            </th>
+            <th
+              id="ColumnSku"
+              scope="col"
+              role="columnheader"
+            >
+              {{ 'customer.order.sku' | t }}
+            </th>
+            <th
+              id="ColumnPrice"
+              scope="col"
+              role="columnheader"
+            >
+              {{ 'customer.order.price' | t }}
+            </th>
+            <th
+              id="ColumnQuantity"
+              scope="col"
+              role="columnheader"
+            >
+              {{ 'customer.order.quantity' | t }}
+            </th>
+            <th
+              id="ColumnTotal"
+              scope="col"
+              role="columnheader"
+            >
+              {{ 'customer.order.total' | t }}
+            </th>
           </tr>
         </thead>
         <tbody role="rowgroup">
@@ -48,6 +95,7 @@
                     <p>{{ line_item.title }}</p>
                   {%- endif -%}
                   {%- assign property_size = line_item.properties | size -%}
+                  <!-- eslint-disable max-len -->
                   {%- unless line_item.selling_plan_allocation == nil and property_size == 0 -%}
                     <div class="properties">
                       {%- unless line_item.product.has_only_default_variant -%}
@@ -67,7 +115,11 @@
                             <span>
                               {{ property.first }}:&nbsp;
                               {%- if property.last contains '/uploads/' -%}
-                                <a href="{{ property.last }}">{{ property.last | split: '/' | last }}</a>
+                                <a
+                                  href="{{ property.last }}"
+                                >
+                                  {{ property.last | split: '/' | last }}
+                                </a>
                               {%- else -%}
                                 {{ property.last }}
                               {%- endif -%}
@@ -77,24 +129,33 @@
                       {%- endif -%}
                     </div>
                   {%- endunless -%}
+                  <!-- eslint-enable max-len -->
 
                   {%- if line_item.line_level_discount_allocations != blank -%}
-                    <ul role="list" aria-label="{{ 'customer.order.discount' | t }}">
+                    <ul
+                      role="list"
+                      aria-label="{{ 'customer.order.discount' | t }}"
+                    >
+                      <!-- eslint-disable max-len -->
                       {%- for discount_allocation in line_item.line_level_discount_allocations -%}
                         <li>
                           <svg aria-hidden="true" focusable="false" viewBox="0 0 12 12">
-                            <use href="#icon-discount" />
+                            <use href="#icon-discount"/>
                           </svg>
                           {{- discount_allocation.discount_application.title }} (-{{ discount_allocation.amount | money -}})
                         </li>
                       {%- endfor -%}
+                      <!-- eslint-enable max-len -->
                     </ul>
                   {%- endif -%}
 
                   {%- if line_item.fulfillment -%}
+                  <!-- eslint-disable max-len -->
                     <div class="fulfillment">
                       {%- assign created_at = line_item.fulfillment.created_at | time_tag: format: 'date' -%}
-                      <span>{{ 'customer.order.fulfilled_at_html' | t: date: created_at }}</span>
+                      <span>
+                        {{ 'customer.order.fulfilled_at_html' | t: date: created_at }}
+                      </span>
 
                         {%- if line_item.fulfillment.tracking_url -%}
                           <a href="{{ line_item.fulfillment.tracking_url }}">
@@ -106,6 +167,7 @@
                           {%- if line_item.fulfillment.tracking_number -%} #{{ line_item.fulfillment.tracking_number }} {%- endif -%}
                         </span>
                     </div>
+                  <!-- eslint-enable max-len -->
                   {%- endif -%}
                 </div>
               </td>
@@ -121,24 +183,37 @@
                 role="cell"
                 data-label="{{ 'customer.order.price' | t }}"
               >
+                <!-- eslint-disable-next-line max-len -->
                 {%- if line_item.original_price != line_item.final_price or line_item.unit_price_measurement -%}
                   <dl>
                     {%- if line_item.original_price != line_item.final_price -%}
                       <dt>
-                        <span class="visually-hidden">{{ 'products.product.price.regular_price' | t }}</span>
+                        <span
+                          class="visually-hidden"
+                        >
+                          {{ 'products.product.price.regular_price' | t }}
+                        </span>
                       </dt>
                       <dd class="regular-price">
                         <s>{{ line_item.original_price | money }}</s>
                       </dd>
                       <dt>
-                        <span class="visually-hidden">{{ 'products.product.price.sale_price' | t }}</span>
+                        <span
+                          class="visually-hidden"
+                        >
+                          {{ 'products.product.price.sale_price' | t }}
+                        </span>
                       </dt>
                       <dd>
                         <span>{{ line_item.final_price | money }}</span>
                       </dd>
                     {%- else -%}
                       <dt>
-                        <span class="visually-hidden">{{ 'products.product.price.regular_price' | t }}</span>
+                        <span
+                          class="visually-hidden"
+                        >
+                          {{ 'products.product.price.regular_price' | t }}
+                        </span>
                       </dt>
                       <dd>
                         {{ line_item.original_price | money }}
@@ -146,12 +221,26 @@
                     {%- endif -%}
                     {%- if line_item.unit_price_measurement -%}
                       <dt>
-                        <span class="visually-hidden">{{ 'products.product.price.unit_price' | t }}</span>
+                        <span
+                          class="visually-hidden"
+                        >
+                          {{ 'products.product.price.unit_price' | t }}
+                        </span>
                       </dt>
                       <dd class="unit-price">
+                        <!-- eslint-disable max-len -->
                         <span>
                           {%- capture unit_price_separator -%}
-                            <span aria-hidden="true">/</span><span class="visually-hidden">{{ 'accessibility.unit_price_separator' | t }}&nbsp;</span>
+                            <span
+                              aria-hidden="true"
+                            >
+                              /
+                            </span>
+                            <span
+                              class="visually-hidden"
+                            >
+                              {{ 'accessibility.unit_price_separator' | t }}&nbsp;
+                            </span>
                           {%- endcapture -%}
                           {%- capture unit_price_base_unit -%}
                             {%- if line_item.unit_price_measurement.reference_value != 1 -%}
@@ -159,8 +248,14 @@
                             {%- endif -%}
                             {{ line_item.unit_price_measurement.reference_unit }}
                           {%- endcapture -%}
-                          <span data-unit-price>{{ line_item.unit_price | money }}</span>{{- unit_price_separator -}}{{- unit_price_base_unit -}}
+                          <span
+                            data-unit-price
+                          >
+                            {{ line_item.unit_price | money }}
+                          </span>
+                          {{- unit_price_separator -}}{{- unit_price_base_unit -}}
                         </span>
+                        <!-- eslint-enable max-len -->
                       </dd>
                     {%- endif -%}
                   </dl>
@@ -180,16 +275,25 @@
                 role="cell"
                 data-label="{{ 'customer.order.total' | t }}"
               >
+                <!-- eslint-disable-next-line max-len -->
                 {%- if line_item.original_line_price != line_item.final_line_price -%}
                   <dl>
                     <dt>
-                      <span class="visually-hidden">{{ 'products.product.price.regular_price' | t }}</span>
+                      <span
+                        class="visually-hidden"
+                      >
+                        {{ 'products.product.price.regular_price' | t }}
+                      </span>
                     </dt>
                     <dd class="regular-price">
                       <s>{{ line_item.original_line_price | money }}</s>
                     </dd>
                     <dt>
-                      <span class="visually-hidden">{{ 'products.product.price.sale_price' | t }}</span>
+                      <span
+                        class="visually-hidden"
+                      >
+                        {{ 'products.product.price.sale_price' | t }}
+                      </span>
                     </dt>
                     <dd>
                       <span>{{ line_item.final_line_price | money }}</span>
@@ -204,29 +308,60 @@
         </tbody>
         <tfoot role="rowgroup">
           <tr role="row">
-            <td id="RowSubtotal" role="rowheader" scope="row" colspan="4">
+            <td
+              id="RowSubtotal"
+              role="rowheader"
+              scope="row"
+              colspan="4"
+            >
               {{ 'customer.order.subtotal' | t }}
             </td>
-            <td headers="RowSubtotal" role="cell" data-label="{{ 'customer.order.subtotal' | t }}">{{ order.line_items_subtotal_price | money }}</td>
+            <td
+              headers="RowSubtotal"
+              role="cell"
+              data-label="{{ 'customer.order.subtotal' | t }}"
+            >
+              {{ order.line_items_subtotal_price | money }}
+            </td>
           </tr>
           {%- if order.cart_level_discount_applications != blank -%}
             <tr role="row">
+              <!-- eslint-disable-next-line max-len -->
               {%- for discount_application in order.cart_level_discount_applications -%}
-                <td id="RowDiscount" role="rowheader" scope="row" colspan="4">
+                <td
+                  id="RowDiscount"
+                  role="rowheader"
+                  scope="row"
+                  colspan="4"
+                >
                   {{ 'customer.order.discount' | t }}
                   <span class="cart-discount">
-                    <svg aria-hidden="true" focusable="false" viewBox="0 0 12 12">
-                      <use href="#icon-discount" />
+                    <svg
+                      aria-hidden="true"
+                      focusable="false"
+                      viewBox="0 0 12 12"
+                    >
+                      <use href="#icon-discount"/>
                     </svg>
                     {{- discount_application.title -}}
                   </span>
                 </td>
-                <td headers="RowDiscount" role="cell" data-label="{{ 'customer.order.discount' | t }}">
+                <td
+                  headers="RowDiscount"
+                  role="cell"
+                  data-label="{{ 'customer.order.discount' | t }}"
+                >
                   <div>
-                    <span>-{{ discount_application.total_allocated_amount | money }}</span>
+                    <span>
+                      -{{ discount_application.total_allocated_amount | money }}
+                    </span>
                     <span class="cart-discount">
-                      <svg aria-hidden="true" focusable="false" viewBox="0 0 12 12">
-                        <use href="#icon-discount" />
+                      <svg
+                        aria-hidden="true"
+                        focusable="false"
+                        viewBox="0 0 12 12"
+                      >
+                        <use href="#icon-discount"/>
                       </svg>
                       {{- discount_application.title -}}
                     </span>
@@ -237,19 +372,65 @@
           {%- endif -%}
           {%- for shipping_method in order.shipping_methods -%}
             <tr role="row">
-              <td id="RowShipping" role="rowheader" scope="row" colspan="4">{{ 'customer.order.shipping' | t }} ({{ shipping_method.title }})</td>
-              <td headers="RowShipping" role="cell" data-label="{{ 'customer.order.shipping' | t }} ({{ shipping_method.title }})">{{ shipping_method.price | money }}</td>
+              <td
+                id="RowShipping"
+                role="rowheader"
+                scope="row"
+                colspan="4"
+              >
+                <!-- eslint-disable-next-line max-len -->
+                {{ 'customer.order.shipping' | t }} ({{ shipping_method.title }})
+              </td>
+              <!-- eslint-disable max-len -->
+              <td
+                headers="RowShipping"
+                role="cell"
+                data-label="{{ 'customer.order.shipping' | t }} ({{ shipping_method.title }})"
+              >
+                {{ shipping_method.price | money }}
+              </td>
+              <!-- eslint-enable max-len -->
             </tr>
           {%- endfor -%}
           {%- for tax_line in order.tax_lines -%}
             <tr role="row">
-              <td id="RowTax" role="rowheader" scope="row" colspan="4">{{ 'customer.order.tax' | t }} ({{ tax_line.title }} {{ tax_line.rate | times: 100 }}%)</td>
-              <td headers="RowTax" role="cell" data-label="{{ 'customer.order.tax' | t }} ({{ tax_line.title }} {{ tax_line.rate | times: 100 }}%)">{{ tax_line.price | money }}</td>
+              <td
+                id="RowTax"
+                role="rowheader"
+                scope="row"
+                colspan="4"
+              >
+                <!-- eslint-disable-next-line max-len -->
+                {{ 'customer.order.tax' | t }} ({{ tax_line.title }} {{ tax_line.rate | times: 100 }}%)
+              </td>
+              <!-- eslint-disable max-len -->
+              <td
+                headers="RowTax"
+                role="cell"
+                data-label="{{ 'customer.order.tax' | t }} ({{ tax_line.title }} {{ tax_line.rate | times: 100 }}%)"
+              >
+                {{ tax_line.price | money }}
+              </td>
+              <!-- eslint-enable max-len -->
             </tr>
           {%- endfor -%}
           <tr role="row">
-            <td id="RowTotal" role="rowheader" scope="row" colspan="3">{{ 'customer.order.total' | t }}</td>
-            <td headers="RowTotal" role="cell" colspan="2" data-label="{{ 'customer.order.total' | t }}">{{ order.total_price | money_with_currency }}</td>
+            <td
+              id="RowTotal"
+              role="rowheader"
+              scope="row"
+              colspan="3"
+            >
+              {{ 'customer.order.total' | t }}
+            </td>
+            <td
+              headers="RowTotal"
+              role="cell"
+              colspan="2"
+              data-label="{{ 'customer.order.total' | t }}"
+            >
+              {{ order.total_price | money_with_currency }}}
+            </td>
           </tr>
         </tfoot>
       </table>
