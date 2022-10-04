@@ -1,3 +1,4 @@
+<!-- eslint-disable @html-eslint/no-extra-spacing-attrs -->
 <div class="wrapper customer auth__register auth">
   <h2 class="h2 title">
     {{ 'customer.register.title' | t }}
@@ -13,7 +14,7 @@
         {{ 'templates.contact.form.error_heading' | t }}
       </h2>
       <div class="errors">
-        <ul> 
+        <ul>
           {%- for field in form.errors -%}
             <li>
               {%- if field == 'form' -%}
@@ -29,7 +30,7 @@
         </ul>
       </div>
     {%- endif -%}
-    <div class="form__textfield form__textfield--spaced">      
+    <div class="form__textfield form__textfield--spaced">
       <input
         type="text"
         name="customer[first_name]"
@@ -37,7 +38,7 @@
         {% if form.first_name %}value="{{ form.first_name }}"{% endif %}
         autocomplete="given-name"
         placeholder="{{ 'customer.register.first_name' | t }}"
-      >
+      />
       <label for="RegisterForm-FirstName">
         {{ 'customer.register.first_name' | t }}
       </label>
@@ -47,15 +48,15 @@
         type="text"
         name="customer[last_name]"
         id="RegisterForm-LastName"
-        {% if form.last_name %}value="{{ form.last_name }}"{% endif %}
+        {% if form.last_name %} value="{{ form.last_name }}"{% endif %}
         autocomplete="family-name"
         placeholder="{{ 'customer.register.last_name' | t }}"
-      >
+      />
       <label for="RegisterForm-LastName">
         {{ 'customer.register.last_name' | t }}
       </label>
     </div>
-    <div class="form__textfield form__textfield--spaced">      
+    <div class="form__textfield form__textfield--spaced">
       <input
         type="email"
         name="customer[email]"
@@ -70,7 +71,7 @@
           aria-describedby="RegisterForm-email-error"
         {% endif %}
         placeholder="{{ 'customer.register.email' | t }}"
-      >
+      />
       <label for="RegisterForm-email">
         {{ 'customer.register.email' | t }}
       </label>
@@ -81,10 +82,11 @@
         class="form__message form__message--error"
       >
         {% render 'icon-error' %}
+        <!-- eslint-disable max-len -->
         {{ form.errors.translated_fields['email'] | capitalize }} {{ form.errors.messages['email'] }}.
       </span>
     {%- endif -%}
-    <div class="form__textfield form__textfield--spaced">     
+    <div class="form__textfield form__textfield--spaced">
       <input
         type="password"
         name="customer[password]"
@@ -95,7 +97,7 @@
           aria-describedby="RegisterForm-password-error"
         {% endif %}
         placeholder="{{ 'customer.register.password' | t }}"
-      >
+      />
       <label for="RegisterForm-password">
         {{ 'customer.register.password' | t }}
       </label>
@@ -109,7 +111,7 @@
         {{ form.errors.translated_fields['password'] | capitalize }} {{ form.errors.messages['password'] }}.
       </span>
     {%- endif -%}
-    <button class="btn-2">
+    <button class="btn-2" type="submit">
       {{ 'customer.register.submit' | t }}
     </button>
   {%- endform -%}

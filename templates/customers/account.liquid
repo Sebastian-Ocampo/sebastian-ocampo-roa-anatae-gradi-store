@@ -2,8 +2,8 @@
   <h1 class="customer__title">
     {{ 'customer.account.title' | t }}
   </h1>
-  
-  <a 
+
+  <a
     href="{{ routes.account_logout_url }}"
     title="{{ 'customer.log_out' | t }}"
     class="customer__nav-link"
@@ -35,8 +35,10 @@
               <a
                 class="customer__badge"
                 href="{{ order.customer_url }}"
-                title="{{ 'customer.orders.order_number_link' | t: number: order.name }}"
-                aria-label="{{ 'customer.orders.order_number_link' | t: number: order.name }}"
+                title="{{ 'customer.orders.order_number_link'
+                  | t: number: order.name }}"
+                aria-label="{{ 'customer.orders.order_number_link'
+                  | t: number: order.name }}"
               >
                 {{ order.name }}
               </a>
@@ -95,7 +97,7 @@
       <h2>
         {{ 'customer.account.details' | t }}
       </h2>
-      
+
       <div class="customer__section-space">
         {{ customer.default_address | format_address }}
       </div>
@@ -104,6 +106,7 @@
         title="{{ 'customer.account.view_addresses' | t }}"
         href="{{ routes.account_addresses_url }}"
       >
+        <!-- eslint-disable max-len -->
         {{ 'customer.account.view_addresses' | t }} ({{ customer.addresses_count }})
       </a>
     </div>

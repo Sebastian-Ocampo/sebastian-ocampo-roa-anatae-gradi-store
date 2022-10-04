@@ -7,16 +7,16 @@
     <h2 id="recover" class="title h2" tabindex="-1">
       {{ 'customer.recover_password.title' | t }}
     </h2>
-  
+
     <div>
       <p>
         {{ 'customer.recover_password.subtext' | t }}
       </p>
-  
+
       {%- form 'recover_customer_password' -%}
         {% assign recover_success = form.posted_successfully? %}
         {% assign errors = form.errors %}
-        
+
         <div class="form__textfield form__textfield--spaced">
           <input type="email"
             value=""
@@ -32,14 +32,14 @@
               autofocus
             {% endif %}
             placeholder="{{ 'customer.login_page.email' | t | append: '*' }}"
-          >
+          />
           <label for="RecoverEmail">
             {{ 'customer.login_page.email' | t }}
           </label>
         </div>
         <div class="flex auth__buttons">
           <div>
-            <button class="btn-2">
+            <button class="btn-2" type="submit">
               {{ 'customer.login_page.submit' | t }}
             </button>
           </div>
@@ -92,8 +92,8 @@
           </h2>
           {{ form.errors | default_errors }}
         {%- endif -%}
-  
-        <div class="form__textfield form__textfield--spaced">        
+
+        <div class="form__textfield form__textfield--spaced">
           <input
             type="email"
             name="customer[email]"
@@ -105,14 +105,14 @@
               aria-invalid="true"
             {% endif %}
             placeholder="{{ 'customer.login_page.email' | t }}"
-          >
+          />
           <label for="CustomerEmail">
             {{ 'customer.login_page.email' | t }}
           </label>
         </div>
-  
+
         {%- if form.password_needed -%}
-          <div class="form__textfield form__textfield--spaced">          
+          <div class="form__textfield form__textfield--spaced">
             <input
               type="password"
               value=""
@@ -123,19 +123,19 @@
                 aria-invalid="true"
               {% endif %}
               placeholder="{{ 'customer.login_page.password' | t }}"
-            >
+            />
             <label for="CustomerPassword">
               {{ 'customer.login_page.password' | t }}
             </label>
           </div>
-  
+
           <a id="display-recover" href="#recover">
             {{ 'customer.login_page.forgot_password' | t }}
           </a>
         {%- endif -%}
           <div class="flex auth__buttons" id="login-buttons">
             <div>
-              <button class="btn-2">
+              <button class="btn-2" type="submit">
                 {{ 'customer.login_page.sign_in' | t }}
               </button>
             </div>
@@ -145,17 +145,17 @@
               </a>
             </div>
           </div>
-        
+
       {%- endform -%}
     </div>
-    
+
     {%- if shop.checkout.guest_login -%}
       <div>
-        <hr>
+        </hr>
         <h2>{{ 'customer.login_page.guest_title' | t }}</h2>
-  
+
         {%- form 'guest_login' -%}
-          <button class="btn-2">
+          <button class="btn-2" type="button">
             {{ 'customer.login_page.guest_continue' | t }}
           </button>
         {%- endform -%}

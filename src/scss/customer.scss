@@ -134,6 +134,10 @@ $margin-customer: 50px;
         text-align: right;
       }
     }
+
+    &-date {
+      margin-bottom: calc($margin-customer / 2);
+    }
   }
 
   &__section-space {

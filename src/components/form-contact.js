@@ -2,27 +2,25 @@ import { forceNumeric } from "../utils/numeric-validation";
 import { $Q } from "../utils/query-selector"
 
 const validateForm = (e) => {
-
+  e.preventDefault();
   const form = e.target.closest('form');
   const checkAccept = $Q('#validation', form);
-  const fieldBefore = $Q('textarea', form);
 
-  if (!checkAccept.checked && fieldBefore.value.length > 0) {
-    $Q('.error-check-js').style.display = 'flex'
-  } else {
-    $Q('.error-check-js').style.display = 'none'
+  const requiredInputs = [...form.elements]
+    .filter((tag) => tag.required)
+    .every((tag) => tag.value)
+
+  if (!checkAccept.checked || !requiredInputs) {
+    $Q('.error-check-js').style.display = 'flex';
+    return false;
   }
 
+  $Q('.error-check-js').style.display = 'none';
+  return form.submit();
 }
+
 
 export const validateFormContact = () => {
   $Q('.send-contact').addEventListener('click', validateForm);
   $Q('input[type="number"]').addEventListener('input', forceNumeric);
-}
-
-export const validateCustomerExist = () => {
-  const {location: { href } } = window;
-  if (href.includes('form_type=customer')) {
-    $Q('.error-user-exist').style.display = 'flex';
-  }
 }

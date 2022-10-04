@@ -198,14 +198,14 @@
     },
     "contact": {
       "form": {
-        "name": "Name",
-        "email": "Email",
+        "name": "Name*",
+        "email": "Email*",
         "phone": "Phone number",
-        "comment": "Comment",
+        "comment": "Comment*",
         "send": "Send",
         "post_success": "Thanks for contacting us. We'll get back to you as soon as possible.",
         "error_heading": "Please adjust the following:",
-        "error_checkbox": "Option is required"
+        "error_required": "You must complete all fields required"
       }
     },
     "404": {

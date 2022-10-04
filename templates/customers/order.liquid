@@ -2,8 +2,8 @@
   <h1 class="customer__title">
     {{ 'customer.account.title' | t }}
   </h1>
-  
-  <a 
+
+  <a
     href="{{ routes.account_url }}"
     title="{{ 'customer.account.return' | t }}"
     class="customer__nav-link"
@@ -16,12 +16,14 @@
       <h2>
         {{ 'customer.order.title' | t: name: order.name }}
       </h2>
-      <p>
-        {%- assign order_date = order.created_at | time_tag: format: "date_at_time" -%}
+      <p class="customer__order-date">
+        {%- assign order_date = order.created_at
+          | time_tag: format: "date_at_time"
+        -%}
         {{ 'customer.order.date_html' | t: date: order_date }}
-      </p>       
-      <hr>
-
+      </p>
+      </hr>
+      <!-- eslint-disable max-len -->
       <div
         class="grid customer__order-list--header customer__order-list customer__order-list--detail"
       >
@@ -86,7 +88,8 @@
                   <dd class="unit-price">
                     <span>
                       {%- capture unit_price_separator -%}
-                        <span aria-hidden="true">/</span><span class="visually-hidden">{{ 'accessibility.unit_price_separator' | t }}&nbsp;</span>
+                        <span aria-hidden="true">/</span>
+                        <span class="visually-hidden">{{ 'accessibility.unit_price_separator' | t }}&nbsp;</span>
                       {%- endcapture -%}
                       {%- capture unit_price_base_unit -%}
                         {%- if line_item.unit_price_measurement.reference_value != 1 -%}
@@ -158,7 +161,7 @@
             {{ shipping_method.price | money }}
           </span>
           {%- endfor -%}
-        </div> 
+        </div>
       {% endif %}
 
       <div class="customer__order-total">

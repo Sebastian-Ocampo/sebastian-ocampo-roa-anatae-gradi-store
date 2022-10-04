@@ -3,9 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "keywords": [
-
-  ],
+  "keywords": [],
   "author": "Cristian Velasco",
   "license": "MIT",
   "scripts": {
@@ -13,7 +11,7 @@
     "build": "npm run lint & (webpack --config webpack.prod.js --mode production --progress)",
     "dev": "npm run lint & (webpack --config webpack.dev.js --watch --mode development --progress)",
     "install:codeqa": "cd code-quality && npm prune && npm install",
-    "lint": "theme-check & stylelint **/*.scss & (cd code-quality && eslint --quiet ../)"
+    "lint": "stylelint **/*.scss & (cd code-quality && eslint --quiet ../)"
   },
   "devDependencies": {
     "@babel/core": "^7.11.1",
@@ -45,6 +43,7 @@
   },
   "dependencies": {
     "axios": "^0.22.0",
+    "confusing-browser-globals": "^1.0.11",
     "core-js": "^3.20.3",
     "swiper": "^7.4.1"
   }

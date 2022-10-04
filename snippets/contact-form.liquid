@@ -48,11 +48,15 @@
     autofocus
     class="form__message form__message--error error-user-exist"
   >
-    {% render 'icon-error' %} 
+    {% render 'icon-error' %}
     {{ 'newsletter.registered' | t }}
   </span>
 
-  <input type="hidden" name="contact[tags]" value="newsletter, contact">
+  <input
+    type="hidden"
+    name="contact[tags]"
+    value="newsletter, contact"
+  />
 
   {% render 'input'
     class: "form__textfield",
@@ -190,20 +194,21 @@
     placeholder: legal_text,
     required: true
   %}
+
   <span
     role="alert"
     tabindex="-1"
     autofocus
     class="form__message form__message--error error-check-js"
   >
-    {% render 'icon-error' %} {{ 'templates.contact.form.error_checkbox' | t }}
+    {% render 'icon-error' %} {{ 'templates.contact.form.error_required' | t }}
   </span>
 
   {% render 'button'
     content: send_label,
     class: 'send-contact',
     type: 2,
-    action: "submit"
+    action: "button"
   %}
 
 {% endform %}

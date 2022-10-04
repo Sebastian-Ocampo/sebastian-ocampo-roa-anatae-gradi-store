@@ -27,7 +27,7 @@ module.exports = {
         "unit-no-unknown": true,
 
         // Disallow longhand properties that can be combined into one shorthand property.
-        "declaration-block-no-redundant-longhand-properties": true,
+        //"declaration-block-no-redundant-longhand-properties": true,
 
         // Specify percentage or number notation for alpha-values.
         "alpha-value-notation": "number",
