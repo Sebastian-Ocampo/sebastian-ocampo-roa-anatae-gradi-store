@@ -15,14 +15,14 @@
 
     <link
       rel="preload"
-      href="{{ 'fonts.css' | asset_url }}"
+      href="{{ 'font.css' | asset_url }}"
       as="style"
       onload="this.onload=null;this.rel='stylesheet'"
     />
     <noscript>
       <link
         rel="stylesheet"
-        href="{{ 'fonts.css' | asset_url }}"
+        href="{{ 'font.css' | asset_url }}"
       >
     </noscript>
 
@@ -78,7 +78,7 @@
     {% render 'color-variables' %}
 
     <script>
-      const documentClass = document.documentElement.className;
+      let documentClass = document.documentElement.className;
       documentClass = documentClass.replace('no-js', 'js');
     </script>
   </head>
