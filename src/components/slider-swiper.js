@@ -6,6 +6,7 @@ import Swiper, { Navigation, Pagination, FreeMode, Autoplay } from "swiper";
  * @param {String} id - className reference in DOM
  */
 const configArrows = (id) => {
+  // eslint-disable-next-line no-new
   new Swiper(id, {
     modules: [Navigation, FreeMode],
     slidesPerView: "auto",
@@ -30,6 +31,7 @@ const configArrows = (id) => {
  * @param {String} id - className reference in DOM
  */
 export const configPagination = (id) => {
+  // eslint-disable-next-line no-new
   new Swiper(id, {
     modules: [Pagination, FreeMode],
     slidesPerView: "auto",
@@ -77,7 +79,7 @@ export const swiperSmall = new Swiper(".slider_small", {
   spaceBetween: 25,
   pagination: {
     el: ".swiper-pagination",
-    clickable: true
+    clickable: true,
   },
   freeMode: true,
   autoplay: {
@@ -90,21 +92,17 @@ export const swiperSmall = new Swiper(".slider_small", {
  * Iteration to create all sliders with arrows
  */
 export const swiperArrows = (() => {
-  $Qll(".slider_arrows").map(slide => {
-    configArrows('#' + slide.id)
-  })
+  $Qll(".slider_arrows").map((slide) => configArrows(`#${slide.id}`))
 })();
 
 /**
  * Iteration to create all sliders with pagination
  */
 export const swiperPagination = (() => {
-  $Qll(".slider_pagination").map(slide => {
-    configPagination('#' + slide.id)
-  })
+  $Qll(".slider_pagination").map((slide) => configPagination(`#${slide.id}`))
 })();
 
 export const sliderUpsell = () => {
+  // eslint-disable-next-line no-new
   new Swiper('.slider_upsell', configSwiperUpsell);
 };
-

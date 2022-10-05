@@ -1,14 +1,14 @@
 @use "../abstracts/mixins";
 
 %button {
-  border-style: none;
   padding: 15px 30px;
-  border-radius: 0px;
   border-width: 1px;
+  border-style: none;
+  border-radius: 0px;
+  cursor: pointer;
   font-weight: 600;
   transition: 0.3s ease;
   transition-property: background-color;
-  cursor: pointer;
 
   &:hover {
     @include mixins.btn-type(
@@ -51,17 +51,17 @@
     );
   }
 
-  &_w-100 {
+  &__w-100 {
     width: 100%;
   }
 
-  &_p-50 {
-    padding-left: 50px;
+  &__p-50 {
     padding-right: 50px;
+    padding-left: 50px;
   }
 
-  &_p-70 {
-    padding-left: 70px;
+  &__p-70 {
     padding-right: 70px;
+    padding-left: 70px;
   }
 }

@@ -1,4 +1,4 @@
-{% liquid 
+{% liquid
   assign name_label = 'templates.contact.form.name' | t
   assign emal_label = 'templates.contact.form.email' | t
   assign phone_label = 'templates.contact.form.phone' | t
@@ -7,13 +7,16 @@
 %}
 
 {% form 'contact', class: "my-contact" %}
-  
+
   {%- if form.posted_successfully? -%}
     <div
       tabindex="-1"
       autofocus
+      class="form__message form__message--success "
     >
+      <!-- eslint-disable max-len -->
       {% render 'icon-success' %} {{ 'templates.contact.form.post_success' | t }}
+      <!-- eslint-enable max-len -->
     </div>
   {%- elsif form.errors -%}
     <div>
@@ -21,71 +24,82 @@
         role="alert"
         tabindex="-1"
         autofocus
+        class="form__message form__message--error"
       >
+        <!-- eslint-disable max-len -->
         {% render 'icon-error' %} {{ 'templates.contact.form.error_heading' | t }}
+        <!-- eslint-enable max-len -->
       </span>
     </div>
 
-    <ul role="list">
+    <ul class="list-errors" role="list">
       <li>
         <a>
+          <!-- eslint-disable max-len -->
           {{ form.errors.translated_fields['email'] | capitalize }} {{ form.errors.messages['email'] }}
+          <!-- eslint-enable max-len -->
         </a>
       </li>
     </ul>
   {%- endif -%}
+  <span
+    role="alert"
+    tabindex="-1"
+    autofocus
+    class="form__message form__message--error error-user-exist"
+  >
+    {% render 'icon-error' %}
+    {{ 'newsletter.registered' | t }}
+  </span>
+
+  <input
+    type="hidden"
+    name="contact[tags]"
+    value="newsletter, contact"
+  />
 
   {% render 'input'
-    class: "form_textfield",
+    class: "form__textfield",
     type: "text",
-    name: "contact[{{ name_label }}]",
+    name: "contact[first_name]",
     id: "first-name",
     placeholder: name_label,
     required: true
   %}
 
   {% render 'input'
-    class: "form_textfield",
-    type: "text",
+    class: "form__textfield",
+    type: "email",
     name: "contact[email]",
     id: "email",
     placeholder: emal_label,
     required: true
   %}
 
-  {%- if form.errors contains 'email' -%}
-    <small>
-      <span>{{ 'accessibility.error' | t }}</span>
-      <span class="form__message">
-        {% render 'icon-error' %}{{ form.errors.translated_fields['email'] | capitalize }} {{ form.errors.messages['email'] }}
-      </span>
-    </small>
-  {%- endif -%}
-
   {% render 'input'
-    class: "form_textfield",
-    type: "tel",
-    name: "contact[{{ phone_label }}]",
+    class: "form__textfield",
+    type: "number",
+    name: "contact[phone]",
     id: "phone",
     placeholder: phone_label,
     required: false
   %}
 
-  <div class="form_textfield request-type">
+  <div class="form__textfield request-type">
     <select
       id="request-type"
       name="contact[request_type]"
-    > 
+    >
       {% for topic in topics %}
-        <option>{{ topic }}</option>    
+        <option>{{ topic }}</option>
       {% endfor %}
     </select>
   </div>
 
   {% render 'input'
-    class: "form_textfield",
+    class: "form__textfield",
     type: "textarea",
-    name: "contact[{{ comment_label }}]",
+    name: "contact[message]",
     id: "message",
     placeholder: comment_label,
     required: true
@@ -94,13 +108,13 @@
   {%- comment -%}
   *--- EXTENDS ADDITIONAl INFO: Contact Method ---*
 
-  <div class="form_question">
-    <label class="form_question--answer">
+  <div class="form__question">
+    <label class="form__question--answer">
       How do you want us to contact you?
     </label>
 
     {% render 'input'
-      class: "form_radio-button",
+      class: "form__radio-button",
       type: "radio",
       name: "contact[contact_method]",
       id: "email-method",
@@ -110,7 +124,7 @@
     %}
 
     {% render 'input'
-      class: "form_radio-button",
+      class: "form__radio-button",
       type: "radio",
       name: "contact[contact_method]",
       id: "phone-method",
@@ -120,7 +134,7 @@
     %}
 
     {% render 'input'
-      class: "form_radio-button",
+      class: "form__radio-button",
       type: "radio",
       name: "contact[contact_method]",
       id: "text-method",
@@ -132,13 +146,13 @@
 
   * --- EXTENDS ADDITIONAl INFO: Contact time --- *
 
-  <div class="form_question">
-    <label class="form_question--answer">
+  <div class="form__question">
+    <label class="form__question--answer">
       When is the best time to reach you?
     </label>
 
     {% render 'input'
-      class: "form_checkbox toggle_checkbox",
+      class: "form__checkbox toggle__checkbox",
       type: "checkbox",
       name: "contact[contact_time_1]",
       id: "contact[contact_time_1]",
@@ -148,7 +162,7 @@
     %}
 
     {% render 'input'
-      class: "form_checkbox toggle_checkbox",
+      class: "form__checkbox toggle__checkbox",
       type: "checkbox",
       name: "contact[contact_time_2]",
       id: "contact[contact_time_2]",
@@ -158,7 +172,7 @@
     %}
 
     {% render 'input'
-      class: "form_checkbox toggle_checkbox",
+      class: "form__checkbox toggle__checkbox",
       type: "checkbox",
       name: "contact[contact_time_3]",
       id: "contact[contact_time_3]",
@@ -170,10 +184,10 @@
 
   {%- endcomment -%}
 
-  <hr>
+  <hr/>
 
   {% render 'input'
-    class: "form_checkbox toggle_checkbox",
+    class: "form__checkbox toggle__checkbox",
     type: "checkbox",
     name: "validation",
     id: "validation",
@@ -181,10 +195,20 @@
     required: true
   %}
 
+  <span
+    role="alert"
+    tabindex="-1"
+    autofocus
+    class="form__message form__message--error error-check-js"
+  >
+    {% render 'icon-error' %} {{ 'templates.contact.form.error_required' | t }}
+  </span>
+
   {% render 'button'
     content: send_label,
-    type: 3
-    action: "submit"
+    class: 'send-contact',
+    type: 2,
+    action: "button"
   %}
 
 {% endform %}

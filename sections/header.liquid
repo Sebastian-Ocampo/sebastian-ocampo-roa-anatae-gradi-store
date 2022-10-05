@@ -3,7 +3,7 @@
   assign alt_logo = 'Logo ' | append: shop.name
 %}
 
-<div class="header_logo">
+<div class="header__logo">
   <a href="{{ routes.root_url }}">
     {% if section.settings.logo != blank %}
       {% render "render-image"
@@ -23,7 +23,7 @@
     linklist: section.settings.menu
   %}
 </nav>
-<div class="header_user">
+<div class="header__user">
   {% render 'user-nav' %}
 </div>
 

@@ -1,31 +1,34 @@
 import { $Q } from "./query-selector"
 
 /**
+ *
+ * @param {String} id - ID from node manipulate
+ * @param {Boolean} active - If modal active
+ * @param {HTMLElement} node - Node to manipulate
+ */
+ const overlayActions = (id, active, node) => {
+  const idOverlay = `overlay--${id}`;
+  const parent = node.parentNode;
+
+  if (!active) {
+    // eslint-disable-next-line no-undef
+    const overlay = document.createElement("div");
+
+    overlay.setAttribute("id", idOverlay);
+    overlay.classList.add("overlay");
+
+    parent.insertBefore(overlay, node);
+    // eslint-disable-next-line no-use-before-define
+    toggleDataActive(`#${idOverlay}`, `#${id}`, { overlay: true });
+  } else {
+    parent.removeChild($Q(`#${idOverlay}`));
+  }
+}
+
+/**
  * To validate state in dataset node
  */
  const isActive = ({ active }) => active === "true";
-
-/**
- * Data Active toggle
- *
- * @param {String} control - ID button control
- * @param {String} node - ID modal
- * @param {Object} config - Object with overlay, closeSelector
- */
-export const toggleDataActive = (control, node, config = {}) => {
-  const { overlay, closeSelector } = config;
-
-  $Q(control).addEventListener("click", function () {
-    dataToggle($Q(node), overlay);
-  });
-
-  closeSelector && $Q(closeSelector).addEventListener(
-    "click",
-    function () {
-      dataToggle($Q(node), overlay);
-    }
-  );
-}
 
 /**
 * Data Toggle
@@ -33,7 +36,7 @@ export const toggleDataActive = (control, node, config = {}) => {
 * @param {HTMLElement} node - Node to manipulate
 * @param {Boolean} overlay - if used to a overlay
 */
-export function dataToggle (node, overlay) {
+export function dataToggle(node, overlay) {
 
   const { dataset, id } = node;
   const active = isActive(dataset);
@@ -44,28 +47,27 @@ export function dataToggle (node, overlay) {
     dataset.active = "true";
   }
 
-  overlay && overlayActions(id, active, node);
+  if (overlay) overlayActions(id, active, node);
 }
-
 /**
+ * Data Active toggle
  *
- * @param {String} id - ID from node manipulate
- * @param {Boolean} active - If modal active
- * @param {HTMLElement} node - Node to manipulate
+ * @param {String} control - ID button control
+ * @param {String} node - ID modal
+ * @param {Object} config - Object with overlay, closeSelector
  */
-const overlayActions = (id, active, node) => {
-  const idOverlay = `overlay--${id}`;
-  const parent = node.parentNode;
+export const toggleDataActive = (control, node, config = {}) => {
+  const { overlay, closeSelector } = config;
 
-  if (!active) {
-    const overlay = document.createElement("div");
+  $Q(control).addEventListener("click", () => {
+    dataToggle($Q(node), overlay);
+  });
 
-    overlay.setAttribute("id", idOverlay);
-    overlay.classList.add("overlay");
-
-    parent.insertBefore(overlay, node);
-    toggleDataActive("#" + idOverlay, "#" + id, { overlay: true });
-  } else {
-    parent.removeChild($Q("#" + idOverlay));
-  }
+  // eslint-disable-next-line no-unused-expressions
+  closeSelector && $Q(closeSelector).addEventListener(
+    "click",
+    () => {
+      dataToggle($Q(node), overlay);
+    },
+  );
 }

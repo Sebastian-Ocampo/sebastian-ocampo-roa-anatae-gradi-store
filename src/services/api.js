@@ -16,7 +16,7 @@ class API {
   */
   async addToCart({ items, sections = undefined }) {
 
-    let formData = {
+    const formData = {
       items: items,
     };
 
@@ -29,14 +29,16 @@ class API {
       const { data } = await axios({
         method: "POST",
         headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
         },
+        // eslint-disable-next-line no-undef
         url: `${routes.cart_add_url}.js`,
         data: JSON.stringify(formData),
       });
 
       return data;
     } catch (error) {
+      // eslint-disable-next-line no-undef
       console.error(`Error: ${error.message}`);
     }
   }
@@ -57,10 +59,10 @@ class API {
     sections = undefined,
   }) {
 
-    let formData = {
+    const formData = {
       updates: {
         [id]: quantity,
-      }
+      },
     };
 
     //Support bundled section rendering
@@ -74,11 +76,13 @@ class API {
         headers: {
           "Content-Type": "application/json",
         },
+        // eslint-disable-next-line no-undef
         url: `${routes.cart_update_url}.js`,
         data: JSON.stringify(formData),
       });
       return data;
     } catch (error) {
+      // eslint-disable-next-line no-undef
       console.error(`Error: ${error.message}`);
     }
   }
@@ -98,17 +102,17 @@ class API {
     quantity,
     sections = undefined,
   }) {
- 
-    let formData = {
+
+    const formData = {
     'line': line,
     'quantity': quantity
     };
- 
+
     //Support bundled section rendering
     if (sections) {
       formData.sections = sections;
     }
- 
+
     try {
       const { data } = await axios({
         method: "POST",
@@ -118,7 +122,7 @@ class API {
         url: `${routes.cart_change_url}.js`,
         data: JSON.stringify(formData),
       });
-  
+
       return data;
     } catch (error) {
       console.error(`Error: ${error.message}`);
@@ -134,10 +138,11 @@ class API {
   async renderShopifySection(sections) {
     try {
       const {
-        data: html
+        data: html,
       } = await axios.get(`?sections=${sections}`);
       return html;
     } catch (error) {
+      // eslint-disable-next-line no-undef
       console.error(`Error: ${error.message}`);
     }
   }
@@ -145,10 +150,11 @@ class API {
   async shopifySectionByUrl(base, section) {
     try {
       const {
-        data: html
+        data: html,
       } = await axios.get(`${base}?section_id=${section}`);
       return html;
     } catch (error) {
+      // eslint-disable-next-line no-undef
       console.error(`Error: ${error.message}`);
     }
   }
@@ -158,17 +164,18 @@ class API {
    * @param {String} base - URL for the API call
    * @param {String} variantID - Id of the selected variant
    * @returns {Object} - Section mainproduct for variant selected
-   * 
+   *
    * @author Andres Briñez
    */
 
    async shopifyVariantByUrl(base, variantID) {
     try {
       const {
-        data: html
+        data: html,
       } = await axios.get(`${base}?variant=${variantID}`);
       return html;
     } catch (error) {
+      // eslint-disable-next-line no-undef
       console.error(`Error: ${error.message}`);
     }
   }
@@ -197,6 +204,7 @@ class API {
       const { data } = await axios.get(url);
       return data;
     } catch (error) {
+      // eslint-disable-next-line no-undef
       console.error(`Error: ${error.message}`);
     }
   }
@@ -211,6 +219,7 @@ class API {
       const { data } = await axios.get(url);
       return data;
     } catch (error) {
+      // eslint-disable-next-line no-undef
       console.error(`Error: ${error.message}`);
     }
   }

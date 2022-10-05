@@ -1,0 +1,51 @@
+name: Linting # name of the action (displayed in the github interface)
+
+on:
+  pull_request:
+    types: 
+      - opened
+      - synchronize
+    branches:
+      - 'staging'
+
+env: # environment variables (available in any part of the action)
+  NODE_VERSION: 16
+
+jobs: # list of things to do
+  linting:
+    name: Linting # job name (unique id)
+    runs-on: ubuntu-latest # on which machine to run
+    steps: # list of steps
+      - name: Install NodeJS
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+      
+      - name: Install Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.0'
+
+      - name: Code Checkout
+        uses: actions/checkout@v2
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Install Code QA Dependencies
+        run: npm run install:codeqa
+
+      - name: Install Theme-Check
+        run: gem install theme-check
+
+      - name: Code Linting
+        run: npm run lint
+
+      - name: Notify Slack Action
+        if: always()
+        uses: ravsamhq/notify-slack-action@v2
+        with:
+          status: ${{ job.status }}
+          notify_when: 'failure'
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.ACTION_MONITORING_SLACK }}

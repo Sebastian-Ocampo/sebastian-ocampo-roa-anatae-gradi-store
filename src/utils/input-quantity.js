@@ -9,7 +9,7 @@ import { $Q, $Qll } from "./query-selector";
   const input = $Q('input', this.parentElement)
 
   if (this.dataset.action === "subtr") {
-    input.value > 0 && input.value--
+    if (input.value > 0) input.value--
   } else {
     input.value++
   }

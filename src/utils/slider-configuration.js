@@ -1,19 +1,19 @@
 import { Navigation, Thumbs, FreeMode } from "swiper";
 
 export const thumbsConfig = (slidesPerView, vertical) => {
-  let config = {
+  const config = {
     modules: [FreeMode],
     slidesPerView: slidesPerView,
     watchSlidesProgress: true,
     freeMode: true,
   }
+  // eslint-disable-next-line no-unused-expressions
   vertical && (config.direction = "vertical");
 
   return config;
 }
 
-export const principalConfig = (thumbnails) => {
-  return {
+export const principalConfig = (thumbnails) => ({
     modules: [Navigation, Thumbs],
     spaceBetween: 10,
     thumbs: {
@@ -21,7 +21,6 @@ export const principalConfig = (thumbnails) => {
     },
     navigation: {
       nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev"
-    }
-  }
-}
+      prevEl: ".swiper-button-prev",
+    },
+  })

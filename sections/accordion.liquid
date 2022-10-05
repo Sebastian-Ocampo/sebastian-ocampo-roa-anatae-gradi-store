@@ -1,6 +1,6 @@
 {% capture accordions %}
   {% for block in section.blocks %}
-    
+
     {% assign active = 'false' %}
     {% if forloop.first %}
       {% assign active = 'true' %}
@@ -20,6 +20,7 @@
   class: 'wrapper'
 %}
 
+<!-- eslint-disable max-len -->
 {% schema %}
 {
   "name": "Accordions",

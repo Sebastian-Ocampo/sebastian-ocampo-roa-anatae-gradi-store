@@ -25,11 +25,11 @@ module.exports = {
 
     // disallow use of undeclared variables unless mentioned in a /*global */ block
     // https://eslint.org/docs/rules/no-undef-init
-    'no-undef': 'error',
+    //'no-undef': 'error',
 
     // disallow use of undefined when initializing variables
     // https://eslint.org/docs/rules/no-undef-init
-    'no-undef-init': 'error',
+    //'no-undef-init': 'error',
 
     // disallow declaration of variables that are not used in the code
     // https://eslint.org/docs/rules/no-unused-vars
@@ -37,6 +37,6 @@ module.exports = {
 
     // disallow use of variables before they are defined
     // https://eslint.org/docs/rules/no-use-before-define
-    'no-use-before-define': ['error', { functions: true, classes: true, variables: true }],
+    'no-use-before-define': ['error', { functions: true, classes: true, variables: false }],
   }
 };

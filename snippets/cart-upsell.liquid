@@ -21,7 +21,7 @@
   </span>
 
   {% capture snippet_content %}
-    {% for upsell_product in collection.products %} 
+    {% for upsell_product in collection.products %}
       {% for line_item in cart.items %}
         {% if upsell_product.id == line_item.product.id %}
           {% assign in_cart = line_item.product.id %}

@@ -1,6 +1,6 @@
 {% comment %}
   Render footer in cart
-  
+
   Accepts:
   - cart: {Object} cart object
   - shipping_info: {String} shipping info in cart
@@ -14,7 +14,7 @@
   %}
 {% endcomment %}
 <div id="container-footer-js">
-  {% if cart.item_count > 0 %} 
+  {% if cart.item_count > 0 %}
     <div class="cart-footer cart-margins__inline">
       <div class="cart-footer__shipping">
         <span>{{ shipping_info }}</span>
@@ -25,13 +25,13 @@
         id="cart-footer__button"
       >
         {% capture content_button %}
-          {{ "sections.cart.checkout" | t }} 
+          {{ "sections.cart.checkout" | t }}
           <span id="total-price">
             {{ cart.total_price | money }}
           </span>
         {% endcapture %}
 
-        <a href="/checkout">    
+        <a href="/checkout">
           {% render 'button'
             class: "cart-footer__button--btn",
             content: content_button,

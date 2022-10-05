@@ -10,5 +10,19 @@ module.exports = {
     ecmaVersion: 2018,
     sourceType: 'module',
   },
+  ignorePatterns: ["assets/*.*"],
   rules: {},
+  plugins: ["@html-eslint"],
+  overrides: [
+    {
+      files: ["*.liquid", "**/*.liquid"],
+      parser: "@html-eslint/parser",
+      extends: [
+        './html-rules/seo',
+        './html-rules/style',
+        './html-rules/best-practices',
+        './html-rules/accessibility'
+      ],
+    },
+  ],
 };

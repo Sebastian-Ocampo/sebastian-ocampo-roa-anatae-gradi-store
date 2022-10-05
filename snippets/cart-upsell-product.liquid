@@ -1,9 +1,9 @@
 {% comment %}
   Render card product in upsell cart
-  
+
   Accepts:
   - product: {Object} product object
-  
+
   Usage:
   {% render 'upsell-product-card'
     product: upsell_product
@@ -14,7 +14,7 @@
   assign first_variant = product.selected_or_first_available_variant
   assign img_url = product.featured_media | img_url: '133x133'
   assign image = product.featured_image
-  assign btn_text = 'products.product.add_to_cart' | t 
+  assign btn_text = 'products.product.add_to_cart' | t
   assign available = product.selected_or_first_available_variant.available
 -%}
 
@@ -40,21 +40,21 @@
         {{ product.price | money }}
       </span>
     </div>
-  
+
     <div class="cart-upsell-container-product__btn">
-  
-      <form 
+
+      <form
         data-product="{{ product.id }}"
         class="add-product-cart-upsell"
         data-form="upsell"
       >
-  
+
         <input
           type="hidden"
           name="id"
           value="{{ first_variant.id }}"
-        >
-  
+        />
+
         {% render 'button-add-cart'
           btn_type: 'btn-3 upsell-btn',
           class: 'btn-add-to-cart',
