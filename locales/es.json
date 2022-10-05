@@ -52,7 +52,10 @@
   "newsletter": {
     "label": "Correo electrónico",
     "success": "Gracias por suscribirte",
-    "button_label": "Suscribirse"
+    "button_label": "Suscribirse",
+    "title": "Les nouvelles culottées",
+    "description": "Inscrivez-vous a notre newsletter et ne manquez aucune de nos aventures !",
+    "btn-text": "submit"
   },
   "accessibility": {
     "skip_to_text": "Ir directamente al contenido",
@@ -139,7 +142,8 @@
       },
       "view_full_details": "Ver todos los detalles",
       "include_taxes": "Impuesto incluido.",
-      "shipping_policy_html": "Los <a href=\"{{ link }}\">gastos de envío</a> se calculan en la pantalla de pago."
+      "shipping_policy_html": "Los <a href=\"{{ link }}\">gastos de envío</a> se calculan en la pantalla de pago.",
+      "not_available": "TODO"
     },
     "modal": {
       "label": "Galería multimedia"
@@ -379,6 +383,9 @@
       "tracking_company": "Empresa de transporte",
       "tracking_number": "Número de seguimiento",
       "subtotal": "Subtotal"
+    },
+    "subscriptions": {
+      "manage_subscriptions": "Manage subscriptions"
     }
   },
   "gift_cards": {

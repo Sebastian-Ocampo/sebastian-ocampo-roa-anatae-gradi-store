@@ -1,16 +1,17 @@
 <div
-  id="search"
+  id="search_container"
   class="search"
   data-active="false"
 >
   <form action="{{ routes.search_url }}" class="search_form">
     <div class="search_form--textfield">
-      <input type="text"
+      <input
+        type="text"
         id="search"
         name="q"
         placeholder="Typing..."
         value="{{ search.terms | escape }}"
-      >
+      />
       <label for="search">
         {{ 'general.search.search' | t }}
       </label>

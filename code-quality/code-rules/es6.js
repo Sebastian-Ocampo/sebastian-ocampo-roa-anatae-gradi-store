@@ -88,7 +88,7 @@ module.exports = {
     // suggest using arrow functions as callbacks
     // https://eslint.org/docs/rules/prefer-arrow-callback
     'prefer-arrow-callback': ['error', {
-      allowNamedFunctions: false,
+      allowNamedFunctions: true,
       allowUnboundThis: true,
     }],
 

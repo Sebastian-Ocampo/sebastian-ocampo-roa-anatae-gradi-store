@@ -16,8 +16,8 @@
   if variant != blank
     assign current_variant = variant
   endif
-  assign image_feature = product.featured_image | img_url: '400x'
-  assign image_second = product.images[1] | img_url: '400x'
+  assign image_feature = product.featured_image | image_url: width: 400
+  assign image_second = product.images[1] | image_url: width: 400
   if current_variant.compare_at_price == current_variant.price
     assign hide_price = 'hidden'
   endif
@@ -53,7 +53,7 @@
       <span>
         {{ product.title }}
       </span>
-    
+
       <span>
         {% render 'price'
           hide_price: hide_price
@@ -67,7 +67,6 @@
     class="product-card--form add-product-cart"
     action="/cart/add"
   >
-    
     <div class="product-card--form-variants">
       {% render 'variants-form'
         product: product

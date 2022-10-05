@@ -1,8 +1,10 @@
+<!-- eslint-disable max-len -->
 {%-liquid
   assign price = product.selected_or_first_available_variant.price
   assign compare_at_price = product.selected_or_first_available_variant.compare_at_price
   assign available = product.selected_or_first_available_variant.available
 -%}
+<!-- eslint-enable max-len -->
 
 {% render 'product-media'
   product: product,
@@ -19,19 +21,19 @@
     price: price
   %}
 
-  <input 
-    type="hidden" 
-    name="available" 
+  <input
+    type="hidden"
+    name="available"
     value="{{ available }}"
-  >
+  />
 
   <p>
     {{ product.description }}
   </p>
-  <form 
-    class="add-cart-js"
-    data-product="{{ product.id }}" 
-    action="/cart/add"
+
+  <form
+    class="add-cart-js add-product-cart"
+    data-product="{{ product.id }}"
   >
 
     {% render 'variants-form'
@@ -49,9 +51,9 @@
 </div>
 
 {% schema %}
-  {
-    "name": "Product page",
-    "class": "main-product wrapper product-js",
-    "tag": "section"
-  }
+{
+  "name": "Product page",
+  "class": "main-product wrapper product-js",
+  "tag": "section"
+}
 {% endschema %}

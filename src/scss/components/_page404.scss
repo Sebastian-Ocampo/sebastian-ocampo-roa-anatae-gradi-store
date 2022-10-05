@@ -1,29 +1,30 @@
- .error-page {
-    display: flex;
-    flex-direction: column;
-    padding: 20px;
-    &__title{
-      font-size: 48px;
-    }
-    &_center{
-      text-align: center;
-    }
-    &_left{
-      text-align: start;
-    }
-    &_right{
-      text-align: end;
+.error-page {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  &__title {
+    font-size: 48px;
+  }
+  &__center {
+    text-align: center;
+  }
+  &__left {
+    text-align: start;
+  }
+  &__right {
+    text-align: end;
 
-    }
- }
+  }
+}
 
-.padding404-section{
+.padding404-section {
   padding: 15px;
 }
 
-.img404-order_top{
-order: -1;
+.img404-order__top {
+  order: -1;
 }
-.img404-order_bottom{
+
+.img404-order__bottom {
   order: 4;
 }

@@ -139,7 +139,8 @@
       },
       "view_full_details": "Näytä kaikki tiedot",
       "include_taxes": "Sisältää veron.",
-      "shipping_policy_html": "<a href=\"{{ link }}\">Toimituskulut</a> lasketaan kassalla."
+      "shipping_policy_html": "<a href=\"{{ link }}\">Toimituskulut</a> lasketaan kassalla.",
+      "not_available": "TODO"
     },
     "modal": {
       "label": "Mediagalleria"

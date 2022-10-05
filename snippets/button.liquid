@@ -25,9 +25,11 @@
     {%- assign class_type = 'btn-3' -%}
 {% endcase %}
 
+<!-- eslint-disable @html-eslint/require-button-type -->
 <button
   class="{{ class_type }} {{ class }}"
   type="{{ action }}"
 >
   {{ content }}
 </button>
+<!-- eslint-enable @html-eslint/require-button-type -->

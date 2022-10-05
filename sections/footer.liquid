@@ -41,9 +41,9 @@
               type="hidden"
               name="contact[tags]"
               value="newsletter"
-            >
-              
-            <div class="form_textfield footer-newslatter">
+            />
+
+            <div class="form__textfield footer-newslatter">
               <input
                 id="NewsletterForm--{{ section.id }}"
                 type="email"
@@ -62,7 +62,7 @@
                 {% endif %}
                 placeholder="{{ 'newsletter.label' | t }}"
                 required
-              >
+              />
               <label for="NewsletterForm--{{ section.id }}">
                 {{ 'newsletter.label' | t }}
               </label>
@@ -76,13 +76,13 @@
               </button>
             </div>
 
-              
             {%- if form.errors -%}
               <small id="ContactFooter-error">
-                {{ form.errors.translated_fields['email'] | capitalize }} {{ form.errors.messages['email'] }}
+                {{ form.errors.translated_fields['email'] | capitalize }}
+                {{ form.errors.messages['email'] }}
               </small>
             {%- endif -%}
-            
+
             {%- if form.posted_successfully? -%}
               <h3
                 id="ContactFooter-success"
@@ -126,7 +126,8 @@
   </span>
   {% endif %}
 </div>
-  
+
+<!-- eslint-disable max-len -->
 {% schema %}
 {
   "name": "t:sections.footer.name",

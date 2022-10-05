@@ -140,7 +140,8 @@
       },
       "view_full_details": "Prikaži sve pojedinosti",
       "include_taxes": "Porez je uključen.",
-      "shipping_policy_html": "<a href=\"{{ link }}\">Poštarina </a> se obračunava prilikom završetka kupnje."
+      "shipping_policy_html": "<a href=\"{{ link }}\">Poštarina </a> se obračunava prilikom završetka kupnje.",
+      "not_available": "TODO"
     },
     "modal": {
       "label": "Galerija medijskih zapisa"

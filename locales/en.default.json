@@ -52,7 +52,11 @@
   "newsletter": {
     "label": "Email",
     "success": "Thanks for subscribing",
-    "button_label": "Subscribe"
+    "button_label": "Subscribe",
+    "registered": "Registered user",
+    "title": "Les nouvelles culottées",
+    "description": "Inscrivez-vous a notre newsletter et ne manquez aucune de nos aventures !",
+    "btn-text": "submit"
   },
   "accessibility": {
     "skip_to_text": "Skip to content",
@@ -140,8 +144,7 @@
       "xr_button": "View in your space",
       "xr_button_label": "View in your space, loads item in augmented reality window",
       "include_taxes": "Tax included.",
-      "shipping_policy_html":
-      "<a href=\"{{ link }}\">Shipping</a> calculated at checkout."
+      "shipping_policy_html": "<a href=\"{{ link }}\">Shipping</a> calculated at checkout."
     },
     "modal": {
       "label": "Media gallery"
@@ -195,13 +198,14 @@
     },
     "contact": {
       "form": {
-        "name": "Name",
-        "email": "Email",
+        "name": "Name*",
+        "email": "Email*",
         "phone": "Phone number",
-        "comment": "Comment",
+        "comment": "Comment*",
         "send": "Send",
         "post_success": "Thanks for contacting us. We'll get back to you as soon as possible.",
-        "error_heading": "Please adjust the following:"
+        "error_heading": "Please adjust the following:",
+        "error_required": "You must complete all fields required"
       }
     },
     "404": {
@@ -381,6 +385,9 @@
       "password": "Password",
       "password_confirm": "Confirm password",
       "submit": "Reset password"
+    },
+    "subscriptions": {
+      "manage_subscriptions": "Manage subscriptions"
     }
   },
   "gift_cards": {
