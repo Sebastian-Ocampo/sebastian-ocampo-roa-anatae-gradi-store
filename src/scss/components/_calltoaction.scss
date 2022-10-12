@@ -31,20 +31,51 @@
   &__title {
     flex-basis: 60%;
     color: var(--color-font);
+
+    @media screen and (max-width: 768px) {
+      flex-basis: 100%;
+    }
   }
 
   &__buttons-wrapper {
     display: flex;
     flex-wrap: nowrap;
     justify-content: space-between;
+
+    @media screen and (max-width: 768px) {
+      flex-basis: 100%;
+    }
+
+    @media screen and (max-width: 374px) {
+      flex-wrap: wrap;
+    }
+  }
+
+  &__button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:nth-child(2) {
+      margin-left: 0.5rem;
+    }
+
+    @media screen and (max-width: 768px) {
+      width: 50%;
+      text-align: center;
+    }
+
+    @media screen and (max-width: 374px) {
+      width: 100%;
+
+      &:nth-child(2) {
+        margin-left: 0;
+        margin-top: 0.5rem;
+      }
+    }
   }
 
   &__title, &__buttons-wrapper {
     margin: .5rem 0;
   }
-
-  &__button:nth-child(2) {
-    margin-left: 0.5rem;
-  }
-
 }

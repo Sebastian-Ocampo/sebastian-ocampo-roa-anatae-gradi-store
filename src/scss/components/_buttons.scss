@@ -11,6 +11,8 @@
   transition-property: background-color;
 
   &:hover {
+    text-decoration: none;
+    
     @include mixins.btn-type(
       var(--color-btn-color-hover),
       var(--color-btn-bg-hover),
