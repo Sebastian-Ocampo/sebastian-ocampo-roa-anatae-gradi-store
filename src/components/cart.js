@@ -102,6 +102,7 @@ export const updateCart = async (line, quantity, id) => {
   if (Number(quantity) === 0) {
     updateCartItems(sections["side-cart"]);
     updateCartbutton(sections["side-cart"]);
+    updatetotalPrice(sections["side-cart"]);
   } else {
     updatePriceItem(sections["side-cart"], id);
     updateCartbutton(sections["side-cart"]);
