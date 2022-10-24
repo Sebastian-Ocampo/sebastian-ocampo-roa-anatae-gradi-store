@@ -25,7 +25,9 @@ import { dataToggle } from "./toggle-dataset";
  * @param {NodeListOf} accordions - All accordions in DOM
  */
  function accordionAction(element, accordions) {
-  if (accordions.dataset.toggle === 'true') {
+
+  const EXIST_CLASS = element.classList.contains('accordion-item__button');
+  if (accordions.dataset.toggle === 'true' && EXIST_CLASS) {
     closeAll('.accordion-item', accordions);
   }
 
@@ -45,6 +47,7 @@ export function openAccordion() {
           item.addEventListener(
             'click',
             (e) => {
+              e.stopPropagation();
               accordionAction(e.target, accordion)
             },
           )
