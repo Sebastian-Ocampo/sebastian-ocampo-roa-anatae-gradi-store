@@ -8,11 +8,11 @@
     progressbar_title: section.settings.progressbar_title,
     text_free_shipping: section.settings.free_shipping
   %}
-  
-  {% render 'cart-items' 
+
+  {% render 'cart-items'
     cart: cart
   %}
-  
+
   {% if section.settings.upsell_collection != blank %}
     {% render 'cart-upsell'
       cart: cart,
@@ -20,7 +20,7 @@
       title: section.settings.upsell_title
     %}
   {% endif %}
-  
+
   {% render 'cart-footer'
     cart: cart,
     shipping_info: section.settings.shipping_info

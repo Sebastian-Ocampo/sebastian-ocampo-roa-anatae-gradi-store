@@ -9,7 +9,9 @@
     product: upsell_product
   %}
 {% endcomment %}
-
+<script>
+  console.log({{ product | json }});
+</script>
 {%- liquid
   assign first_variant = product.selected_or_first_available_variant
   assign img_url = product.featured_media | img_url: '133x133'
