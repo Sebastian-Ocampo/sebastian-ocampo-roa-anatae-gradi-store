@@ -65,14 +65,20 @@
     <button
       type="button"
       data-id="slider_{{ section.id }}"
-      class="swiper-button swiper-button-prev"
+      class="swiper-button swiper-button-prev
+      {% if item_max < 4 %}
+        hidden-arrows
+      {% endif %}"
     >
       prev
     </button>
     <button
       type="button"
       data-id="slider_{{ section.id }}"
-      class="swiper-button swiper-button-next"
+      class="swiper-button swiper-button-next
+      {% if item_max < 4 %}
+        hidden-arrows
+      {% endif %}"
     >
       next
     </button>

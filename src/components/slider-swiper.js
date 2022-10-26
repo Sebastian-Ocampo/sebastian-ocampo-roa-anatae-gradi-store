@@ -9,7 +9,7 @@ const configArrows = (id) => {
   // eslint-disable-next-line no-new
   new Swiper(id, {
     modules: [Navigation, FreeMode],
-    slidesPerView: "auto",
+    slidesPerView: "2",
     spaceBetween: 25,
     navigation: {
       nextEl: `.swiper-button-next[data-id="${id.substr(1)}"]`,
@@ -17,6 +17,11 @@ const configArrows = (id) => {
     },
     freeMode: true,
     breakpoints: {
+      200: {
+        slidesPerView: 1,
+        spaceBetween: 28,
+        freeMode: false,
+      },
       749: {
         slidesPerView: 3,
         spaceBetween: 28,
