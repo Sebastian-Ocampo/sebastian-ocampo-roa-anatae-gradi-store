@@ -36,6 +36,7 @@ import { dataToggle } from "../utils/toggle-dataset";
  * To select type event check data-event in node#nav-list-js
  */
 export function openDropDown() {
+  if (!$Q('#nav-list-js')) return;
   const { dataset } = $Q('#nav-list-js');
 
   // eslint-disable-next-line no-undef

@@ -19,7 +19,6 @@ const validateForm = (e) => {
   return form.submit();
 }
 
-
 export const validateFormContact = () => {
   $Q('.send-contact').addEventListener('click', validateForm);
   $Q('input[type="number"]').addEventListener('input', forceNumeric);

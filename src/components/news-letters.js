@@ -1,10 +1,12 @@
 import { $Q } from "../utils/query-selector";
+import { validateRegisterCustomer } from "../utils/validate-customer"
 
-export const validateRegisterCustomer = () => {
+export const isRegisteredUser = () => {
   // eslint-disable-next-line no-undef
-  const queryUrl = window.location.href;
+  const isRegistered = validateRegisterCustomer();
 
-  if (queryUrl.includes('form_type=customer')) {
+  if (isRegistered) {
     $Q('.error-js').style.display = "block";
+    $Q('input[type="email"]').value = "";
   }
 }

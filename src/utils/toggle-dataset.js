@@ -58,6 +58,7 @@ export function dataToggle(node, overlay) {
  * @param {Object} config - Object with overlay, closeSelector
  */
 export const toggleDataActive = (control, node, config = {}) => {
+  if (!$Q(control)) return;
   const { overlay, closeSelector } = config;
 
   $Q(control).addEventListener("click", () => {

@@ -67,6 +67,7 @@
       background-color: transparent;
 
       svg {
+        cursor: pointer;
         width: 20px;
       }
     }
@@ -80,9 +81,13 @@
 }
 
 #ContactFooter {
-  &-success {
+  &-success, &-success-exist {
     @extend %notification;
     color: variables.$color-success;
+
+    &.error-js {
+      display: none;
+    }
   }
 
   &-error {

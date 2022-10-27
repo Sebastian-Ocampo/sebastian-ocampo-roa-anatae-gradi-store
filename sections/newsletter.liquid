@@ -62,7 +62,7 @@
         {{ form.errors.translated_fields['email'] | capitalize }} {{ form.errors.messages['email'] }}
         <!-- eslint-enable max-len -->
       </small>
-      {%- else -%}
+    {%- else -%}
       <small
         class="newsletter-form__message newsletter-form__message--error form__message error-js"
         id="Newsletter-error--{{ section.id }}"

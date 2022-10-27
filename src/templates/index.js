@@ -6,9 +6,9 @@ import { variantOnChange } from "../components/variants-product";
 import { openAccordion } from "../utils/accordion";
 import { openDropDown } from "../components/header";
 import { toggleDataActive } from "../utils/toggle-dataset";
-import { validateRegisterCustomer } from "../components/news-letters";
+import { isRegisteredUser } from "../components/news-letters";
 
-validateRegisterCustomer();
+isRegisteredUser();
 variantOnChange(".variants");
 openAccordion();
 openDropDown();

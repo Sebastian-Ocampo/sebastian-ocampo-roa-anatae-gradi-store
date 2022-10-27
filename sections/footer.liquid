@@ -81,6 +81,15 @@
                 {{ form.errors.translated_fields['email'] | capitalize }}
                 {{ form.errors.messages['email'] }}
               </small>
+            {%- else -%}
+              <h3
+                id="ContactFooter-success-exist"
+                class="error-js"
+                tabindex="-1"
+                autofocus
+              >
+                ✓ {{ 'newsletter.registered' | t }}
+              </h3>
             {%- endif -%}
 
             {%- if form.posted_successfully? -%}
