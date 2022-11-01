@@ -1,7 +1,9 @@
 import { stringToHTML } from '../utils/to-html';
 import { $Q, $Qll } from '../utils/query-selector';
 import { setQuantity } from "../utils/input-quantity";
-import { deleteItem, onChangeItemCart } from "./cart";
+import { btnAddToCart, deleteItem, onChangeItemCart } from "./cart";
+import { barProgress } from '../utils/bar-progress';
+import { sliderUpsell } from './slider-swiper';
 
 /**
  * Update cart items section in sidecart
@@ -29,11 +31,13 @@ export const updateCartItems = (str) => {
  * @param {string} str - String HTML of section rendeirng
  */
  export const updateCartbutton = (str) => {
-
+  const inputBarProgress = $Q('#progress-bar-data', stringToHTML(str));
   const btnContainer = $Q('.cart-footer', stringToHTML(str));
   const domBtnContainer = $Qll('#container-footer-js');
-  if (btnContainer) {
 
+  barProgress(inputBarProgress);
+
+  if (btnContainer) {
     domBtnContainer.forEach((element) => {
       const elementRef = element;
       elementRef.innerHTML = btnContainer.outerHTML;
@@ -57,7 +61,6 @@ export const updateCartItems = (str) => {
  const updateQuantity = (id, quantity) => {
   $Qll(`.item-cart-js[id="${id}"]`).forEach(
     (element) => {
-
       const elementRef = element;
       elementRef.value = quantity
     },
@@ -78,7 +81,6 @@ export const updatePriceItem = (str, id) => {
 
   $Qll(`.price-${id}`).forEach(
     (element) => {
-
       const elementRef = element;
       elementRef.innerHTML = outerText
     },
@@ -93,6 +95,7 @@ export const updatePriceItem = (str, id) => {
  */
  export const updatetotalPrice = (str) => {
 
+  if (!$Q('.cartpage-footer')) return;
   if (!$Q("#total-price", stringToHTML(str))) {
     $Q('.cartpage-footer').style.display = 'none';
     return;
@@ -104,4 +107,20 @@ export const updatePriceItem = (str, id) => {
       stringToHTML(str),
     ).outerText;
   }
+}
+
+/**
+ * Update upsell section in sidecart
+ * @param {string} str - String HTML of section rendeirng
+ */
+ export const updateUpsell = (str) => {
+  if (!$Q('#upsell-js')) return;
+
+  $Q('#upsell-js').innerHTML = $Q(
+    '#cart-upsell-slider',
+    stringToHTML(str),
+  ).outerHTML;
+
+  btnAddToCart(".add-product-cart-upsell");
+  sliderUpsell();
 }

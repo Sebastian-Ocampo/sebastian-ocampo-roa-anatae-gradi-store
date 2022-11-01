@@ -8,7 +8,7 @@ import {
   btnAddToCart,
   deleteItem,
   onChangeItemCart,
-  openCloseCart
+  openCloseCart,
 } from "../components/cart";
 import { setQuantity } from "../utils/input-quantity";
 
@@ -21,6 +21,7 @@ validateRegisterCustomer();
 variantOnChange(".variants");
 
 btnAddToCart(".add-product-cart");
+btnAddToCart(".add-product-cart-upsell");
 
 openCloseCart();
 deleteItem();

@@ -1,17 +1,25 @@
 import api from "../services/api";
 import { $Q, $Qll } from "../utils/query-selector";
 import { dataToggle, toggleDataActive } from "../utils/toggle-dataset";
+import { sliderUpsell } from "./slider-swiper";
 import {
   updateCartItems,
   updatetotalPrice,
+  updateUpsell,
   updateCartbutton,
   updatePriceItem,
 } from "./update-cart";
 
+import { barProgress } from "../utils/bar-progress";
+
 const CART_SECTION = "side-cart,cart-page";
+
+barProgress($Q('#progress-bar-data'));
+sliderUpsell();
 
 /**
  * Add products in cart
+ * @param {event} event -Event submit from add to cart form
  * @param {event} event -Event submit from add to cart form
  */
  const addProducts = async (event) => {
@@ -34,13 +42,16 @@ const CART_SECTION = "side-cart,cart-page";
     sections: CART_SECTION,
   };
 
-  const { sections = null } = await api.addToCart(cartParams);
+  const { sections } = await api.addToCart(cartParams);
   if (!sections) return null;
-  dataToggle($Q("#shopify-section-side-cart"), true);
 
+  if (event.target.dataset.form !== "upsell") {
+    dataToggle($Q("#shopify-section-side-cart"), true);
+  }
   updateCartItems(sections["side-cart"]);
   updateCartbutton(sections["side-cart"]);
   updatetotalPrice(sections["side-cart"]);
+  updateUpsell(sections["side-cart"]);
 }
 
 const submitForm = (form) => {
@@ -103,6 +114,7 @@ export const updateCart = async (line, quantity, id) => {
     updateCartItems(sections["side-cart"]);
     updateCartbutton(sections["side-cart"]);
     updatetotalPrice(sections["side-cart"]);
+    updateUpsell(sections["side-cart"]);
   } else {
     updatePriceItem(sections["side-cart"], id);
     updateCartbutton(sections["side-cart"]);

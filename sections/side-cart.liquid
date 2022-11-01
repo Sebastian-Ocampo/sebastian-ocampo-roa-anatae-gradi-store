@@ -4,20 +4,27 @@
   {% render 'cart-header'
     cart: cart,
     title: cart_title,
+    limit_price: section.settings.limit_price,
+    progressbar_title: section.settings.progressbar_title,
+    text_free_shipping: section.settings.free_shipping
   %}
-  
-  {% render 'cart-items' 
+
+  {% render 'cart-items'
     cart: cart
   %}
-  
+
+  {% if section.settings.upsell_collection != blank %}
+    {% render 'cart-upsell'
+      cart: cart,
+      collection: section.settings.upsell_collection
+      title: section.settings.upsell_title
+    %}
+  {% endif %}
+
   {% render 'cart-footer'
     cart: cart,
     shipping_info: section.settings.shipping_info
   %}
-
-  <span class="cart-close">
-    {% render 'icon-close' %}
-  </span>
 
 </div>
 
@@ -26,6 +33,44 @@
   "name": "Cart",
   "class": "cart",
   "settings": [
+    {
+      "type": "collection",
+      "id": "upsell_collection",
+      "label": "Products upsell"
+    },
+    {
+      "type": "header",
+      "content": "Progress Bar"
+    },
+    {
+      "type": "text",
+      "id": "progressbar_title",
+      "label": "Progress bar title",
+      "default": "Plus que [value] pour avoir la réduction de livraison gratuite",
+      "info": "Ex: plus [value] euros pour avoir la réduction de livraison gratuite"
+    },
+    {
+      "type": "text",
+      "id": "free_shipping",
+      "label": "Text free shipping",
+      "default": "Livraison gratuite"
+    },
+    {
+      "type": "number",
+      "id": "limit_price",
+      "label": "Limit price €",
+      "default": 100
+    },
+    {
+      "type": "header",
+      "content": "Cart configuration"
+    },
+    {
+      "type": "text",
+      "id": "upsell_title",
+      "label": "Upsell title",
+      "default": "Vous aimerez aussi.."
+    },
     {
       "type": "text",
       "id": "shipping_info",
