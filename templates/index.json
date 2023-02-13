@@ -88,6 +88,9 @@
         "template--17809333780770__481a7f54-c8ff-4dc8-ad2d-7b4dc5f9c5a7-167630845992ab225f-3",
         "6a18d0d5-3e2e-4138-b1c6-301fc790412f"
       ],
+      "custom_css": [
+        ".elements__icons {justify-content: space-between;}"
+      ],
       "settings": {
         "row_icon_title": "",
         "position_icons": "left"
