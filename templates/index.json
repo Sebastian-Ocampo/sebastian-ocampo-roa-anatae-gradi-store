@@ -16,6 +16,7 @@
         },
         "template--17809333780770__3283ca90-18fe-4491-bb46-4c955bc23a75-16762970245ec76e38-1": {
           "type": "content",
+          "disabled": true,
           "settings": {
             "heading": "Heading Title",
             "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
