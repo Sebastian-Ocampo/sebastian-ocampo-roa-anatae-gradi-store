@@ -45,7 +45,7 @@
           "settings": {
             "heading": "",
             "row_icon_description": "Lorem ipsum letto",
-            "row_icon_image": "logo-anatae"
+            "row_icon_image": "ico-Anatae_Identite_Montagne"
           }
         },
         "template--17809333780770__481a7f54-c8ff-4dc8-ad2d-7b4dc5f9c5a7-167630845992ab225f-1": {
@@ -219,7 +219,7 @@
         "width_mode": "100",
         "title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
         "background_color": "#989898",
-        "color_title": "#FFFFFF",
+        "color_title": "#ffffff",
         "text_button_one": "Go to cart",
         "url_button_one": "",
         "text_button_two": "Go to checkout",
