@@ -31,7 +31,8 @@
       ],
       "custom_css": [
         "h1 {color: #313131;}",
-        "a {}"
+        "a {}",
+        ".btn-1 {border-radius: 50px; background-color: #00602c; color: #FFFFFF;}"
       ],
       "settings": {
       }
