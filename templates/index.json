@@ -1,10 +1,84 @@
 {
   "sections": {
+    "3283ca90-18fe-4491-bb46-4c955bc23a75": {
+      "type": "hero-slider",
+      "blocks": {
+        "template--17809333780770__3283ca90-18fe-4491-bb46-4c955bc23a75-16762970245ec76e38-0": {
+          "type": "content",
+          "settings": {
+            "heading": "Heading Title",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+            "cta_text": "Button text",
+            "cta_link": "#",
+            "image_desktop": "shopify:\/\/shop_images\/img-hero.jpg",
+            "image_mobile": "shopify:\/\/shop_images\/img-hero.jpg"
+          }
+        },
+        "template--17809333780770__3283ca90-18fe-4491-bb46-4c955bc23a75-16762970245ec76e38-1": {
+          "type": "content",
+          "settings": {
+            "heading": "Heading Title",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+            "cta_text": "Button text",
+            "cta_link": "#"
+          }
+        },
+        "template--17809333780770__3283ca90-18fe-4491-bb46-4c955bc23a75-16762970245ec76e38-2": {
+          "type": "content",
+          "settings": {
+            "heading": "Heading Title",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+            "cta_text": "Button text",
+            "cta_link": "#"
+          }
+        },
+        "template--17809333780770__3283ca90-18fe-4491-bb46-4c955bc23a75-16762970245ec76e38-3": {
+          "type": "content",
+          "settings": {
+            "heading": "Heading Title",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+            "cta_text": "Button text",
+            "cta_link": "#"
+          }
+        }
+      },
+      "block_order": [
+        "template--17809333780770__3283ca90-18fe-4491-bb46-4c955bc23a75-16762970245ec76e38-0",
+        "template--17809333780770__3283ca90-18fe-4491-bb46-4c955bc23a75-16762970245ec76e38-1",
+        "template--17809333780770__3283ca90-18fe-4491-bb46-4c955bc23a75-16762970245ec76e38-2",
+        "template--17809333780770__3283ca90-18fe-4491-bb46-4c955bc23a75-16762970245ec76e38-3"
+      ],
+      "custom_css": [
+        "button {}"
+      ],
+      "settings": {
+      }
+    },
     "hero": {
-      "type": "hero-simple"
+      "type": "hero-simple",
+      "custom_css": [
+
+      ],
+      "settings": {
+        "hero_title": "Title hero responsive",
+        "hero_description": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit, vulputate eu pharetra nec, mattis ac neque..<\/p>",
+        "title_CTA": "CTA",
+        "link_CTA": "",
+        "background": "shopify:\/\/shop_images\/img-hero.jpg"
+      }
     },
     "cta": {
-      "type": "call-to-action"
+      "type": "call-to-action",
+      "settings": {
+        "width_mode": "100",
+        "title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "background_color": "#989898",
+        "color_title": "#FFFFFF",
+        "text_button_one": "Go to cart",
+        "url_button_one": "",
+        "text_button_two": "Go to checkout",
+        "url_button_two": ""
+      }
     },
     "main": {
       "type": "hello-world",
@@ -51,6 +125,7 @@
     }
   },
   "order": [
+    "3283ca90-18fe-4491-bb46-4c955bc23a75",
     "hero",
     "cta",
     "main",
