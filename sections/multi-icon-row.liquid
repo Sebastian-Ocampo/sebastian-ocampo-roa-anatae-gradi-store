@@ -1,12 +1,10 @@
 {%- comment -%}
 If you want to get different UI from our customization code.
 You could change this properties:
-- position_icons: Text orientation -> left | top
 - slider_mobile: Mobile slider UI -> true | false
 {%- endcomment -%}
 
 {% liquid
-  assign position_icons = 'left'
   assign slider_mobile = true
 %}
 
@@ -18,15 +16,15 @@ You could change this properties:
 
 <div class="flex elements__icons {% if slider_mobile %}slider_mobile{% endif %}">
   {% for block in section.blocks %}
-    <div class="element__icon {% if position_icons == 'left' %}position__left{% else %}position__top{% endif %}">
+    <div class="element__icon">
       {% if block.settings.row_icon_image != blank %}
         {% assign url = block.settings.row_icon_image | append: '.svg' | file_url %}
         {% render "render-image" 
          class: "class_image",
          img_src: url,
          alt: block.settings.row_icon_image,
-         width: "80",
-         height: "80" %}
+         width: "57",
+         height: "57" %}
       {% endif %}
 
       {% if block.settings.heading != blank or block.settings.row_icon_description != blank %}
@@ -56,20 +54,6 @@ You could change this properties:
         "type": "text",
         "id": "row_icon_title",
         "label": "Title"
-      }, {
-        "type": "select",
-        "id": "position_icons",
-        "label": "Position icons",
-        "options": [
-          {
-            "value": "left",
-            "label": "Left"
-          }, {
-            "value": "top",
-            "label": "Top"
-          }
-        ],
-        "default": "left"
       }
     ],
     "max_blocks": 5,

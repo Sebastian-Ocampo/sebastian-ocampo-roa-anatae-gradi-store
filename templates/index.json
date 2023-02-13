@@ -1,14 +1,100 @@
 {
   "sections": {
-    "hero": {
-      "type": "hero-simple"
-    },
-    "cta": {
-      "type": "call-to-action"
-    },
-    "main": {
-      "type": "hello-world",
+    "3283ca90-18fe-4491-bb46-4c955bc23a75": {
+      "type": "hero-slider",
+      "blocks": {
+        "template--17809333780770__3283ca90-18fe-4491-bb46-4c955bc23a75-16762970245ec76e38-0": {
+          "type": "content",
+          "settings": {
+            "heading": "あなたへ",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit, vulputate eu pharetra nec, mattis ac neque..",
+            "cta_text": "LA BOUTIQUE",
+            "cta_link": "#",
+            "image_desktop": "shopify:\/\/shop_images\/hero-img_1.jpg",
+            "image_mobile": "shopify:\/\/shop_images\/hero-img_1.jpg"
+          }
+        },
+        "template--17809333780770__3283ca90-18fe-4491-bb46-4c955bc23a75-16762970245ec76e38-1": {
+          "type": "content",
+          "disabled": true,
+          "settings": {
+            "heading": "Heading Title",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+            "cta_text": "Button text",
+            "cta_link": "#"
+          }
+        }
+      },
+      "block_order": [
+        "template--17809333780770__3283ca90-18fe-4491-bb46-4c955bc23a75-16762970245ec76e38-0",
+        "template--17809333780770__3283ca90-18fe-4491-bb46-4c955bc23a75-16762970245ec76e38-1"
+      ],
+      "custom_css": [
+        "h1 {color: #313131;}",
+        "a {}",
+        ".btn-1 {border-radius: 50px; background-color: #00602c; color: #ffffff; width: 15%; border: none; font-weight: 500; line-height: 19px;}"
+      ],
       "settings": {
+      }
+    },
+    "481a7f54-c8ff-4dc8-ad2d-7b4dc5f9c5a7": {
+      "type": "multi-icon-row",
+      "blocks": {
+        "template--17809333780770__481a7f54-c8ff-4dc8-ad2d-7b4dc5f9c5a7-167630845992ab225f-0": {
+          "type": "icon",
+          "settings": {
+            "heading": "",
+            "row_icon_description": "Lorem ipsum letto",
+            "row_icon_image": "ico-Anatae_Identite_Montagne"
+          }
+        },
+        "template--17809333780770__481a7f54-c8ff-4dc8-ad2d-7b4dc5f9c5a7-167630845992ab225f-1": {
+          "type": "icon",
+          "settings": {
+            "heading": "",
+            "row_icon_description": "Lorem ipsum letto",
+            "row_icon_image": "ico-Anatae_Identite_Lotus"
+          }
+        },
+        "template--17809333780770__481a7f54-c8ff-4dc8-ad2d-7b4dc5f9c5a7-167630845992ab225f-2": {
+          "type": "icon",
+          "settings": {
+            "heading": "",
+            "row_icon_description": "Lorem ipsum letto",
+            "row_icon_image": "ico-Anatae_Identite_Fouet_Bol"
+          }
+        },
+        "template--17809333780770__481a7f54-c8ff-4dc8-ad2d-7b4dc5f9c5a7-167630845992ab225f-3": {
+          "type": "icon",
+          "settings": {
+            "heading": "",
+            "row_icon_description": "Lorem ipsum letto",
+            "row_icon_image": "ico-Anatae_Identite_Tasse"
+          }
+        },
+        "6a18d0d5-3e2e-4138-b1c6-301fc790412f": {
+          "type": "icon",
+          "settings": {
+            "heading": "",
+            "row_icon_description": "Lorem ipsum letto",
+            "row_icon_image": "ico-Anatae_Identite_Meditation"
+          }
+        }
+      },
+      "block_order": [
+        "template--17809333780770__481a7f54-c8ff-4dc8-ad2d-7b4dc5f9c5a7-167630845992ab225f-0",
+        "template--17809333780770__481a7f54-c8ff-4dc8-ad2d-7b4dc5f9c5a7-167630845992ab225f-1",
+        "template--17809333780770__481a7f54-c8ff-4dc8-ad2d-7b4dc5f9c5a7-167630845992ab225f-2",
+        "template--17809333780770__481a7f54-c8ff-4dc8-ad2d-7b4dc5f9c5a7-167630845992ab225f-3",
+        "6a18d0d5-3e2e-4138-b1c6-301fc790412f"
+      ],
+      "custom_css": [
+        ".elements__icons {justify-content: space-between;}",
+        ".elements__icons {padding: 20px;}"
+      ],
+      "settings": {
+        "row_icon_title": "",
+        "position_icons": "left"
       }
     },
     "16479727170648f2b7": {
@@ -48,12 +134,112 @@
       "settings": {
         "heading": "Heading carousel"
       }
+    },
+    "cta": {
+      "type": "call-to-action",
+      "settings": {
+        "width_mode": "100",
+        "title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "background_color": "#989898",
+        "color_title": "#ffffff",
+        "text_button_one": "Go to cart",
+        "url_button_one": "",
+        "text_button_two": "Go to checkout",
+        "url_button_two": ""
+      }
+    },
+    "main": {
+      "type": "hello-world",
+      "custom_css": [
+
+      ],
+      "settings": {
+      }
+    },
+    "838c11dc-1b23-4472-b1ae-65bf065acbec": {
+      "type": "carousel-content",
+      "blocks": {
+        "template--17809333780770__838c11dc-1b23-4472-b1ae-65bf065acbec-1676301571ca3bfdd2-0": {
+          "type": "content",
+          "settings": {
+            "heading": "Heading card",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+          }
+        },
+        "template--17809333780770__838c11dc-1b23-4472-b1ae-65bf065acbec-1676301571ca3bfdd2-1": {
+          "type": "content",
+          "settings": {
+            "heading": "Heading card",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+          }
+        },
+        "template--17809333780770__838c11dc-1b23-4472-b1ae-65bf065acbec-1676301571ca3bfdd2-2": {
+          "type": "content",
+          "settings": {
+            "heading": "Heading card",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+          }
+        },
+        "template--17809333780770__838c11dc-1b23-4472-b1ae-65bf065acbec-1676301571ca3bfdd2-3": {
+          "type": "content",
+          "settings": {
+            "heading": "Heading card",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+          }
+        }
+      },
+      "block_order": [
+        "template--17809333780770__838c11dc-1b23-4472-b1ae-65bf065acbec-1676301571ca3bfdd2-0",
+        "template--17809333780770__838c11dc-1b23-4472-b1ae-65bf065acbec-1676301571ca3bfdd2-1",
+        "template--17809333780770__838c11dc-1b23-4472-b1ae-65bf065acbec-1676301571ca3bfdd2-2",
+        "template--17809333780770__838c11dc-1b23-4472-b1ae-65bf065acbec-1676301571ca3bfdd2-3"
+      ],
+      "settings": {
+        "heading": "Heading carousel"
+      }
+    },
+    "1371d26d-e80e-492a-87ae-c5da6f6b4461": {
+      "type": "contact",
+      "settings": {
+        "layout_left": false,
+        "heading": "Contact me !",
+        "description": "",
+        "legal_text": "<p>I accept the terms<\/p>",
+        "topics": "Por qui|Returns|Shipping|Custom order|Other"
+      }
+    },
+    "d944813b-6c85-4d12-9b2a-eb1b720fcf85": {
+      "type": "hero-simple",
+      "settings": {
+        "hero_title": "Title hero responsive",
+        "hero_description": "<p>Hello <em>hero<\/em> <strong>banner <\/strong><a href=\"\/collections\/all\" title=\"All\"><strong>link<\/strong><\/a><\/p>",
+        "title_CTA": "CTA",
+        "link_CTA": ""
+      }
+    },
+    "4c947b33-d40f-4a06-ae7b-a11ba77d4d33": {
+      "type": "call-to-action",
+      "settings": {
+        "width_mode": "100",
+        "title": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "background_color": "#989898",
+        "color_title": "#ffffff",
+        "text_button_one": "Go to cart",
+        "url_button_one": "",
+        "text_button_two": "Go to checkout",
+        "url_button_two": ""
+      }
     }
   },
   "order": [
-    "hero",
+    "3283ca90-18fe-4491-bb46-4c955bc23a75",
+    "481a7f54-c8ff-4dc8-ad2d-7b4dc5f9c5a7",
+    "16479727170648f2b7",
     "cta",
     "main",
-    "16479727170648f2b7"
+    "838c11dc-1b23-4472-b1ae-65bf065acbec",
+    "1371d26d-e80e-492a-87ae-c5da6f6b4461",
+    "d944813b-6c85-4d12-9b2a-eb1b720fcf85",
+    "4c947b33-d40f-4a06-ae7b-a11ba77d4d33"
   ]
 }
