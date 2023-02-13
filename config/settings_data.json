@@ -1,5 +1,62 @@
 {
-  "current": "Default",
+  "current": {
+    "colors_bg_1": "linear-gradient(46deg, rgba(236, 236, 236, 1), rgba(222, 222, 222, 1) 58%)",
+    "favicon": "shopify:\/\/shop_images\/logo-anatae.svg",
+    "colors_solid_button_labels": "#FFFFFF",
+    "colors_accent_1": "#121212",
+    "colors_accent_2": "#334FB4",
+    "colors_text": "#121212",
+    "colors_outline_button_labels": "#121212",
+    "colors_background_1": "#FFFFFF",
+    "colors_background_2": "#F3F3F3",
+    "sections": {
+      "header": {
+        "type": "header",
+        "settings": {
+          "logo": "logo-anatae",
+          "menu": "main-menu"
+        }
+      },
+      "footer": {
+        "type": "footer",
+        "blocks": {
+          "footer-0": {
+            "type": "link_list",
+            "settings": {
+              "heading": "Quick links",
+              "menu": "footer"
+            }
+          },
+          "footer-1": {
+            "type": "link_list",
+            "settings": {
+              "heading": "Quick links",
+              "menu": "footer"
+            }
+          },
+          "footer-2": {
+            "type": "newslatter",
+            "settings": {
+              "newsletter_heading": "Subscribe to our emails",
+              "newsletter_sub": "Subscribe to receive special offers, free gifts and unique deals"
+            }
+          }
+        },
+        "block_order": [
+          "footer-0",
+          "footer-1",
+          "footer-2"
+        ],
+        "settings": {
+          "sub_footer": "© 2022, theme-base Powered by Gradiweb",
+          "social_media": true
+        }
+      }
+    },
+    "content_for_index": [
+
+    ]
+  },
   "presets": {
     "Default": {
       "colors_solid_button_labels": "#FFFFFF",
@@ -8,9 +65,7 @@
       "colors_text": "#121212",
       "colors_outline_button_labels": "#121212",
       "colors_background_1": "#FFFFFF",
-      "colors_background_2": "#F3F3F3",
-      "sections": {
-      }
+      "colors_background_2": "#F3F3F3"
     },
     "Craft": {
       "colors_solid_button_labels": "#EFECEC",
@@ -23,16 +78,18 @@
       "sections": {
         "footer": {
           "type": "footer",
-          "settings": {
-          },
           "blocks": {
             "menu": {
-              "type": "link_list"
+              "type": "link_list",
+              "settings": {
+              }
             }
           },
           "block_order": [
             "menu"
-          ]
+          ],
+          "settings": {
+          }
         }
       }
     }
