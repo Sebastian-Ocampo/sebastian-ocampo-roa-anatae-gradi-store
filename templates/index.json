@@ -36,19 +36,6 @@
       "settings": {
       }
     },
-    "hero": {
-      "type": "hero-simple",
-      "custom_css": [
-
-      ],
-      "settings": {
-        "hero_title": "Title hero responsive",
-        "hero_description": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit, vulputate eu pharetra nec, mattis ac neque..<\/p>",
-        "title_CTA": "CTA",
-        "link_CTA": "",
-        "background": "shopify:\/\/shop_images\/img-hero.jpg"
-      }
-    },
     "cta": {
       "type": "call-to-action",
       "settings": {
@@ -108,7 +95,6 @@
   },
   "order": [
     "3283ca90-18fe-4491-bb46-4c955bc23a75",
-    "hero",
     "cta",
     "main",
     "16479727170648f2b7"
