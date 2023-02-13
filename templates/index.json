@@ -32,9 +32,65 @@
       "custom_css": [
         "h1 {color: #313131;}",
         "a {}",
-        ".btn-1 {border-radius: 50px; background-color: #00602c; color: #ffffff; width: 15%; border: none;font-weight: 500;line-height: 19px;}"
+        ".btn-1 {border-radius: 50px; background-color: #00602c; color: #ffffff; width: 15%; border: none; font-weight: 500; line-height: 19px;}"
       ],
       "settings": {
+      }
+    },
+    "481a7f54-c8ff-4dc8-ad2d-7b4dc5f9c5a7": {
+      "type": "multi-icon-row",
+      "blocks": {
+        "template--17809333780770__481a7f54-c8ff-4dc8-ad2d-7b4dc5f9c5a7-167630845992ab225f-0": {
+          "type": "icon",
+          "settings": {
+            "heading": "",
+            "row_icon_description": "Lorem ipsum letto",
+            "row_icon_image": "logo-anatae"
+          }
+        },
+        "template--17809333780770__481a7f54-c8ff-4dc8-ad2d-7b4dc5f9c5a7-167630845992ab225f-1": {
+          "type": "icon",
+          "settings": {
+            "heading": "",
+            "row_icon_description": "Lorem ipsum letto",
+            "row_icon_image": "logo-anatae"
+          }
+        },
+        "template--17809333780770__481a7f54-c8ff-4dc8-ad2d-7b4dc5f9c5a7-167630845992ab225f-2": {
+          "type": "icon",
+          "settings": {
+            "heading": "",
+            "row_icon_description": "Lorem ipsum letto",
+            "row_icon_image": "logo-anatae"
+          }
+        },
+        "template--17809333780770__481a7f54-c8ff-4dc8-ad2d-7b4dc5f9c5a7-167630845992ab225f-3": {
+          "type": "icon",
+          "settings": {
+            "heading": "",
+            "row_icon_description": "Lorem ipsum letto",
+            "row_icon_image": "logo-anatae"
+          }
+        },
+        "6a18d0d5-3e2e-4138-b1c6-301fc790412f": {
+          "type": "icon",
+          "settings": {
+            "heading": "",
+            "row_icon_description": "Lorem ipsum letto",
+            "row_icon_image": "logo-anatae"
+          }
+        }
+      },
+      "block_order": [
+        "template--17809333780770__481a7f54-c8ff-4dc8-ad2d-7b4dc5f9c5a7-167630845992ab225f-0",
+        "template--17809333780770__481a7f54-c8ff-4dc8-ad2d-7b4dc5f9c5a7-167630845992ab225f-1",
+        "template--17809333780770__481a7f54-c8ff-4dc8-ad2d-7b4dc5f9c5a7-167630845992ab225f-2",
+        "template--17809333780770__481a7f54-c8ff-4dc8-ad2d-7b4dc5f9c5a7-167630845992ab225f-3",
+        "6a18d0d5-3e2e-4138-b1c6-301fc790412f"
+      ],
+      "settings": {
+        "row_icon_title": "",
+        "position_icons": "left"
       }
     },
     "cta": {
@@ -173,6 +229,7 @@
   },
   "order": [
     "3283ca90-18fe-4491-bb46-4c955bc23a75",
+    "481a7f54-c8ff-4dc8-ad2d-7b4dc5f9c5a7",
     "cta",
     "main",
     "16479727170648f2b7",
