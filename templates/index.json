@@ -89,7 +89,8 @@
         "6a18d0d5-3e2e-4138-b1c6-301fc790412f"
       ],
       "custom_css": [
-        ".elements__icons {justify-content: space-between;}"
+        ".elements__icons {justify-content: space-between;}",
+        ".elements__icons {padding: 20px;}"
       ],
       "settings": {
         "row_icon_title": "",
