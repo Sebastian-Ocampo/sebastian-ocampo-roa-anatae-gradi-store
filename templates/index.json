@@ -8,7 +8,7 @@
           "settings": {
             "heading": "Heading Title",
             "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-            "cta_text": "Button text",
+            "cta_text": "LA BOUTIQUE",
             "cta_link": "#",
             "image_desktop": "shopify:\/\/shop_images\/hero-img_1.jpg",
             "image_mobile": "shopify:\/\/shop_images\/hero-img_1.jpg"
@@ -32,7 +32,7 @@
       "custom_css": [
         "h1 {color: #313131;}",
         "a {}",
-        ".btn-1 {border-radius: 50px; background-color: #00602c; color: #FFFFFF;}"
+        ".btn-1 {border-radius: 50px; background-color: #00602c; color: #ffffff;}"
       ],
       "settings": {
       }
