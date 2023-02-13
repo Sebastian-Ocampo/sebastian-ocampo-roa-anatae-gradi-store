@@ -29,7 +29,9 @@
         "template--17809333780770__3283ca90-18fe-4491-bb46-4c955bc23a75-16762970245ec76e38-1"
       ],
       "custom_css": [
-        "button {display: none;}"
+        "h1 {color: #313131;}",
+        "img {width: 70%;}",
+        "a {}"
       ],
       "settings": {
       }
