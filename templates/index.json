@@ -6,7 +6,7 @@
         "template--17809333780770__3283ca90-18fe-4491-bb46-4c955bc23a75-16762970245ec76e38-0": {
           "type": "content",
           "settings": {
-            "heading": "あなたへ",
+            "heading": "あなたへ<br>100 clients nous font confiance<br>À <b>NISHIO<\/b> ET FUJIEDA, JAPON",
             "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit, vulputate eu pharetra nec, mattis ac neque..",
             "cta_text": "LA BOUTIQUE",
             "cta_link": "#",
@@ -23,11 +23,22 @@
             "cta_text": "Button text",
             "cta_link": "#"
           }
+        },
+        "b87555ca-4897-46b1-a440-b4b42678a5c5": {
+          "type": "content",
+          "disabled": true,
+          "settings": {
+            "heading": "Heading Tcvgbhitle",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+            "cta_text": "Button text",
+            "cta_link": "#"
+          }
         }
       },
       "block_order": [
         "template--17809333780770__3283ca90-18fe-4491-bb46-4c955bc23a75-16762970245ec76e38-0",
-        "template--17809333780770__3283ca90-18fe-4491-bb46-4c955bc23a75-16762970245ec76e38-1"
+        "template--17809333780770__3283ca90-18fe-4491-bb46-4c955bc23a75-16762970245ec76e38-1",
+        "b87555ca-4897-46b1-a440-b4b42678a5c5"
       ],
       "custom_css": [
         "h1 {color: #313131;}",
@@ -89,12 +100,10 @@
         "6a18d0d5-3e2e-4138-b1c6-301fc790412f"
       ],
       "custom_css": [
-        ".elements__icons {justify-content: space-between;}",
-        ".elements__icons {padding: 20px;}"
+        ".elements__icons {justify-content: space-between; padding: 20px;}"
       ],
       "settings": {
-        "row_icon_title": "",
-        "position_icons": "left"
+        "row_icon_title": ""
       }
     },
     "16479727170648f2b7": {
