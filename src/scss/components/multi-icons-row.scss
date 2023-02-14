@@ -10,7 +10,8 @@ $margin-icon: 30px;
     flex-wrap: wrap;
     --gap-flex: 0;
     --justify: space-around;
-
+    justify-content: space-between;
+    padding: 20px;
     @media screen and (max-width: 650px) {
       &.slider_mobile {
         --justify: flex-start;
