@@ -42,8 +42,8 @@
       ],
       "custom_css": [
         "h1 {color: #313131;}",
-        "a {}",
-        ".btn-1 {border-radius: 50px; background-color: #00602c; color: #ffffff; width: 15%; border: none; font-weight: 500; line-height: 19px;}"
+        ".btn-1 {border-radius: 50px; background-color: #00602c; color: #ffffff; width: 150px; border: none; font-weight: 500; line-height: 19px;}",
+        ".hero__description {margin-left: 50%;}"
       ],
       "settings": {
       }
