@@ -1,20 +1,10 @@
-{%- comment -%}
-If you want to get different UI from our customization code.
-You could change this properties:
-- slider_mobile: Mobile slider UI -> true | false
-{%- endcomment -%}
-
-{% liquid
-  assign slider_mobile = true
-%}
-
 {% if section.settings.row_icon_title != blank %}
   <h2>
     {{ section.settings.row_icon_title }}
   </h2>
 {% endif %}
 
-<div class="flex elements__icons {% if slider_mobile %}slider_mobile{% endif %}">
+<div class="flex elements__icons">
   {% for block in section.blocks %}
     <div class="element__icon">
       {% if block.settings.row_icon_image != blank %}
