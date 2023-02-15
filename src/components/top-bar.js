@@ -2,10 +2,6 @@
 import Swiper, { Autoplay } from "swiper";
 import { $Q, $Qll } from "../utils/query-selector";
 
-
-/**
- * initialize top bar announce
- */
 export const initTopBar = () => {
 
   const topBar = $Q('.top-bar'); 
@@ -38,7 +34,7 @@ const closeTopBar = (topBar) => {
  * initialize slider top bar
  */
 const initTopBarSlider = () => {
-  console.log("lo llama");
+  alert("lo llama");
   new Swiper(".top-bar", {
     modules: [Autoplay],
     slidesPerView: 1,
