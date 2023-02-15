@@ -2,17 +2,18 @@
 
 .top-bar {
   width: 100%;
-  background: variables.$color-background;
-  color: variables.$color-title;
+  background: #000000;
+  color: #FFFFFF;
   z-index: 1;
+  font-size: 14px;
 
   svg {
-    width: 10px;
-    height: 10px;
+    width: 24px;
+    height: 24px;
     position: absolute;
     z-index: 2;
     right: 8px;
-    top: 9px;
+    top: 5px;
     cursor: pointer;
   }
 
@@ -22,14 +23,25 @@
       align-items: center;
       justify-content: center;
       padding: 5px;
+      color: #FFFFFF;
 
       p {
         margin: 0 20px;
         text-align: center;
       }
+      p a{
+        color: #FFFFFF;
+        text-decoration: underline;
+        text-decoration-thickness: 1px;
+      }
     }
     strong {
-      font-weight: 600;
+      font-weight: 400;
+    }
+  }
+  @media screen and (max-width: 992px) {
+    .bar-close-js {
+      margin: 20px 0;
     }
   }
 }
