@@ -24,7 +24,7 @@
           "0f0beaa9-4b22-443a-98e6-4032eb090061"
         ],
         "settings": {
-          "show_announcements": false,
+          "show_announcements": true,
           "logo": "logo-anatae",
           "menu": "main-menu"
         }
