@@ -2,4 +2,5 @@
   position: sticky;
   position: -webkit-sticky;
   top: var(--top, 0);
+  z-index: 1;
 }

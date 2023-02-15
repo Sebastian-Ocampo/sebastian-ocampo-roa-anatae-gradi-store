@@ -645,6 +645,9 @@
         "logo": {
           "label": "Image du logo"
         },
+        "show_announcements": {
+          "label": "Show announcements"
+        },
         "logo_width": {
           "unit": "px",
           "label": "Largeur personnalisée du logo"
