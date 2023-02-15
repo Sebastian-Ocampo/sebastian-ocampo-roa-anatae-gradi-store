@@ -785,6 +785,9 @@
         "logo": {
           "label": "Logo image"
         },
+        "show_announcements": {
+          "label": "Show announcements"
+        },
         "logo_width": {
           "unit": "px",
           "label": "Custom logo width"

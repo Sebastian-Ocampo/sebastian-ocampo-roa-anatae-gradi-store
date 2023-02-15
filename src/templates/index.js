@@ -9,6 +9,9 @@ import { toggleDataActive } from "../utils/toggle-dataset";
 import { isRegisteredUser } from "../components/news-letters";
 
 isRegisteredUser();
+import { initTopBar } from "../components/top-bar";
+
+initTopBar();
 variantOnChange(".variants");
 openAccordion();
 openDropDown();
