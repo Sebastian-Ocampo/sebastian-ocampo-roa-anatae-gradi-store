@@ -3,38 +3,21 @@
 $margin-icon: 30px;
 
 .row__icons {
-  padding-top: calc(variables.$margin-section - $margin-icon);
-  padding-bottom: calc(variables.$margin-section - $margin-icon);
+  padding: 10px;
 
   .elements__icons {
     flex-wrap: wrap;
     --gap-flex: 0;
-    --justify: space-around;
-    justify-content: space-between;
-    padding: 20px;
-    @media screen and (max-width: 650px) {
-      &.slider_mobile {
-        --justify: flex-start;
-        overflow-x: auto;
-        flex-wrap: nowrap;
-        margin-left: - variables.$paddings-side--movil;
-        margin-right: - variables.$paddings-side--movil;
-
-        .element__icon {
-          flex-shrink: 0;
-          width: auto;
-        }
-      }
-    }
-
+    --justify: space-between;
+    text-align: center;
+    //
     .element__icon {
       width: 100%;
-      margin-top: $margin-icon;
-      margin-bottom: $margin-icon;
       box-sizing: border-box;
-      display: flex;
+      margin: 0 auto;
+      display: inline-block;
       align-items: center;
-      padding: 0 20px;
+      padding: 5px 20px;
 
       img {
         border-radius: 50%;
@@ -71,6 +54,22 @@ $margin-icon: 30px;
       }
     }
   }
+
+  @media screen and (max-width: 992px) {
+    .elements__icons {
+      --justify: flex-start;
+      overflow-x: auto;
+      flex-wrap: nowrap;
+      margin-left: - 1rem;
+      margin-right: - 1rem;
+
+      .element__icon {
+        flex-shrink: 0;
+        width: auto;
+      }
+    }
+  }
+
 
   @media screen and (min-width: 576px) {
     .elements__icons {
