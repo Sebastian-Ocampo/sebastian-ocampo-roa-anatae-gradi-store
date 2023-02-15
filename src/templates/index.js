@@ -7,8 +7,11 @@ import { openAccordion } from "../utils/accordion";
 import { openDropDown } from "../components/header";
 import { toggleDataActive } from "../utils/toggle-dataset";
 import { isRegisteredUser } from "../components/news-letters";
+import { initTopBar } from "../components/top-bar";
 
 isRegisteredUser();
+
+initTopBar();
 variantOnChange(".variants");
 openAccordion();
 openDropDown();
