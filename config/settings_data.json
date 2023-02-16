@@ -1,6 +1,11 @@
 {
   "current": {
+    "colors_brand": "#00602c",
     "colors_bg_1": "linear-gradient(46deg, rgba(236, 236, 236, 1), rgba(222, 222, 222, 1) 58%)",
+    "colors_txt": "#8f8f8f",
+    "colors_link": "#8f8f8f",
+    "colors_btn_color_1": "#ffffff",
+    "colors_btn_bg_1": "#00602c",
     "favicon": "shopify:\/\/shop_images\/logo-anatae.svg",
     "colors_solid_button_labels": "#FFFFFF",
     "colors_accent_1": "#121212",
