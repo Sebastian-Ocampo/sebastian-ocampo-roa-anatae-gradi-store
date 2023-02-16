@@ -110,6 +110,7 @@
     },
     "16479727170648f2b7": {
       "type": "carousel-products",
+      "disabled": true,
       "blocks": {
         "16479727173cfca19d-0": {
           "type": "product",
@@ -157,6 +158,7 @@
     },
     "838c11dc-1b23-4472-b1ae-65bf065acbec": {
       "type": "carousel-content",
+      "disabled": true,
       "blocks": {
         "template--17809333780770__838c11dc-1b23-4472-b1ae-65bf065acbec-1676301571ca3bfdd2-0": {
           "type": "content",
