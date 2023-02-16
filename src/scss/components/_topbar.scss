@@ -52,4 +52,9 @@
       font-weight: 400;
     }
   }
+  @media screen and (max-width: 992px) {
+    .bar-close-js {
+      padding-left: 10%;
+    }
+  }
 }
