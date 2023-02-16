@@ -34,24 +34,22 @@
         line-height: 18px;
         padding: 0 7%;
         text-align: center;
+        @media screen and (max-width: 992px) {
+          font-size: 11.04px;
+        }
       }
       p a {
         color: #ffffff;
         font-size: 14px;
         text-decoration: underline;
         text-decoration-thickness: 1px;
+        @media screen and (max-width: 992px) {
+          font-size: 11.04px;
+        }
       }
     }
     strong {
       font-weight: 400;
-    }
-  }
-  @media screen and (max-width: 992px) {
-    .bar-close-js {
-      padding-left: 10%;
-    }
-    .top-bar_content--message {
-      font-size: 11px;
     }
   }
 }
