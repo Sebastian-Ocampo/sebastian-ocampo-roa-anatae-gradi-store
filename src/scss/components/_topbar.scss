@@ -1,9 +1,9 @@
-@use '../abstracts/variables';
+@use "../abstracts/variables";
 
 .top-bar {
   width: 100%;
   background: #000000;
-  color: #FFFFFF;
+  color: #ffffff;
   z-index: 1;
   font-size: 14px;
 
@@ -23,14 +23,14 @@
       align-items: center;
       justify-content: center;
       padding: 5px;
-      color: #FFFFFF;
+      color: #ffffff;
 
       p {
         margin: 0 20px;
         text-align: center;
       }
-      p a{
-        color: #FFFFFF;
+      p a {
+        color: #ffffff;
         text-decoration: underline;
         text-decoration-thickness: 1px;
       }
