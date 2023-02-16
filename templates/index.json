@@ -45,9 +45,7 @@
         "b87555ca-4897-46b1-a440-b4b42678a5c5"
       ],
       "custom_css": [
-        "h1 {color: #313131;}",
-        ".btn-1 {border-radius: 50px; background-color: #00602c; color: #ffffff; width: 150px; border: none; font-weight: 500; line-height: 19px;}",
-        ".hero__description {margin-left: 50%;}"
+
       ],
       "settings": {
       }
