@@ -3,7 +3,7 @@
 .hero {
   &--simple {
     position: relative;
-  
+
     & > .hero__image {
       position: absolute;
       top: 0;
@@ -18,12 +18,32 @@
         object-fit: cover;
       }
     }
-    
+
     .hero__description {
       position: relative;
       padding-top: 150px;
       padding-bottom: 150px;
       margin-left: 50%;
+
+      .text-buttons__p {
+        color: #313131;
+      }
+    }
+
+    .btn-1 {
+      border-radius: 50px;
+      background-color: #00602c;
+      color: #ffffff;
+      width: 150px;
+      border: none;
+      font-weight: 500;
+      line-height: 19px;
+    }
+
+    @media screen and (max-width: 991px) {
+      .hero__description {
+        margin-left: 0%;
+      }
     }
   }
 
@@ -36,18 +56,18 @@
         display: flex;
         width: 100%;
         justify-content: center;
-  
+
         &-bullet {
           width: 10px;
           height: 10px;
           border: 1px solid variables.$color-black;
           background-color: variables.$color-white;
           border-radius: 50%;
-  
+
           &-active {
             background-color: variables.$color-black;
           }
-  
+
           &:not(:last-child) {
             margin-right: 10px;
           }
