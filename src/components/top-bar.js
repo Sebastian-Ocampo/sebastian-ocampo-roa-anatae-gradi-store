@@ -1,5 +1,5 @@
 import Swiper, { Autoplay } from 'swiper';
-import { $Q, $Qll } from '../utils/query-selector';
+import { $Q } from '../utils/query-selector';
 
 export const initTopBar = () => {
   const topBar = $Q('.top-bar');
@@ -11,7 +11,7 @@ export const initTopBar = () => {
 
   $Q('.bar-close-js').addEventListener('click', () => closeTopBar(topBar));
 
-  const slides = $Qll('.top-bar_content--message');
+  const slides = $Q('.top-bar_content--message p').textContent;
 
   if (slides.length > 2 && slides.length < 150) {
     initTopBarSlider();
