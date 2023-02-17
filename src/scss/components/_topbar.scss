@@ -1,38 +1,52 @@
 @use "../abstracts/variables";
 
 .top-bar {
-  width: 100%;
   background: #000000;
   color: #ffffff;
+  font-family: "Rubik-Light", sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  width: 100%;
   z-index: 1;
-  font-size: 14px;
+  display: flex;
+  flex-flow: row wrap;
 
   svg {
-    width: 24px;
+    cursor: pointer;
     height: 24px;
     position: absolute;
-    z-index: 2;
     right: 8px;
-    top: 5px;
-    cursor: pointer;
+    top: 50%;
+    transform: translate(-15%, -50%);
+    width: 24px;
+    z-index: 2;
   }
 
   &_content {
     &--message {
-      display: flex;
       align-items: center;
+      color: #ffffff;
+      display: flex;
       justify-content: center;
       padding: 5px;
-      color: #ffffff;
 
       p {
-        margin: 0 20px;
+        line-height: 18px;
+        padding: 0 7%;
         text-align: center;
+        @media screen and (max-width: 992px) {
+          font-size: 11.04px;
+          padding: 0 15%;
+        }
       }
       p a {
         color: #ffffff;
+        font-size: 14px;
         text-decoration: underline;
         text-decoration-thickness: 1px;
+        @media screen and (max-width: 992px) {
+          font-size: 11.04px;
+        }
       }
     }
     strong {
@@ -41,7 +55,7 @@
   }
   @media screen and (max-width: 992px) {
     .bar-close-js {
-      margin: 20px 0;
+      padding-left: 10%;
     }
   }
 }
