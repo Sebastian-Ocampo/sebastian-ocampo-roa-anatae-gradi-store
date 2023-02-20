@@ -12,15 +12,19 @@
 
 .header {
   z-index: 2;
-  padding: 0 50px;
+  padding: 10px 100px;
   border-bottom: 1px solid #c1c1c1;
   background-color: #fff;
   --columns: 2fr 7fr 2fr;
   --column-gap: 15px;
+  box-shadow: 2.720763683319092px 8px 24px 0px #00000026;
+  font-family: "Rubik-Medium", sans-serif;
+  color: #000;
 
   a {
     color: #000;
     text-decoration: none;
+    font-family: "Rubik-Medium", sans-serif;
   }
 
   &__logo {
@@ -30,7 +34,9 @@
 
     a {
       display: block;
-      font-weight: 600;
+      font-weight: 500;
+      font-family: "Rubik-Medium", sans-serif;
+      font-size: 18px;
       letter-spacing: 3px;
       text-decoration: none;
       text-transform: uppercase;
@@ -115,7 +121,7 @@
           left: 0;
           display: none;
           width: calc(100% - 100px);
-          padding: 50px 50px 50px;
+          padding: 35px 50px 30px;
           background-color: #fff;
           box-shadow: 0px 15px 10px rgba(0, 0, 0, 0.2);
 
@@ -128,7 +134,8 @@
               & > a.child-title {
                 display: block;
                 margin-bottom: 20px;
-                font-weight: 600;
+                font-weight: 500;
+                font-family: "Rubik-Medium", sans-serif;
                 text-transform: uppercase;
               }
             }
