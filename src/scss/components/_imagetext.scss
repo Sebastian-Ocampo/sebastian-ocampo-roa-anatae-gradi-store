@@ -3,4 +3,24 @@
 .image-text {
   display: flex;
   flex-direction: row;
+  margin: 60px 0;
+  position: relative;
+  box-sizing: border-box;
+  width: 100%;
+  justify-content: space-between;
+
+  .it__image {
+    width: 50%;
+    picture {
+      //width: 100%;
+      img {
+        //padding-left: 15%;
+        border-radius: 0px;
+      }
+    }
+  }
+
+  .it__description {
+    width: 50%;
+  }
 }
