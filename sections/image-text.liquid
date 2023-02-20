@@ -49,6 +49,19 @@ srcSet={{ section.settings.background_mobile | img_url }}
              class: 'btn-1' %}
           {% endif %}
         </div>
+        {% if block.settings.image-background != blank %}
+          <div class="icon-background">
+            <picture>
+              {% assign img_src = block.settings.image-background | image_url: width: 603 %}
+              <img
+                src="{{ img_src }}"
+                width="124px"
+                title="{{ block.settings.image-background.alt }}"
+                alt="{{ block.settings.image-background.alt }}"
+                loading="lazy" />
+            </picture>
+          </div>
+        {% endif %}
       </div>
     </div>
   {% endfor %}
