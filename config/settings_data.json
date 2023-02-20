@@ -37,32 +37,41 @@
       "footer": {
         "type": "footer",
         "blocks": {
+          "footer-2": {
+            "type": "newslatter",
+            "settings": {
+              "newsletter_heading": "",
+              "newsletter_sub": "Inscrivez-vous à la Newsletter pour être prévenu des offres et connaître nos actualités !"
+            }
+          },
           "footer-0": {
             "type": "link_list",
             "settings": {
-              "heading": "Quick links",
+              "heading": "",
               "menu": "footer"
             }
           },
           "footer-1": {
             "type": "link_list",
+            "disabled": true,
             "settings": {
               "heading": "Quick links",
               "menu": "footer"
             }
           },
-          "footer-2": {
-            "type": "newslatter",
+          "2e0d79d7-2d64-4c2b-8b1e-9383283ea5eb": {
+            "type": "info",
             "settings": {
-              "newsletter_heading": "Subscribe to our emails",
-              "newsletter_sub": "Subscribe to receive special offers, free gifts and unique deals"
+              "heading": "Powered by Gradiweb",
+              "sub": "Modules: JS - SCSS, Based in components and DRY CODE"
             }
           }
         },
         "block_order": [
+          "footer-2",
           "footer-0",
           "footer-1",
-          "footer-2"
+          "2e0d79d7-2d64-4c2b-8b1e-9383283ea5eb"
         ],
         "settings": {
           "sub_footer": "© 2022, theme-base Powered by Gradiweb",
