@@ -206,7 +206,7 @@
           "type": "content",
           "settings": {
             "title": "<b>UN THÉ VERT<\/b> <br>﻿AUX MILLE VERTUS",
-            "description": "<p>&lt;h3&gt;Hello fhfgfgfd&lt;\/h3&gt;<\/p>",
+            "description": "<div class=\"columns\">\n\t<div class=\"column\">\n\t\t<p>Texto de la primera columna<\/p>\n\t<\/div>\n\t<div class=\"column\">\n\t\t<p>Texto de la segunda columna<\/p>\n\t<\/div>\n<\/div>",
             "title_btn-it": "title btn",
             "link_btn": "shopify:\/\/collections\/frontpage",
             "image": "shopify:\/\/shop_images\/Image_1_1.jpg"
