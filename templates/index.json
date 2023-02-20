@@ -221,11 +221,22 @@
             "link_btn": "shopify:\/\/collections\/frontpage",
             "image": "shopify:\/\/shop_images\/image-1_1-big.jpg"
           }
+        },
+        "c4a011f4-2a9d-4ac8-956d-321875ed4629": {
+          "type": "content",
+          "settings": {
+            "title": "NOTRE MISSION",
+            "description": "Proposer un matcha de qualité :\nBiologique, savoureux, riche en bienfaits pour la santé et produit dans la tradition japonaise.\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit, vulputate eu pharetra nec, mattis ac neque. Duis vulputate commodo lectus, ac blandit elit tincidunt id. Sed rhoncus, tortor sed eleifend tristique, tortor mauris molestie elit, et lacinia ipsum quam nec dui. Quisque nec mauris sit amet elit iaculis pretium sit amet quis magna. Aenean velit odio, elementum in tempus ut, vehicula eu diam. \n\nPellentesque rhoncus aliquam mattis. Ut vulputate eros sed felis sodales nec vulputate justo hendrerit. Vivamus varius pretium ligula, a aliquam odio sit amet. \n\n﻿Quisque laoreet sem sit amet orci ullamcorper at ultricies metus viverra. Pellentesque arcu mauris, malesuada quis ornare accumsan, blandit sed diam.",
+            "title_btn-it": "",
+            "link_btn": "",
+            "image": "shopify:\/\/shop_images\/image-1_1-big_1.jpg"
+          }
         }
       },
       "block_order": [
         "e897511a-b4e0-4ccd-bff9-4852a18af590",
-        "340a0769-1ddf-439a-81f4-54ac4efdc752"
+        "340a0769-1ddf-439a-81f4-54ac4efdc752",
+        "c4a011f4-2a9d-4ac8-956d-321875ed4629"
       ],
       "settings": {
       }
