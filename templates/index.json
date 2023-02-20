@@ -209,7 +209,8 @@
             "description": "<div class=\"columns\">\n\t<div class=\"column\">\n\t\t<p>Antioxydant puissant<br>\nRenforce le système immunitaire<br>\nRelaxe<br>\nStimule<br>\nPrend soin de la peau<br>\nAugmente l’espérance de vie<\/p>\n\t<\/div>\n\t<div class=\"column\">\n\t\t<p>Brûle Les Graisses<br>\nAlcalinisant<br>\nRéduit les inflammations<br>\nBon pour la santé cardiaque<br>\nÉlimine les odeurs corporelles<\/p>\n\t<\/div>\n<\/div>",
             "title_btn-it": "title btn",
             "link_btn": "shopify:\/\/collections\/frontpage",
-            "image": "shopify:\/\/shop_images\/Image_1_1.jpg"
+            "image": "shopify:\/\/shop_images\/Image_1_1.jpg",
+            "image-background": "shopify:\/\/shop_images\/Vector.svg"
           }
         },
         "340a0769-1ddf-439a-81f4-54ac4efdc752": {
