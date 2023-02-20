@@ -205,8 +205,8 @@
         "e897511a-b4e0-4ccd-bff9-4852a18af590": {
           "type": "content",
           "settings": {
-            "hero_title": "Title",
-            "hero_description": "<p>Antioxydant puissantRenforce le système immunitaireRelaxeStimulePrend soin de la peauAugmente l’espérance de vie<\/p>",
+            "title": "<b>UN THÉ VERT<\/b> <br>﻿AUX MILLE VERTUS",
+            "description": "<p>&lt;h3&gt;Hello fhfgfgfd&lt;\/h3&gt;<\/p>",
             "title_btn-it": "title btn",
             "link_btn": "shopify:\/\/collections\/frontpage",
             "image": "shopify:\/\/shop_images\/Image_1_1.jpg"
