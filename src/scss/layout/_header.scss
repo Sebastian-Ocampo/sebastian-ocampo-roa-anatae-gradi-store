@@ -12,15 +12,19 @@
 
 .header {
   z-index: 2;
-  padding: 0 50px;
+  padding: 10px 100px;
   border-bottom: 1px solid #c1c1c1;
-  background-color: #FFF;
+  background-color: #fff;
   --columns: 2fr 7fr 2fr;
   --column-gap: 15px;
+  box-shadow: 2.720763683319092px 8px 24px 0px #00000026;
+  font-family: "Rubik-Medium", sans-serif;
+  color: #000;
 
   a {
     color: #000;
-    text-decoration: none
+    text-decoration: none;
+    font-family: "Rubik-Medium", sans-serif;
   }
 
   &__logo {
@@ -30,7 +34,9 @@
 
     a {
       display: block;
-      font-weight: 600;
+      font-weight: 500;
+      font-family: "Rubik-Medium", sans-serif;
+      font-size: 18px;
       letter-spacing: 3px;
       text-decoration: none;
       text-transform: uppercase;
@@ -82,7 +88,7 @@
         & > a {
           text-decoration: none;
         }
-        
+
         & > button {
           @extend %reset-buttons;
           @extend %flex-center;
@@ -95,14 +101,14 @@
           svg {
             height: 5px;
             color: black;
-            transition: transform ease .2s;
+            transition: transform ease 0.2s;
           }
 
           &[data-active="true"] {
             & ~ div.dropdown {
               display: block;
             }
-      
+
             svg {
               transform: rotateZ(180deg);
             }
@@ -115,20 +121,21 @@
           left: 0;
           display: none;
           width: calc(100% - 100px);
-          padding: 50px 50px 50px;
-          background-color: #FFF;
-          box-shadow: 0px 15px 10px rgba(0, 0, 0, 0.20);
-          
+          padding: 35px 50px 30px;
+          background-color: #fff;
+          box-shadow: 0px 15px 10px rgba(0, 0, 0, 0.2);
+
           ul {
             --columns: 1fr 1fr 1fr 1fr;
-            
+
             & > li {
               text-transform: none;
 
               & > a.child-title {
                 display: block;
                 margin-bottom: 20px;
-                font-weight: 600;
+                font-weight: 500;
+                font-family: "Rubik-Medium", sans-serif;
                 text-transform: uppercase;
               }
             }
@@ -156,7 +163,7 @@
         flex-direction: column;
         align-items: flex-start;
         justify-content: flex-start;
-        animation: slidein .3s ease;
+        animation: slidein 0.3s ease;
         background-color: #fff;
         overflow-y: auto;
 
@@ -232,7 +239,7 @@
           from {
             transform: translateX(-100%);
           }
-        
+
           to {
             transform: translateX(0%);
           }
@@ -256,19 +263,18 @@
           display: block;
         }
 
+        button {
+          width: 39px;
+          height: 43px;
+        }
         svg {
-          width: 20px;
-          height: 20px;
+          width: 30px;
+          height: 30px;
           color: black;
-          
-          &.icon-cart {
-            width: 40px;
-            height: 40px;
-          }
         }
 
         button {
-          @extend %reset-buttons
+          @extend %reset-buttons;
         }
       }
     }
