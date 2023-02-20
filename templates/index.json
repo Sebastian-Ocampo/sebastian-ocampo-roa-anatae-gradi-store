@@ -204,9 +204,9 @@
       "settings": {
         "hero_title": "Title hero responsive",
         "hero_description": "<p>Hello <em>hero<\/em> <strong>banner <\/strong><a href=\"\/collections\/all\" title=\"All\"><strong>link<\/strong><\/a><\/p>",
-        "title_CTA": "CTA",
-        "link_CTA": "shopify:\/\/collections\/frontpage",
-        "background": "shopify:\/\/shop_images\/Image_1_1.jpg"
+        "title_btn-it": "title btn",
+        "link_btn": "",
+        "image": "shopify:\/\/shop_images\/Image_1_1.jpg"
       }
     }
   },
