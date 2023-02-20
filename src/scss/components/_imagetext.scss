@@ -22,6 +22,15 @@
 
   .it__description {
     width: 50%;
+    h2 {
+      font-family: "Rubik-Light";
+      font-size: 30px;
+      font-weight: 400;
+      b {
+        font-family: "Rubik-Medium";
+        font-weight: 700;
+      }
+    }
     .text-description {
       color: variables.$anatae-dark-gray;
       .columns {
