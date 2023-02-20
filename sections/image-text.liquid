@@ -44,8 +44,8 @@ srcSet={{ section.settings.background_mobile | img_url }}
 
           {% if block.settings.link_btn != blank and block.settings.title_btn-it != blank %}
             {% render 'link' 
-             url: link,
-             content: link_text,
+             url: block.settings.link_btn,
+             content: block.settings.title_btn,
              class: 'btn-1' %}
           {% endif %}
         </div>
@@ -90,6 +90,10 @@ srcSet={{ section.settings.background_mobile | img_url }}
           }, {
             "type": "image_picker",
             "id": "image",
+            "label": "image"
+          }, {
+            "type": "image_picker",
+            "id": "image-background",
             "label": "image"
           }
         ]
