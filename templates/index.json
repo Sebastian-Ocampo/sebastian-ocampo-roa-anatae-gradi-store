@@ -198,6 +198,15 @@
       "settings": {
         "heading": "Heading carousel"
       }
+    },
+    "f8b615c2-cc08-41fb-97aa-a936a0d27a6d": {
+      "type": "image-text",
+      "settings": {
+        "hero_title": "Title hero responsive",
+        "hero_description": "<p>Hello <em>hero<\/em> <strong>banner <\/strong><a href=\"\/collections\/all\" title=\"All\"><strong>link<\/strong><\/a><\/p>",
+        "title_CTA": "CTA",
+        "link_CTA": ""
+      }
     }
   },
   "order": [
@@ -205,6 +214,7 @@
     "481a7f54-c8ff-4dc8-ad2d-7b4dc5f9c5a7",
     "16479727170648f2b7",
     "main",
-    "838c11dc-1b23-4472-b1ae-65bf065acbec"
+    "838c11dc-1b23-4472-b1ae-65bf065acbec",
+    "f8b615c2-cc08-41fb-97aa-a936a0d27a6d"
   ]
 }
