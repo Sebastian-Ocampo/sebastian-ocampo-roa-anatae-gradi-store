@@ -12,44 +12,46 @@ srcSet={{ section.settings.background_mobile | img_url }}
 {% endcomment %}
 
 <div class="wrapper">
-  <div class="image-text">
-    {% if section.settings.image != blank %}
-      <div class="it__image">
-        <picture>
-          {% assign img_src = section.settings.image | image_url: width: 603 %}
-          <img
-            src="{{ img_src }}"
-            width="603px"
-            title="{{ section.settings.image.alt }}"
-            alt="{{ section.settings.image.alt }}"
-            loading="lazy" />
-        </picture>
-      </div>
-    {% endif %}
+  {% for block in section.blocks %}
+    <div class="image-text">
+      {% if block.settings.image != blank %}
+        <div class="it__image">
+          <picture>
+            {% assign img_src = block.settings.image | image_url: width: 603 %}
+            <img
+              src="{{ img_src }}"
+              width="603px"
+              title="{{ block.settings.image.alt }}"
+              alt="{{ block.settings.image.alt }}"
+              loading="lazy" />
+          </picture>
+        </div>
+      {% endif %}
 
-    <div class="it__description">
-      <div class="{{ class }} text-buttons wrapper {{ position }}">
-        {% if title != blank %}
-          <h1>
-            {{ title }}
-          </h1>
-        {% endif %}
+      <div class="it__description">
+        <div class="{{ class }} text-buttons wrapper {{ position }}">
+          {% if block.settings.title != blank %}
+            <h1>
+              {{ block.settings.title }}
+            </h1>
+          {% endif %}
 
-        {% if description != blank %}
-          <div class="text-buttons__p">
-            {{ description }}
-          </div>
-        {% endif %}
+          {% if block.settings.description != blank %}
+            <div class="text-description">
+              {{ block.settings.description }}
+            </div>
+          {% endif %}
 
-        {% if link != blank and link_text != blank %}
-          {% render 'link' 
-           url: link,
-           content: link_text,
-           class: 'btn-1' %}
-        {% endif %}
+          {% if block.settings.link_btn != blank and block.settings.title_btn-it != blank %}
+            {% render 'link' 
+             url: link,
+             content: link_text,
+             class: 'btn-1' %}
+          {% endif %}
+        </div>
       </div>
     </div>
-  </div>
+  {% endfor %}
 </div>
 
 <!-- eslint-disable @html-eslint/element-newline -->
@@ -57,21 +59,21 @@ srcSet={{ section.settings.background_mobile | img_url }}
 {% schema %}
   {
     "name": "Image-text",
-    "class": "hero--simple",
+    "class": "image-text",
     "blocks": [
       {
         "type": "content",
-        "name": "Card content",
+        "name": "content",
         "settings": [
           {
             "type": "text",
-            "id": "hero_title",
+            "id": "title",
             "label": "Title",
             "default": "Title"
           },
           {
             "type": "richtext",
-            "id": "hero_description",
+            "id": "description",
             "label": "Description",
             "default": "<p>Hello</p>"
           },
@@ -95,7 +97,18 @@ srcSet={{ section.settings.background_mobile | img_url }}
     ],
     "presets": [
       {
-        "name": "Image-text"
+        "name": "Carousel content",
+        "blocks": [
+          {
+            "type": "content"
+          }, {
+            "type": "content"
+          }, {
+            "type": "content"
+          }, {
+            "type": "content"
+          }
+        ]
       }
     ]
   }
