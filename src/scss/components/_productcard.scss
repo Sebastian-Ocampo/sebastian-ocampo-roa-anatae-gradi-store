@@ -13,6 +13,14 @@
       position: relative;
       overflow: hidden;
       padding-bottom: 100%;
+      img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
     }
     &-info {
       display: flex;
@@ -37,6 +45,7 @@
       & > h3 {
         margin-top: 7px;
         margin-bottom: 7px;
+        // background-color: white;
         height: 48px;
         font-family: Roboto, sans-serif;
         font-style: normal;
@@ -49,6 +58,7 @@
         flex-grow: 0;
       }
       &-review {
+        // background-color: cyan;
         margin: 0px;
         margin-bottom: 24px;
       }
@@ -57,6 +67,7 @@
         border: 0.5px solid;
       }
       &-price {
+        // background-color: rgb(217, 58, 231);
         margin: 0px;
         height: 24px;
         margin-top: 24px;
@@ -66,6 +77,7 @@
           margin-top: 0px;
           padding-right: 9px;
           margin-bottom: 7px;
+          // background-color: white;
           height: 24px;
           font-family: Roboto, sans-serif;
           font-style: normal;
@@ -81,11 +93,14 @@
     }
   }
   &--form {
+    // background-color: red;
     display: flex;
     flex-direction: column;
+    // margin-top: auto;
     margin-top: 0px;
     &-variants {
       width: 95%;
+      // margin: 0 auto 10px;
     }
     &-button {
       background-color: variables.$anatae-dark-green;
