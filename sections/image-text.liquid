@@ -13,6 +13,7 @@ srcSet={{ section.settings.background_mobile | img_url }}
 
 <div class="wrapper">
   {% for block in section.blocks %}
+    {% assign is_revert = block.settings.is_revert %}
     <div class="image-text {% if is_revert %}is_revert{% endif %} {% if !is_revert %}is_row{% endif %}">
       {% if block.settings.image != blank %}
         <div class="it__image">
