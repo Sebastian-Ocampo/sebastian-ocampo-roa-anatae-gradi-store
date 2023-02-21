@@ -35,7 +35,7 @@
       padding: 0px;
       & > h2 {
         margin: 0px;
-        font-family: Rubik-Medium, sans-serif;
+        font-family: "Rubik-Medium";
         color: variables.$anatae-dark-gray;
         font-style: normal;
         font-weight: 500;
@@ -45,9 +45,8 @@
       & > h3 {
         margin-top: 7px;
         margin-bottom: 7px;
-        // background-color: white;
         height: 48px;
-        font-family: Roboto, sans-serif;
+        font-family: "Roboto-Light";
         font-style: normal;
         font-weight: 400;
         font-size: 16px;
@@ -58,7 +57,6 @@
         flex-grow: 0;
       }
       &-review {
-        // background-color: cyan;
         margin: 0px;
         margin-bottom: 24px;
       }
@@ -67,7 +65,6 @@
         border: 0.5px solid;
       }
       &-price {
-        // background-color: rgb(217, 58, 231);
         margin: 0px;
         height: 24px;
         margin-top: 24px;
@@ -77,9 +74,8 @@
           margin-top: 0px;
           padding-right: 9px;
           margin-bottom: 7px;
-          // background-color: white;
           height: 24px;
-          font-family: Roboto, sans-serif;
+          font-family: "Roboto-Light";
           font-style: normal;
           font-weight: 400;
           font-size: 16px;
@@ -93,25 +89,23 @@
     }
   }
   &--form {
-    // background-color: red;
     display: flex;
     flex-direction: column;
-    // margin-top: auto;
+    align-items: center;
     margin-top: 0px;
     &-variants {
       width: 95%;
-      // margin: 0 auto 10px;
     }
     &-button {
       background-color: variables.$anatae-dark-green;
-      max-width: 243px;
+      width: 80%;
       height: 56px;
       border-radius: 50px;
       border: none;
       flex: none;
       order: 3;
       flex-grow: 0;
-      font-family: Rubik-Medium, sans-serif;
+      font-family: "Rubik-Medium";
       color: white;
       font-size: 16px;
       margin-top: 0px;

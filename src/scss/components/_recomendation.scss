@@ -1,9 +1,7 @@
 @use "../abstracts/variables";
 .recomendation {
   height: auto;
-  margin-left: 71px;
-  margin-right: 129px;
-  margin-bottom: 84px;
+  margin: 0 71px;
   @media screen and (max-width: 1000px) {
     margin-left: 5%;
     margin-right: 5%;
