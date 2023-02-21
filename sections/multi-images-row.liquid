@@ -1,7 +1,19 @@
-{% if section.settings.row_icon_title != blank %}
-  <h2>
-    {{ section.settings.row_icon_title }}
-  </h2>
+{% if section.settings.tittle != blank | | section.settings.sub_tittle != blank %}
+  <div>
+    {% if section.settings.tittle != blank %}
+      <h2>
+        <div class="icon-anatae">
+          {% render "icon-anatae-identite-symbole" %}
+        </div>
+        {{ section.settings.tittle }}
+      </h2>
+    {% endif %}
+    {% if section.settings.sub_tittle != blank %}
+      <h3>
+        {{ section.settings.sub_tittle }}
+      </h3>
+    {% endif %}
+  </div>
 {% endif %}
 
 <div class="flex elements__images">
@@ -27,11 +39,11 @@
     "tag": "section",
     "settings": [
       {
-        "type": "text",
+        "type": "textarea",
         "id": "tittle",
         "label": "Title"
       }, {
-        "type": "text",
+        "type": "textarea",
         "id": "sub_tittle",
         "label": "sub_Title"
       }

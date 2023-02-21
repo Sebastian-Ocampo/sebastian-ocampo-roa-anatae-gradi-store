@@ -3,12 +3,10 @@
 $margin-icon: 30px;
 
 .row__images {
-  display: flex;
-  flex-direction: row;
   .elements__images {
     flex-wrap: wrap;
     --gap-flex: 0;
-    --justify: space-between;
+    --justify: center;
     text-align: center;
     //
     .element__image {
@@ -25,18 +23,16 @@ $margin-icon: 30px;
   }
 
   @media screen and (max-width: 992px) {
-    .row__images {
-      .elements__images {
-        --justify: flex-start;
-        overflow-x: auto;
-        flex-wrap: nowrap;
-        margin-left: -1rem;
-        margin-right: -1rem;
+    .elements__images {
+      --justify: flex-start;
+      overflow-x: auto;
+      flex-wrap: nowrap;
+      margin-left: -1rem;
+      margin-right: -1rem;
 
-        .element__image {
-          flex-shrink: 0;
-          width: auto;
-        }
+      .element__image {
+        flex-shrink: 0;
+        width: auto;
       }
     }
   }
