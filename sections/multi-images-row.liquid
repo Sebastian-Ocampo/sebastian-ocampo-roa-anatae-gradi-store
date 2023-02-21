@@ -1,9 +1,9 @@
-<div>
+<div class="titles">
   {% if section.settings.tittle != blank %}
+    <div class="icon-anatae">
+      {% render "icon-anatae-identite-symbole" %}
+    </div>
     <h2>
-      <div class="icon-anatae">
-        {% render "icon-anatae-identite-symbole" %}
-      </div>
       {{ section.settings.tittle }}
     </h2>
   {% endif %}

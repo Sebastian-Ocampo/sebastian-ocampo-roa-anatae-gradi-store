@@ -3,6 +3,22 @@
 $margin-icon: 30px;
 
 .row__images {
+  .titles {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+
+    h2 {
+      font-family: "Rubik-Light";
+    }
+
+    h2::after {
+      content: "";
+      font-weight: bold;
+    }
+  }
+
   .elements__images {
     flex-wrap: wrap;
     --gap-flex: 0;
