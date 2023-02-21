@@ -283,34 +283,34 @@
       "settings": {
       }
     },
-    "c436dc5f-e139-4561-84bb-a72f23db98cd": {
+    "bae1dd7b-d52c-49fb-a0d9-922d23016ada": {
       "type": "multi-images-row",
       "blocks": {
-        "template--17809333780770__c436dc5f-e139-4561-84bb-a72f23db98cd-1676980935bbab2051-0": {
+        "template--17809333780770__bae1dd7b-d52c-49fb-a0d9-922d23016ada-1676980935bbab2051-0": {
           "type": "content",
           "settings": {
-            "row_image": "shopify:\/\/shop_images\/Screen_Shot_2022-03-22_at_4.11.jpg"
+            "row_image": "shopify:\/\/shop_images\/Mask_group.jpg"
           }
         },
-        "template--17809333780770__c436dc5f-e139-4561-84bb-a72f23db98cd-1676980935bbab2051-1": {
+        "template--17809333780770__bae1dd7b-d52c-49fb-a0d9-922d23016ada-1676980935bbab2051-1": {
           "type": "content",
           "settings": {
             "row_image": "shopify:\/\/shop_images\/Mask_group_1.jpg"
           }
         },
-        "template--17809333780770__c436dc5f-e139-4561-84bb-a72f23db98cd-1676980935bbab2051-2": {
+        "template--17809333780770__bae1dd7b-d52c-49fb-a0d9-922d23016ada-1676980935bbab2051-2": {
           "type": "content",
           "settings": {
             "row_image": "shopify:\/\/shop_images\/Mask_group_2.jpg"
           }
         },
-        "template--17809333780770__c436dc5f-e139-4561-84bb-a72f23db98cd-1676980935bbab2051-3": {
+        "template--17809333780770__bae1dd7b-d52c-49fb-a0d9-922d23016ada-1676980935bbab2051-3": {
           "type": "content",
           "settings": {
             "row_image": "shopify:\/\/shop_images\/Mask_group_3.jpg"
           }
         },
-        "fb66fc69-9ed0-48a5-a620-955d967a0c89": {
+        "02beb60c-02e3-4529-bb5f-1a487dd04d94": {
           "type": "content",
           "settings": {
             "row_image": "shopify:\/\/shop_images\/Mask_group_4.jpg"
@@ -318,15 +318,15 @@
         }
       },
       "block_order": [
-        "template--17809333780770__c436dc5f-e139-4561-84bb-a72f23db98cd-1676980935bbab2051-0",
-        "template--17809333780770__c436dc5f-e139-4561-84bb-a72f23db98cd-1676980935bbab2051-1",
-        "template--17809333780770__c436dc5f-e139-4561-84bb-a72f23db98cd-1676980935bbab2051-2",
-        "template--17809333780770__c436dc5f-e139-4561-84bb-a72f23db98cd-1676980935bbab2051-3",
-        "fb66fc69-9ed0-48a5-a620-955d967a0c89"
+        "template--17809333780770__bae1dd7b-d52c-49fb-a0d9-922d23016ada-1676980935bbab2051-0",
+        "template--17809333780770__bae1dd7b-d52c-49fb-a0d9-922d23016ada-1676980935bbab2051-1",
+        "template--17809333780770__bae1dd7b-d52c-49fb-a0d9-922d23016ada-1676980935bbab2051-2",
+        "template--17809333780770__bae1dd7b-d52c-49fb-a0d9-922d23016ada-1676980935bbab2051-3",
+        "02beb60c-02e3-4529-bb5f-1a487dd04d94"
       ],
       "settings": {
-        "tittle": "",
-        "sub_tittle": ""
+        "tittle": "DANS NOS SOCIAUX",
+        "sub_tittle": "Retrouvez des dizaines d’avis clients laissés sur notre Instagram"
       }
     }
   },
@@ -338,6 +338,6 @@
     "838c11dc-1b23-4472-b1ae-65bf065acbec",
     "cdec48eb-6d24-4729-a4a6-230dd3af8642",
     "f8b615c2-cc08-41fb-97aa-a936a0d27a6d",
-    "c436dc5f-e139-4561-84bb-a72f23db98cd"
+    "bae1dd7b-d52c-49fb-a0d9-922d23016ada"
   ]
 }
