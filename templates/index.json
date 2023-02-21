@@ -189,7 +189,8 @@
             "is_revert": false,
             "title_btn-it": "",
             "link_btn": "",
-            "image": "shopify:\/\/shop_images\/image-1_1-big_1.jpg"
+            "image": "shopify:\/\/shop_images\/image-1_1-big_1.jpg",
+            "image-background": "shopify:\/\/shop_images\/Vector.svg"
           }
         }
       },
