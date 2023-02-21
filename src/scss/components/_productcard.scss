@@ -1,28 +1,18 @@
 @use "../abstracts/variables";
 .product-card {
   display: flex;
+  flex-direction: column;
   overflow: hidden;
-  // flex-direction: row;
   border: none;
   border-radius: 10px;
-  // text-decoration: none;
   &--head {
-    // background-color: yellow;
     text-decoration: none;
     display: flex;
-    // flex-direction: column;
+    flex-direction: column;
     &-images {
       position: relative;
       overflow: hidden;
       padding-bottom: 100%;
-      img {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-      }
     }
     &-info {
       display: flex;
