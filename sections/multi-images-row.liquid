@@ -1,0 +1,91 @@
+{% if section.settings.row_icon_title != blank %}
+  <h2>
+    {{ section.settings.row_icon_title }}
+  </h2>
+{% endif %}
+
+<div class="flex elements__icons">
+  {% for block in section.blocks %}
+    <div class="element__icon">
+      {% if block.settings.row_icon_image != blank %}
+        {% assign url = block.settings.row_icon_image | append: '.svg' | file_url %}
+        {% render "render-image" 
+         class: "class_image",
+         img_src: url,
+         alt: block.settings.row_icon_image,
+         width: "57",
+         height: "57" %}
+      {% endif %}
+
+      {% if block.settings.heading != blank or block.settings.row_icon_description != blank %}
+        <div class="element__icon--description">
+          {% if block.settings.heading != blank %}
+            <h3>
+              {{ block.settings.heading }}
+            </h3>
+          {% endif %}
+
+          {% if block.settings.row_icon_description != blank %}
+            {{ block.settings.row_icon_description }}
+          {% endif %}
+        </div>
+      {% endif %}
+    </div>
+  {% endfor %}
+</div>
+
+{% schema %}
+  {
+    "name": "Row icons",
+    "class": "row__icons wrapper",
+    "tag": "section",
+    "settings": [
+      {
+        "type": "text",
+        "id": "row_icon_title",
+        "label": "Title"
+      }
+    ],
+    "max_blocks": 5,
+    "blocks": [
+      {
+        "name": "List items",
+        "type": "icon",
+        "settings": [
+          {
+            "type": "text",
+            "id": "heading",
+            "label": "Title",
+            "default": "Icon"
+          }, {
+            "type": "text",
+            "id": "row_icon_description",
+            "label": "Description",
+            "default": "Lorem ipsum letto"
+          }, {
+            "type": "text",
+            "id": "row_icon_image",
+            "label": "Image Mobile",
+            "default": "icon"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Row icons",
+        "blocks": [
+          {
+            "type": "icon"
+          }, {
+            "type": "icon"
+          }, {
+            "type": "icon"
+          }, {
+            "type": "icon"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

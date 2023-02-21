@@ -1,0 +1,69 @@
+<div class="recomendation--icon">
+  {% render "icon-anatae-identite-symbole" %}
+</div>
+{% if section.settings.bold_title != blank %}
+  <h2 class="recomendation--title">
+    {{ section.settings.bold_title }} {{ section.settings.plane_title }}
+  </h2>
+  <h2 class="recomendation--description">
+    {{ section.settings.description }}
+  </h2>
+{% endif %}
+<div class="recomendation--content">
+  {% for block in section.blocks %}
+    {% assign product = block.settings.product %}
+    <div class="recomendation--content-products">
+      {% render 'product-card' 
+       product: product %}
+    </div>
+  {% endfor %}
+</div>
+{% schema %}
+  {
+    "name": "Recommendations",
+    "tag": "section",
+    "class": "recomendation",
+    "max_blocks": 4,
+    "blocks": [
+      {
+        "type": "product",
+        "name": "Product",
+        "settings": [
+          {
+            "type": "product",
+            "id": "product",
+            "label": "Product"
+          }
+        ]
+      }
+    ],
+    "settings": [
+      {
+        "type": "text",
+        "id": "bold_title",
+        "default": "NOS MEILLEURES ",
+        "label": "Bold Title"
+      }, {
+        "type": "text",
+        "id": "plane_title",
+        "default": "VENTES",
+        "label": "Plane Title"
+      }, {
+        "type": "text",
+        "id": "description",
+        "default": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit, vulputate eu.",
+        "label": "Description"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Recomendations",
+        "blocks": [
+          {
+            "type": "product"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

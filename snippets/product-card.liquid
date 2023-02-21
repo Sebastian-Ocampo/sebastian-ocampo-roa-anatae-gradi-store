@@ -1,16 +1,13 @@
 {% comment %}
-  Renders a product card
-
-  Accepts:
-  - product: {Object} Product Liquid object
-  - variant: {Object} Specific variant to add to cart
-
-  Usage:
-  {% render 'product-card'
-    product: product
-  %}
+Renders a product card
+Accepts:
+- product: {Object} Product Liquid object
+- variant: {Object} Specific variant to add to cart
+Usage:
+{% render 'product-card'
+product: product
+%}
 {% endcomment %}
-
 {% liquid
   assign current_variant = product.selected_or_first_available_variant
   if variant != blank
@@ -22,62 +19,55 @@
     assign hide_price = 'hidden'
   endif
 %}
-
-<div class="product-card product-js">
-  <a
+{% comment %} <div class="product-card product-js"> {% endcomment %}
+<div class="product-card">
+  <section
     title="{{ product.title }}"
     class="product-card--head"
-    href="{{ product.url }}"
-  >
+    href="{{ product.url }}">
     <div class="product-card--head-images">
-      {% render "render-image"
-        class: "productcard_image-2",
-        img_src: image_second,
-        img: product.images[1],
-        size: "110 150 300 400",
-        alt: "",
-        width: "100",
-        height: "100"
-      %}
-      {% render "render-image"
-        class: "productcard_image-1",
-        img_src: image_feature,
-        img: product.featured_image,
-        size: "110 150 300 400",
-        alt: "",
-        width: "100",
-        height: "100"
-      %}
+      {% render "render-image" 
+       class: "productcard_image-2",
+       img_src: image_second,
+       img: product.images[1],
+       size: "110 150 300 400",
+       alt: "",
+       width: "100",
+       height: "100" %}
+      {% render "render-image" 
+       class: "productcard_image-1",
+       img_src: image_feature,
+       img: product.featured_image,
+       size: "110 150 300 400",
+       alt: "",
+       width: "100",
+       height: "100" %}
     </div>
-    <div class="product-card--head-info">
-      <span>
-        {{ product.title }}
-      </span>
-
-      <span>
-        {% render 'price'
-          hide_price: hide_price
-          compare_at_price: current_variant.compare_at_price,
-          price: current_variant.price
-        %}
-      </span>
+    {% comment %} <div class="product-card--head-info"> {% endcomment %}
+    <div class="product-card--head--textcontent">
+      <h2>{{ product.title }}</h2>
+      <h3>{{ product.description }}</h3>
+      <div class="product-card--head--textcontent-review">
+        {% render 'review-anatae' %}
+      </div>
+      <hr>
+      <div class="product-card--head--textcontent-price">
+        <div>
+          <h3>À partir de</h3>
+        </div>
+        <div>
+          {% render 'price' 
+           hide_price: hide_price
+           compare_at_price: current_variant.compare_at_price,
+           price: current_variant.price %}
+        </div>
+      </div>
     </div>
   </a>
-  <form
-    class="product-card--form"
-    action="/cart/add">
-
-    <div class="product-card--form-variants">
-      {% render 'variants-form'
-        product: product
-        option_radio: 'Color'
-      %}
-    </div>
-
-    {% render 'button-add-cart'
-      btn_type: 'btn-2',
-      class: 'btn-add-to-cart',
-      available: product.selected_or_first_available_variant.available
-    %}
+  <form class="product-card--form" action="/cart/add">
+    {% render 'button-add-cart' 
+     btn_type: 'btn-2',
+     class: 'btn-add-to-cart',
+     available: product.selected_or_first_available_variant.available %}
   </form>
 </div>
