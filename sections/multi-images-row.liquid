@@ -1,20 +1,18 @@
-{% if section.settings.tittle != blank | | section.settings.sub_tittle != blank %}
-  <div>
-    {% if section.settings.tittle != blank %}
-      <h2>
-        <div class="icon-anatae">
-          {% render "icon-anatae-identite-symbole" %}
-        </div>
-        {{ section.settings.tittle }}
-      </h2>
-    {% endif %}
-    {% if section.settings.sub_tittle != blank %}
-      <h3>
-        {{ section.settings.sub_tittle }}
-      </h3>
-    {% endif %}
-  </div>
-{% endif %}
+<div>
+  {% if section.settings.tittle != blank %}
+    <h2>
+      <div class="icon-anatae">
+        {% render "icon-anatae-identite-symbole" %}
+      </div>
+      {{ section.settings.tittle }}
+    </h2>
+  {% endif %}
+  {% if section.settings.sub_tittle != blank %}
+    <h3>
+      {{ section.settings.sub_tittle }}
+    </h3>
+  {% endif %}
+</div>
 
 <div class="flex elements__images">
   {% for block in section.blocks %}
@@ -45,7 +43,8 @@
       }, {
         "type": "textarea",
         "id": "sub_tittle",
-        "label": "sub_Title"
+        "label": "sub_Title",
+        "default": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
       }
     ],
     "max_blocks": 5,
