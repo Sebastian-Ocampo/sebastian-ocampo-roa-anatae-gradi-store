@@ -2,7 +2,6 @@
 
 .image-text {
   display: flex;
-  flex-direction: row;
   margin: 60px 0;
   position: relative;
   box-sizing: border-box;
@@ -11,6 +10,14 @@
   @media screen and (max-width: 992px) {
     flex-direction: column;
     text-align: left;
+  }
+
+  .is_revert {
+    flex-direction: row-reverse;
+  }
+
+  .is_row {
+    flex-direction: row;
   }
 
   .it__image {

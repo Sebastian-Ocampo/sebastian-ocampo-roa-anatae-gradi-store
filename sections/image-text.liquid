@@ -13,7 +13,7 @@ srcSet={{ section.settings.background_mobile | img_url }}
 
 <div class="wrapper">
   {% for block in section.blocks %}
-    <div class="image-text">
+    <div class="image-text {% if is_revert %}is_revert{% endif %} {% if !is_revert %}is_row{% endif %}">
       {% if block.settings.image != blank %}
         <div class="it__image">
           <picture>
@@ -91,12 +91,17 @@ srcSet={{ section.settings.background_mobile | img_url }}
             "default": "<p>Hello</p>"
           },
           {
+            "type": "checkbox",
+            "id": "is_revert",
+            "label": "invert content",
+            "default": false
+          },
+          {
             "type": "text",
             "id": "title_btn-it",
             "label": "Title btn",
             "default": "title btn"
-          },
-          {
+          }, {
             "type": "url",
             "id": "link_btn",
             "label": "Link btn"
