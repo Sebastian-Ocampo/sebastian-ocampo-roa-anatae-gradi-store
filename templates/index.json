@@ -201,6 +201,7 @@
     },
     "cdec48eb-6d24-4729-a4a6-230dd3af8642": {
       "type": "recomendations",
+      "disabled": true,
       "blocks": {
         "template--17809333780770__cdec48eb-6d24-4729-a4a6-230dd3af8642-1676948981c2ab0d8c-0": {
           "type": "product",
