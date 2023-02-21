@@ -16,7 +16,6 @@
         },
         "template--17809333780770__3283ca90-18fe-4491-bb46-4c955bc23a75-16762970245ec76e38-0": {
           "type": "content",
-          "disabled": true,
           "settings": {
             "heading": "あなたへ<br>100 clients nous font confiance<br>À <strong>NISHIO<\/strong> ET <strong>FUJIEDA, JAPON<\/strong>",
             "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit, vulputate eu pharetra nec, mattis ac neque..",
@@ -28,7 +27,6 @@
         },
         "b87555ca-4897-46b1-a440-b4b42678a5c5": {
           "type": "content",
-          "disabled": true,
           "settings": {
             "heading": "あなたへ<br>100 clients nous font confiance<br>À <strong>NISHIO<\/strong> ET <strong>FUJIEDA, JAPON<\/strong>",
             "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
