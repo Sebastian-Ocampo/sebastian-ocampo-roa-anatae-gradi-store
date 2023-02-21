@@ -2,11 +2,15 @@
 .product-card {
   display: flex;
   overflow: hidden;
+  // flex-direction: row;
   border: none;
   border-radius: 10px;
+  // text-decoration: none;
   &--head {
+    // background-color: yellow;
     text-decoration: none;
     display: flex;
+    // flex-direction: column;
     &-images {
       position: relative;
       overflow: hidden;
@@ -29,6 +33,7 @@
     }
     &--textcontent {
       margin: 24.5px;
+      margin-bottom: 0px;
       padding: 0px;
       & > h2 {
         margin: 0px;
@@ -42,6 +47,7 @@
       & > h3 {
         margin-top: 7px;
         margin-bottom: 7px;
+        // background-color: white;
         height: 48px;
         font-family: Roboto, sans-serif;
         font-style: normal;
@@ -54,6 +60,7 @@
         flex-grow: 0;
       }
       &-review {
+        // background-color: cyan;
         margin: 0px;
         margin-bottom: 24px;
       }
@@ -62,6 +69,7 @@
         border: 0.5px solid;
       }
       &-price {
+        // background-color: rgb(217, 58, 231);
         margin: 0px;
         height: 24px;
         margin-top: 24px;
@@ -71,6 +79,7 @@
           margin-top: 0px;
           padding-right: 9px;
           margin-bottom: 7px;
+          // background-color: white;
           height: 24px;
           font-family: Roboto, sans-serif;
           font-style: normal;
@@ -86,24 +95,31 @@
     }
   }
   &--form {
+    // background-color: red;
     display: flex;
     flex-direction: column;
-    margin-top: auto;
+    // margin-top: auto;
+    margin-top: 0px;
     &-variants {
       width: 95%;
-      margin: 0 auto 10px;
+      // margin: 0 auto 10px;
     }
-    .btn-1 {
-      background-color: #00602c;
-      border: none;
+    &-button {
+      background-color: variables.$anatae-dark-green;
+      max-width: 243px;
+      height: 56px;
       border-radius: 50px;
-      color: #ffffff;
-      font-family: "Rubik-Light";
+      border: none;
+      flex: none;
+      order: 3;
+      flex-grow: 0;
+      font-family: Rubik-Medium, sans-serif;
+      color: white;
       font-size: 16px;
-      font-weight: 500;
-      line-height: 19px;
+      margin-top: 0px;
       text-align: center;
-      width: 85%;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
     }
   }
 }

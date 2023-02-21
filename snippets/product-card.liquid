@@ -19,7 +19,6 @@ product: product
     assign hide_price = 'hidden'
   endif
 %}
-{% comment %} <div class="product-card product-js"> {% endcomment %}
 <div class="product-card">
   <section
     title="{{ product.title }}"
@@ -43,7 +42,6 @@ product: product
        width: "100",
        height: "100" %}
     </div>
-    {% comment %} <div class="product-card--head-info"> {% endcomment %}
     <div class="product-card--head--textcontent">
       <h2>{{ product.title }}</h2>
       <h3>{{ product.description }}</h3>
@@ -63,12 +61,15 @@ product: product
         </div>
       </div>
     </div>
-  </a>
+  </section>
   <form class="product-card--form" action="/cart/add">
-    {% render 'button-add-cart' 
-     btn_type: 'btn-2',
-     class: 'btn-1',
-     available: product.selected_or_first_available_variant.available,
-     text: "AJOUTER AU PANIER" %}
+    <div class="product-card--form-variants">
+      {% render 'variants-form' 
+       product: product
+       option_radio: 'Color' %}
+    </div>
+    <button class="product-card--form-button" type="submit">
+      AJOUTER AU PANIER
+    </button>
   </form>
 </div>
