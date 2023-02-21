@@ -23,6 +23,8 @@
   .it__description {
     width: 50%;
     position: relative;
+    display: flex;
+    align-items: center;
     h2 {
       font-family: "Rubik-Light";
       font-size: 30px;
@@ -47,8 +49,22 @@
     }
     .icon-background {
       position: absolute;
-      top: 0;
+      top: 15%;
       right: 0;
+    }
+    .btn-1 {
+      border-radius: 50px;
+      background-color: #00602c;
+      color: #ffffff;
+      width: 150px;
+      border: none;
+      font-weight: 500;
+      line-height: 19px;
+      text-align: center;
+      font-family: "Rubik-Light";
+      font-weight: 500;
+      font-size: 16px;
+      margin-top: 40px;
     }
   }
 }
