@@ -8,13 +8,13 @@
   {% for block in section.blocks %}
     <div class="element__image">
       {% if block.settings.row_image != blank %}
-        {% assign url = block.settings.row_image | append: '.svg' | file_url %}
+        {% assign img_src = block.settings.row_image | image_url: width: 603 %}
         {% render "render-image" 
-         class: "class_image",
-         img_src: url,
+         class: "class_row_image",
+         img_src: img_src,
          alt: block.settings.row_image,
-         width: "57",
-         height: "57" %}
+         width: "248",
+         height: "248" %}
       {% endif %}
     </div>
   {% endfor %}
