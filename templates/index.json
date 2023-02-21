@@ -241,6 +241,32 @@
       ],
       "settings": {
       }
+    },
+    "cdec48eb-6d24-4729-a4a6-230dd3af8642": {
+      "type": "recomendations",
+      "blocks": {
+        "template--17809333780770__cdec48eb-6d24-4729-a4a6-230dd3af8642-1676948981c2ab0d8c-0": {
+          "type": "product",
+          "settings": {
+            "product": "matcha-ceremonie"
+          }
+        },
+        "6b0ba488-3877-425f-9904-af30fb6ae835": {
+          "type": "product",
+          "settings": {
+            "product": "matcha-ceremonie"
+          }
+        }
+      },
+      "block_order": [
+        "template--17809333780770__cdec48eb-6d24-4729-a4a6-230dd3af8642-1676948981c2ab0d8c-0",
+        "6b0ba488-3877-425f-9904-af30fb6ae835"
+      ],
+      "settings": {
+        "bold_title": "NOS MEILLEURES",
+        "plane_title": "VENTES",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit, vulputate eu."
+      }
     }
   },
   "order": [
@@ -249,6 +275,7 @@
     "16479727170648f2b7",
     "main",
     "838c11dc-1b23-4472-b1ae-65bf065acbec",
-    "f8b615c2-cc08-41fb-97aa-a936a0d27a6d"
+    "f8b615c2-cc08-41fb-97aa-a936a0d27a6d",
+    "cdec48eb-6d24-4729-a4a6-230dd3af8642"
   ]
 }
