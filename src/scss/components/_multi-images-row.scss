@@ -8,14 +8,17 @@ $margin-icon: 30px;
     flex-direction: column;
     align-items: center;
     align-content: center;
-
+    color: variables.$anatae-dark-gray;
+    font-family: "Rubik-Light";
+    text-align: center;
     h2 {
-      font-family: "Rubik-Light";
+      b {
+        font-family: "Rubik-Medium";
+      }
     }
 
-    h2::after {
-      content: "";
-      font-weight: bold;
+    h3 {
+      font-family: "Roboto-Light";
     }
   }
 
