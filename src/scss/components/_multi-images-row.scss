@@ -3,6 +3,8 @@
 $margin-icon: 30px;
 
 .row__images {
+  display: flex;
+  flex-direction: row;
   .elements__images {
     flex-wrap: wrap;
     --gap-flex: 0;
@@ -11,8 +13,7 @@ $margin-icon: 30px;
     //
     .element__image {
       width: 100%;
-      box-sizing: border-box;
-      margin: 0 auto;
+      margin: 0;
       display: inline-block;
       align-items: center;
       padding: 0;
@@ -24,16 +25,18 @@ $margin-icon: 30px;
   }
 
   @media screen and (max-width: 992px) {
-    .elements__images {
-      --justify: flex-start;
-      overflow-x: auto;
-      flex-wrap: nowrap;
-      margin-left: -1rem;
-      margin-right: -1rem;
+    .row__images {
+      .elements__images {
+        --justify: flex-start;
+        overflow-x: auto;
+        flex-wrap: nowrap;
+        margin-left: -1rem;
+        margin-right: -1rem;
 
-      .element__image {
-        flex-shrink: 0;
-        width: auto;
+        .element__image {
+          flex-shrink: 0;
+          width: auto;
+        }
       }
     }
   }
@@ -54,10 +57,6 @@ $margin-icon: 30px;
       .element__image {
         width: 23%;
         padding: 0;
-
-        &.position__left {
-          justify-content: space-around;
-        }
       }
     }
   }
