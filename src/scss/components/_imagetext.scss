@@ -15,6 +15,9 @@
 
   .it__image {
     width: 50%;
+    @media screen and (max-width: 992px) {
+      width: 100%;
+    }
   }
 
   .it__description {
@@ -22,6 +25,9 @@
     position: relative;
     display: flex;
     align-items: center;
+    @media screen and (max-width: 992px) {
+      width: 100%;
+    }
     h2 {
       font-family: "Rubik-Light";
       font-size: 30px;
@@ -48,6 +54,9 @@
       position: absolute;
       top: 15%;
       right: 0;
+      @media screen and (max-width: 992px) {
+        z-index: -1;
+      }
     }
     .btn-1 {
       border-radius: 50px;
