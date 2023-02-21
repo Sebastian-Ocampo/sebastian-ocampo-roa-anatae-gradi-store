@@ -146,45 +146,6 @@
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit, vulputate eu."
       }
     },
-    "16479727170648f2b7": {
-      "type": "carousel-products",
-      "disabled": true,
-      "blocks": {
-        "16479727173cfca19d-0": {
-          "type": "product",
-          "settings": {
-            "product": "damp-glade"
-          }
-        },
-        "16479727173cfca19d-1": {
-          "type": "product",
-          "settings": {
-            "product": ""
-          }
-        },
-        "16479727173cfca19d-2": {
-          "type": "product",
-          "settings": {
-            "product": ""
-          }
-        },
-        "16479727173cfca19d-3": {
-          "type": "product",
-          "settings": {
-            "product": ""
-          }
-        }
-      },
-      "block_order": [
-        "16479727173cfca19d-0",
-        "16479727173cfca19d-1",
-        "16479727173cfca19d-2",
-        "16479727173cfca19d-3"
-      ],
-      "settings": {
-        "heading": "Heading carousel"
-      }
-    },
     "main": {
       "type": "hello-world",
       "disabled": true,
@@ -192,49 +153,6 @@
 
       ],
       "settings": {
-      }
-    },
-    "838c11dc-1b23-4472-b1ae-65bf065acbec": {
-      "type": "carousel-content",
-      "disabled": true,
-      "blocks": {
-        "template--17809333780770__838c11dc-1b23-4472-b1ae-65bf065acbec-1676301571ca3bfdd2-0": {
-          "type": "content",
-          "settings": {
-            "heading": "Heading card",
-            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-          }
-        },
-        "template--17809333780770__838c11dc-1b23-4472-b1ae-65bf065acbec-1676301571ca3bfdd2-1": {
-          "type": "content",
-          "settings": {
-            "heading": "Heading card",
-            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-          }
-        },
-        "template--17809333780770__838c11dc-1b23-4472-b1ae-65bf065acbec-1676301571ca3bfdd2-2": {
-          "type": "content",
-          "settings": {
-            "heading": "Heading card",
-            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-          }
-        },
-        "template--17809333780770__838c11dc-1b23-4472-b1ae-65bf065acbec-1676301571ca3bfdd2-3": {
-          "type": "content",
-          "settings": {
-            "heading": "Heading card",
-            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-          }
-        }
-      },
-      "block_order": [
-        "template--17809333780770__838c11dc-1b23-4472-b1ae-65bf065acbec-1676301571ca3bfdd2-0",
-        "template--17809333780770__838c11dc-1b23-4472-b1ae-65bf065acbec-1676301571ca3bfdd2-1",
-        "template--17809333780770__838c11dc-1b23-4472-b1ae-65bf065acbec-1676301571ca3bfdd2-2",
-        "template--17809333780770__838c11dc-1b23-4472-b1ae-65bf065acbec-1676301571ca3bfdd2-3"
-      ],
-      "settings": {
-        "heading": "Heading carousel"
       }
     },
     "f8b615c2-cc08-41fb-97aa-a936a0d27a6d": {
@@ -245,7 +163,7 @@
           "settings": {
             "title": "<b>UN THÉ VERT<\/b> <br>﻿AUX MILLE VERTUS",
             "description": "<div class=\"columns\">\n\t<div class=\"column\">\n\t\t<p>Antioxydant puissant<br>\nRenforce le système immunitaire<br>\nRelaxe<br>\nStimule<br>\nPrend soin de la peau<br>\nAugmente l’espérance de vie<\/p>\n\t<\/div>\n\t<div class=\"column\">\n\t\t<p>Brûle Les Graisses<br>\nAlcalinisant<br>\nRéduit les inflammations<br>\nBon pour la santé cardiaque<br>\nÉlimine les odeurs corporelles<\/p>\n\t<\/div>\n<\/div>",
-            "title_btn-it": "title btn",
+            "title_btn-it": "EN SAVOIR PLUS",
             "link_btn": "shopify:\/\/collections\/frontpage",
             "image": "shopify:\/\/shop_images\/Image_1_1.jpg",
             "image-background": "shopify:\/\/shop_images\/Vector.svg"
@@ -331,9 +249,7 @@
     "3283ca90-18fe-4491-bb46-4c955bc23a75",
     "481a7f54-c8ff-4dc8-ad2d-7b4dc5f9c5a7",
     "22998d49-8e38-445b-873d-19a87188b3ff",
-    "16479727170648f2b7",
     "main",
-    "838c11dc-1b23-4472-b1ae-65bf065acbec",
     "f8b615c2-cc08-41fb-97aa-a936a0d27a6d",
     "bae1dd7b-d52c-49fb-a0d9-922d23016ada"
   ]
