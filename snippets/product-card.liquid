@@ -67,7 +67,8 @@ product: product
   <form class="product-card--form" action="/cart/add">
     {% render 'button-add-cart' 
      btn_type: 'btn-2',
-     class: 'btn-add-to-cart',
-     available: product.selected_or_first_available_variant.available %}
+     class: 'btn-1',
+     available: product.selected_or_first_available_variant.available,
+     text: "AJOUTER AU PANIER" %}
   </form>
 </div>

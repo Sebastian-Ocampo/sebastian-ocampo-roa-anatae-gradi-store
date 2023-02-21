@@ -1,13 +1,15 @@
-<div class="recomendation--icon">
-  {% render "icon-anatae-identite-symbole" %}
-</div>
 {% if section.settings.bold_title != blank %}
-  <h2 class="recomendation--title">
-    {{ section.settings.bold_title }} {{ section.settings.plane_title }}
-  </h2>
-  <h2 class="recomendation--description">
+  <div>
+    <h2 class="recomendation--title">
+      <div class="icon-anatae">
+        {% render "icon-anatae-identite-symbole" %}
+      </div>
+      {{ section.settings.bold_title }} {{ section.settings.plane_title }}
+    </h2>
+  </div>
+  <h3 class="recomendation--description">
     {{ section.settings.description }}
-  </h2>
+  </h3>
 {% endif %}
 <div class="recomendation--content">
   {% for block in section.blocks %}

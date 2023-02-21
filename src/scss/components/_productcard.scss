@@ -36,7 +36,7 @@
       & > h2 {
         margin: 0px;
         font-family: Rubik-Medium, sans-serif;
-        color: variables.$color-anatae-dark-gray;
+        color: variables.$anatae-dark-gray;
         font-style: normal;
         font-weight: 500;
         font-size: 18px;
@@ -52,7 +52,7 @@
         font-weight: 400;
         font-size: 16px;
         line-height: 24px;
-        color: variables.$color-anatae-dark-gray;
+        color: variables.$anatae-dark-gray;
         flex: none;
         order: 1;
         flex-grow: 0;
@@ -63,7 +63,7 @@
         margin-bottom: 24px;
       }
       & > hr {
-        color: variables.$color-anatae-dark-green;
+        color: variables.$anatae-dark-green;
         border: 0.5px solid;
       }
       &-price {
@@ -84,7 +84,7 @@
           font-weight: 400;
           font-size: 16px;
           line-height: 24px;
-          color: variables.$color-anatae-dark-gray;
+          color: variables.$anatae-dark-gray;
           flex: none;
           order: 1;
           flex-grow: 0;
@@ -100,9 +100,17 @@
       width: 95%;
       margin: 0 auto 10px;
     }
-    button {
-      width: 95%;
-      margin: 0 auto 10px;
+    .btn-1 {
+      background-color: #00602c;
+      border: none;
+      border-radius: 50px;
+      color: #ffffff;
+      font-family: "Rubik-Light";
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 19px;
+      text-align: center;
+      width: 85%;
     }
   }
 }
