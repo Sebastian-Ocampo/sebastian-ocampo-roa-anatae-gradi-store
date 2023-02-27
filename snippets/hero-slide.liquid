@@ -1,70 +1,64 @@
 {% comment %}
-  Renders Hero Slide
+Renders Hero Slide
 
-  Accepts:
-  - title: {String} Title slide
-  - description: {String} Description slide
-  - ctatext: {String} Button text slide
-  - ctalink: {String} Button link slide
-  - imagedesktop: {Object} Image desktop slide
-  - imagemobile: {Object} Image mobile slide
+Accepts:
+- title: {String} Title slide
+- description: {String} Description slide
+- ctatext: {String} Button text slide
+- ctalink: {String} Button link slide
+- imagedesktop: {Object} Image desktop slide
+- imagemobile: {Object} Image mobile slide
+-count: {String} current position
 
-  Usage:
-  {% render 'hero-slide',
-    title: {title},
-    description: {description},
-    ctatext: {ctatext},
-    ctalink: {ctalink},
-    imagedesktop: {imagedesktop},
-    imagemobile: {imagemobile},
-  %}
+Usage:
+{% render 'hero-slide',
+title: {title},
+description: {description},
+ctatext: {ctatext},
+ctalink: {ctalink},
+imagedesktop: {imagedesktop},
+imagemobile: {imagemobile},
+%}
 {% endcomment %}
 
 <div class="hero--simple">
   {% if imagedesktop != blank %}
-  <div class="hero__image">
-    <picture>
-      {% assign img_src = imagedesktop | image_url: width: 1440 %}
-      {% if imagemobile != blank %}
-        {% assign img_src_mobile = imagemobile | image_url: width: 767 %}
-        <source
-          media="(max-width:767px)"
-          srcSet="{{ img_src_mobile }}"
-        />
-      {% endif %}
-      {% if index == 1 %}
-        <img
-          src="{{ img_src }}"
-          height="100"
-          width="100"
-          title="{{ imagedesktop.alt }}"
-          alt="{{ imagedesktop.alt }}"
-          loading="lazy"
-        />
-      {% else %}
-        {% render "render-image"
-          img_src: img_src,
-          img: imagedesktop,
-          size: "400 700 1000 1440",
-          alt: imagedesktop.alt,
-          width: "100",
-          height: "100"
-        %}
-      {% endif %}
-    </picture>
-  </div>
+    <div class="hero__image">
+      <picture>
+        {% assign img_src = imagedesktop | image_url: width: 1440 %}
+        {% if imagemobile != blank %}
+          {% assign img_src_mobile = imagemobile | image_url: width: 767 %}
+          <source media="(max-width:767px)" srcSet="{{ img_src_mobile }}" />
+        {% endif %}
+        {% if index == 1 %}
+          <img
+            src="{{ img_src }}"
+            height="100"
+            width="100"
+            title="{{ imagedesktop.alt }}"
+            alt="{{ imagedesktop.alt }}"
+            loading="lazy" />
+        {% else %}
+          {% render "render-image"
+           img_src: img_src,
+           img: imagedesktop,
+           size: "400 700 1000 1440",
+           alt: imagedesktop.alt,
+           width: "100",
+           height: "100" %}
+        {% endif %}
+      </picture>
+    </div>
   {% endif %}
 
-  <div
-    class="hero__description"
-  >
+  <div class="hero__description">
     {% render "text-buttons"
-      title: title,
-      description: description,
-      link: ctalink,
-      link_text: ctatext,
-      position: 'center',
-      class: 'hero__description-container'
-    %}
+     title: title,
+     description: description,
+     link: ctalink,
+     link_text: ctatext,
+     position: 'center',
+     class: 'hero__description-container',
+     count: count %}
   </div>
 </div>
