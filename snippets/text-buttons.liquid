@@ -1,44 +1,41 @@
 {% comment %}
-  Renders a section with title (h1), description and CTA
+Renders a section with title (h1), description and CTA
 
-  Accepts:
-  - title: {String}
-  - description: {String}
-  - link: {String}
-  - link_text: {String}
-  - class: {String}
+Accepts:
+- title: {String}
+- description: {String}
+- link: {String}
+- link_text: {String}
+- class: {String}
 
-  Usage:
-  {% render "text-buttons"
-    title: {String},
-    description: {String},
-    link: {String},
-    link_text: {String},
-    position: left|center|right,
-    class: {String}
-  %}
+Usage:
+{% render "text-buttons"
+title: {String},
+description: {String},
+link: {String},
+link_text: {String},
+position: left|center|right,
+class: {String}
+%}
 {% endcomment %}
 
-<div
-  class="{{ class }} text-buttons wrapper {{ position }}"
->
+<div class="{{ class }} text-buttons wrapper {{ position }}">
   {% if title != blank %}
-    <h1>
+    <h1 id="hero__h1">
       {{ title }}
     </h1>
   {% endif %}
 
   {% if description != blank %}
-    <div class="text-buttons__p">
+    <div class="text-buttons__p" id="text-buttons__p">
       {{ description }}
     </div>
   {% endif %}
 
   {% if link != blank and link_text != blank %}
     {% render 'link'
-      url: link,
-      content: link_text,
-      class: 'btn-1'
-    %}
+     url: link,
+     content: link_text,
+     class: 'btn-1' %}
   {% endif %}
 </div>

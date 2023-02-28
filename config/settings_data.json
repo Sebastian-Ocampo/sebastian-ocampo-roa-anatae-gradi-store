@@ -41,7 +41,7 @@
             "type": "newslatter",
             "settings": {
               "newsletter_heading": "",
-              "newsletter_sub": "Inscrivez-vous à la Newsletter pour être prévenu des offres et connaître nos actualités !"
+              "newsletter_sub": "<b>Inscrivez-vous<\/b> à la <b>Newsletter<\/b> pour être prévenu des <b>offres<\/b> et connaître nos <b>actualités !<\/b>"
             }
           },
           "footer-0": {

@@ -16,7 +16,6 @@
         },
         "template--17809333780770__3283ca90-18fe-4491-bb46-4c955bc23a75-16762970245ec76e38-0": {
           "type": "content",
-          "disabled": true,
           "settings": {
             "heading": "あなたへ<br>100 clients nous font confiance<br>À <strong>NISHIO<\/strong> ET <strong>FUJIEDA, JAPON<\/strong>",
             "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit, vulputate eu pharetra nec, mattis ac neque..",
@@ -28,7 +27,6 @@
         },
         "b87555ca-4897-46b1-a440-b4b42678a5c5": {
           "type": "content",
-          "disabled": true,
           "settings": {
             "heading": "あなたへ<br>100 clients nous font confiance<br>À <strong>NISHIO<\/strong> ET <strong>FUJIEDA, JAPON<\/strong>",
             "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
@@ -108,43 +106,44 @@
         "row_icon_title": ""
       }
     },
-    "16479727170648f2b7": {
-      "type": "carousel-products",
-      "disabled": true,
+    "22998d49-8e38-445b-873d-19a87188b3ff": {
+      "type": "recomendations-product",
       "blocks": {
-        "16479727173cfca19d-0": {
+        "template--17809333780770__22998d49-8e38-445b-873d-19a87188b3ff-1676996427d1e40a4d-0": {
           "type": "product",
           "settings": {
-            "product": "damp-glade"
+            "product": "matcha-ceremonie"
           }
         },
-        "16479727173cfca19d-1": {
+        "b96c8c4b-2bff-4623-9969-8d78931c553e": {
           "type": "product",
           "settings": {
-            "product": ""
+            "product": "matcha-ceremonie"
           }
         },
-        "16479727173cfca19d-2": {
+        "14dccbf3-0a67-43ff-bb43-081c9149e308": {
           "type": "product",
           "settings": {
-            "product": ""
+            "product": "matcha-ceremonie"
           }
         },
-        "16479727173cfca19d-3": {
+        "5e457482-fc61-4efb-a9dd-10832a71d134": {
           "type": "product",
           "settings": {
-            "product": ""
+            "product": "matcha-ceremonie"
           }
         }
       },
       "block_order": [
-        "16479727173cfca19d-0",
-        "16479727173cfca19d-1",
-        "16479727173cfca19d-2",
-        "16479727173cfca19d-3"
+        "template--17809333780770__22998d49-8e38-445b-873d-19a87188b3ff-1676996427d1e40a4d-0",
+        "b96c8c4b-2bff-4623-9969-8d78931c553e",
+        "14dccbf3-0a67-43ff-bb43-081c9149e308",
+        "5e457482-fc61-4efb-a9dd-10832a71d134"
       ],
       "settings": {
-        "heading": "Heading carousel"
+        "bold_title": "NOS MEILLEURES",
+        "plane_title": "VENTES",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit, vulputate eu."
       }
     },
     "main": {
@@ -156,55 +155,106 @@
       "settings": {
       }
     },
-    "838c11dc-1b23-4472-b1ae-65bf065acbec": {
-      "type": "carousel-content",
-      "disabled": true,
+    "f8b615c2-cc08-41fb-97aa-a936a0d27a6d": {
+      "type": "image-text",
       "blocks": {
-        "template--17809333780770__838c11dc-1b23-4472-b1ae-65bf065acbec-1676301571ca3bfdd2-0": {
+        "e897511a-b4e0-4ccd-bff9-4852a18af590": {
           "type": "content",
           "settings": {
-            "heading": "Heading card",
-            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+            "title": "<b>UN THÉ VERT<\/b> <br>﻿AUX MILLE VERTUS",
+            "description": "<div class=\"columns\">\n\t<div class=\"column\">\n\t\t<p>Antioxydant puissant<br>\nRenforce le système immunitaire<br>\nRelaxe<br>\nStimule<br>\nPrend soin de la peau<br>\nAugmente l’espérance de vie<\/p>\n\t<\/div>\n\t<div class=\"column\">\n\t\t<p>Brûle Les Graisses<br>\nAlcalinisant<br>\nRéduit les inflammations<br>\nBon pour la santé cardiaque<br>\nÉlimine les odeurs corporelles<\/p>\n\t<\/div>\n<\/div>",
+            "is_revert": false,
+            "title_btn-it": "EN SAVOIR PLUS",
+            "link_btn": "shopify:\/\/collections\/frontpage",
+            "image": "shopify:\/\/shop_images\/Image_1_1.jpg",
+            "image-background": "shopify:\/\/shop_images\/Vector.svg"
           }
         },
-        "template--17809333780770__838c11dc-1b23-4472-b1ae-65bf065acbec-1676301571ca3bfdd2-1": {
+        "340a0769-1ddf-439a-81f4-54ac4efdc752": {
           "type": "content",
           "settings": {
-            "heading": "Heading card",
-            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+            "title": "NOS <b>RACINES<\/b>",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit, vulputate eu pharetra nec, mattis ac neque. Duis vulputate commodo lectus, ac blandit elit tincidunt id. Sed rhoncus, tortor sed eleifend tristique, tortor mauris molestie elit, et lacinia ipsum quam nec dui. Quisque nec mauris sit amet elit iaculis pretium sit amet quis magna. Aenean velit odio, elementum in tempus ut, vehicula eu diam. \n\nPellentesque rhoncus aliquam mattis. Ut vulputate eros sed felis sodales nec vulputate justo hendrerit. Vivamus varius pretium ligula, a aliquam odio sit amet. Quisque laoreet sem sit amet orci ullamcorper at ultricies metus viverra. Pellentesque arcu mauris, malesuada quis ornare accumsan, blandit sed diam.",
+            "is_revert": true,
+            "title_btn-it": "L'HISTOIRE",
+            "link_btn": "shopify:\/\/collections\/frontpage",
+            "image": "shopify:\/\/shop_images\/image-1_1-big.jpg"
           }
         },
-        "template--17809333780770__838c11dc-1b23-4472-b1ae-65bf065acbec-1676301571ca3bfdd2-2": {
+        "c4a011f4-2a9d-4ac8-956d-321875ed4629": {
           "type": "content",
           "settings": {
-            "heading": "Heading card",
-            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-          }
-        },
-        "template--17809333780770__838c11dc-1b23-4472-b1ae-65bf065acbec-1676301571ca3bfdd2-3": {
-          "type": "content",
-          "settings": {
-            "heading": "Heading card",
-            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+            "title": "NOTRE <b>MISSION<\/b>",
+            "description": "Proposer un matcha de qualité :\nBiologique, savoureux, riche en bienfaits pour la santé et produit dans la tradition japonaise.\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit, vulputate eu pharetra nec, mattis ac neque. Duis vulputate commodo lectus, ac blandit elit tincidunt id. Sed rhoncus, tortor sed eleifend tristique, tortor mauris molestie elit, et lacinia ipsum quam nec dui. Quisque nec mauris sit amet elit iaculis pretium sit amet quis magna. Aenean velit odio, elementum in tempus ut, vehicula eu diam. \n\nPellentesque rhoncus aliquam mattis. Ut vulputate eros sed felis sodales nec vulputate justo hendrerit. Vivamus varius pretium ligula, a aliquam odio sit amet. \n\n﻿Quisque laoreet sem sit amet orci ullamcorper at ultricies metus viverra. Pellentesque arcu mauris, malesuada quis ornare accumsan, blandit sed diam.",
+            "is_revert": false,
+            "title_btn-it": "",
+            "link_btn": "",
+            "image": "shopify:\/\/shop_images\/image-1_1-big_1.jpg",
+            "image-background": "shopify:\/\/shop_images\/Vector.svg"
           }
         }
       },
       "block_order": [
-        "template--17809333780770__838c11dc-1b23-4472-b1ae-65bf065acbec-1676301571ca3bfdd2-0",
-        "template--17809333780770__838c11dc-1b23-4472-b1ae-65bf065acbec-1676301571ca3bfdd2-1",
-        "template--17809333780770__838c11dc-1b23-4472-b1ae-65bf065acbec-1676301571ca3bfdd2-2",
-        "template--17809333780770__838c11dc-1b23-4472-b1ae-65bf065acbec-1676301571ca3bfdd2-3"
+        "e897511a-b4e0-4ccd-bff9-4852a18af590",
+        "340a0769-1ddf-439a-81f4-54ac4efdc752",
+        "c4a011f4-2a9d-4ac8-956d-321875ed4629"
       ],
       "settings": {
-        "heading": "Heading carousel"
+      }
+    },
+    "bae1dd7b-d52c-49fb-a0d9-922d23016ada": {
+      "type": "multi-images-row",
+      "blocks": {
+        "template--17809333780770__bae1dd7b-d52c-49fb-a0d9-922d23016ada-1676980935bbab2051-0": {
+          "type": "content",
+          "settings": {
+            "row_image": "shopify:\/\/shop_images\/Mask_group.jpg"
+          }
+        },
+        "template--17809333780770__bae1dd7b-d52c-49fb-a0d9-922d23016ada-1676980935bbab2051-1": {
+          "type": "content",
+          "settings": {
+            "row_image": "shopify:\/\/shop_images\/Mask_group_1.jpg"
+          }
+        },
+        "template--17809333780770__bae1dd7b-d52c-49fb-a0d9-922d23016ada-1676980935bbab2051-2": {
+          "type": "content",
+          "settings": {
+            "row_image": "shopify:\/\/shop_images\/Mask_group_2.jpg"
+          }
+        },
+        "template--17809333780770__bae1dd7b-d52c-49fb-a0d9-922d23016ada-1676980935bbab2051-3": {
+          "type": "content",
+          "settings": {
+            "row_image": "shopify:\/\/shop_images\/Mask_group_7.jpg"
+          }
+        },
+        "02beb60c-02e3-4529-bb5f-1a487dd04d94": {
+          "type": "content",
+          "settings": {
+            "row_image": "shopify:\/\/shop_images\/Mask_group_4.jpg"
+          }
+        }
+      },
+      "block_order": [
+        "template--17809333780770__bae1dd7b-d52c-49fb-a0d9-922d23016ada-1676980935bbab2051-0",
+        "template--17809333780770__bae1dd7b-d52c-49fb-a0d9-922d23016ada-1676980935bbab2051-1",
+        "template--17809333780770__bae1dd7b-d52c-49fb-a0d9-922d23016ada-1676980935bbab2051-2",
+        "template--17809333780770__bae1dd7b-d52c-49fb-a0d9-922d23016ada-1676980935bbab2051-3",
+        "02beb60c-02e3-4529-bb5f-1a487dd04d94"
+      ],
+      "settings": {
+        "tittle": "DANS NOS <b>SOCIAUX<\/b>",
+        "sub_tittle": "Retrouvez des dizaines d’avis clients laissés sur notre Instagram"
       }
     }
   },
   "order": [
     "3283ca90-18fe-4491-bb46-4c955bc23a75",
     "481a7f54-c8ff-4dc8-ad2d-7b4dc5f9c5a7",
-    "16479727170648f2b7",
+    "22998d49-8e38-445b-873d-19a87188b3ff",
     "main",
-    "838c11dc-1b23-4472-b1ae-65bf065acbec"
+    "f8b615c2-cc08-41fb-97aa-a936a0d27a6d",
+    "bae1dd7b-d52c-49fb-a0d9-922d23016ada"
   ]
 }
