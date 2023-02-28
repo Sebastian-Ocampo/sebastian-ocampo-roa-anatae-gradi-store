@@ -3,66 +3,56 @@
   data-event="mouseenter"
   class="flex"
   data-toggle="true"
-  data-active="false"
->
-{% for link in linklists[linklist].links %}
-  {% if link.links != blank %}
-    <li class="nav-item nav-item-js">
-      <button
-        type="button"
-        class="button-dropdown-js"
-        data-active="false"
-      >
-        <span>{{ link.title }}</span>
-        {% render 'icon-caret' %}
-      </button>
-      <div class="dropdown">
-        <ul class="grid">
-          {% for childlink in link.links %}
-            <li>
-              <a
-                href="{{ childlink.url }}"
-                title="{{ childlink.title }}"
-                class="child-title"
-              >
-                {{ childlink.title }}
-              </a>
-              {% if childlink.links != blank %}
-                <ul class="child-list">
-                  {% for grandchildlink in childlink.links %}
-                    <li>
-                      <a
-                        href="{{ grandchildlink.url }}"
-                        title="{{ grandchildlink.title }}"
-                      >
-                        {{ grandchildlink.title }}
-                      </a>
-                    </li>
-                  {% endfor %}
-                </ul>
-              {% endif %}
-            </li>
-          {% endfor %}
-        </ul>
-      </div>
-    </li>
-  {% else %}
-    <li class="nav-item">
-      <a
-        href="{{ link.url }}"
-        title="{{ link.title }}"
-      >
-        {{ link.title }}
-      </a>
-    </li>
-  {% endif %}
-{% endfor %}
+  data-active="false">
+  {% for link in linklists[linklist].links %}
+    {% if link.links != blank %}
+      <li class="nav-item nav-item-js">
+        <button
+          type="button"
+          class="button-dropdown-js"
+          data-active="false">
+          <span>{{ link.title }}</span>
+          {% render 'icon-caret' %}
+        </button>
+        <div class="dropdown">
+          <ul>
+            {% for childlink in link.links %}
+              <li>
+                <a
+                  href="{{ childlink.url }}"
+                  title="{{ childlink.title }}"
+                  class="child-title">
+                  {{ childlink.title }}
+                </a>
+                {% if childlink.links != blank %}
+                  <ul class="child-list">
+                    {% for grandchildlink in childlink.links %}
+                      <li>
+                        <a href="{{ grandchildlink.url }}" title="{{ grandchildlink.title }}">
+                          {{ grandchildlink.title }}
+                        </a>
+                      </li>
+                    {% endfor %}
+                  </ul>
+                {% endif %}
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+      </li>
+    {% else %}
+      <li class="nav-item">
+        <a href="{{ link.url }}" title="{{ link.title }}">
+          {{ link.title }}
+        </a>
+      </li>
+    {% endif %}
+  {% endfor %}
 </ul>
 <button
   class="burger-nav"
   id="burger-nav-js"
-  type="button"
->
+  type="button">
   {% render 'icon-hamburger' %}
   {% render 'icon-close' %}
 </button>
