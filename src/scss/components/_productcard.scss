@@ -1,19 +1,18 @@
+@use "../abstracts/variables";
 .product-card {
   display: flex;
-  overflow: hidden;
   flex-direction: column;
-  border: 1px solid;
-  border-radius: 0px;
-
+  overflow: hidden;
+  border: none;
+  border-radius: 10px;
   &--head {
+    text-decoration: none;
     display: flex;
     flex-direction: column;
-    
     &-images {
       position: relative;
       overflow: hidden;
       padding-bottom: 100%;
-
       img {
         position: absolute;
         top: 0;
@@ -23,7 +22,6 @@
         object-fit: cover;
       }
     }
-
     &-info {
       display: flex;
       width: 95%;
@@ -31,21 +29,89 @@
       padding: 10px 0;
       margin: 0 auto 20px;
     }
+    &--textcontent {
+      margin: 24.5px;
+      margin-bottom: 0px;
+      padding: 0px;
+      & > h2 {
+        margin: 0px;
+        font-family: "Rubik-Medium";
+        color: variables.$anatae-dark-gray;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 26px;
+      }
+      & > h3 {
+        margin-top: 7px;
+        margin-bottom: 7px;
+        height: 48px;
+        font-family: "Roboto-Light";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 24px;
+        color: variables.$anatae-dark-gray;
+        flex: none;
+        order: 1;
+        flex-grow: 0;
+      }
+      &-review {
+        margin: 0px;
+        margin-bottom: 24px;
+      }
+      & > hr {
+        color: variables.$anatae-dark-green;
+        border: 0.5px solid;
+      }
+      &-price {
+        margin: 0px;
+        height: 24px;
+        margin-top: 24px;
+        margin-bottom: 25px;
+        display: flex;
+        h3 {
+          margin-top: 0px;
+          padding-right: 9px;
+          margin-bottom: 7px;
+          height: 24px;
+          font-family: "Roboto-Light";
+          font-style: normal;
+          font-weight: 400;
+          font-size: 16px;
+          line-height: 24px;
+          color: variables.$anatae-dark-gray;
+          flex: none;
+          order: 1;
+          flex-grow: 0;
+        }
+      }
+    }
   }
-
   &--form {
     display: flex;
     flex-direction: column;
-    margin-top: auto;
-
+    align-items: center;
+    margin-top: 0px;
     &-variants {
       width: 95%;
-      margin: 0 auto 10px;
     }
-
-    button {
-      width: 95%;
-      margin: 0 auto 10px;
+    &-button {
+      background-color: variables.$anatae-dark-green;
+      width: 80%;
+      height: 56px;
+      border-radius: 50px;
+      border: none;
+      flex: none;
+      order: 3;
+      flex-grow: 0;
+      font-family: "Rubik-Medium";
+      color: white;
+      font-size: 16px;
+      margin-top: 0px;
+      text-align: center;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
     }
   }
 }

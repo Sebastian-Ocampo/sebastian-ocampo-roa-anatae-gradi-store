@@ -1,0 +1,50 @@
+@use "../abstracts/variables";
+.recomendation {
+  height: auto;
+  margin: 0 71px;
+  @media screen and (max-width: 1000px) {
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+  &--icon {
+    padding-top: 61px;
+    text-align: center;
+  }
+  &--title {
+    text-align: center;
+    font-family: Rubik-Medium, sans-serif;
+    color: variables.$anatae-dark-gray;
+    font-weight: 700;
+    font-size: 30px;
+  }
+  &--description {
+    text-align: center;
+    font-family: Roboto, sans-serif;
+    color: variables.$anatae-dark-gray;
+    font-weight: 400;
+    line-height: 25px;
+    font-size: 18px;
+    height: auto;
+  }
+  &--content {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    @media screen and (max-width: 930px) {
+      justify-content: start;
+      overflow-x: scroll;
+      overscroll-behavior-x: contain;
+      scroll-snap-type: x proximity;
+    }
+    &-products {
+      border-radius: 10px;
+      border: 1px solid #e0e0e0;
+      width: 292px;
+      height: 607px;
+      scroll-snap-align: center;
+    }
+  }
+}

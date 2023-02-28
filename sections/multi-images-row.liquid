@@ -1,0 +1,82 @@
+<div class="titles">
+  {% if section.settings.tittle != blank %}
+    <div class="icon-anatae">
+      {% render "icon-anatae-identite-symbole" %}
+    </div>
+    <h2>
+      {{ section.settings.tittle }}
+    </h2>
+  {% endif %}
+  {% if section.settings.sub_tittle != blank %}
+    <h3>
+      {{ section.settings.sub_tittle }}
+      {% render "icon-heart-fill" %}
+    </h3>
+  {% endif %}
+</div>
+
+<div class="flex elements__images">
+  {% for block in section.blocks %}
+    <div class="element__image">
+      {% if block.settings.row_image != blank %}
+        {% assign img_src = block.settings.row_image | image_url: width: 603 %}
+        {% render "render-image" 
+         class: "class_row_image",
+         img_src: img_src,
+         alt: block.settings.row_image,
+         width: "248",
+         height: "248" %}
+      {% endif %}
+    </div>
+  {% endfor %}
+</div>
+
+{% schema %}
+  {
+    "name": "Row images",
+    "class": "row__images wrapper",
+    "tag": "section",
+    "settings": [
+      {
+        "type": "text",
+        "id": "tittle",
+        "label": "Title"
+      }, {
+        "type": "text",
+        "id": "sub_tittle",
+        "label": "sub_Title",
+        "default": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+      }
+    ],
+    "max_blocks": 5,
+    "blocks": [
+      {
+        "name": "List items",
+        "type": "content",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "row_image",
+            "label": "Image"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Row images",
+        "blocks": [
+          {
+            "type": "content"
+          }, {
+            "type": "content"
+          }, {
+            "type": "content"
+          }, {
+            "type": "content"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}
