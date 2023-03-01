@@ -1,26 +1,25 @@
 <!-- eslint-disable @html-eslint/require-closing-tags -->
 {% comment %}
-  Renders slide component
+Renders slide component
 
-  Accepts:
-  - content: {Html} Internal sliders **init with for (iteration)
-  - arrows: {Boolean} Show arrows
-  - pagination: {Boolean} show pagination
-  - perpage: {Number} items per page
-  - wrapper: {String} class to style
+Accepts:
+- content: {Html} Internal sliders **init with for (iteration)
+- arrows: {Boolean} Show arrows
+- pagination: {Boolean} show pagination
+- perpage: {Number} items per page
+- wrapper: {String} class to style
 
-  NOTE: In <content> use className "swiper-slide" in the first item
+NOTE: In <content> use className "swiper-slide" in the first item
 
-  Usage:
-  {% render 'slide',
-    wrapper: 'string query'
-    content: snippet_content,
-    arrows: true,
-    pagination: true,
-    perpage: 1
-  %}
-{% endcomment %}
-<!-- eslint-enable @html-eslint/require-closing-tags -->
+Usage:
+{% render 'slide',
+wrapper: 'string query'
+content: snippet_content,
+arrows: true,
+pagination: true,
+perpage: 1
+%}
+{% endcomment %}<!-- eslint-enable @html-eslint/require-closing-tags -->
 
 {% liquid
   if arrows and pagination
@@ -38,12 +37,11 @@
   endif
 %}
 
-<div class="{{ wrapper }} wrapper__slider">
+  <div class="{{ wrapper }} wrapper__slider">
   <!-- Slider main container -->
   <div
     id="slider_{{ section.id }}"
-    class="swiper {{ type_slide }}"
-  >
+    class="swiper {{ type_slide }}">
     <!-- Additional required wrapper -->
     <div class="swiper-wrapper">
       <!-- Slides from props snippet -->
@@ -54,9 +52,7 @@
     {% if pagination %}
       <div
         data-id="slider_{{ section.id }}"
-        class="swiper-pagination"
-      >
-      </div>
+        class="swiper-pagination"></div>
     {% endif %}
   </div>
 
@@ -66,21 +62,19 @@
       type="button"
       data-id="slider_{{ section.id }}"
       class="swiper-button swiper-button-prev
-      {% if item_max < 4 %}
+      {% if item_max < 2 %}
         hidden-arrows
-      {% endif %}"
-    >
-      prev
+      {% endif %}">
+      {% render 'icon-previous' %}
     </button>
     <button
       type="button"
       data-id="slider_{{ section.id }}"
       class="swiper-button swiper-button-next
-      {% if item_max < 4 %}
+      {% if item_max < 2 %}
         hidden-arrows
-      {% endif %}"
-    >
-      next
+      {% endif %}">
+      {% render 'icon-next' %}
     </button>
   {% endif %}
 </div>
