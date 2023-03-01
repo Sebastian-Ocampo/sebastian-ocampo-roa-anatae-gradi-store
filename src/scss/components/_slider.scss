@@ -5,21 +5,25 @@
   .swiper-wrapper {
     position: relative;
   }
-  
+
   button.swiper-button {
     position: absolute;
     z-index: 1;
     top: 50%;
     border-style: none;
     transform: translateY(-50px);
-    
+    background-color: transparent;
+    @media screen and (max-width: 776px) {
+      display: none;
+    }
+
     &.swiper-button {
       &-prev {
-        left: 0;
+        left: 39px;
       }
 
       &-next {
-        right: 0;
+        right: 39px;
       }
 
       &.hidden-arrows {
@@ -32,6 +36,5 @@
         }
       }
     }
-
   }
 }

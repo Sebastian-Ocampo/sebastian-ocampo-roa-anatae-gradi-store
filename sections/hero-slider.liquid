@@ -6,13 +6,14 @@
   endif
 -%}
 
-<div style="display: none;"></div>
+<div
+  style="display: none;"></div>
 
 {% capture snippet_content %}
   {% assign count = 0 %}
   {% for block in section.blocks %}
-    {% count += 1 %}
-    <div class="swiper-slide">
+    <div
+      class="swiper-slide">
       {% render 'hero-slide'
        , index: forloop.index
        title: block.settings.heading,
@@ -29,8 +30,9 @@
 {% render 'slider'
  wrapper: 'hero--slider'
  content: snippet_content,
- arrows: false,
+ arrows: showPagination,
  pagination: showPagination,
+ item_max: section.blocks.size,
  perpage: 1 %}
 <!-- eslint-disable max-len -->
 {% schema %}
