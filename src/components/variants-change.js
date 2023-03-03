@@ -63,6 +63,7 @@ function updateButton(available, parent, newText) {
  *
  * @author Andres Briñez
  * @author Cristian Velasco
+ * @author Edinson Figueroa
  * @version 2.0
  */
  export async function queryVariants({ target }) {

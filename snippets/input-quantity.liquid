@@ -1,0 +1,29 @@
+{%-liquid
+  assign class = id | prepend: 'id-'
+-%}
+
+<div
+  class="quantity-label"
+>
+  <button type="button"
+    data-action="subtr"
+  >
+    -
+  </button>
+
+  <input
+    class="input-quantity item-cart-js"
+    type="number"
+    id="{{ id }}-{{ index }}"
+    min="0"
+    data-index='{{ index }}'
+    value="{{ cart_item.quantity }}"
+  />
+
+  <button type="button"
+    data-action="plus"
+  >
+    +
+  </button>
+
+</div>

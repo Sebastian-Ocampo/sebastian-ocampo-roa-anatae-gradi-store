@@ -1,0 +1,140 @@
+@use '../abstracts/variables';
+
+.overlay {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  right: 0;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 1;
+}
+
+.cart {
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  visibility: hidden;
+  opacity:0;
+  height: 100%;
+  width: 500px;
+  position: fixed;
+  right: 0;
+  top: 0;
+  background-color: #FFF;
+  overflow-y: auto;
+  z-index: 1;
+  transform:translateX(400px);
+  transition:all 0.4s ease;
+
+  @media screen and (max-width: 767px) {
+    width: 100%;
+  }
+
+  &[data-active="true"] {
+    opacity:1;
+    visibility: visible;
+    transform:translateX(0px);
+  }
+
+  &-wrapper {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    height: 100%;
+
+    & > * {
+      padding-top: 10px;
+      padding-bottom: 10px;
+      border-top: 1px solid #000;
+    }
+
+    & > *:first-of-type {
+      border: 0;
+    }
+  }
+
+  &-margins__inline {
+    margin: 0 auto;
+    width: 90%;
+  }
+
+  &-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 0;
+    z-index: 2;
+
+    svg {
+      width: 20px;
+      height: 20px;
+    }
+  }
+
+  &-header {
+    position: sticky;
+    top: 0;
+    background-color: #FFF;
+    z-index: 1;
+
+    .cart-close {
+      cursor: pointer;
+    }
+
+  }
+
+  &-items {
+    height: 100%;
+
+    &__container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-column-gap: 10px;
+      --loading-color: #000;
+
+      &--product-title {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        grid-column-gap: 10px;
+      }
+
+      &--product-info {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+
+        .item-price {
+          display: flex;
+        }
+        .item-delete, .item-quantity button {
+          cursor: pointer;
+        }
+      }
+    }
+  }
+
+  &-upsell {
+    &-container-product {
+      .upsell-btn {
+        padding: 10px;
+        width: 100%;
+      }
+    }
+  }
+
+  &-footer {
+    text-align: center;
+    position: sticky;
+    bottom: 0;
+    background-color: #FFF;
+    z-index: 1;
+
+    &__button {
+      &--btn {
+        width: 100%;
+      }
+    }
+  }
+}
