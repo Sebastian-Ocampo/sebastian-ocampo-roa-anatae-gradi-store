@@ -28,12 +28,10 @@
   }
   &--content {
     width: 100%;
-    margin-left: auto;
-    margin-right: auto;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    @media screen and (max-width: 930px) {
+    @media screen and (max-width: 830px) {
       justify-content: start;
       overflow-x: scroll;
       overscroll-behavior-x: contain;
@@ -42,9 +40,13 @@
     &-products {
       border-radius: 10px;
       border: 1px solid #e0e0e0;
-      width: 292px;
-      height: 607px;
+      width: 23%;
+      height: auto;
       scroll-snap-align: center;
+      @media screen and (max-width: 830px) {
+        margin-right: 25px;
+        width: 200px;
+      }
     }
   }
 }

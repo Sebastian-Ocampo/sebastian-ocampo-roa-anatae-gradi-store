@@ -1,0 +1,37 @@
+{% comment %}
+  Render side cart header
+
+  Accepts:
+  - title: {String} title of header
+
+  Usage:
+  {% render 'cart-header'
+    title: section.settings.cart_title
+  %}
+{% endcomment %}
+
+<div class="cart-header">
+  <span class="cart-close">
+    {% render 'icon-close' %}
+  </span>
+  <div class="cart-margins__inline">
+
+    <div class="cart-header__title">
+      <span class="cart-header__title--text">
+        {{ title }}
+      </span>
+    </div>
+    <div class="cart-header__discount">
+      {% liquid
+        assign cart_total = cart.original_total_price
+      %}
+      {% render 'cart-progress-bar'
+        title: progressbar_title,
+        total_price: cart_total,
+        limit_price: limit_price,
+        text_free_shipping: text_free_shipping
+      %}
+    </div>
+
+  </div>
+</div>
