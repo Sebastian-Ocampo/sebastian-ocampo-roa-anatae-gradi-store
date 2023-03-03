@@ -1,0 +1,30 @@
+{%- assign title_residuary = title | split: '['  -%}
+{%- assign total_residuary = '0€'  -%}
+{%- assign title_text = title_residuary | first  -%}
+{%- assign title_text_last = title_residuary | last | split: ']' | last  -%}
+<input
+  type="hidden"
+  id="progress-bar-data"
+  data-total="{{ total_price }}"
+  data-limit="{{ limit_price }}"
+>
+
+<span class="progress-text-js">
+  {{ title_text }}
+  <span
+    class="total-residuary"
+  >
+    {{ total_residuary }}
+  </span>
+  {{ title_text_last }}
+</span>
+
+<span class="shipping-free">
+  {{ text_free_shipping }}
+</span>
+
+<div class="bar">
+  <div class="bar-progress">
+    <span></span>
+  </div>
+</div>
