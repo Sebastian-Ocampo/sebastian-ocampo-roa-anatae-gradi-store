@@ -31,8 +31,8 @@
     {{ product.description }}
   </p>
   <form
+    class="add-cart-js add-product-cart"
     data-product="{{ product.id }}"
-    action="/cart/add"
   >
 
     {% render 'variants-form'

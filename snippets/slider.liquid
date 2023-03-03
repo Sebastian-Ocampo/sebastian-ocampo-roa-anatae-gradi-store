@@ -49,32 +49,28 @@ perpage: 1
     </div>
 
     <!-- If we need pagination -->
-    {% if pagination %}
-      <div
-        data-id="slider_{{ section.id }}"
-        class="swiper-pagination"></div>
-    {% endif %}
+    <div
+      data-id="slider_{{ section.id }}"
+      class="swiper-pagination"></div>
   </div>
 
   <!-- If we need navigation buttons -->
-  {% if arrows %}
-    <button
-      type="button"
-      data-id="slider_{{ section.id }}"
-      class="swiper-button swiper-button-prev
-      {% if item_max < 2 %}
-        hidden-arrows
-      {% endif %}">
-      {% render 'icon-previous' %}
-    </button>
-    <button
-      type="button"
-      data-id="slider_{{ section.id }}"
-      class="swiper-button swiper-button-next
-      {% if item_max < 2 %}
-        hidden-arrows
-      {% endif %}">
-      {% render 'icon-next' %}
-    </button>
-  {% endif %}
+  <button
+    type="button"
+    data-id="slider_{{ section.id }}"
+    class="swiper-button swiper-button-prev
+    {% if item_max < 2 %}
+      hidden-arrows
+    {% endif %}">
+    {% render 'icon-previous' %}
+  </button>
+  <button
+    type="button"
+    data-id="slider_{{ section.id }}"
+    class="swiper-button swiper-button-next
+    {% if item_max < 2 %}
+      hidden-arrows
+    {% endif %}">
+    {% render 'icon-next' %}
+  </button>
 </div>

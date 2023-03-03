@@ -54,6 +54,7 @@
         name="{{ name }}"
         id="{{ id }}"
         placeholder="{{ placeholder }}"
+        {{ params }}
         {%- if required -%}required{%- endif -%}
         {%- if value -%}value="{{ value }}"{%- endif -%}
       />
@@ -79,6 +80,7 @@
 
   <div class="{{ class }}">
     {{ input }}
+
     <label for="{{ id }}">
       {{ placeholder }}
     </label>

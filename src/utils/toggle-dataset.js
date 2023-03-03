@@ -37,6 +37,7 @@ import { $Q } from "./query-selector"
 * @param {Boolean} overlay - if used to a overlay
 */
 export function dataToggle(node, overlay) {
+
   const { dataset, id } = node;
   const active = isActive(dataset);
 
@@ -46,10 +47,8 @@ export function dataToggle(node, overlay) {
     dataset.active = "true";
   }
 
-  // eslint-disable-next-line no-unused-expressions
-  overlay && overlayActions(id, active, node);
+  if (overlay) overlayActions(id, active, node);
 }
-
 /**
  * Data Active toggle
  *
