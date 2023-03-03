@@ -19,13 +19,15 @@ product: product
     assign hide_price = 'hidden'
   endif
 %}
-<div class="product-card">
+<div
+  class="product-card">
   <section
     title="{{ product.title }}"
     class="product-card--head"
     href="{{ product.url }}">
-    <div class="product-card--head-images">
-      {% render "render-image" 
+    <div
+      class="product-card--head-images">
+      {% render "render-image"
        class: "productcard_image-1",
        img_src: image_feature,
        img: product.featured_image,
@@ -34,34 +36,46 @@ product: product
        width: "100",
        height: "100" %}
     </div>
-    <div class="product-card--head--textcontent">
+    <div
+      class="product-card--head--textcontent">
       <h2>{{ product.title }}</h2>
       <h3>{{ product.description }}</h3>
-      <div class="product-card--head--textcontent-review">
+      <div
+        class="product-card--head--textcontent-review">
         {% render 'review-anatae' %}
       </div>
       <hr>
-      <div class="product-card--head--textcontent-price">
+      <div
+        class="product-card--head--textcontent-price">
         <div>
           <h3>À partir de</h3>
         </div>
         <div>
-          {% render 'price' 
+          {% render 'price'
            hide_price: hide_price
            compare_at_price: current_variant.compare_at_price,
            price: current_variant.price %}
         </div>
       </div>
     </div>
-  </section>
-  <form class="product-card--form" action="/cart/add">
-    <div class="product-card--form-variants">
-      {% render 'variants-form' 
+  </a>
+  <form
+    class="product-card--form add-product-cart"
+    action="/cart/add">
+    <div
+      class="product-card--form-variants">
+      {% render 'variants-form'
        product: product
        option_radio: 'Color' %}
     </div>
-    <button class="product-card--form-button" type="submit">
-      AJOUTER AU PANIER
-    </button>
+    <!--<button class="product-card--form-button" type="submit">
+    AJOUTER AU PANIER
+    </button>-->
+
+    {% render 'button-add-cart'
+     btn_type: 'btn-2',
+     class: 'btn-add-to-cart',
+     available: product.selected_or_first_available_variant.available %}
+
   </form>
 </div>
