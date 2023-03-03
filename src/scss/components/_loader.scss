@@ -1,12 +1,14 @@
-#loading {
+@use '../abstracts/variables';
+
+#loading, .loading {
   display: inline-block;
   width: 15px;
   height: 15px;
   border: 3px solid transparent;
-  border-top-color: #FFF;
-  -webkit-animation: spin .7s ease-in-out infinite;
-  animation: spin .7s ease-in-out infinite;
   border-radius: 50%;
+  border-top-color: var(--loading-color, variables.$color-white);
+  animation: spin .7s ease-in-out infinite;
+  -webkit-animation: spin .7s ease-in-out infinite;
 }
 
 @keyframes spin {

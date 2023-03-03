@@ -1,13 +1,17 @@
-<ul class="flex">
+<ul
+  class="flex">
   <li>
-    <a href="{{ routes.account_url }}">
+    <a
+      href="{{ routes.account_url }}">
       {% render 'icon-account' %}
     </a>
   </li>
   <li>
-    <a>
+    <button
+      type="button"
+      class="button-cart">
       {% render 'icon-cart' %}
-    </a>
+    </button>
   </li>
 </ul>
 {% render 'top-search' %}
