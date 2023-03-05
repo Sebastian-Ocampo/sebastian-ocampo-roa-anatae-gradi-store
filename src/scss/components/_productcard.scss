@@ -89,29 +89,34 @@
     }
   }
   &--form {
+    align-items: center;
     display: flex;
     flex-direction: column;
-    align-items: center;
     margin-top: 0px;
+    padding-bottom: 24px;
     &-variants {
       width: 95%;
     }
-    &-button {
+    .btn-add-to-cart {
       background-color: variables.$anatae-dark-green;
-      width: 80%;
-      height: 56px;
       border-radius: 50px;
       border: none;
+      color: white;
       flex: none;
-      order: 3;
       flex-grow: 0;
       font-family: "Rubik-Medium";
-      color: white;
-      font-size: 16px;
-      margin-top: 0px;
-      text-align: center;
+      font-size: 1rem;
+      font-weight: 500;
+      height: 56px;
       letter-spacing: 0.5px;
+      margin-top: 0px;
+      order: 3;
+      text-align: center;
       text-transform: uppercase;
+      width: 80%;
+      @media screen and (max-width: 750px) {
+        font-size: 0.8rem;
+      }
     }
   }
 }
