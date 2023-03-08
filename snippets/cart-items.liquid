@@ -1,90 +1,84 @@
 {% comment %}
-  Render a cart item
+Render a cart item
 
-  Accepts:
-  - cart: {Object} cart object
-  - cart_empty_message: {String} message if cart is empty
+Accepts:
+- cart: {Object} cart object
+- cart_empty_message: {String} message if cart is empty
 
-  Usage:
-  {% render 'cart-item'
-    cart: cart,
-    cart_empty_message: section.settings.cart_empty
-  %}
+Usage:
+{% render 'cart-item'
+cart: cart,
+cart_empty_message: section.settings.cart_empty
+%}
 {% endcomment %}
 
 <div class="cartitems-js">
-  <div
-    class="cart-items cart-margins__inline"
-    id="cart-items"
-  >
+  <div class="cart-items cart-margins__inline" id="cart-items">
     {% if cart.item_count == 0 %}
       <span class="cart-items__empty">
         {{ "sections.cart.empty" | t }}
       </span>
     {% else %}
-    {% for item in cart.items %}
-
-      <div
-        class="cart-items__container"
-        data-live-item-key="{{ item.key }}"
-      >
-
-        <div class="cart-items__container--product-title">
-          <div class="cart-items__container--image">
-            {% assign imgUrl = item.product.featured_media
-              | image_url: '82x110'
-            %}
-            {% assign image = item.product.featured_image %}
-            {% render "render-image"
-              class: "",
-              attr: "data-live-item-image",
-              img_src: imgUrl,
-              img: image,
-              width: "82",
-              height: "110"
-            %}
-          </div>
-
-          <div class="cart-items__container--title">
-            <span>
-              {{ item.product.title }}
-            </span>
-            <span>
-              {{ item.variant.title }}
-            </span>
+      {% for item in cart.items %}
+        <div class="cart-items__container" data-live-item-key="{{ item.key }}">
+          <div class="cart-items__container--product-title">
+            <div class="cart-items__container--image">
+              {% assign imgUrl = item.product.featured_media
+               | image_url: '82x110' %}
+              {% assign image = item.product.featured_image %}
+              {% render "render-image"
+               class: "",
+               attr: "data-live-item-image",
+               img_src: imgUrl,
+               img: image,
+               width: "105",
+               height: "105" %}
+            </div>
+            <div class="cart-items__container--title">
+              <p class="item-product-title">
+                {{ item.product.title }}
+              </p>
+              <p class="item-product-description">
+                {{ item.product.description }}
+              </p>
+              <p class="item-product-weight">
+                {{ item.product.weight | divided_by: 1000 }} kg
+              </p>
+            </div>
           </div>
         </div>
-
         <div class="cart-items__container--product-info">
           <div class="item-price">
-            <span
-              class="price-{{ item.variant.id }}-{{ forloop.index }}"
-              id="price-{{ item.variant.id }}-{{ forloop.index }}"
-              data-quantity="{{ item.quantity }}"
-            >
-              {{ item.original_line_price | money }}
+            <span class="quantite">
+              Quantité
             </span>
-
+            <div class="item-quantity">
+              {% render 'input-quantity'
+               id: item.variant.id,
+               cart_item: item,
+               index: forloop.index, %}
+            </div>
             <span
               class="item-delete"
               data-id="{{ item.variant.id }}"
-              data-index="{{ forloop.index }}"
-            >
+              data-index="{{ forloop.index }}">
               {% render 'icon-remove' %}
             </span>
+            <div class="flexend">
+              <span class="quantite">
+                Prix
+              </span>&nbsp;
+              <span
+                class="price-{{ item.variant.id }}-{{ forloop.index }} prix"
+                id="price-{{ item.variant.id }}-{{ forloop.index }}"
+                data-quantity="{{ item.quantity }}">
+                {{ item.original_line_price | money }}
+              </span>
+            </div>
           </div>
-
-          <div class="item-quantity">
-            {% render 'input-quantity'
-              id: item.variant.id,
-              cart_item: item,
-              index: forloop.index,
-            %}
-          </div>
+          <tr/>
         </div>
-      </div>
-
-    {% endfor %}
+      {% endfor %}
     {% endif %}
 
   </div>
