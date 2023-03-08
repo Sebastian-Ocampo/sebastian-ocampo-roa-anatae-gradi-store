@@ -1,35 +1,34 @@
 {% comment %}
-    Button
+Button
 
-    Accepts:
-    - class: {String} className in button (optional)
-    - content: {String} Text button
-    - type: {String} type button, 1/2/3 (Required)
-    - action: {String} type button, submit/button (Required)
+Accepts:
+- class: {String} className in button (optional)
+- content: {String} Text button
+- type: {String} type button, 1/2/3 (Required)
+- action: {String} type button, submit/button (Required)
 
-    Usage:
-    {% render 'button'
-      class: "btn-1",
-      content: "Register",
-      type: 1|2|3
-      action: "submit|button"
-    %}
+Usage:
+{% render 'button'
+class: "btn-1",
+content: "Register",
+type: 1|2|3|4
+action: "submit|button"
+%}
 {% endcomment %}
 
 {% case type %}
   {% when 1 %}
-    {%- assign class_type = 'btn-1' -%}
+  {%- assign class_type = 'btn-1' -%}
   {% when 2 %}
-    {%- assign class_type = 'btn-2' -%}
+  {%- assign class_type = 'btn-2' -%}
   {% when 3 %}
-    {%- assign class_type = 'btn-3' -%}
+  {%- assign class_type = 'btn-3' -%}
+  {% when 4 %}
+  {%- assign class_type = '' -%}
 {% endcase %}
 
 <!-- eslint-disable @html-eslint/require-button-type -->
-<button
-  class="{{ class_type }} {{ class }}"
-  type="{{ action }}"
->
+<button class="{{ class_type }} {{ class }}" type="{{ action }}">
   {{ content }}
 </button>
 <!-- eslint-enable @html-eslint/require-button-type -->
