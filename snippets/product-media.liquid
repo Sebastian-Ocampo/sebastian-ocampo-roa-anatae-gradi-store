@@ -1,21 +1,20 @@
 <!-- eslint-disable @html-eslint/require-closing-tags -->
 {% comment %}
-  Renders product slider component
+Renders product slider component
 
-  Accepts:
-  - Product: {object} Product object element
-  - Direction: {int} 1 for horizontal direction
-  or 2 for vertical direction of thumbnails
+Accepts:
+- Product: {object} Product object element
+- Direction: {int} 1 for horizontal direction
+or 2 for vertical direction of thumbnails
 
-  NOTE: In <content> use className "swiper-slide" in the first item
+NOTE: In <content> use className "swiper-slide" in the first item
 
-  Usage:
-  {% render 'product-media'
-    product: product,
-    direction: 1
-  %}
-{% endcomment %}
-<!-- eslint-enable @html-eslint/require-closing-tags -->
+Usage:
+{% render 'product-media'
+product: product,
+direction: 1
+%}
+{% endcomment %}<!-- eslint-enable @html-eslint/require-closing-tags -->
 
 {%- liquid
 
@@ -29,25 +28,19 @@
   endif
 -%}
 
-<div class="main-product__slider {{ swiper_direction }}">
-
-  <div
-    class="swiper main-product__slider-principal {{ slide_direction }}"
-    data-direction="{{ direction }}"
-  >
+  <div class="main-product__slider {{ swiper_direction }}"> <div class="swiper main-product__slider-principal {{ slide_direction }}" data-direction="{{ direction }}">
     <div class="swiper-wrapper">
       {% for image in product.media %}
         {% assign imgUrl = image | image_url: width: 900 %}
 
         <div class="swiper-slide">
           {% render "render-image"
-            class: "",
-            img_src: imgUrl,
-            img: image,
-            size: "300 400 900",
-            width: "900",
-            height: "506"
-          %}
+           class: "",
+           img_src: imgUrl,
+           img: image,
+           size: "300 400 900",
+           width: "900",
+           height: "506" %}
         </div>
       {% endfor %}
     </div>
@@ -60,12 +53,11 @@
 
         <div class="swiper-slide image-elements__image-thumbs">
           {% render "render-image"
-            class: "",
-            img_src: imgUrl,
-            img: image,
-            width: "175",
-            height: "99"
-          %}
+           class: "",
+           img_src: imgUrl,
+           img: image,
+           width: "175",
+           height: "99" %}
         </div>
 
       {% endfor %}
