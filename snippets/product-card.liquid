@@ -20,6 +20,7 @@ product: product
   endif
 %}
 <div class="product-card">
+  {{ product.url }}
   <section
     title="{{ product.title }}"
     class="product-card--head"
@@ -35,7 +36,9 @@ product: product
        height: "100" %}
     </div>
     <div class="product-card--head--textcontent">
-      <h2>{{ product.title }}</h2>
+      <a href="{{product.url}}">
+        {{ product.title }}
+      </a>
       <h3>{{ product.description }}</h3>
       <div class="product-card--head--textcontent-review">
         {% render 'review-anatae' %}
